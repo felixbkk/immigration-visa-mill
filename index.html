@@ -502,9 +502,41 @@ let currentZoom = null;
 
 d3.json('visa_data.json').then(data => {
   rawData = data;
-  currentRootData = null; // force fresh hierarchy build
+  currentRootData = null;
   render();
+  showInaDefault();
 });
+
+function showInaDefault() {
+  const panel = document.getElementById('detail-panel');
+  const content = document.getElementById('detail-content');
+  const nivCount = rawData.nodes.filter(n => n.group === 'NIV').length;
+  const ivCount = rawData.nodes.filter(n => n.group === 'IV').length;
+
+  content.innerHTML = `
+    <div class="detail-hero" style="border-top: 3px solid #e0e0e0; padding: 20px 20px 16px;">
+      <div class="detail-id" style="color:#e0e0e0">INA</div>
+      <div class="detail-name">Immigration & Nationality Act of 1952, as amended</div>
+    </div>
+    <div class="detail-body">
+      <div class="detail-section"><span class="detail-label">Codification</span><div class="detail-value-mono">8 U.S.C. &sect;1101 et seq. (Public Law 82-414)</div></div>
+      <div class="detail-section"><span class="detail-label">Description</span><div class="detail-value">The foundational federal law governing all immigration to the United States. Defines all nonimmigrant classifications (&sect;101(a)(15)), immigrant preferences (&sect;203), and special immigrant categories (&sect;101(a)(27)).</div></div>
+      <div class="detail-section"><span class="detail-label">Dataset</span><div class="detail-value">${rawData.nodes.length} visa classifications &mdash; ${nivCount} nonimmigrant, ${ivCount} immigrant &mdash; ${rawData.links.length} dependency links</div></div>
+      <div class="detail-section"><span class="detail-label">Classification Symbols</span>
+        <div class="detail-value-mono" style="margin-top:4px;">NIV: 22 CFR &sect;41.12 &middot; 9 FAM 402.1</div>
+        <div class="detail-value-mono">IV: 22 CFR &sect;42.11 &middot; 9 FAM 502.1</div>
+      </div>
+      <div class="detail-section"><span class="detail-label">References</span><div class="detail-refs">
+        <a href="https://travel.state.gov/content/travel/en/us-visas/visa-information-resources/all-visa-categories.html" target="_blank">DoS Categories</a>
+        <a href="https://ohss.dhs.gov/topics/immigration/lawful-permanent-residents/immigrant-classes-admission" target="_blank">DHS Classes</a>
+        <a href="https://uscode.house.gov/view.xhtml?req=granuleid:USC-prelim-title8-section1101&num=0" target="_blank">8 U.S.C. &sect;1101</a>
+      </div></div>
+    </div>
+  `;
+
+  panel.classList.add('active');
+  document.getElementById('panel-empty').style.display = 'none';
+}
 
 // ── Transform flat data → hierarchy ──
 
@@ -1419,10 +1451,9 @@ function showDetail(nodeData) {
 }
 
 function closeDetail() {
-  document.getElementById('detail-panel').classList.remove('active');
-  document.getElementById('panel-empty').style.display = 'flex';
   selectedLeafId = null;
   render();
+  showInaDefault();
 }
 
 function navigateToNode(nodeId) {
@@ -1510,9 +1541,10 @@ function showAllSearchResults() {
   ).join('');
   searchResults.style.display = 'block';
   searchResults.querySelectorAll('.search-item').forEach(el => {
-    el.addEventListener('click', () => {
-      searchAndExpand(el.dataset.id);
+    el.addEventListener('click', (e) => {
+      e.stopPropagation();
       clearSearch();
+      searchAndExpand(el.dataset.id);
     });
   });
 }
@@ -1544,10 +1576,11 @@ searchInput.addEventListener('input', () => {
   searchResults.style.display = 'block';
 
   searchResults.querySelectorAll('.search-item').forEach(el => {
-    el.addEventListener('click', () => {
+    el.addEventListener('click', (e) => {
+      e.stopPropagation();
       const id = el.dataset.id;
-      searchAndExpand(id);
       clearSearch();
+      searchAndExpand(id);
     });
   });
 });
@@ -1557,8 +1590,8 @@ searchInput.addEventListener('keydown', (e) => {
   if (e.key === 'Enter') {
     const first = searchResults.querySelector('.search-item');
     if (first) {
-      searchAndExpand(first.dataset.id);
       clearSearch();
+      searchAndExpand(first.dataset.id);
     }
   }
 });
@@ -1581,8 +1614,10 @@ function searchAndExpand(visaId) {
   render();
   showDetail(node);
 
-  // Center on the found node
-  centerOnNode(visaId);
+  // Center after render completes
+  requestAnimationFrame(() => {
+    centerOnNode(visaId);
+  });
 }
 
 function centerOnNode(visaId) {
@@ -1594,9 +1629,9 @@ function centerOnNode(visaId) {
   const h = container.clientHeight;
   const scale = 0.85;
 
-  // Position node at 60% across the canvas (which already excludes the 320px panel), 50% down
-  const tx = w * 0.6 - pos.x * scale;
-  const ty = h * 0.5 - pos.y * scale;
+  // Center node in the visible canvas area
+  const tx = w * 0.45 - pos.x * scale;
+  const ty = h * 0.45 - pos.y * scale;
 
   currentSvg.transition().duration(600)
     .call(currentZoom.transform, d3.zoomIdentity.translate(tx, ty).scale(scale));
