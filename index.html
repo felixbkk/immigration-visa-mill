@@ -630,6 +630,90 @@ const VISA_FAM_ANCHORS = {
   'AM1':'M502_2_4','AM2':'M502_2_4','AM3':'M502_2_4',
 };
 
+const FAM_TITLES = {
+  'M402_2_3':'Categories of B Visas',
+  'M402_2_4':'Tourist Visas (B-2)',
+  'M402_2_5':'Business Visas (B-1)',
+  'M402_2_7':'Border Crossing Cards (BCC)',
+  'M402_3_3':'Classification Codes',
+  'M402_3_5_C':'Applicants Entitled to A-1 Classification',
+  'M402_3_5_D_1':'A-2 — Employee at Diplomatic or Consular Post',
+  'M402_3_6':'Officials in Transit — C-2 and C-3 Visas',
+  'M402_3_7':'International Organizations — G Visas',
+  'M402_3_8':'NATO Representatives, Officials, and Employees',
+  'M402_3_9':'Personal or Domestic Employees — A-3, C-3, G-5, NATO-7',
+  'M402_4_3':'Categories of C Visas',
+  'M402_4_6':'C-1 Transit Aliens',
+  'M402_5_3':'Categories of F, J, and M Visas',
+  'M402_5_5':'Students: Academic and Nonacademic — F and M Visas',
+  'M402_5_6':'Exchange Visitors — J Visas',
+  'M402_6_3':'Categories of S, T, and U Visas',
+  'M402_6_4_C':'S-5 Classification — INA 101(a)(15)(S)(i)',
+  'M402_6_4_D':'S-6 Classification — INA 101(a)(15)(S)(ii)',
+  'M402_6_4_E':'S-7 Accompanying or Following-to-Join Dependents',
+  'M402_6_5':'Victims of Trafficking in Persons — T Visas',
+  'M402_6_6':'Victims of Criminal Activity — U Visas',
+  'M402_7_3':'Fiancé(e)/Spouse of American Citizen — K Visas',
+  'M402_7_4':'Parent or Child of SK or SN Special Immigrant — N Visas',
+  'M402_8_3':'Classification as Crewmember — D Visas',
+  'M402_8_3_A':'D Visa Under INA 101(a)(15)(D)(i)',
+  'M402_8_3_B':'D Visa Under INA 101(a)(15)(D)(ii) — Fishing Vessels',
+  'M402_8_5':'C-1 Visa for Crewmember Traveling to Join Vessel/Aircraft',
+  'M402_9_3':'Classification Codes',
+  'M402_9_5':'Requirements for E-1 Treaty Trader Visas',
+  'M402_9_6':'Requirements for E-2 Treaty Investor Visas',
+  'M402_9_8':'Requirements for E-3 Visas',
+  'M402_10_3':'Classification Codes',
+  'M402_10_4_B':'H-1B Nonimmigrants',
+  'M402_10_4_C':'H-1C Nurse in Health Professional Shortage Area',
+  'M402_10_4_D':'H-2A Nonimmigrants',
+  'M402_10_4_E':'H-2B Nonimmigrants',
+  'M402_10_4_F':'H-3 Nonimmigrants',
+  'M402_10_5':'H-1B1 Free Trade Agreement Professionals',
+  'M402_10_14':'Spouses and Children of H Nonimmigrants',
+  'M402_11_3':'Information Media Representatives — I Visas',
+  'M402_12_3':'Classification Codes',
+  'M402_12_4':'Classification Criteria for Intracompany Transferees',
+  'M402_13_3':'Classification Symbols',
+  'M402_13_4_A':'O-1 Nonimmigrants',
+  'M402_13_4_B':'O-2 Nonimmigrants',
+  'M402_13_4_C':'O-3 Nonimmigrants',
+  'M402_14_3':'Classification Symbols — P Visas',
+  'M402_14_5_A':'P-1 Athletes and Group Entertainers',
+  'M402_14_5_B':'P-2 Reciprocal Exchange Programs',
+  'M402_14_5_C':'P-3 Culturally Unique Programs',
+  'M402_14_5_D':'P-4 Spouse and Children',
+  'M402_15_3':'Classification Symbols',
+  'M402_15_4':'Requirements for Q Classification',
+  'M402_16_3':'Classification Symbols',
+  'M402_16_7':'Classification Criteria — R Visas',
+  'M402_17_3':'Classification Symbols',
+  'M402_17_4':'Professional Requirements — TN',
+  'M402_17_10':'Spouses and Minor Children — TD Visas',
+  'M402_18_3':'Classification Symbols',
+  'M402_18_4_C':'CW-1 Employment Restrictions',
+  'M402_18_4_D':'Spouses and Children of CW-1 Beneficiaries',
+  'M502_2_2':'Immediate Relatives',
+  'M502_2_3':'Family Preference Classifications',
+  'M502_2_4':'Amerasian Family-Based Classification',
+  'M502_3_3':'Orphans Adopted Under INA 101(b)(1)(F) — IR3 and IR4',
+  'M502_4_3':'Employment-Based IV Classifications',
+  'M502_5_2':'Special Immigrants — Religious Workers',
+  'M502_5_3':'Special Immigrants — U.S. Government Employees',
+  'M502_5_4':'Special Immigrants — Panama Canal Employees',
+  'M502_5_5':'Special Immigrants — Foreign Medical Graduates',
+  'M502_5_6':'Special Immigrants — Int\'l Org and NATO Civilian Employees',
+  'M502_5_7':'Special Immigrants — Juvenile Court Dependents',
+  'M502_5_8':'Special Immigrants — U.S. Armed Forces Recruited Abroad',
+  'M502_5_9':'Special Immigrants — International Broadcasting Employees',
+  'M502_5_10':'Special Immigrants — Victims of Terrorism',
+  'M502_5_11':'Special Immigrants — Translators',
+  'M502_5_12':'Special Immigrants — Iraqi/Afghan U.S. Gov\'t Employees',
+  'M502_6_3':'Diversity Visa Eligibility',
+  'M502_7_2':'Returning Residents',
+  'M502_7_3':'K Visas — Spouse or Fiancé(e) of U.S. Citizen',
+};
+
 function famUrl(section, anchor) {
   const [major, minor] = section.split('.');
   const base = `https://fam.state.gov/fam/09FAM/09FAM0${major}${minor.padStart(2, '0')}.html`;
@@ -1084,8 +1168,11 @@ function buildFamSection(subcategory, visaId) {
   const sec = SUBCATEGORY_FAM[subcategory];
   if (!sec) return '';
   const anchor = visaId ? VISA_FAM_ANCHORS[visaId] : undefined;
+  const resolvedAnchor = anchor || `M${sec.replace('.', '_')}_3`;
   const label = famLabel(subcategory, visaId) || `9 FAM ${sec}`;
-  return `<div class="detail-section"><span class="detail-label">FAM</span><div class="detail-value-mono"><a href="${famUrl(sec, anchor)}" target="_blank">${label}</a></div></div>`;
+  const title = FAM_TITLES[resolvedAnchor] || '';
+  const titleHtml = title ? `<div class="detail-value" style="margin-top:2px;">${title}</div>` : '';
+  return `<div class="detail-section"><span class="detail-label">FAM</span><div class="detail-value-mono"><a href="${famUrl(sec, anchor)}" target="_blank">${label}</a></div>${titleHtml}</div>`;
 }
 
 function linkifyLaw(lawStr) {
