@@ -400,8 +400,12 @@ function parseSubs(str) {
 function parseCitation(p) {
   p = p.trim();
   const ina = p.match(RE_INA);
-  if (ina && INA_TO_USC[ina[1]])
-    return { url: `https://www.law.cornell.edu/uscode/text/8/${INA_TO_USC[ina[1]]}${parseSubs(ina[2])}`, label: p, friendly: INA_FRIENDLY[p] };
+  if (ina && INA_TO_USC[ina[1]]) {
+    let frag = parseSubs(ina[2]);
+    // Cornell only has #a_15_H for §101(a)(15)(H) — no deeper sub-anchors
+    if (frag && frag.startsWith('#a_15_H_')) frag = '#a_15_H';
+    return { url: `https://www.law.cornell.edu/uscode/text/8/${INA_TO_USC[ina[1]]}${frag}`, label: p, friendly: INA_FRIENDLY[p] };
+  }
   const usc = p.match(RE_USC);
   if (usc)
     return { url: `https://www.law.cornell.edu/uscode/text/${usc[1]}/${usc[2]}`, label: p, friendly: USC_FRIENDLY[`${usc[1]}/${usc[2]}`] };
