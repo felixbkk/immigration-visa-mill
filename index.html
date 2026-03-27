@@ -306,7 +306,10 @@
     font-weight: 500;
     pointer-events: none;
     user-select: none;
-    text-shadow: 0 0 6px var(--bg-deep), 0 0 3px var(--bg-deep);
+    text-shadow:
+      0 0 4px var(--bg-deep),
+      0 0 4px var(--bg-deep),
+      0 0 8px var(--bg-deep);
   }
 
   .node-label-category {
@@ -323,17 +326,20 @@
 
   .node-label-leaf {
     font-size: 12px;
-    font-weight: 500;
-    fill: var(--text-secondary);
+    font-weight: 600;
+    fill: var(--text-primary);
   }
 
   .node-subtitle {
-    fill: var(--text-muted);
+    fill: var(--text-secondary);
     font-size: 10px;
-    font-weight: 400;
+    font-weight: 500;
     pointer-events: none;
     user-select: none;
-    text-shadow: 0 0 6px var(--bg-deep), 0 0 3px var(--bg-deep);
+    text-shadow:
+      0 0 4px var(--bg-deep),
+      0 0 4px var(--bg-deep),
+      0 0 8px var(--bg-deep);
   }
 
   .link {
@@ -1407,11 +1413,11 @@ function renderTree(g, root, w, h, svg, zoom) {
         .attr('fill', () => {
           // Principals look like leaves regardless of expand state
           if (d.data._nodeType === 'principal') {
-            return blendWithBg(getNodeColor(d), 0.15);
+            return blendWithBg(getNodeColor(d), 0.2);
           }
           if (hasChildren(d) && !d.data.children) return `rgb(${themeBg.r},${themeBg.g},${themeBg.b})`;
           const c = getNodeColor(d);
-          return blendWithBg(c, 0.15);
+          return blendWithBg(c, 0.2);
         })
         .attr('stroke', getNodeColor(d))
         .attr('stroke-width', d.data._nodeType === 'principal' ? 1.5 :
