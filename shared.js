@@ -459,7 +459,7 @@ function linkifyLaw(lawStr) {
     const c = parseCitation(p);
     if (!c) return p.trim();
     const link = `<a href="${c.url}" target="_blank">${c.label}</a>`;
-    return c.friendly ? `${link}<br><span style="font-size:10px;color:var(--text-muted);font-style:italic;padding-left:8px;">${c.friendly}</span>` : link;
+    return c.friendly ? `${link}<div class="detail-value" style="margin-top:1px;margin-bottom:6px;font-size:11px;">${c.friendly}</div>` : link;
   }).join('<br>');
 }
 
