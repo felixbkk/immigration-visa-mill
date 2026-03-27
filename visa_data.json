@@ -103,7 +103,7 @@
       "id": "C-2",
       "name": "Transit to UN Headquarters",
       "group": "NIV",
-      "law": "INA \u00a7101(a)(15)(C); INA \u00a7212(d)(4)(C); 8 U.S.C. \u00a71101; 8 U.S.C. \u00a71182; 8 U.S.C. \u00a71258",
+      "law": "INA \u00a7101(a)(15)(C); INA \u00a7212(d)(4)(C); 8 U.S.C. \u00a71101; 8 U.S.C. \u00a71182; 8 U.S.C. \u00a71258; UN HQ Agreement \u00a711",
       "description": "Foreign national in transit to or from the United Nations headquarters district.",
       "subcategory": "C",
       "category": "NIV \u2014 Visitor & Transit"
@@ -418,7 +418,7 @@
       "id": "NATO-1",
       "name": "Principal NATO Representative",
       "group": "NIV",
-      "law": "INA \u00a7101(a)(15)(A); 22 CFR \u00a741.12; 22 CFR \u00a741.25",
+      "law": "NATO SOFA; INA \u00a7101(a)(15)(A); 22 CFR \u00a741.12; 22 CFR \u00a741.25",
       "description": "Principal permanent representative of a NATO member state and official staff.",
       "subcategory": "NATO",
       "category": "NIV \u2014 Diplomatic & Official"
@@ -427,7 +427,7 @@
       "id": "NATO-2",
       "name": "Other NATO Representative",
       "group": "NIV",
-      "law": "INA \u00a7101(a)(15)(A); 22 CFR \u00a741.12; 22 CFR \u00a741.25",
+      "law": "NATO SOFA; INA \u00a7101(a)(15)(A); 22 CFR \u00a741.12; 22 CFR \u00a741.25",
       "description": "Other representative of a NATO member state, including dependents.",
       "subcategory": "NATO",
       "category": "NIV \u2014 Diplomatic & Official"
@@ -436,7 +436,7 @@
       "id": "NATO-3",
       "name": "NATO Clerical Staff",
       "group": "NIV",
-      "law": "INA \u00a7101(a)(15)(A); 22 CFR \u00a741.12; 22 CFR \u00a741.25",
+      "law": "NATO SOFA; INA \u00a7101(a)(15)(A); 22 CFR \u00a741.12; 22 CFR \u00a741.25",
       "description": "Official clerical staff of NATO representative.",
       "subcategory": "NATO",
       "category": "NIV \u2014 Diplomatic & Official"
@@ -445,7 +445,7 @@
       "id": "NATO-4",
       "name": "NATO Official (Other Country)",
       "group": "NIV",
-      "law": "INA \u00a7101(a)(15)(A); 22 CFR \u00a741.12; 22 CFR \u00a741.25",
+      "law": "NATO SOFA; INA \u00a7101(a)(15)(A); 22 CFR \u00a741.12; 22 CFR \u00a741.25",
       "description": "Official of NATO other than those qualifying as NATO-1 through NATO-3.",
       "subcategory": "NATO",
       "category": "NIV \u2014 Diplomatic & Official"
@@ -454,7 +454,7 @@
       "id": "NATO-5",
       "name": "NATO Expert / Specialist",
       "group": "NIV",
-      "law": "INA \u00a7101(a)(15)(A); 22 CFR \u00a741.12; 22 CFR \u00a741.25",
+      "law": "NATO SOFA; INA \u00a7101(a)(15)(A); 22 CFR \u00a741.12; 22 CFR \u00a741.25",
       "description": "Expert or specialist employed on behalf of NATO in a non-representative capacity.",
       "subcategory": "NATO",
       "category": "NIV \u2014 Diplomatic & Official"
@@ -463,7 +463,7 @@
       "id": "NATO-6",
       "name": "NATO Civilian Employee",
       "group": "NIV",
-      "law": "INA \u00a7101(a)(15)(A); 22 CFR \u00a741.12; 22 CFR \u00a741.25",
+      "law": "NATO SOFA; INA \u00a7101(a)(15)(A); 22 CFR \u00a741.12; 22 CFR \u00a741.25",
       "description": "Member of a civilian component accompanying a NATO force.",
       "subcategory": "NATO",
       "category": "NIV \u2014 Diplomatic & Official"
@@ -472,7 +472,7 @@
       "id": "NATO-7",
       "name": "Attendant of NATO-1 through NATO-6",
       "group": "NIV",
-      "law": "INA \u00a7101(a)(15)(A)(iii); INA \u00a7101(a)(15)(C); INA \u00a7101(a)(15)(G)(v); INA \u00a7212(d)(8); 8 U.S.C. \u00a71101; 8 U.S.C. \u00a71182; 22 CFR \u00a741.21; 22 CFR \u00a741.22; 22 CFR \u00a741.23; 22 CFR \u00a741.24; 22 CFR \u00a741.25; PL 106-396; PL 110-457; PL 115-425",
+      "law": "NATO SOFA; INA \u00a7101(a)(15)(A)(iii); INA \u00a7101(a)(15)(C); INA \u00a7101(a)(15)(G)(v); INA \u00a7212(d)(8); 8 U.S.C. \u00a71101; 8 U.S.C. \u00a71182; 22 CFR \u00a741.21; 22 CFR \u00a741.22; 22 CFR \u00a741.23; 22 CFR \u00a741.24; 22 CFR \u00a741.25; PL 106-396; PL 110-457; PL 115-425",
       "description": "Attendant, servant, or personal employee of NATO-1 through NATO-6 personnel.",
       "subcategory": "NATO",
       "category": "NIV \u2014 Diplomatic & Official"
