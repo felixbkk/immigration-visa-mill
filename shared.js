@@ -449,8 +449,9 @@ function buildFamSection(subcategory, visaId) {
   const resolvedAnchor = anchor || `M${sec.replace('.', '_')}_3`;
   const label = famLabel(subcategory, visaId) || `9 FAM ${sec}`;
   const title = FAM_TITLES[resolvedAnchor] || '';
-  const titleHtml = title ? `<div class="detail-value" style="margin-top:2px;padding-left:10px;">${title}</div>` : '';
-  return `<div class="detail-section"><span class="detail-label">FAM</span><div class="detail-value-mono"><a href="${famUrl(sec, anchor)}" target="_blank">${label}</a></div>${titleHtml}</div>`;
+  const linkHtml = `<div class="detail-value-mono" style="padding-left:10px;"><a href="${famUrl(sec, anchor)}" target="_blank">${label}</a></div>`;
+  const titleHtml = title ? `<div class="detail-value" style="margin-top:2px;">${title}</div>` : '';
+  return `<div class="detail-section"><span class="detail-label">FAM</span>${titleHtml}${linkHtml}</div>`;
 }
 
 function linkifyLaw(lawStr) {
