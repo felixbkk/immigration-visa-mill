@@ -31,7 +31,7 @@
       "id": "A-1",
       "name": "Foreign Ambassador / Diplomat",
       "group": "NIV",
-      "law": "INA \u00a7101(a)(15)(A)(i); INA \u00a7101(a)(15)(C); INA \u00a7101(a)(15)(G); INA \u00a7212(d)(8); 8 U.S.C. \u00a71101; 8 U.S.C. \u00a71182; 22 CFR \u00a741.21; 22 CFR \u00a741.22",
+      "law": "INA \u00a7101(a)(15)(A)(i); INA \u00a7101(a)(15)(C); INA \u00a7101(a)(15)(G); INA \u00a7212(d)(8); 8 U.S.C. \u00a71101; 8 U.S.C. \u00a71182",
       "description": "Ambassador, public minister, career diplomatic or consular officer accredited by a foreign government, and immediate family members.",
       "subcategory": "A",
       "category": "NIV \u2014 Diplomatic & Official"
@@ -49,7 +49,7 @@
       "id": "A-3",
       "name": "Attendant of A-1 / A-2",
       "group": "NIV",
-      "law": "INA \u00a7101(a)(15)(A)(iii); INA \u00a7101(a)(15)(C); INA \u00a7101(a)(15)(G)(v); INA \u00a7212(a)(6)(C)(i); INA \u00a7212(a)(9)(B); INA \u00a7212(d)(8); INA \u00a7214(b); INA \u00a7221(g); INA \u00a7247(b); 8 U.S.C. \u00a71101; 8 U.S.C. \u00a71182; 8 U.S.C. \u00a71375b; 8 U.S.C. \u00a71375c; 22 CFR \u00a740.203; 22 CFR \u00a741.21; 22 CFR \u00a741.22; 22 CFR \u00a741.23; 22 CFR \u00a741.24; 22 CFR \u00a741.25; PL 106-396; PL 110-457; PL 115-425",
+      "law": "INA \u00a7101(a)(15)(A)(iii); INA \u00a7101(a)(15)(C); INA \u00a7101(a)(15)(G)(v); INA \u00a7212(d)(8); 8 U.S.C. \u00a71101; 8 U.S.C. \u00a71182; 22 CFR \u00a741.21; 22 CFR \u00a741.22; 22 CFR \u00a741.23; 22 CFR \u00a741.24; 22 CFR \u00a741.25; PL 106-396; PL 110-457; PL 115-425",
       "description": "Attendant, servant, or personal employee of A-1 or A-2 visa holder, and immediate family.",
       "subcategory": "A",
       "category": "NIV \u2014 Diplomatic & Official"
@@ -58,7 +58,7 @@
       "id": "B-1",
       "name": "Business Visitor",
       "group": "NIV",
-      "law": "INA \u00a7101(a)(15)(B); INA \u00a7101(a)(15)(H); INA \u00a7101(a)(15)(J); INA \u00a7101(a)(15)(L); INA \u00a7101(a)(33); INA \u00a7101(a)(6); INA \u00a7212(e); INA \u00a7212(p)(1); INA \u00a7212(q); 8 U.S.C. \u00a71101; 8 U.S.C. \u00a71182; 31 CFR \u00a7141.15; 33 CFR \u00a7140.10",
+      "law": "INA \u00a7101(a)(15)(B)",
       "description": "Temporary visitor for business \u2014 consultations, conferences, negotiations; no U.S.-source employment.",
       "subcategory": "B",
       "category": "NIV \u2014 Visitor & Transit"
@@ -67,7 +67,7 @@
       "id": "B-2",
       "name": "Tourist / Medical Treatment",
       "group": "NIV",
-      "law": "INA \u00a7101(a)(15)(B); INA \u00a7101(a)(15)(K); INA \u00a7101(a)(33); INA \u00a7101(a)(6); INA \u00a7212(d)(5); INA \u00a7212(q); INA \u00a7214(b); 8 U.S.C. \u00a71101; 8 U.S.C. \u00a71182; 22 CFR \u00a741.81; PL 106-395",
+      "law": "INA \u00a7101(a)(15)(B); INA \u00a7214(b)",
       "description": "Temporary visitor for pleasure, tourism, or medical treatment.",
       "subcategory": "B",
       "category": "NIV \u2014 Visitor & Transit"
@@ -76,7 +76,7 @@
       "id": "BCC",
       "name": "Border Crossing Card (Mexico)",
       "group": "NIV",
-      "law": "INA \u00a7101(a)(15)(B); INA \u00a7101(a)(33); INA \u00a7101(a)(6); INA \u00a7212(a); INA \u00a7212(q); 8 U.S.C. \u00a71101; 8 U.S.C. \u00a71182; 8 CFR \u00a7212.6; 22 CFR \u00a741.32",
+      "law": "INA \u00a7101(a)(15)(B)",
       "description": "Laser visa/BCC issued to Mexican nationals for short border-zone visits.",
       "subcategory": "B",
       "category": "NIV \u2014 Visitor & Transit"
@@ -103,7 +103,7 @@
       "id": "C-2",
       "name": "Transit to UN Headquarters",
       "group": "NIV",
-      "law": "INA \u00a7101(a)(15)(C); INA \u00a7212(d)(4)(C); 8 U.S.C. \u00a71101; 8 U.S.C. \u00a71182; 8 U.S.C. \u00a71258; UN HQ Agreement \u00a711",
+      "law": "INA \u00a7101(a)(15)(C); INA \u00a7212(d)(4)(C); 8 U.S.C. \u00a71101; 8 U.S.C. \u00a71182; 8 U.S.C. \u00a71258",
       "description": "Foreign national in transit to or from the United Nations headquarters district.",
       "subcategory": "C",
       "category": "NIV \u2014 Visitor & Transit"
@@ -121,7 +121,7 @@
       "id": "D-1",
       "name": "Crewmember (Same Vessel)",
       "group": "NIV",
-      "law": "INA \u00a7101(a)(10); INA \u00a7101(a)(15)(C); INA \u00a7101(a)(15)(D)(i); INA \u00a7101(a)(15)(D)(ii); INA \u00a7101(a)(38); INA \u00a7252(a); 8 U.S.C. \u00a71101; 8 U.S.C. \u00a71282",
+      "law": "INA \u00a7101(a)(10); INA \u00a7101(a)(15)(C); INA \u00a7101(a)(15)(D); INA \u00a7101(a)(38); INA \u00a7252(a); 8 U.S.C. \u00a71101; 8 U.S.C. \u00a71282",
       "description": "Crewmember of a sea vessel or aircraft who will depart on the same vessel.",
       "subcategory": "D",
       "category": "NIV \u2014 Visitor & Transit"
@@ -130,7 +130,7 @@
       "id": "D-2",
       "name": "Crewmember (Different Vessel)",
       "group": "NIV",
-      "law": "INA \u00a7101(a)(10); INA \u00a7101(a)(15)(C); INA \u00a7101(a)(15)(D)(ii); INA \u00a7101(a)(38); INA \u00a7101(a)(D)(i); INA \u00a7101(a)(D)(ii); INA \u00a7252(a); 8 U.S.C. \u00a71101; 8 U.S.C. \u00a71282",
+      "law": "INA \u00a7101(a)(10); INA \u00a7101(a)(15)(C); INA \u00a7101(a)(15)(D); INA \u00a7101(a)(38); INA \u00a7252(a); 8 U.S.C. \u00a71101; 8 U.S.C. \u00a71282",
       "description": "Crewmember of a fishing vessel with home port in Guam who will depart on a different vessel.",
       "subcategory": "D",
       "category": "NIV \u2014 Visitor & Transit"
@@ -139,7 +139,7 @@
       "id": "E-1",
       "name": "Treaty Trader",
       "group": "NIV",
-      "law": "INA \u00a7101(a)(15)(E)(i); INA \u00a7101(a)(15)(I); INA \u00a7101(a)(45); INA \u00a7214(e)(6); INA \u00a7214(g)(11); INA \u00a7214(i)(1); INA \u00a7214(j)(2); 8 U.S.C. \u00a71101; 8 U.S.C. \u00a71184",
+      "law": "INA \u00a7101(a)(15)(E)(i)",
       "description": "National of a treaty country engaged in substantial trade principally between the U.S. and the treaty country, plus spouse and children.",
       "subcategory": "E",
       "category": "NIV \u2014 Worker & Exchange"
@@ -148,7 +148,7 @@
       "id": "E-2",
       "name": "Treaty Investor",
       "group": "NIV",
-      "law": "INA \u00a7101(a)(15)(E)(ii); INA \u00a7101(a)(45); INA \u00a7214(e)(6); INA \u00a7214(g)(11); INA \u00a7214(i)(1); INA \u00a7214(j)(2); 8 U.S.C. \u00a71101; 8 U.S.C. \u00a71184",
+      "law": "INA \u00a7101(a)(15)(E)(ii)",
       "description": "National of a treaty country who has invested or is actively investing a substantial amount of capital in a U.S. enterprise, plus spouse and children.",
       "subcategory": "E",
       "category": "NIV \u2014 Worker & Exchange"
@@ -157,7 +157,7 @@
       "id": "E-2C",
       "name": "CNMI Long-Term Investor",
       "group": "NIV",
-      "law": "INA \u00a7101(a)(15)(E)(ii); INA \u00a7101(a)(45); INA \u00a7214(e)(6); INA \u00a7214(g)(11); INA \u00a7214(i)(1); INA \u00a7214(j)(2); 8 U.S.C. \u00a71101; 8 U.S.C. \u00a71184; 48 U.S.C. \u00a71806; PL 110-229 \u00a76",
+      "law": "INA \u00a7101(a)(15)(E)(ii)",
       "description": "Long-term foreign investor in the Commonwealth of the Northern Mariana Islands.",
       "subcategory": "E",
       "category": "NIV \u2014 Worker & Exchange"
@@ -166,7 +166,7 @@
       "id": "E-3",
       "name": "Australian Specialty Occupation",
       "group": "NIV",
-      "law": "INA \u00a7101(a)(15)(E)(iii); INA \u00a7101(a)(45); INA \u00a7212(t)(1); INA \u00a7214(b); INA \u00a7214(e)(6); INA \u00a7214(g)(11)(B); INA \u00a7214(i)(1); INA \u00a7214(j)(2); INA \u00a7221(g); 8 U.S.C. \u00a71101; 8 U.S.C. \u00a71184; PL 109-13; U.S.\u2013Australia FTA",
+      "law": "INA \u00a7101(a)(15)(E)(iii); PL 109-13",
       "description": "Australian national in a specialty occupation, analogous to H-1B, plus spouse and children.",
       "subcategory": "E",
       "category": "NIV \u2014 Worker & Exchange"
@@ -175,7 +175,7 @@
       "id": "F-1",
       "name": "Academic Student",
       "group": "NIV",
-      "law": "INA \u00a7101(a)(15)(F)(i); INA \u00a7101(a)(15)(J); INA \u00a7101(a)(15)(M)(i); INA \u00a7212(a)(6)(C); INA \u00a7212(a)(6)(G); INA \u00a7212(e); INA \u00a7212(j); INA \u00a7214(b); INA \u00a7214(l); INA \u00a7214(m); INA \u00a7221(g); 8 U.S.C. \u00a71101; 8 U.S.C. \u00a71182; 8 U.S.C. \u00a71184; 8 CFR \u00a7214.2(f); 8 CFR \u00a7214.3; 22 CFR \u00a741.61; PL 107-274",
+      "law": "INA \u00a7101(a)(15)(F)(i); INA \u00a7101(a)(15)(M); INA \u00a7212(a)(6)(C); INA \u00a7214(b); INA \u00a7214(l); INA \u00a7214(m); 8 U.S.C. \u00a71101; 8 U.S.C. \u00a71182; 8 U.S.C. \u00a71184; 22 CFR \u00a741.61",
       "description": "Full-time student at an accredited academic institution or language training program (SEVP-certified).",
       "subcategory": "F",
       "category": "NIV \u2014 Student & Exchange"
@@ -184,7 +184,7 @@
       "id": "F-2",
       "name": "Dependent of F-1",
       "group": "NIV",
-      "law": "INA \u00a7101(a)(15)(F)(i); INA \u00a7101(a)(15)(F)(ii); INA \u00a7101(a)(15)(J); INA \u00a7101(a)(15)(M)(i); INA \u00a7212(a)(6)(C); INA \u00a7212(a)(6)(G); INA \u00a7212(e); INA \u00a7212(j); INA \u00a7214(b); INA \u00a7214(l); INA \u00a7214(m); INA \u00a7221(g); 8 U.S.C. \u00a71101; 8 U.S.C. \u00a71182; 8 U.S.C. \u00a71184; 8 CFR \u00a7214.2; 8 CFR \u00a7214.3; 22 CFR \u00a741.61; PL 107-274",
+      "law": "INA \u00a7101(a)(15)(F)(i); INA \u00a7101(a)(15)(M); INA \u00a7212(a)(6)(C); INA \u00a7214(b); INA \u00a7214(l); INA \u00a7214(m); 8 U.S.C. \u00a71101; 8 U.S.C. \u00a71182; 8 U.S.C. \u00a71184; 22 CFR \u00a741.61",
       "description": "Spouse or minor child of an F-1 student. May not accept employment.",
       "subcategory": "F",
       "category": "NIV \u2014 Student & Exchange"
@@ -193,7 +193,7 @@
       "id": "F-3",
       "name": "Border Commuter Academic Student",
       "group": "NIV",
-      "law": "INA \u00a7101(a)(15)(F)(i); INA \u00a7101(a)(15)(F)(iii); INA \u00a7101(a)(15)(J); INA \u00a7101(a)(15)(M)(i); INA \u00a7212(a)(6)(C); INA \u00a7212(a)(6)(G); INA \u00a7212(e); INA \u00a7212(j); INA \u00a7214(b); INA \u00a7214(l); INA \u00a7214(m); INA \u00a7221(g); 8 U.S.C. \u00a71101; 8 U.S.C. \u00a71182; 8 U.S.C. \u00a71184; 8 CFR \u00a7214.2; 8 CFR \u00a7214.3; 22 CFR \u00a741.61; PL 107-274",
+      "law": "INA \u00a7101(a)(15)(F)(i); INA \u00a7101(a)(15)(M); INA \u00a7212(a)(6)(C); INA \u00a7214(b); INA \u00a7214(l); INA \u00a7214(m); 8 U.S.C. \u00a71101; 8 U.S.C. \u00a71182; 8 U.S.C. \u00a71184; 22 CFR \u00a741.61",
       "description": "Canadian or Mexican national commuting across the border to attend a U.S. academic institution part-time.",
       "subcategory": "F",
       "category": "NIV \u2014 Student & Exchange"
@@ -202,7 +202,7 @@
       "id": "G-1",
       "name": "Principal Representative to Int'l Org",
       "group": "NIV",
-      "law": "INA \u00a7101(a)(15)(A); INA \u00a7101(a)(15)(C); INA \u00a7101(a)(15)(G)(i); INA \u00a7101(a)(15)(G)(iv); INA \u00a7101(a)(30); INA \u00a7212(a)(2)(E); INA \u00a7212(a)(3)(A); INA \u00a7212(a)(3)(B); INA \u00a7212(a)(3)(C); INA \u00a7212(d)(8); 8 U.S.C. \u00a71101; 8 U.S.C. \u00a71182; 22 U.S.C. \u00a7288; 22 CFR \u00a741.21; 22 CFR \u00a741.24; 22 CFR \u00a741.26; PL 106-396",
+      "law": "INA \u00a7101(a)(15)(A); INA \u00a7101(a)(15)(G); 8 U.S.C. \u00a71101; 22 U.S.C. \u00a7288; 22 CFR \u00a741.21; 22 CFR \u00a741.24",
       "description": "Principal resident representative of a recognized foreign government to an international organization, staff, and immediate family.",
       "subcategory": "G",
       "category": "NIV \u2014 Diplomatic & Official"
@@ -211,7 +211,7 @@
       "id": "G-2",
       "name": "Other Int'l Org Representative",
       "group": "NIV",
-      "law": "INA \u00a7101(a)(15)(A); INA \u00a7101(a)(15)(C); INA \u00a7101(a)(15)(G)(ii); INA \u00a7101(a)(15)(G)(iv); INA \u00a7101(a)(30); INA \u00a7212(a)(2)(E); INA \u00a7212(a)(3)(A); INA \u00a7212(a)(3)(B); INA \u00a7212(a)(3)(C); INA \u00a7212(d)(8); 8 U.S.C. \u00a71101; 8 U.S.C. \u00a71182; 22 U.S.C. \u00a7288; 22 CFR \u00a741.21; 22 CFR \u00a741.24; 22 CFR \u00a741.26; PL 106-396",
+      "law": "INA \u00a7101(a)(15)(A); INA \u00a7101(a)(15)(G); 8 U.S.C. \u00a71101; 22 U.S.C. \u00a7288; 22 CFR \u00a741.21; 22 CFR \u00a741.24",
       "description": "Other accredited representative of a recognized foreign government to an international organization, and immediate family.",
       "subcategory": "G",
       "category": "NIV \u2014 Diplomatic & Official"
@@ -220,7 +220,7 @@
       "id": "G-3",
       "name": "Representative of Non-Recognized Government",
       "group": "NIV",
-      "law": "INA \u00a7101(a)(15)(A); INA \u00a7101(a)(15)(C); INA \u00a7101(a)(15)(G)(iii); INA \u00a7101(a)(15)(G)(iv); INA \u00a7101(a)(30); INA \u00a7212(a)(2)(E); INA \u00a7212(a)(3)(A); INA \u00a7212(a)(3)(B); INA \u00a7212(a)(3)(C); INA \u00a7212(d)(8); 8 U.S.C. \u00a71101; 8 U.S.C. \u00a71182; 22 U.S.C. \u00a7288; 22 CFR \u00a741.21; 22 CFR \u00a741.24; 22 CFR \u00a741.26; PL 106-396",
+      "law": "INA \u00a7101(a)(15)(A); INA \u00a7101(a)(15)(G); 8 U.S.C. \u00a71101; 22 U.S.C. \u00a7288; 22 CFR \u00a741.21; 22 CFR \u00a741.24",
       "description": "Representative of a non-recognized or non-member government to an international organization, and immediate family.",
       "subcategory": "G",
       "category": "NIV \u2014 Diplomatic & Official"
@@ -229,7 +229,7 @@
       "id": "G-4",
       "name": "International Organization Officer / Employee",
       "group": "NIV",
-      "law": "INA \u00a7101(a)(15)(A); INA \u00a7101(a)(15)(C); INA \u00a7101(a)(15)(G)(iv); INA \u00a7101(a)(30); INA \u00a7212(a)(2)(E); INA \u00a7212(a)(3)(A); INA \u00a7212(a)(3)(B); INA \u00a7212(a)(3)(C); INA \u00a7212(d)(8); 8 U.S.C. \u00a71101; 8 U.S.C. \u00a71182; 22 U.S.C. \u00a7288; 22 CFR \u00a741.21; 22 CFR \u00a741.24; 22 CFR \u00a741.26; PL 106-396",
+      "law": "INA \u00a7101(a)(15)(A); INA \u00a7101(a)(15)(G); 8 U.S.C. \u00a71101; 22 U.S.C. \u00a7288; 22 CFR \u00a741.21; 22 CFR \u00a741.24",
       "description": "Officer or employee of an international organization, and immediate family.",
       "subcategory": "G",
       "category": "NIV \u2014 Diplomatic & Official"
@@ -238,7 +238,7 @@
       "id": "G-5",
       "name": "Attendant of G-1 through G-4",
       "group": "NIV",
-      "law": "INA \u00a7101(a)(15)(A)(iii); INA \u00a7101(a)(15)(C); INA \u00a7101(a)(15)(G)(v); INA \u00a7212(a)(6)(C)(i); INA \u00a7212(a)(9)(B); INA \u00a7212(d)(8); INA \u00a7214(b); INA \u00a7221(g); INA \u00a7247(b); 8 U.S.C. \u00a71101; 8 U.S.C. \u00a71182; 8 U.S.C. \u00a71375b; 8 U.S.C. \u00a71375c; 22 CFR \u00a740.203; 22 CFR \u00a741.21; 22 CFR \u00a741.22; 22 CFR \u00a741.23; 22 CFR \u00a741.24; 22 CFR \u00a741.25; PL 106-396 \u00a7301; PL 110-457 \u00a7203; PL 115-425 \u00a7123",
+      "law": "INA \u00a7101(a)(15)(A)(iii); INA \u00a7101(a)(15)(C); INA \u00a7101(a)(15)(G)(v); INA \u00a7212(d)(8); 8 U.S.C. \u00a71101; 8 U.S.C. \u00a71182; 22 CFR \u00a741.21; 22 CFR \u00a741.22; 22 CFR \u00a741.23; 22 CFR \u00a741.24; 22 CFR \u00a741.25; PL 106-396; PL 110-457; PL 115-425",
       "description": "Attendant, servant, or personal employee of G-1 through G-4 visa holders, and immediate family.",
       "subcategory": "G",
       "category": "NIV \u2014 Diplomatic & Official"
@@ -247,7 +247,7 @@
       "id": "H-1B",
       "name": "Specialty Occupation Worker",
       "group": "NIV",
-      "law": "INA \u00a7101(a)(15)(H)(i)(b); INA \u00a7101(a)(15)(H)(ii)(A); INA \u00a7101(a)(15)(O); INA \u00a7101(a)(41); INA \u00a7212(m); INA \u00a7212(n)(1); INA \u00a7212(r); INA \u00a7214(b); INA \u00a7214(h); INA \u00a7214(i)(1); 8 U.S.C. \u00a71101; 8 U.S.C. \u00a71182; 8 U.S.C. \u00a71184; 8 CFR \u00a7214.2(h)",
+      "law": "INA \u00a7101(a)(15)(H)(i)(b); INA \u00a7212(m); INA \u00a7212(n); INA \u00a7212(r); INA \u00a7214(b); INA \u00a7214(h); 8 U.S.C. \u00a71101; 8 U.S.C. \u00a71182; 8 U.S.C. \u00a71184",
       "description": "Worker in a specialty occupation requiring at least a bachelor's degree or equivalent. Subject to annual cap (65,000 + 20,000 advanced degree).",
       "subcategory": "H",
       "category": "NIV \u2014 Worker & Exchange"
@@ -256,7 +256,7 @@
       "id": "H-1B1",
       "name": "FTA Professional (Chile / Singapore)",
       "group": "NIV",
-      "law": "INA \u00a7101(a)(15)(H)(i)(b1); INA \u00a7212(m); INA \u00a7212(n); INA \u00a7212(r); INA \u00a7214(b); INA \u00a7214(h); 8 U.S.C. \u00a71101; 8 U.S.C. \u00a71182; 8 U.S.C. \u00a71184; 8 CFR \u00a7214.2; PL 108-77; PL 108-78; U.S.\u2013Chile & U.S.\u2013Singapore FTAs",
+      "law": "INA \u00a7101(a)(15)(H)(i)(b1); PL 108-77; PL 108-78",
       "description": "National of Chile or Singapore in a specialty occupation under bilateral free trade agreements.",
       "subcategory": "H",
       "category": "NIV \u2014 Worker & Exchange"
@@ -265,7 +265,7 @@
       "id": "H-2A",
       "name": "Temporary Agricultural Worker",
       "group": "NIV",
-      "law": "INA \u00a7101(a)(15)(H)(ii)(a); INA \u00a7212(m); INA \u00a7212(n); INA \u00a7212(r); INA \u00a7214(b); INA \u00a7214(h); 8 U.S.C. \u00a71101; 8 U.S.C. \u00a71182; 8 U.S.C. \u00a71184; 8 CFR \u00a7214.2(h)",
+      "law": "INA \u00a7101(a)(15)(H)(ii)(a); INA \u00a7212(m); INA \u00a7212(n); INA \u00a7212(r); INA \u00a7214(b); INA \u00a7214(h); 8 U.S.C. \u00a71101; 8 U.S.C. \u00a71182; 8 U.S.C. \u00a71184",
       "description": "Temporary or seasonal agricultural worker. Employer must obtain DOL temporary labor certification.",
       "subcategory": "H",
       "category": "NIV \u2014 Worker & Exchange"
@@ -274,7 +274,7 @@
       "id": "H-2B",
       "name": "Temporary Non-Agricultural Worker",
       "group": "NIV",
-      "law": "INA \u00a7101(a)(15)(H)(ii)(b); INA \u00a7212(m); INA \u00a7212(n); INA \u00a7212(r); INA \u00a7214(b); INA \u00a7214(h); 8 U.S.C. \u00a71101; 8 U.S.C. \u00a71182; 8 U.S.C. \u00a71184; 8 CFR \u00a7214.2(h)",
+      "law": "INA \u00a7101(a)(15)(H)(ii)(b); INA \u00a7212(m); INA \u00a7212(n); INA \u00a7212(r); INA \u00a7214(b); INA \u00a7214(h); 8 U.S.C. \u00a71101; 8 U.S.C. \u00a71182; 8 U.S.C. \u00a71184",
       "description": "Temporary worker in non-agricultural services; one-time, seasonal, peak-load, or intermittent need. Annual cap of 66,000.",
       "subcategory": "H",
       "category": "NIV \u2014 Worker & Exchange"
@@ -283,7 +283,7 @@
       "id": "H-3",
       "name": "Trainee / Special Education Visitor",
       "group": "NIV",
-      "law": "INA \u00a7101(a)(15)(H)(iii); INA \u00a7212(m); INA \u00a7212(n); INA \u00a7212(r); INA \u00a7214(b); INA \u00a7214(h); 8 U.S.C. \u00a71101; 8 U.S.C. \u00a71182; 8 U.S.C. \u00a71184; 8 CFR \u00a7214.2",
+      "law": "INA \u00a7101(a)(15)(H)(iii); INA \u00a7212(m); INA \u00a7212(n); INA \u00a7212(r); INA \u00a7214(b); INA \u00a7214(h); 8 U.S.C. \u00a71101; 8 U.S.C. \u00a71182; 8 U.S.C. \u00a71184",
       "description": "Individual coming to the U.S. to receive training not available in their home country, or to participate in a special education exchange visitor program.",
       "subcategory": "H",
       "category": "NIV \u2014 Worker & Exchange"
@@ -292,7 +292,7 @@
       "id": "H-4",
       "name": "Dependent of H Worker",
       "group": "NIV",
-      "law": "INA \u00a7101(a)(15)(B)(includingforeignresidencerequirement); INA \u00a7101(a)(15)(H)(ii); INA \u00a7212(m); INA \u00a7212(n); INA \u00a7212(r); INA \u00a7214(b); INA \u00a7214(h); 8 U.S.C. \u00a71101; 8 U.S.C. \u00a71182; 8 U.S.C. \u00a71184; 8 CFR \u00a7214.2(h)(9)",
+      "law": "INA \u00a7101(a)(15)(B)(includingforeignresidencerequirement); INA \u00a7101(a)(15)(H)(ii); INA \u00a7214(b)",
       "description": "Spouse or unmarried child (under 21) of an H-1B, H-1B1, H-2A, H-2B, or H-3 principal worker.",
       "subcategory": "H",
       "category": "NIV \u2014 Worker & Exchange"
@@ -310,7 +310,7 @@
       "id": "J-1",
       "name": "Exchange Visitor",
       "group": "NIV",
-      "law": "INA \u00a7101(a)(15)(F)(i); INA \u00a7101(a)(15)(J); INA \u00a7101(a)(15)(M); INA \u00a7212(a)(6)(C); INA \u00a7212(e); INA \u00a7212(j); INA \u00a7214(b); INA \u00a7214(l); INA \u00a7214(m); INA \u00a7221(g); 8 U.S.C. \u00a71101; 8 U.S.C. \u00a71182; 8 U.S.C. \u00a71184; 8 CFR \u00a7214.2; 22 CFR \u00a741.62; 22 CFR \u00a741.63; 22 CFR Part 62; 22 CFR \u00a762.13; 22 CFR \u00a762.20; 22 CFR \u00a762.21; 22 CFR \u00a762.22; 22 CFR \u00a762.23; 22 CFR \u00a762.24; 22 CFR \u00a762.25; 22 CFR \u00a762.26; 22 CFR \u00a762.27; 22 CFR \u00a762.28; 22 CFR \u00a762.29; 22 CFR \u00a762.30; 22 CFR \u00a762.31; 22 CFR \u00a762.32; 22 CFR \u00a762.41",
+      "law": "INA \u00a7101(a)(15)(F)(i); INA \u00a7101(a)(15)(J); INA \u00a7212(e); INA \u00a7212(j); INA \u00a7214(b); INA \u00a7214(l); 8 U.S.C. \u00a71101; 8 U.S.C. \u00a71182; 8 U.S.C. \u00a71184; 22 CFR \u00a741.62; 22 CFR \u00a741.63; 22 CFR Part 62",
       "description": "Participant in a designated Exchange Visitor Program (au pairs, scholars, interns, physicians, professors, research scholars, etc.). SEVIS-tracked.",
       "subcategory": "J",
       "category": "NIV \u2014 Student & Exchange"
@@ -319,7 +319,7 @@
       "id": "J-2",
       "name": "Dependent of J-1",
       "group": "NIV",
-      "law": "INA \u00a7101(a)(15)(F)(i); INA \u00a7101(a)(15)(J); INA \u00a7101(a)(15)(M); INA \u00a7212(a)(6)(C); INA \u00a7212(e); INA \u00a7212(j); INA \u00a7214(b); INA \u00a7214(l); INA \u00a7214(m); INA \u00a7221(g); 8 U.S.C. \u00a71101; 8 U.S.C. \u00a71182; 8 U.S.C. \u00a71184; 8 CFR \u00a7214.2; 22 CFR \u00a741.62; 22 CFR \u00a741.63; 22 CFR Part 62; 22 CFR \u00a762.13; 22 CFR \u00a762.20; 22 CFR \u00a762.21; 22 CFR \u00a762.22; 22 CFR \u00a762.23; 22 CFR \u00a762.24; 22 CFR \u00a762.25; 22 CFR \u00a762.26; 22 CFR \u00a762.27; 22 CFR \u00a762.28; 22 CFR \u00a762.29; 22 CFR \u00a762.30; 22 CFR \u00a762.31; 22 CFR \u00a762.32; 22 CFR \u00a762.41",
+      "law": "INA \u00a7101(a)(15)(F)(i); INA \u00a7101(a)(15)(J); INA \u00a7212(e); INA \u00a7212(j); INA \u00a7214(b); INA \u00a7214(l); 8 U.S.C. \u00a71101; 8 U.S.C. \u00a71182; 8 U.S.C. \u00a71184; 22 CFR \u00a741.62; 22 CFR \u00a741.63; 22 CFR Part 62",
       "description": "Spouse or minor child of a J-1 exchange visitor. May apply for work authorization.",
       "subcategory": "J",
       "category": "NIV \u2014 Student & Exchange"
@@ -346,7 +346,7 @@
       "id": "K-3",
       "name": "Spouse of U.S. Citizen (LIFE Act)",
       "group": "NIV",
-      "law": "INA \u00a7101(a)(15)(K)(ii); INA \u00a7101(a)(15)(N); INA \u00a7101(a)(27)(I); INA \u00a7101(a)(27)(L); INA \u00a7101(b)(1); INA \u00a7203(a); INA \u00a7203(d); INA \u00a7204(a)(1); INA \u00a7212(a); INA \u00a7212(d)(3)(A); INA \u00a7214(b); 8 U.S.C. \u00a71101; 8 U.S.C. \u00a71153; 8 U.S.C. \u00a71154; 8 U.S.C. \u00a71182; 8 U.S.C. \u00a71184; LIFE Act \u00a71103",
+      "law": "INA \u00a7101(a)(15)(K)(ii); INA \u00a7101(a)(15)(N); INA \u00a7101(a)(27)(I); INA \u00a7101(a)(27)(L); INA \u00a7101(b)(1); INA \u00a7203(a); INA \u00a7203(d); INA \u00a7204(a)(1); INA \u00a7212(a); INA \u00a7212(d)(3)(A); INA \u00a7214(b); 8 U.S.C. \u00a71101; 8 U.S.C. \u00a71153; 8 U.S.C. \u00a71154; 8 U.S.C. \u00a71182; 8 U.S.C. \u00a71184",
       "description": "Spouse of U.S. citizen with a pending I-130 petition, admitted to await immigrant visa processing in the U.S.",
       "subcategory": "K",
       "category": "NIV \u2014 Family"
@@ -364,7 +364,7 @@
       "id": "L-1A",
       "name": "Intracompany Transferee \u2014 Manager / Executive",
       "group": "NIV",
-      "law": "INA \u00a7101(a)(15)(L); INA \u00a7101(a)(32); INA \u00a7101(a)(44); INA \u00a7214(b); INA \u00a7214(c); INA \u00a7214(h); INA \u00a7214(j); 8 U.S.C. \u00a71101; 8 U.S.C. \u00a71184; 8 CFR \u00a7214.2(l)",
+      "law": "INA \u00a7101(a)(15)(L); INA \u00a7214(b)",
       "description": "Employee transferred to a U.S. affiliate/subsidiary/parent in a managerial or executive capacity. Requires 1 year employment abroad in prior 3 years.",
       "subcategory": "L",
       "category": "NIV \u2014 Worker & Exchange"
@@ -373,7 +373,7 @@
       "id": "L-1B",
       "name": "Intracompany Transferee \u2014 Specialized Knowledge",
       "group": "NIV",
-      "law": "INA \u00a7101(a)(15)(L); INA \u00a7101(a)(32); INA \u00a7101(a)(44); INA \u00a7214(b); INA \u00a7214(c); INA \u00a7214(h); INA \u00a7214(j); 8 U.S.C. \u00a71101; 8 U.S.C. \u00a71184; 8 CFR \u00a7214.2(l)",
+      "law": "INA \u00a7101(a)(15)(L); INA \u00a7214(b)",
       "description": "Employee transferred to a U.S. affiliate/subsidiary/parent in a specialized knowledge capacity.",
       "subcategory": "L",
       "category": "NIV \u2014 Worker & Exchange"
@@ -382,7 +382,7 @@
       "id": "L-2",
       "name": "Dependent of L-1",
       "group": "NIV",
-      "law": "INA \u00a7101(a)(15)(L); INA \u00a7101(a)(32); INA \u00a7101(a)(44); INA \u00a7214(b); INA \u00a7214(c); INA \u00a7214(h); INA \u00a7214(j); 8 U.S.C. \u00a71101; 8 U.S.C. \u00a71184; 22 CFR \u00a741.12",
+      "law": "INA \u00a7101(a)(15)(L); INA \u00a7101(a)(32); INA \u00a7101(a)(44); INA \u00a7214(b); INA \u00a7214(c); INA \u00a7214(h); INA \u00a7214(j); 8 U.S.C. \u00a71101; 8 U.S.C. \u00a71184",
       "description": "Spouse or minor child of L-1A or L-1B. Spouse may obtain EAD.",
       "subcategory": "L",
       "category": "NIV \u2014 Worker & Exchange"
@@ -391,7 +391,7 @@
       "id": "M-1",
       "name": "Vocational Student",
       "group": "NIV",
-      "law": "INA \u00a7101(a)(15)(F)(i); INA \u00a7101(a)(15)(J); INA \u00a7101(a)(15)(M)(i); INA \u00a7212(a)(6)(C); INA \u00a7212(a)(6)(G); INA \u00a7212(e); INA \u00a7212(j); INA \u00a7214(b); INA \u00a7214(l); INA \u00a7214(m); INA \u00a7221(g); 8 U.S.C. \u00a71101; 8 U.S.C. \u00a71182; 8 U.S.C. \u00a71184; 8 CFR \u00a7214.2(m); 8 CFR \u00a7214.3; 22 CFR \u00a741.61; PL 107-274",
+      "law": "INA \u00a7101(a)(15)(F)(i); INA \u00a7101(a)(15)(M); INA \u00a7212(a)(6)(C); INA \u00a7214(b); INA \u00a7214(l); INA \u00a7214(m); 8 U.S.C. \u00a71101; 8 U.S.C. \u00a71182; 8 U.S.C. \u00a71184; 22 CFR \u00a741.61",
       "description": "Student at an established vocational or other recognized non-academic institution (SEVP-certified).",
       "subcategory": "M",
       "category": "NIV \u2014 Student & Exchange"
@@ -400,7 +400,7 @@
       "id": "M-2",
       "name": "Dependent of M-1",
       "group": "NIV",
-      "law": "INA \u00a7101(a)(15)(F)(i); INA \u00a7101(a)(15)(J); INA \u00a7101(a)(15)(M)(i); INA \u00a7101(a)(15)(M)(ii); INA \u00a7212(a)(6)(C); INA \u00a7212(a)(6)(G); INA \u00a7212(e); INA \u00a7212(j); INA \u00a7214(b); INA \u00a7214(l); INA \u00a7214(m); INA \u00a7221(g); 8 U.S.C. \u00a71101; 8 U.S.C. \u00a71182; 8 U.S.C. \u00a71184; 8 CFR \u00a7214.2; 8 CFR \u00a7214.3; 22 CFR \u00a741.61; PL 107-274",
+      "law": "INA \u00a7101(a)(15)(F)(i); INA \u00a7101(a)(15)(M); INA \u00a7212(a)(6)(C); INA \u00a7214(b); INA \u00a7214(l); INA \u00a7214(m); 8 U.S.C. \u00a71101; 8 U.S.C. \u00a71182; 8 U.S.C. \u00a71184; 22 CFR \u00a741.61",
       "description": "Spouse or minor child of M-1 vocational student.",
       "subcategory": "M",
       "category": "NIV \u2014 Student & Exchange"
@@ -409,7 +409,7 @@
       "id": "M-3",
       "name": "Border Commuter Vocational Student",
       "group": "NIV",
-      "law": "INA \u00a7101(a)(15)(F)(i); INA \u00a7101(a)(15)(J); INA \u00a7101(a)(15)(M)(i); INA \u00a7101(a)(15)(M)(iii); INA \u00a7212(a)(6)(C); INA \u00a7212(a)(6)(G); INA \u00a7212(e); INA \u00a7212(j); INA \u00a7214(b); INA \u00a7214(l); INA \u00a7214(m); INA \u00a7221(g); 8 U.S.C. \u00a71101; 8 U.S.C. \u00a71182; 8 U.S.C. \u00a71184; 8 CFR \u00a7214.2; 8 CFR \u00a7214.3; 22 CFR \u00a741.61; PL 107-274",
+      "law": "INA \u00a7101(a)(15)(F)(i); INA \u00a7101(a)(15)(M); INA \u00a7212(a)(6)(C); INA \u00a7214(b); INA \u00a7214(l); INA \u00a7214(m); 8 U.S.C. \u00a71101; 8 U.S.C. \u00a71182; 8 U.S.C. \u00a71184; 22 CFR \u00a741.61",
       "description": "Canadian or Mexican national commuting to a U.S. vocational institution.",
       "subcategory": "M",
       "category": "NIV \u2014 Student & Exchange"
@@ -418,7 +418,7 @@
       "id": "NATO-1",
       "name": "Principal NATO Representative",
       "group": "NIV",
-      "law": "INA \u00a7101(a)(15)(A); INA \u00a7101(a)(15)(C); INA \u00a7101(a)(15)(G); INA \u00a7212(d)(8); 8 U.S.C. \u00a71101; 8 U.S.C. \u00a71182; 22 CFR \u00a741.12; 22 CFR \u00a741.25; NATO SOFA",
+      "law": "INA \u00a7101(a)(15)(A); 22 CFR \u00a741.12; 22 CFR \u00a741.25",
       "description": "Principal permanent representative of a NATO member state and official staff.",
       "subcategory": "NATO",
       "category": "NIV \u2014 Diplomatic & Official"
@@ -427,7 +427,7 @@
       "id": "NATO-2",
       "name": "Other NATO Representative",
       "group": "NIV",
-      "law": "INA \u00a7101(a)(15)(A); INA \u00a7101(a)(15)(C); INA \u00a7101(a)(15)(G); INA \u00a7212(d)(8); 8 U.S.C. \u00a71101; 8 U.S.C. \u00a71182; 22 CFR \u00a741.12; 22 CFR \u00a741.25; NATO SOFA",
+      "law": "INA \u00a7101(a)(15)(A); 22 CFR \u00a741.12; 22 CFR \u00a741.25",
       "description": "Other representative of a NATO member state, including dependents.",
       "subcategory": "NATO",
       "category": "NIV \u2014 Diplomatic & Official"
@@ -436,7 +436,7 @@
       "id": "NATO-3",
       "name": "NATO Clerical Staff",
       "group": "NIV",
-      "law": "INA \u00a7101(a)(15)(A); INA \u00a7101(a)(15)(C); INA \u00a7101(a)(15)(G); INA \u00a7212(d)(8); 8 U.S.C. \u00a71101; 8 U.S.C. \u00a71182; 22 CFR \u00a741.12; 22 CFR \u00a741.25; NATO SOFA",
+      "law": "INA \u00a7101(a)(15)(A); 22 CFR \u00a741.12; 22 CFR \u00a741.25",
       "description": "Official clerical staff of NATO representative.",
       "subcategory": "NATO",
       "category": "NIV \u2014 Diplomatic & Official"
@@ -445,7 +445,7 @@
       "id": "NATO-4",
       "name": "NATO Official (Other Country)",
       "group": "NIV",
-      "law": "INA \u00a7101(a)(15)(A); INA \u00a7101(a)(15)(C); INA \u00a7101(a)(15)(G); INA \u00a7212(d)(8); 8 U.S.C. \u00a71101; 8 U.S.C. \u00a71182; 22 CFR \u00a741.12; 22 CFR \u00a741.25; NATO SOFA",
+      "law": "INA \u00a7101(a)(15)(A); 22 CFR \u00a741.12; 22 CFR \u00a741.25",
       "description": "Official of NATO other than those qualifying as NATO-1 through NATO-3.",
       "subcategory": "NATO",
       "category": "NIV \u2014 Diplomatic & Official"
@@ -454,7 +454,7 @@
       "id": "NATO-5",
       "name": "NATO Expert / Specialist",
       "group": "NIV",
-      "law": "INA \u00a7101(a)(15)(A); INA \u00a7101(a)(15)(C); INA \u00a7101(a)(15)(G); INA \u00a7212(d)(8); 8 U.S.C. \u00a71101; 8 U.S.C. \u00a71182; 22 CFR \u00a741.12; 22 CFR \u00a741.25; NATO SOFA",
+      "law": "INA \u00a7101(a)(15)(A); 22 CFR \u00a741.12; 22 CFR \u00a741.25",
       "description": "Expert or specialist employed on behalf of NATO in a non-representative capacity.",
       "subcategory": "NATO",
       "category": "NIV \u2014 Diplomatic & Official"
@@ -463,7 +463,7 @@
       "id": "NATO-6",
       "name": "NATO Civilian Employee",
       "group": "NIV",
-      "law": "INA \u00a7101(a)(15)(A); INA \u00a7101(a)(15)(C); INA \u00a7101(a)(15)(G); INA \u00a7212(d)(8); 8 U.S.C. \u00a71101; 8 U.S.C. \u00a71182; 22 CFR \u00a741.12; 22 CFR \u00a741.25; NATO SOFA",
+      "law": "INA \u00a7101(a)(15)(A); 22 CFR \u00a741.12; 22 CFR \u00a741.25",
       "description": "Member of a civilian component accompanying a NATO force.",
       "subcategory": "NATO",
       "category": "NIV \u2014 Diplomatic & Official"
@@ -472,7 +472,7 @@
       "id": "NATO-7",
       "name": "Attendant of NATO-1 through NATO-6",
       "group": "NIV",
-      "law": "INA \u00a7101(a)(15)(A)(iii); INA \u00a7101(a)(15)(C); INA \u00a7101(a)(15)(G)(v); INA \u00a7212(a)(6)(C)(i); INA \u00a7212(a)(9)(B); INA \u00a7212(d)(8); INA \u00a7214(b); INA \u00a7221(g); INA \u00a7247(b); 8 U.S.C. \u00a71101; 8 U.S.C. \u00a71182; 8 U.S.C. \u00a71375b; 8 U.S.C. \u00a71375c; 22 CFR \u00a740.203; 22 CFR \u00a741.21; 22 CFR \u00a741.22; 22 CFR \u00a741.23; 22 CFR \u00a741.24; 22 CFR \u00a741.25; PL 106-396; PL 110-457; PL 115-425; NATO SOFA",
+      "law": "INA \u00a7101(a)(15)(A)(iii); INA \u00a7101(a)(15)(C); INA \u00a7101(a)(15)(G)(v); INA \u00a7212(d)(8); 8 U.S.C. \u00a71101; 8 U.S.C. \u00a71182; 22 CFR \u00a741.21; 22 CFR \u00a741.22; 22 CFR \u00a741.23; 22 CFR \u00a741.24; 22 CFR \u00a741.25; PL 106-396; PL 110-457; PL 115-425",
       "description": "Attendant, servant, or personal employee of NATO-1 through NATO-6 personnel.",
       "subcategory": "NATO",
       "category": "NIV \u2014 Diplomatic & Official"
@@ -481,7 +481,7 @@
       "id": "O-1A",
       "name": "Extraordinary Ability \u2014 Sciences / Business / Education / Athletics",
       "group": "NIV",
-      "law": "INA \u00a7101(a)(15)(O)(i); INA \u00a7101(a)(46); INA \u00a7214(a)(2)(A); INA \u00a7214(c); 8 U.S.C. \u00a71101; 8 U.S.C. \u00a71184; 8 CFR \u00a7214.2(o)",
+      "law": "INA \u00a7101(a)(15)(O)(i); INA \u00a7101(a)(46); INA \u00a7214(a)(2)(A); INA \u00a7214(c); 8 U.S.C. \u00a71101; 8 U.S.C. \u00a71184",
       "description": "Individual with extraordinary ability in sciences, education, business, or athletics demonstrated by sustained national or international acclaim.",
       "subcategory": "O",
       "category": "NIV \u2014 Worker & Exchange"
@@ -562,7 +562,7 @@
       "id": "Q-1",
       "name": "International Cultural Exchange Visitor",
       "group": "NIV",
-      "law": "INA \u00a7101(a)(15)(Q)(i); 8 U.S.C. \u00a71101; 8 CFR \u00a7214.2(q)",
+      "law": "INA \u00a7101(a)(15)(Q)(i); 8 U.S.C. \u00a71101",
       "description": "Participant in an international cultural exchange program providing practical training, employment, and sharing of culture.",
       "subcategory": "Q",
       "category": "NIV \u2014 Worker & Exchange"
@@ -571,7 +571,7 @@
       "id": "R-1",
       "name": "Religious Worker",
       "group": "NIV",
-      "law": "INA \u00a7101(a)(15)(R)(i); INA \u00a7101(a)(27)(C)(ii); 8 U.S.C. \u00a71101; 8 CFR \u00a7214.2(r)",
+      "law": "INA \u00a7101(a)(15)(R)(i); INA \u00a7101(a)(27)(C)(ii); 8 U.S.C. \u00a71101",
       "description": "Minister or religious worker coming to work for a bona fide non-profit religious organization in the U.S.",
       "subcategory": "R",
       "category": "NIV \u2014 Worker & Exchange"
@@ -580,7 +580,7 @@
       "id": "R-2",
       "name": "Dependent of R-1",
       "group": "NIV",
-      "law": "INA \u00a7101(a)(15)(R)(ii); INA \u00a7101(a)(27)(C)(ii); 8 U.S.C. \u00a71101; 22 CFR \u00a741.12",
+      "law": "INA \u00a7101(a)(15)(R)(ii); INA \u00a7101(a)(27)(C)(ii); 8 U.S.C. \u00a71101",
       "description": "Spouse or child of R-1 religious worker.",
       "subcategory": "R",
       "category": "NIV \u2014 Worker & Exchange"
@@ -589,7 +589,7 @@
       "id": "S-5",
       "name": "Informant \u2014 Criminal Organization",
       "group": "NIV",
-      "law": "INA \u00a7101(a)(15)(S)(i); INA \u00a7101(a)(15)(T); INA \u00a7101(a)(15)(U); INA \u00a7212(d)(1); INA \u00a7212(d)(13); INA \u00a7212(d)(14); INA \u00a7214(k); INA \u00a7214(n); INA \u00a7214(o); INA \u00a7214(p); 8 U.S.C. \u00a71101; 8 U.S.C. \u00a71182; 8 U.S.C. \u00a71184; 8 U.S.C. \u00a71255; 8 CFR \u00a7214.2",
+      "law": "INA \u00a7101(a)(15)(S)(i); INA \u00a7101(a)(15)(T); INA \u00a7101(a)(15)(U); INA \u00a7212(d)(1); INA \u00a7212(d)(13); INA \u00a7212(d)(14); INA \u00a7214(k); INA \u00a7214(n); INA \u00a7214(o); INA \u00a7214(p); 8 U.S.C. \u00a71101; 8 U.S.C. \u00a71182; 8 U.S.C. \u00a71184; 8 U.S.C. \u00a71255",
       "description": "Individual supplying critical reliable information to a law enforcement authority regarding a criminal organization.",
       "subcategory": "S",
       "category": "NIV \u2014 Humanitarian"
@@ -598,7 +598,7 @@
       "id": "S-6",
       "name": "Informant \u2014 Terrorism",
       "group": "NIV",
-      "law": "INA \u00a7101(a)(15)(S)(ii); INA \u00a7101(a)(15)(T); INA \u00a7101(a)(15)(U); INA \u00a7212(d)(1); INA \u00a7212(d)(13); INA \u00a7212(d)(14); INA \u00a7214(k); INA \u00a7214(n); INA \u00a7214(o); INA \u00a7214(p); 8 U.S.C. \u00a71101; 8 U.S.C. \u00a71182; 8 U.S.C. \u00a71184; 8 U.S.C. \u00a71255; 22 U.S.C. \u00a72708; 8 CFR \u00a7214.2",
+      "law": "INA \u00a7101(a)(15)(S)(ii); INA \u00a7101(a)(15)(T); INA \u00a7101(a)(15)(U); INA \u00a7212(d)(1); INA \u00a7212(d)(13); INA \u00a7212(d)(14); INA \u00a7214(k); INA \u00a7214(n); INA \u00a7214(o); INA \u00a7214(p); 8 U.S.C. \u00a71101; 8 U.S.C. \u00a71182; 8 U.S.C. \u00a71184; 8 U.S.C. \u00a71255",
       "description": "Individual supplying critical reliable information regarding terrorism to the Department of Justice.",
       "subcategory": "S",
       "category": "NIV \u2014 Humanitarian"
@@ -607,7 +607,7 @@
       "id": "S-7",
       "name": "Dependent of S-5 / S-6",
       "group": "NIV",
-      "law": "INA \u00a7101(a)(15)(S); INA \u00a7101(a)(15)(T); INA \u00a7101(a)(15)(U); INA \u00a7212(d)(1); INA \u00a7212(d)(13); INA \u00a7212(d)(14); INA \u00a7214(k); INA \u00a7214(n); INA \u00a7214(o); INA \u00a7214(p); 8 U.S.C. \u00a71101; 8 U.S.C. \u00a71182; 8 U.S.C. \u00a71184; 8 U.S.C. \u00a71255; 8 CFR \u00a7214.2",
+      "law": "INA \u00a7101(a)(15)(S); INA \u00a7101(a)(15)(T); INA \u00a7101(a)(15)(U); INA \u00a7212(d)(1); INA \u00a7212(d)(13); INA \u00a7212(d)(14); INA \u00a7214(k); INA \u00a7214(n); INA \u00a7214(o); INA \u00a7214(p); 8 U.S.C. \u00a71101; 8 U.S.C. \u00a71182; 8 U.S.C. \u00a71184; 8 U.S.C. \u00a71255",
       "description": "Spouse, married/unmarried child, or parent of S-5 or S-6 (if deemed necessary by the Attorney General).",
       "subcategory": "S",
       "category": "NIV \u2014 Humanitarian"
@@ -616,7 +616,7 @@
       "id": "T-1",
       "name": "Trafficking Victim",
       "group": "NIV",
-      "law": "INA \u00a7101(a)(15)(S); INA \u00a7101(a)(15)(T)(i); INA \u00a7101(a)(15)(U); INA \u00a7212(a)(4); INA \u00a7212(a)(9)(B); INA \u00a7212(a)(9)(C); INA \u00a7212(d)(1); INA \u00a7212(d)(13); INA \u00a7212(d)(14); INA \u00a7212(d)(3)(A); INA \u00a7214(b); INA \u00a7214(k); INA \u00a7214(n); INA \u00a7214(o)(7); INA \u00a7214(p); INA \u00a7221(g); INA \u00a7245(l)(1)(a); 8 U.S.C. \u00a71101; 8 U.S.C. \u00a71182; 8 U.S.C. \u00a71184; 8 U.S.C. \u00a71255; 8 CFR \u00a7212.16; 8 CFR \u00a7245.23; PL 106-386; TVPA of 2000",
+      "law": "INA \u00a7101(a)(15)(S); INA \u00a7101(a)(15)(T); INA \u00a7101(a)(15)(U); INA \u00a7212(d)(1); INA \u00a7212(d)(13); INA \u00a7212(d)(14); INA \u00a7214(k); INA \u00a7214(n); INA \u00a7214(o); INA \u00a7214(p); 8 U.S.C. \u00a71101; 8 U.S.C. \u00a71182; 8 U.S.C. \u00a71184; 8 U.S.C. \u00a71255",
       "description": "Victim of a severe form of trafficking in persons who is physically present in the U.S. and complies with reasonable law enforcement requests.",
       "subcategory": "T",
       "category": "NIV \u2014 Humanitarian"
@@ -625,7 +625,7 @@
       "id": "T-2",
       "name": "Spouse of T-1",
       "group": "NIV",
-      "law": "INA \u00a7101(a)(15)(S); INA \u00a7101(a)(15)(T)(ii); INA \u00a7101(a)(15)(U); INA \u00a7212(a)(4); INA \u00a7212(a)(9)(B); INA \u00a7212(a)(9)(C); INA \u00a7212(d)(1); INA \u00a7212(d)(13); INA \u00a7212(d)(14); INA \u00a7212(d)(3)(A); INA \u00a7214(b); INA \u00a7214(k); INA \u00a7214(n); INA \u00a7214(o)(7); INA \u00a7214(p); INA \u00a7221(g); INA \u00a7245(l)(1)(a); 8 U.S.C. \u00a71101; 8 U.S.C. \u00a71182; 8 U.S.C. \u00a71184; 8 U.S.C. \u00a71255; 8 CFR \u00a7212.16; 8 CFR \u00a7245.23; PL 106-386",
+      "law": "INA \u00a7101(a)(15)(S); INA \u00a7101(a)(15)(T); INA \u00a7101(a)(15)(U); INA \u00a7212(d)(1); INA \u00a7212(d)(13); INA \u00a7212(d)(14); INA \u00a7214(k); INA \u00a7214(n); INA \u00a7214(o); INA \u00a7214(p); 8 U.S.C. \u00a71101; 8 U.S.C. \u00a71182; 8 U.S.C. \u00a71184; 8 U.S.C. \u00a71255",
       "description": "Spouse of a T-1 trafficking victim.",
       "subcategory": "T",
       "category": "NIV \u2014 Humanitarian"
@@ -634,7 +634,7 @@
       "id": "T-3",
       "name": "Child of T-1",
       "group": "NIV",
-      "law": "INA \u00a7101(a)(15)(S); INA \u00a7101(a)(15)(T)(ii); INA \u00a7101(a)(15)(U); INA \u00a7212(a)(4); INA \u00a7212(a)(9)(B); INA \u00a7212(a)(9)(C); INA \u00a7212(d)(1); INA \u00a7212(d)(13); INA \u00a7212(d)(14); INA \u00a7212(d)(3)(A); INA \u00a7214(b); INA \u00a7214(k); INA \u00a7214(n); INA \u00a7214(o)(7); INA \u00a7214(p); INA \u00a7221(g); INA \u00a7245(l)(1)(a); 8 U.S.C. \u00a71101; 8 U.S.C. \u00a71182; 8 U.S.C. \u00a71184; 8 U.S.C. \u00a71255; 8 CFR \u00a7212.16; 8 CFR \u00a7245.23; PL 106-386",
+      "law": "INA \u00a7101(a)(15)(S); INA \u00a7101(a)(15)(T); INA \u00a7101(a)(15)(U); INA \u00a7212(d)(1); INA \u00a7212(d)(13); INA \u00a7212(d)(14); INA \u00a7214(k); INA \u00a7214(n); INA \u00a7214(o); INA \u00a7214(p); 8 U.S.C. \u00a71101; 8 U.S.C. \u00a71182; 8 U.S.C. \u00a71184; 8 U.S.C. \u00a71255",
       "description": "Child of a T-1 trafficking victim.",
       "subcategory": "T",
       "category": "NIV \u2014 Humanitarian"
@@ -643,7 +643,7 @@
       "id": "T-4",
       "name": "Parent of T-1 (Minor)",
       "group": "NIV",
-      "law": "INA \u00a7101(a)(15)(S); INA \u00a7101(a)(15)(T)(ii); INA \u00a7101(a)(15)(U); INA \u00a7212(a)(4); INA \u00a7212(a)(9)(B); INA \u00a7212(a)(9)(C); INA \u00a7212(d)(1); INA \u00a7212(d)(13); INA \u00a7212(d)(14); INA \u00a7212(d)(3)(A); INA \u00a7214(b); INA \u00a7214(k); INA \u00a7214(n); INA \u00a7214(o)(7); INA \u00a7214(p); INA \u00a7221(g); INA \u00a7245(l)(1)(a); 8 U.S.C. \u00a71101; 8 U.S.C. \u00a71182; 8 U.S.C. \u00a71184; 8 U.S.C. \u00a71255; 8 CFR \u00a7212.16; 8 CFR \u00a7245.23; PL 106-386",
+      "law": "INA \u00a7101(a)(15)(S); INA \u00a7101(a)(15)(T); INA \u00a7101(a)(15)(U); INA \u00a7212(d)(1); INA \u00a7212(d)(13); INA \u00a7212(d)(14); INA \u00a7214(k); INA \u00a7214(n); INA \u00a7214(o); INA \u00a7214(p); 8 U.S.C. \u00a71101; 8 U.S.C. \u00a71182; 8 U.S.C. \u00a71184; 8 U.S.C. \u00a71255",
       "description": "Parent of a T-1 trafficking victim who is under 21 years of age.",
       "subcategory": "T",
       "category": "NIV \u2014 Humanitarian"
@@ -652,7 +652,7 @@
       "id": "T-5",
       "name": "Sibling of T-1 (Minor)",
       "group": "NIV",
-      "law": "INA \u00a7101(a)(15)(S); INA \u00a7101(a)(15)(T)(ii); INA \u00a7101(a)(15)(U); INA \u00a7212(a)(4); INA \u00a7212(a)(9)(B); INA \u00a7212(a)(9)(C); INA \u00a7212(d)(1); INA \u00a7212(d)(13); INA \u00a7212(d)(14); INA \u00a7212(d)(3)(A); INA \u00a7214(b); INA \u00a7214(k); INA \u00a7214(n); INA \u00a7214(o)(7); INA \u00a7214(p); INA \u00a7221(g); INA \u00a7245(l)(1)(a); 8 U.S.C. \u00a71101; 8 U.S.C. \u00a71182; 8 U.S.C. \u00a71184; 8 U.S.C. \u00a71255; 8 CFR \u00a7212.16; 8 CFR \u00a7245.23; PL 106-386",
+      "law": "INA \u00a7101(a)(15)(S); INA \u00a7101(a)(15)(T); INA \u00a7101(a)(15)(U); INA \u00a7212(d)(1); INA \u00a7212(d)(13); INA \u00a7212(d)(14); INA \u00a7214(k); INA \u00a7214(n); INA \u00a7214(o); INA \u00a7214(p); 8 U.S.C. \u00a71101; 8 U.S.C. \u00a71182; 8 U.S.C. \u00a71184; 8 U.S.C. \u00a71255",
       "description": "Unmarried sibling under 18 of a T-1 trafficking victim who is under 21.",
       "subcategory": "T",
       "category": "NIV \u2014 Humanitarian"
@@ -661,7 +661,7 @@
       "id": "T-6",
       "name": "Adult Child of T-1",
       "group": "NIV",
-      "law": "INA \u00a7101(a)(15)(S); INA \u00a7101(a)(15)(T)(ii); INA \u00a7101(a)(15)(U); INA \u00a7212(a)(4); INA \u00a7212(a)(9)(B); INA \u00a7212(a)(9)(C); INA \u00a7212(d)(1); INA \u00a7212(d)(13); INA \u00a7212(d)(14); INA \u00a7212(d)(3)(A); INA \u00a7214(b); INA \u00a7214(k); INA \u00a7214(n); INA \u00a7214(o)(7); INA \u00a7214(p); INA \u00a7221(g); INA \u00a7245(l)(1)(a); 8 U.S.C. \u00a71101; 8 U.S.C. \u00a71182; 8 U.S.C. \u00a71184; 8 U.S.C. \u00a71255; 8 CFR \u00a7212.16; 8 CFR \u00a7214.11; 8 CFR \u00a7245.23; PL 106-386",
+      "law": "INA \u00a7101(a)(15)(S); INA \u00a7101(a)(15)(T); INA \u00a7101(a)(15)(U); INA \u00a7212(d)(1); INA \u00a7212(d)(13); INA \u00a7212(d)(14); INA \u00a7214(k); INA \u00a7214(n); INA \u00a7214(o); INA \u00a7214(p); 8 U.S.C. \u00a71101; 8 U.S.C. \u00a71182; 8 U.S.C. \u00a71184; 8 U.S.C. \u00a71255",
       "description": "Adult child of a T-1 trafficking victim facing danger due to the victim's cooperation with law enforcement.",
       "subcategory": "T",
       "category": "NIV \u2014 Humanitarian"
@@ -670,7 +670,7 @@
       "id": "TN",
       "name": "USMCA / NAFTA Professional",
       "group": "NIV",
-      "law": "INA \u00a7212(a)(5)(C); INA \u00a7212(r); INA \u00a7214(e); INA \u00a7214(j); 8 U.S.C. \u00a71184; 8 CFR \u00a7212.15; 22 CFR \u00a740.53; USMCA Ch. 16",
+      "law": "INA \u00a7212(a)(5)(C)",
       "description": "Canadian or Mexican professional in a designated USMCA/NAFTA occupation. No petition required for Canadians.",
       "subcategory": "TN",
       "category": "NIV \u2014 Worker & Exchange"
@@ -679,7 +679,7 @@
       "id": "TD",
       "name": "Dependent of TN",
       "group": "NIV",
-      "law": "INA \u00a7212(a)(4); INA \u00a7214(b); INA \u00a7214(e); INA \u00a7214(j); 8 U.S.C. \u00a71184",
+      "law": "INA \u00a7212(a)(4); INA \u00a7214(e); INA \u00a7214(j); 8 U.S.C. \u00a71184",
       "description": "Spouse or minor child of TN professional. May not work.",
       "subcategory": "TN",
       "category": "NIV \u2014 Worker & Exchange"
@@ -688,7 +688,7 @@
       "id": "U-1",
       "name": "Crime Victim",
       "group": "NIV",
-      "law": "INA \u00a7101(a)(15)(S); INA \u00a7101(a)(15)(T); INA \u00a7101(a)(15)(U)(i)(III); INA \u00a7101(a)(15)(U)(ii)(I); INA \u00a7101(a)(15)(U)(ii)(II); INA \u00a7101(a)(15)(U)(iii); INA \u00a7212(a)(3)(E); INA \u00a7212(a)(4)(C); INA \u00a7212(a)(9)(B); INA \u00a7212(a)(9)(C); INA \u00a7212(d)(1); INA \u00a7212(d)(13); INA \u00a7212(d)(14); INA \u00a7212(d)(3)(A); INA \u00a7214(b); INA \u00a7214(k); INA \u00a7214(n); INA \u00a7214(o); INA \u00a7214(p)(6); INA \u00a7221(g); INA \u00a7245(m); 8 U.S.C. \u00a7101; 8 U.S.C. \u00a71101; 8 U.S.C. \u00a71182; 8 U.S.C. \u00a71184; 8 U.S.C. \u00a71255; 8 U.S.C. \u00a71367; 18 U.S.C. \u00a71351; 8 CFR \u00a7212.17; 8 CFR \u00a7214.14; 8 CFR \u00a7245.24; VTVPA \u00a71513",
+      "law": "INA \u00a7101(a)(15)(S); INA \u00a7101(a)(15)(U); INA \u00a7212(d)(14); INA \u00a7214(p); INA \u00a7245(m); 8 U.S.C. \u00a7101; 8 U.S.C. \u00a71182; 8 U.S.C. \u00a71184; 8 U.S.C. \u00a71255; 8 U.S.C. \u00a71367; 8 CFR \u00a7212.17; 8 CFR \u00a7214.14; 8 CFR \u00a7245.24",
       "description": "Victim of qualifying criminal activity who has suffered substantial abuse and assists in the investigation or prosecution. Annual cap of 10,000.",
       "subcategory": "U",
       "category": "NIV \u2014 Humanitarian"
@@ -697,7 +697,7 @@
       "id": "U-2",
       "name": "Spouse of U-1",
       "group": "NIV",
-      "law": "INA \u00a7101(a)(15)(S); INA \u00a7101(a)(15)(T); INA \u00a7101(a)(15)(U)(i)(III); INA \u00a7101(a)(15)(U)(ii)(I); INA \u00a7101(a)(15)(U)(ii)(II); INA \u00a7101(a)(15)(U)(iii); INA \u00a7212(a)(3)(E); INA \u00a7212(a)(4)(C); INA \u00a7212(a)(9)(B); INA \u00a7212(a)(9)(C); INA \u00a7212(d)(1); INA \u00a7212(d)(13); INA \u00a7212(d)(14); INA \u00a7212(d)(3)(A); INA \u00a7214(b); INA \u00a7214(k); INA \u00a7214(n); INA \u00a7214(o); INA \u00a7214(p)(6); INA \u00a7221(g); INA \u00a7245(m); 8 U.S.C. \u00a7101; 8 U.S.C. \u00a71101; 8 U.S.C. \u00a71182; 8 U.S.C. \u00a71184; 8 U.S.C. \u00a71255; 8 U.S.C. \u00a71367; 18 U.S.C. \u00a71351; 8 CFR \u00a7212.17; 8 CFR \u00a7214.14; 8 CFR \u00a7245.24",
+      "law": "INA \u00a7101(a)(15)(S); INA \u00a7101(a)(15)(U); INA \u00a7212(d)(14); INA \u00a7214(p); INA \u00a7245(m); 8 U.S.C. \u00a7101; 8 U.S.C. \u00a71182; 8 U.S.C. \u00a71184; 8 U.S.C. \u00a71255; 8 U.S.C. \u00a71367; 8 CFR \u00a7212.17; 8 CFR \u00a7214.14; 8 CFR \u00a7245.24",
       "description": "Spouse of a U-1 crime victim.",
       "subcategory": "U",
       "category": "NIV \u2014 Humanitarian"
@@ -706,7 +706,7 @@
       "id": "U-3",
       "name": "Child of U-1",
       "group": "NIV",
-      "law": "INA \u00a7101(a)(15)(S); INA \u00a7101(a)(15)(T); INA \u00a7101(a)(15)(U)(i)(III); INA \u00a7101(a)(15)(U)(ii)(I); INA \u00a7101(a)(15)(U)(ii)(II); INA \u00a7101(a)(15)(U)(iii); INA \u00a7212(a)(3)(E); INA \u00a7212(a)(4)(C); INA \u00a7212(a)(9)(B); INA \u00a7212(a)(9)(C); INA \u00a7212(d)(1); INA \u00a7212(d)(13); INA \u00a7212(d)(14); INA \u00a7212(d)(3)(A); INA \u00a7214(b); INA \u00a7214(k); INA \u00a7214(n); INA \u00a7214(o); INA \u00a7214(p)(6); INA \u00a7221(g); INA \u00a7245(m); 8 U.S.C. \u00a7101; 8 U.S.C. \u00a71101; 8 U.S.C. \u00a71182; 8 U.S.C. \u00a71184; 8 U.S.C. \u00a71255; 8 U.S.C. \u00a71367; 18 U.S.C. \u00a71351; 8 CFR \u00a7212.17; 8 CFR \u00a7214.14; 8 CFR \u00a7245.24",
+      "law": "INA \u00a7101(a)(15)(S); INA \u00a7101(a)(15)(U); INA \u00a7212(d)(14); INA \u00a7214(p); INA \u00a7245(m); 8 U.S.C. \u00a7101; 8 U.S.C. \u00a71182; 8 U.S.C. \u00a71184; 8 U.S.C. \u00a71255; 8 U.S.C. \u00a71367; 8 CFR \u00a7212.17; 8 CFR \u00a7214.14; 8 CFR \u00a7245.24",
       "description": "Child of a U-1 crime victim.",
       "subcategory": "U",
       "category": "NIV \u2014 Humanitarian"
@@ -715,7 +715,7 @@
       "id": "U-4",
       "name": "Parent of U-1 (Minor)",
       "group": "NIV",
-      "law": "INA \u00a7101(a)(15)(S); INA \u00a7101(a)(15)(T); INA \u00a7101(a)(15)(U)(i)(III); INA \u00a7101(a)(15)(U)(ii)(I); INA \u00a7101(a)(15)(U)(ii)(II); INA \u00a7101(a)(15)(U)(iii); INA \u00a7212(a)(3)(E); INA \u00a7212(a)(4)(C); INA \u00a7212(a)(9)(B); INA \u00a7212(a)(9)(C); INA \u00a7212(d)(1); INA \u00a7212(d)(13); INA \u00a7212(d)(14); INA \u00a7212(d)(3)(A); INA \u00a7214(b); INA \u00a7214(k); INA \u00a7214(n); INA \u00a7214(o); INA \u00a7214(p)(6); INA \u00a7221(g); INA \u00a7245(m); 8 U.S.C. \u00a7101; 8 U.S.C. \u00a71101; 8 U.S.C. \u00a71182; 8 U.S.C. \u00a71184; 8 U.S.C. \u00a71255; 8 U.S.C. \u00a71367; 18 U.S.C. \u00a71351; 8 CFR \u00a7212.17; 8 CFR \u00a7214.14; 8 CFR \u00a7245.24",
+      "law": "INA \u00a7101(a)(15)(S); INA \u00a7101(a)(15)(U); INA \u00a7212(d)(14); INA \u00a7214(p); INA \u00a7245(m); 8 U.S.C. \u00a7101; 8 U.S.C. \u00a71182; 8 U.S.C. \u00a71184; 8 U.S.C. \u00a71255; 8 U.S.C. \u00a71367; 8 CFR \u00a7212.17; 8 CFR \u00a7214.14; 8 CFR \u00a7245.24",
       "description": "Parent of a U-1 crime victim who is under 21 years of age.",
       "subcategory": "U",
       "category": "NIV \u2014 Humanitarian"
@@ -724,7 +724,7 @@
       "id": "U-5",
       "name": "Sibling of U-1 (Minor)",
       "group": "NIV",
-      "law": "INA \u00a7101(a)(15)(S); INA \u00a7101(a)(15)(T); INA \u00a7101(a)(15)(U)(i)(III); INA \u00a7101(a)(15)(U)(ii)(I); INA \u00a7101(a)(15)(U)(ii)(II); INA \u00a7101(a)(15)(U)(iii); INA \u00a7212(a)(3)(E); INA \u00a7212(a)(4)(C); INA \u00a7212(a)(9)(B); INA \u00a7212(a)(9)(C); INA \u00a7212(d)(1); INA \u00a7212(d)(13); INA \u00a7212(d)(14); INA \u00a7212(d)(3)(A); INA \u00a7214(b); INA \u00a7214(k); INA \u00a7214(n); INA \u00a7214(o); INA \u00a7214(p)(6); INA \u00a7221(g); INA \u00a7245(m); 8 U.S.C. \u00a7101; 8 U.S.C. \u00a71101; 8 U.S.C. \u00a71182; 8 U.S.C. \u00a71184; 8 U.S.C. \u00a71255; 8 U.S.C. \u00a71367; 18 U.S.C. \u00a71351; 8 CFR \u00a7212.17; 8 CFR \u00a7214.14; 8 CFR \u00a7245.24",
+      "law": "INA \u00a7101(a)(15)(S); INA \u00a7101(a)(15)(U); INA \u00a7212(d)(14); INA \u00a7214(p); INA \u00a7245(m); 8 U.S.C. \u00a7101; 8 U.S.C. \u00a71182; 8 U.S.C. \u00a71184; 8 U.S.C. \u00a71255; 8 U.S.C. \u00a71367; 8 CFR \u00a7212.17; 8 CFR \u00a7214.14; 8 CFR \u00a7245.24",
       "description": "Unmarried sibling under 18 of a U-1 crime victim who is under 21.",
       "subcategory": "U",
       "category": "NIV \u2014 Humanitarian"
@@ -733,7 +733,7 @@
       "id": "V-1",
       "name": "Spouse of LPR (Long-Pending)",
       "group": "NIV",
-      "law": "INA \u00a7101(a)(15)(K); INA \u00a7101(a)(15)(N); INA \u00a7101(a)(15)(V)(i); INA \u00a7101(a)(27)(I); INA \u00a7101(a)(27)(L); INA \u00a7101(b)(1); INA \u00a7203(a); INA \u00a7203(d); INA \u00a7204(a)(1); INA \u00a7212(a); INA \u00a7212(d)(3)(A); INA \u00a7214(b); 8 U.S.C. \u00a71101; 8 U.S.C. \u00a71153; 8 U.S.C. \u00a71154; 8 U.S.C. \u00a71182; 8 U.S.C. \u00a71184; LIFE Act \u00a71102",
+      "law": "INA \u00a7101(a)(15)(K); INA \u00a7101(a)(15)(N); INA \u00a7101(a)(27)(I); INA \u00a7101(a)(27)(L); INA \u00a7101(b)(1); INA \u00a7203(a); INA \u00a7203(d); INA \u00a7204(a)(1); INA \u00a7212(a); INA \u00a7212(d)(3)(A); INA \u00a7214(b); 8 U.S.C. \u00a71101; 8 U.S.C. \u00a71153; 8 U.S.C. \u00a71154; 8 U.S.C. \u00a71182; 8 U.S.C. \u00a71184",
       "description": "Spouse of a lawful permanent resident who has an I-130 petition pending for 3+ years.",
       "subcategory": "V",
       "category": "NIV \u2014 Family"
@@ -742,7 +742,7 @@
       "id": "V-2",
       "name": "Child of LPR (Long-Pending)",
       "group": "NIV",
-      "law": "INA \u00a7101(a)(15)(K); INA \u00a7101(a)(15)(N); INA \u00a7101(a)(15)(V)(ii); INA \u00a7101(a)(27)(I); INA \u00a7101(a)(27)(L); INA \u00a7101(b)(1); INA \u00a7203(a); INA \u00a7203(d); INA \u00a7204(a)(1); INA \u00a7212(a); INA \u00a7212(d)(3)(A); INA \u00a7214(b); 8 U.S.C. \u00a71101; 8 U.S.C. \u00a71153; 8 U.S.C. \u00a71154; 8 U.S.C. \u00a71182; 8 U.S.C. \u00a71184",
+      "law": "INA \u00a7101(a)(15)(K); INA \u00a7101(a)(15)(N); INA \u00a7101(a)(27)(I); INA \u00a7101(a)(27)(L); INA \u00a7101(b)(1); INA \u00a7203(a); INA \u00a7203(d); INA \u00a7204(a)(1); INA \u00a7212(a); INA \u00a7212(d)(3)(A); INA \u00a7214(b); 8 U.S.C. \u00a71101; 8 U.S.C. \u00a71153; 8 U.S.C. \u00a71154; 8 U.S.C. \u00a71182; 8 U.S.C. \u00a71184",
       "description": "Child of a lawful permanent resident who has an I-130 petition pending for 3+ years.",
       "subcategory": "V",
       "category": "NIV \u2014 Family"
@@ -751,7 +751,7 @@
       "id": "V-3",
       "name": "Derivative Child of V-1 / V-2",
       "group": "NIV",
-      "law": "INA \u00a7101(a)(15)(K); INA \u00a7101(a)(15)(N); INA \u00a7101(a)(15)(V)(iii); INA \u00a7101(a)(27)(I); INA \u00a7101(a)(27)(L); INA \u00a7101(b)(1); INA \u00a7203(a); INA \u00a7203(d); INA \u00a7204(a)(1); INA \u00a7212(a); INA \u00a7212(d)(3)(A); INA \u00a7214(b); 8 U.S.C. \u00a71101; 8 U.S.C. \u00a71153; 8 U.S.C. \u00a71154; 8 U.S.C. \u00a71182; 8 U.S.C. \u00a71184",
+      "law": "INA \u00a7101(a)(15)(K); INA \u00a7101(a)(15)(N); INA \u00a7101(a)(27)(I); INA \u00a7101(a)(27)(L); INA \u00a7101(b)(1); INA \u00a7203(a); INA \u00a7203(d); INA \u00a7204(a)(1); INA \u00a7212(a); INA \u00a7212(d)(3)(A); INA \u00a7214(b); 8 U.S.C. \u00a71101; 8 U.S.C. \u00a71153; 8 U.S.C. \u00a71154; 8 U.S.C. \u00a71182; 8 U.S.C. \u00a71184",
       "description": "Child of a V-1 or V-2 visa holder.",
       "subcategory": "V",
       "category": "NIV \u2014 Family"
@@ -760,7 +760,7 @@
       "id": "CW-1",
       "name": "CNMI Transitional Worker",
       "group": "NIV",
-      "law": "48 U.S.C. \u00a71806; 8 CFR \u00a7214.2; PL 110-229 \u00a76(d)",
+      "law": "48 U.S.C. \u00a71806; 8 CFR \u00a7214.2",
       "description": "Transitional worker in the Commonwealth of the Northern Mariana Islands during the federal immigration transition period.",
       "subcategory": "CW",
       "category": "NIV \u2014 Worker & Exchange"
@@ -769,7 +769,7 @@
       "id": "CW-2",
       "name": "Dependent of CW-1",
       "group": "NIV",
-      "law": "8 CFR \u00a7214.2; PL 110-229 \u00a76(d)",
+      "law": "8 CFR \u00a7214.2",
       "description": "Spouse or minor child of a CW-1 transitional worker.",
       "subcategory": "CW",
       "category": "NIV \u2014 Worker & Exchange"
@@ -778,7 +778,7 @@
       "id": "B-1_B-2",
       "name": "Combined Business & Pleasure Visitor",
       "group": "NIV",
-      "law": "INA \u00a7101(a)(15)(B); INA \u00a7101(a)(15)(K); INA \u00a7101(a)(33); INA \u00a7101(a)(6); INA \u00a7212(d)(5); INA \u00a7212(q); INA \u00a7214(b); 8 U.S.C. \u00a71101; 8 U.S.C. \u00a71182; 22 CFR \u00a741.81; PL 106-395",
+      "law": "INA \u00a7101(a)(15)(B); INA \u00a7214(b)",
       "description": "Combined classification for temporary visitors for both business and pleasure purposes.",
       "subcategory": "B",
       "category": "NIV \u2014 Visitor & Transit"
@@ -787,7 +787,7 @@
       "id": "H-1C",
       "name": "Registered Nurse (Shortage Area)",
       "group": "NIV",
-      "law": "INA \u00a7101(a)(15)(H)(i)(c); INA \u00a7212(m); INA \u00a7212(n); INA \u00a7212(r); INA \u00a7214(b); INA \u00a7214(h); 8 U.S.C. \u00a71101; 8 U.S.C. \u00a71182; 8 U.S.C. \u00a71184; Nursing Relief Act of 1999",
+      "law": "INA \u00a7101(a)(15)(H)(i)(c); INA \u00a7212(m); INA \u00a7212(n); INA \u00a7212(r); INA \u00a7214(b); INA \u00a7214(h); 8 U.S.C. \u00a71101; 8 U.S.C. \u00a71182; 8 U.S.C. \u00a71184",
       "description": "Registered nurse working in a health professional shortage area. Program expired but classification symbol remains in 22 CFR \u00a741.12.",
       "subcategory": "H",
       "category": "NIV \u2014 Worker & Exchange"
@@ -796,7 +796,7 @@
       "id": "E-3D",
       "name": "Dependent of E-3 Australian",
       "group": "NIV",
-      "law": "INA \u00a7101(a)(15)(E)(iii); INA \u00a7101(a)(45); INA \u00a7212(t)(1); INA \u00a7214(b); INA \u00a7214(e)(6); INA \u00a7214(g)(11)(B); INA \u00a7214(i)(1); INA \u00a7214(j)(2); INA \u00a7221(g); 8 U.S.C. \u00a71101; 8 U.S.C. \u00a71184; PL 109-13",
+      "law": "INA \u00a7101(a)(15)(E)(iii); PL 109-13",
       "description": "Spouse or child of E-3 Australian specialty occupation worker.",
       "subcategory": "E",
       "category": "NIV \u2014 Worker & Exchange"
@@ -805,7 +805,7 @@
       "id": "E-3R",
       "name": "Returning E-3",
       "group": "NIV",
-      "law": "INA \u00a7101(a)(15)(E)(iii); INA \u00a7101(a)(45); INA \u00a7212(t)(1); INA \u00a7214(b); INA \u00a7214(e)(6); INA \u00a7214(g)(11)(B); INA \u00a7214(i)(1); INA \u00a7214(j)(2); INA \u00a7221(g); 8 U.S.C. \u00a71101; 8 U.S.C. \u00a71184; PL 109-13",
+      "law": "INA \u00a7101(a)(15)(E)(iii); PL 109-13",
       "description": "E-3 Australian specialty occupation worker returning to the U.S. on a previously issued, unexpired E-3 visa.",
       "subcategory": "E",
       "category": "NIV \u2014 Worker & Exchange"
@@ -814,7 +814,7 @@
       "id": "N-8",
       "name": "Parent of SK3 / SN3",
       "group": "NIV",
-      "law": "INA \u00a7101(a)(15)(K); INA \u00a7101(a)(15)(N)(i); INA \u00a7101(a)(27)(I); INA \u00a7101(a)(27)(L); INA \u00a7101(b)(1); INA \u00a7203(a); INA \u00a7203(d); INA \u00a7204(a)(1); INA \u00a7212(a); INA \u00a7212(d)(3)(A); INA \u00a7214(b); 8 U.S.C. \u00a71101; 8 U.S.C. \u00a71153; 8 U.S.C. \u00a71154; 8 U.S.C. \u00a71182; 8 U.S.C. \u00a71184",
+      "law": "INA \u00a7101(a)(15)(K); INA \u00a7101(a)(15)(N); INA \u00a7101(a)(27)(I); INA \u00a7101(a)(27)(L); INA \u00a7101(b)(1); INA \u00a7203(a); INA \u00a7203(d); INA \u00a7204(a)(1); INA \u00a7212(a); INA \u00a7212(d)(3)(A); INA \u00a7214(b); 8 U.S.C. \u00a71101; 8 U.S.C. \u00a71153; 8 U.S.C. \u00a71154; 8 U.S.C. \u00a71182; 8 U.S.C. \u00a71184",
       "description": "Parent of an individual classified by DHS as SK3 (child of retired international org employee) or SN3 (child of retired NATO-6 civilian).",
       "subcategory": "N",
       "category": "NIV \u2014 Worker & Exchange"
@@ -823,7 +823,7 @@
       "id": "N-9",
       "name": "Child of N-8 or SK/SN Classified",
       "group": "NIV",
-      "law": "INA \u00a7101(a)(15)(K); INA \u00a7101(a)(15)(N)(ii); INA \u00a7101(a)(27)(I); INA \u00a7101(a)(27)(L); INA \u00a7101(b)(1); INA \u00a7203(a); INA \u00a7203(d); INA \u00a7204(a)(1); INA \u00a7212(a); INA \u00a7212(d)(3)(A); INA \u00a7214(b); 8 U.S.C. \u00a71101; 8 U.S.C. \u00a71153; 8 U.S.C. \u00a71154; 8 U.S.C. \u00a71182; 8 U.S.C. \u00a71184",
+      "law": "INA \u00a7101(a)(15)(K); INA \u00a7101(a)(15)(N); INA \u00a7101(a)(27)(I); INA \u00a7101(a)(27)(L); INA \u00a7101(b)(1); INA \u00a7203(a); INA \u00a7203(d); INA \u00a7204(a)(1); INA \u00a7212(a); INA \u00a7212(d)(3)(A); INA \u00a7214(b); 8 U.S.C. \u00a71101; 8 U.S.C. \u00a71153; 8 U.S.C. \u00a71154; 8 U.S.C. \u00a71182; 8 U.S.C. \u00a71184",
       "description": "Child of N-8 visa holder or individual classified by DHS as SK1, SK2, SK4, SN1, SN2, or SN4.",
       "subcategory": "N",
       "category": "NIV \u2014 Worker & Exchange"
