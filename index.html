@@ -22,7 +22,7 @@
 <title>U.S. Visa Classification System</title>
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700;800&family=Source+Serif+4:wght@400;500;600;700;800&family=Source+Code+Pro:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&family=Fira+Code:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 <script src="https://d3js.org/d3.v7.min.js"></script>
 <script src="shared.js"></script>
 <style>
@@ -43,7 +43,15 @@
     --link-spouse: #c586f0;
     --link-child: #6dd498;
     --link-derivative: #5ba4d9;
+    --font-body: 'Plus Jakarta Sans', system-ui, sans-serif;
+    --font-mono: 'DM Mono', monospace;
   }
+
+  [data-font="editorial"] { --font-body: 'Playfair Display', Georgia, serif; --font-mono: 'IBM Plex Mono', monospace; }
+  [data-font="technical"] { --font-body: 'JetBrains Mono', monospace; --font-mono: 'JetBrains Mono', monospace; }
+  [data-font="humanist"] { --font-body: 'Source Serif 4', Georgia, serif; --font-mono: 'Source Code Pro', monospace; }
+  [data-font="swiss"] { --font-body: 'Inter', system-ui, sans-serif; --font-mono: 'Fira Code', monospace; }
+  [data-font="brutalist"] { --font-body: 'Space Grotesk', system-ui, sans-serif; --font-mono: 'Space Mono', monospace; }
 
   [data-theme="light"] {
     --bg-deep: #f5f6f8;
@@ -138,7 +146,7 @@
   body {
     background: var(--bg-deep);
     color: var(--text-primary);
-    font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+    font-family: var(--font-body);
     overflow: hidden;
     height: 100vh;
     width: 100vw;
@@ -176,7 +184,7 @@
     border: 1px solid var(--border);
     padding: 5px 12px;
     border-radius: 6px;
-    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-family: var(--font-body);
     font-size: 11px;
     font-weight: 600;
     cursor: pointer;
@@ -243,7 +251,7 @@
     color: var(--text-muted);
     border: 1px solid var(--border);
     border-radius: 6px;
-    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-family: var(--font-body);
     font-size: 11px;
     font-weight: 600;
     cursor: pointer;
@@ -369,7 +377,7 @@
   }
 
   .detail-id {
-    font-family: 'DM Mono', monospace;
+    font-family: var(--font-mono);
     font-size: 28px;
     font-weight: 500;
     line-height: 1.2;
@@ -402,7 +410,7 @@
     line-height: 1.6;
   }
   .detail-value-mono {
-    font-family: 'DM Mono', monospace;
+    font-family: var(--font-mono);
     font-size: 12px;
     color: var(--text-muted);
   }
@@ -415,7 +423,7 @@
   }
 
   .detail-link-chip {
-    font-family: 'DM Mono', monospace;
+    font-family: var(--font-mono);
     font-size: 11px;
     background: var(--bg-deep);
     border: 1px solid var(--border);
@@ -458,7 +466,7 @@
   }
   .search-item:hover { background: var(--bg-surface); }
   .search-item .si-code {
-    font-family: 'DM Mono', monospace;
+    font-family: var(--font-mono);
     font-weight: 500;
     color: var(--text-primary);
   }
@@ -470,11 +478,19 @@
 <div id="toolbar">
   <h1 id="app-title">U.S. VISA CLASSIFICATION SYSTEM</h1>
   <div style="position:relative;">
-    <input type="text" id="search-input" placeholder="Search visa code..." style="background:var(--bg-deep);color:var(--text-primary);border:1px solid var(--border);padding:6px 28px 6px 12px;border-radius:6px;font-family:'Plus Jakarta Sans',sans-serif;font-size:11px;width:220px;outline:none;transition:border-color .2s;" autocomplete="off" onfocus="this.style.borderColor='var(--niv-accent)'" onblur="this.style.borderColor='var(--border)'">
+    <input type="text" id="search-input" placeholder="Search visa code..." style="background:var(--bg-deep);color:var(--text-primary);border:1px solid var(--border);padding:6px 28px 6px 12px;border-radius:6px;font-family:inherit;font-size:11px;width:220px;outline:none;transition:border-color .2s;" autocomplete="off" onfocus="this.style.borderColor='var(--niv-accent)'" onblur="this.style.borderColor='var(--border)'">
     <button id="search-clear" style="display:none;position:absolute;right:6px;top:50%;transform:translateY(-50%);background:none;border:none;color:var(--text-muted);font-size:14px;cursor:pointer;padding:0 4px;">&times;</button>
     <div id="search-results" style="display:none;position:absolute;top:100%;left:0;width:300px;max-height:280px;overflow-y:auto;background:var(--bg-panel);border:1px solid var(--border);border-radius:0 0 8px 8px;z-index:200;"></div>
   </div>
   <div class="spacer"></div>
+  <select id="font-select">
+    <option value="default">Default</option>
+    <option value="editorial">Editorial</option>
+    <option value="technical">Technical</option>
+    <option value="humanist">Humanist</option>
+    <option value="swiss">Swiss</option>
+    <option value="brutalist">Brutalist</option>
+  </select>
   <select id="theme-select">
     <option value="navy">Navy Dark</option>
     <option value="light">Light</option>
@@ -610,6 +626,10 @@ function generateLotteryTheme() {
   root.style.setProperty('--text-muted', isDark ? '#4a5470' : '#9ca3af');
   root.style.setProperty('--niv-accent', nivColors[0]);
   root.style.setProperty('--iv-accent', ivColors[0]);
+
+  // Randomize font
+  const randomFont = FONT_STYLES[Math.floor(Math.random() * FONT_STYLES.length)];
+  applyFont(randomFont);
 
   return {
     NIV: nivColors, IV: ivColors,
@@ -2047,6 +2067,28 @@ document.getElementById('btn-collapse').addEventListener('click', () => {
 
 document.getElementById('theme-select').addEventListener('change', e => {
   applyTheme(e.target.value);
+  currentRootData = null;
+  render();
+});
+
+const FONT_STYLES = ['default','editorial','technical','humanist','swiss','brutalist'];
+let currentFont = localStorage.getItem('visa-mill-font') || 'default';
+
+function applyFont(name) {
+  currentFont = name;
+  if (name === 'default') {
+    document.documentElement.removeAttribute('data-font');
+  } else {
+    document.documentElement.setAttribute('data-font', name);
+  }
+  localStorage.setItem('visa-mill-font', name);
+  document.getElementById('font-select').value = name;
+}
+
+applyFont(currentFont);
+
+document.getElementById('font-select').addEventListener('change', e => {
+  applyFont(e.target.value);
   currentRootData = null;
   render();
 });
