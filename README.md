@@ -10,11 +10,11 @@ The dataset was compiled from official U.S. government sources:
 
 | Source | What it provides |
 |---|---|
+| **9 FAM 402.1-402.18** | State Department Foreign Affairs Manual -- NIV classification guidance, statutory authorities, and processing procedures |
+| **9 FAM 502.2-502.7** | FAM -- IV classification guidance, family/employment/diversity/special immigrant procedures |
 | **INA / 8 U.S.C.** | Statutory definitions of all visa classifications -- nonimmigrant (101(a)(15)), immigrant preferences (203), special immigrants (101(a)(27)) |
 | **22 CFR Part 41** | Nonimmigrant classification symbols (41.12) and per-visa regulatory requirements |
 | **22 CFR Part 42** | Immigrant classification symbols (42.11) |
-| **9 FAM 402.1-402.18** | State Department Foreign Affairs Manual -- NIV classification guidance, statutory authorities, and processing procedures |
-| **9 FAM 502.2-502.7** | FAM -- IV classification guidance, family/employment/diversity/special immigrant procedures |
 | **DoS visa categories** | Department of State all visa categories listing (travel.state.gov) |
 | **DHS classes of admission** | DHS immigrant classes of admission (ohss.dhs.gov) |
 
