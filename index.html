@@ -12,9 +12,9 @@
   * { margin: 0; padding: 0; box-sizing: border-box; }
 
   :root {
-    --bg-deep: #080b14;
-    --bg-panel: #0e1221;
-    --bg-surface: #161d30;
+    --bg-deep: #111827;
+    --bg-panel: #1a2235;
+    --bg-surface: #243049;
     --border: #1e2740;
     --border-hover: #2a3654;
     --text-primary: #e8ecf4;
@@ -380,13 +380,23 @@
 </div>
 
 <div id="side-panel">
-  <div class="panel-empty" id="panel-empty">
+  <div class="panel-empty" id="panel-empty" style="display:none">
     <svg width="32" height="32" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1"><circle cx="8" cy="8" r="6"/><path d="M8 5v3M8 10v.5"/></svg>
     Select a node to inspect
     <span class="hint">Click any box in the tree</span>
   </div>
-  <div id="detail-panel">
-    <div id="detail-content"></div>
+  <div id="detail-panel" class="active">
+    <div id="detail-content">
+      <div class="detail-hero" style="border-top: 3px solid #e0e0e0; padding: 20px 20px 16px;">
+        <div class="detail-id" style="color:#e0e0e0">INA</div>
+        <div class="detail-name">Immigration &amp; Nationality Act of 1952, as amended</div>
+      </div>
+      <div class="detail-body">
+        <div class="detail-section"><span class="detail-label">Codification</span><div class="detail-value-mono">8 U.S.C. &sect;1101 et seq. (Public Law 82-414)</div></div>
+        <div class="detail-section"><span class="detail-label">Description</span><div class="detail-value">The foundational federal law governing all immigration to the United States. Defines all nonimmigrant classifications (&sect;101(a)(15)), immigrant preferences (&sect;203), and special immigrant categories (&sect;101(a)(27)).</div></div>
+        <div class="detail-section"><span class="detail-label">Loading...</span></div>
+      </div>
+    </div>
   </div>
 </div>
 
@@ -827,7 +837,7 @@ function _collapseDeep(node) {
 
 function blendWithBg(hex, amount) {
   // Blend a hex color with the background (#1a1a2e) at given amount
-  const bg = { r: 0x1a, g: 0x1a, b: 0x2e };
+  const bg = { r: 0x11, g: 0x18, b: 0x27 };
   const c = hexToRgb(hex);
   const r = Math.round(bg.r + (c.r - bg.r) * amount);
   const g = Math.round(bg.g + (c.g - bg.g) * amount);
@@ -1063,8 +1073,8 @@ function renderTree(g, root, w, h, svg, zoom) {
         totalTop = mainBox.y;
         totalBottom = mainBox.y + mainBox.height;
       }
-      const tw = Math.max(mainBox.width, hasSub ? subBox.width : 0);
-      const th = totalBottom - totalTop;
+      const tw = Math.max(mainBox.width, hasSub ? subBox.width : 0, 40);
+      const th = Math.max(totalBottom - totalTop, 14);
 
       const padL = 10;
       const padR = 24;
@@ -1105,6 +1115,18 @@ function renderTree(g, root, w, h, svg, zoom) {
       group.select('.node-subtitle')
         .attr('x', textX)
         .attr('text-anchor', 'start');
+
+      // Small green dot for principals (nodes that have outbound derivative/spouse/child links)
+      const nodeId = d.data.nodeData ? d.data.nodeData.id : null;
+      const isPrincipal = d.data._nodeType === 'principal' ||
+        (nodeId && rawData.links.some(l => l.source === nodeId && l.relation_type !== 'pathway'));
+      if (isPrincipal) {
+        group.append('circle')
+          .attr('cx', -padL + 3)
+          .attr('cy', rectY + 5)
+          .attr('r', 3)
+          .attr('fill', '#6dd498');
+      }
 
       // Store badge info for rendering on top of links later
       const type = d.data._nodeType;
@@ -1309,8 +1331,8 @@ function renderRadial(g, root, w, h, svg, zoom) {
 // ── Arc Overlays ──
 
 function drawArcOverlays(g) {
-  const showPathways = document.getElementById('toggle-pathways').checked;
-  const showMultiparent = document.getElementById('toggle-multiparent').checked;
+  const showPathways = false;
+  const showMultiparent = false;
 
   if (!showPathways && !showMultiparent) return;
 
@@ -1528,10 +1550,23 @@ searchClear.addEventListener('click', () => {
   clearSearch();
 });
 
+let searchTimeout = null;
+
 searchInput.addEventListener('focus', () => {
   if (!searchInput.value.trim() && rawData) {
     showAllSearchResults();
   }
+});
+
+searchInput.addEventListener('blur', () => {
+  // Delay so click on result fires before hiding
+  searchTimeout = setTimeout(() => {
+    searchResults.style.display = 'none';
+  }, 200);
+});
+
+searchInput.addEventListener('focus', () => {
+  clearTimeout(searchTimeout);
 });
 
 function showAllSearchResults() {
@@ -1610,14 +1645,19 @@ function searchAndExpand(visaId) {
   if (!node) return;
 
   selectedLeafId = visaId;
+
+  // Collapse everything first (accordion), then expand only the path
+  collapseAllNodes(currentRootData);
   expandPathTo(currentRootData, visaId);
-  render();
+
+  // Show detail FIRST (before render which might take time)
   showDetail(node);
 
-  // Center after render completes
-  requestAnimationFrame(() => {
-    centerOnNode(visaId);
-  });
+  // Then render tree
+  render();
+
+  // Center after render
+  setTimeout(() => centerOnNode(visaId), 50);
 }
 
 function centerOnNode(visaId) {
@@ -1629,9 +1669,9 @@ function centerOnNode(visaId) {
   const h = container.clientHeight;
   const scale = 0.85;
 
-  // Center node in the visible canvas area
-  const tx = w * 0.45 - pos.x * scale;
-  const ty = h * 0.45 - pos.y * scale;
+  // Center node exactly in the middle of the visible canvas
+  const tx = w / 2 - pos.x * scale;
+  const ty = h / 2 - pos.y * scale;
 
   currentSvg.transition().duration(600)
     .call(currentZoom.transform, d3.zoomIdentity.translate(tx, ty).scale(scale));
@@ -1686,8 +1726,6 @@ document.getElementById('layout-select').addEventListener('change', e => {
   render();
 });
 
-document.getElementById('toggle-pathways').addEventListener('change', () => render());
-document.getElementById('toggle-multiparent').addEventListener('change', () => render());
 
 window.addEventListener('resize', () => render());
 </script>
