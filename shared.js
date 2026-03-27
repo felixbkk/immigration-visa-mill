@@ -239,6 +239,9 @@ const INA_TO_USC = {
 const NAMED_ACT_PL = [
   ['TVPA', '106-386'], ['VTVPA', '106-386'],
   ['LIFE Act', '106-553'], ['Nursing Relief Act', '106-95'],
+  ['VAWA', '103-322'],
+  ['Refugee Act of 1980', '96-212'],
+  ['Refugee Relief Act', '83-203'],
 ];
 
 const INA_FRIENDLY = {
@@ -419,8 +422,13 @@ function parseCitation(p) {
   if (fam)
     return { url: famUrl(fam[1]), label: p };
   const pl = p.match(RE_PL);
-  if (pl && parseInt(pl[1]) >= 104)
-    return { url: govInfoUrl(pl[1], pl[2]), label: p };
+  if (pl) {
+    const congress = parseInt(pl[1]);
+    const url = congress >= 104
+      ? govInfoUrl(pl[1], pl[2])
+      : `https://www.govinfo.gov/app/search/%7B%22query%22%3A%22plawcitation%3A${pl[1]}-${pl[2]}%22%2C%22offset%22%3A0%7D`;
+    return { url, label: p };
+  }
   for (const [prefix, plNum] of NAMED_ACT_PL) {
     if (p.startsWith(prefix)) {
       const [c, n] = plNum.split('-');
