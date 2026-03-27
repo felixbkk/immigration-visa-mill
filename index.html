@@ -127,6 +127,16 @@
     filter: brightness(1.3);
   }
 
+  .node-selected .node-box {
+    stroke-width: 3 !important;
+    filter: brightness(1.5);
+  }
+
+  .node-selected .node-label {
+    fill: #fff !important;
+    font-weight: 700 !important;
+  }
+
   .node-label {
     fill: #f0f0f0;
     font-size: 13px;
@@ -165,8 +175,6 @@
 
   .link {
     fill: none;
-    stroke: #555;
-    stroke-width: 1;
   }
 
   .arc-overlay {
@@ -284,6 +292,17 @@
   .detail-link-chip.pathway { border-color: #ff7043; color: #ff7043; }
   .detail-link-chip.spouse { border-color: #ce93d8; color: #ce93d8; }
   .detail-link-chip.child { border-color: #a5d6a7; color: #a5d6a7; }
+
+  .search-item {
+    padding: 6px 12px;
+    cursor: pointer;
+    font-size: 12px;
+    border-bottom: 1px solid #1a1a2e;
+    transition: background 0.1s;
+  }
+  .search-item:hover { background: #1a1a2e; }
+  .search-item .si-code { font-weight: 700; color: #fff; }
+  .search-item .si-name { color: #999; margin-left: 6px; }
   .detail-link-chip.derivative { border-color: #90a4ae; color: #90a4ae; }
 
   #detail-panel .detail-refs {
@@ -308,6 +327,11 @@
 
 <div id="toolbar">
   <h1>U.S. VISA CLASSIFICATION SYSTEM</h1>
+  <div style="position:relative;">
+    <input type="text" id="search-input" placeholder="Search visa code..." style="background:#1a1a2e;color:#fff;border:1px solid #444;padding:4px 28px 4px 10px;border-radius:4px;font-size:12px;width:200px;outline:none;" autocomplete="off">
+    <button id="search-clear" style="display:none;position:absolute;right:4px;top:50%;transform:translateY(-50%);background:none;border:none;color:#999;font-size:14px;cursor:pointer;padding:0 4px;">&times;</button>
+    <div id="search-results" style="display:none;position:absolute;top:100%;left:0;width:280px;max-height:240px;overflow-y:auto;background:#16213e;border:1px solid #444;border-radius:0 0 6px 6px;z-index:200;"></div>
+  </div>
   <div class="spacer"></div>
   <select id="layout-select">
     <option value="tree">Top-Down Tree</option>
@@ -431,11 +455,15 @@ let currentLayout = 'tree';
 let nodePositions = {};
 let currentRootData = null;
 let currentUpdateFn = null;
+let selectedLeafId = null;
+let currentSvg = null;
+let currentZoom = null;
 
 // ── Data Loading ──
 
 d3.json('visa_data.json').then(data => {
   rawData = data;
+  currentRootData = null; // force fresh hierarchy build
   buildLegend();
   render();
 });
@@ -462,20 +490,104 @@ function transformToHierarchy(data) {
     for (const cat of Object.keys(groups[grp]).sort()) {
       const subChildren = [];
       for (const sub of Object.keys(groups[grp][cat]).sort()) {
-        const leafChildren = groups[grp][cat][sub]
-          .sort((a, b) => a.id.localeCompare(b.id))
-          .map(n => ({
+        const allLeaves = groups[grp][cat][sub]
+          .sort((a, b) => a.id.localeCompare(b.id));
+
+        const leafIds = new Set(allLeaves.map(n => n.id));
+
+        // Find internal links (both source and target in this subcategory)
+        const internalLinks = data.links.filter(l =>
+          leafIds.has(l.source) && leafIds.has(l.target)
+        );
+
+        let subKids;
+
+        if (internalLinks.length === 0) {
+          // No internal connections — all leaves stay flat
+          subKids = allLeaves.map(n => ({
             name: n.id,
             nodeData: n,
             _children: null,
             children: null,
           }));
+        } else {
+          // Link-based clustering
+          const inbound = new Set(internalLinks.map(l => l.target));
+          const outbound = new Set(internalLinks.map(l => l.source));
+
+          // Principals: have outbound but no inbound (within subcategory)
+          const principals = allLeaves.filter(n =>
+            outbound.has(n.id) && !inbound.has(n.id)
+          );
+
+          // Build cluster for each principal
+          const assigned = new Set(); // track which derivatives are already assigned
+          const clusters = [];
+
+          for (const principal of principals.sort((a, b) => a.id.localeCompare(b.id))) {
+            // Find direct derivatives of this principal within the subcategory
+            const derivativeIds = internalLinks
+              .filter(l => l.source === principal.id && leafIds.has(l.target))
+              .map(l => l.target);
+
+            const clusterLeaves = [principal];
+            for (const did of derivativeIds) {
+              if (!assigned.has(did)) {
+                const dNode = allLeaves.find(n => n.id === did);
+                if (dNode) {
+                  clusterLeaves.push(dNode);
+                  assigned.add(did);
+                }
+              }
+            }
+            assigned.add(principal.id);
+
+            if (clusterLeaves.length === 1) {
+              // Principal with no unassigned derivatives — stays flat
+              clusters.push({
+                name: principal.id,
+                nodeData: principal,
+                _children: null,
+                children: null,
+              });
+            } else {
+              // Principal IS the intermediate — derivatives are its children
+              const derivOnly = clusterLeaves.filter(n => n.id !== principal.id);
+              clusters.push({
+                name: principal.id,
+                nodeData: principal,
+                _nodeType: 'principal',
+                _category: cat,
+                children: null,
+                _children: derivOnly.map(n => ({
+                  name: n.id,
+                  nodeData: n,
+                  _children: null,
+                  children: null,
+                })),
+              });
+            }
+          }
+
+          // Orphans: not assigned to any cluster
+          const orphans = allLeaves
+            .filter(n => !assigned.has(n.id))
+            .map(n => ({
+              name: n.id,
+              nodeData: n,
+              _children: null,
+              children: null,
+            }));
+
+          subKids = [...clusters, ...orphans];
+        }
+
         subChildren.push({
           name: sub,
           _nodeType: 'subcategory',
           _category: cat,
           children: null,
-          _children: leafChildren,
+          _children: subKids,
         });
       }
       catChildren.push({
@@ -533,14 +645,15 @@ function render() {
     .scaleExtent([0.1, 4])
     .on('zoom', e => g.attr('transform', e.transform));
   svg.call(zoom);
+  currentSvg = svg;
+  currentZoom = zoom;
 
+  // Always rebuild hierarchy fresh (preserving expand/collapse state via currentRootData)
+  const freshResult = transformToHierarchy(rawData);
   if (!currentRootData) {
-    const result = transformToHierarchy(rawData);
-    currentRootData = result.root;
-    overlayLinks = result.overlays;
-  } else {
-    overlayLinks = transformToHierarchy(rawData).overlays;
+    currentRootData = freshResult.root;
   }
+  overlayLinks = freshResult.overlays;
 
   const root = d3.hierarchy(currentRootData);
 
@@ -556,6 +669,7 @@ function getNodeColor(d) {
   if (d.data._nodeType === 'hub') return HUB_COLORS[d.data.name] || '#fff';
   if (d.data._nodeType === 'category') return COLORS[d.data._fullCategory] || '#888';
   if (d.data._nodeType === 'subcategory') return COLORS[d.data._category] || '#888';
+  if (d.data._nodeType === 'intermediate' || d.data._nodeType === 'principal') return COLORS[d.data._category] || '#888';
   if (d.data.nodeData) {
     return COLORS[d.data.nodeData.category] || '#888';
   }
@@ -614,17 +728,51 @@ function collapseAllExcept(rootData, keep) {
 function _collapseSiblings(node, keep) {
   const kids = node.children || [];
   for (const child of kids) {
-    if (child === keep) continue; // don't touch the one being opened
+    if (child === keep) continue;
 
-    // If this child is at the same level as keep, collapse it
+    // Collapse this sibling if it's at the same level
     if (child._nodeType === keep._nodeType && child.children) {
+      // First collapse all descendants inside it
+      _collapseDeep(child);
       child._children = child.children;
       child.children = null;
     }
 
-    // Recurse to find deeper siblings to collapse
     _collapseSiblings(child, keep);
   }
+}
+
+function _collapseDeep(node) {
+  const kids = node.children || [];
+  for (const child of kids) {
+    _collapseDeep(child);
+    if (child.children && child._nodeType !== 'hub' && child._nodeType !== 'root') {
+      child._children = child.children;
+      child.children = null;
+    }
+  }
+}
+
+// ── Color Helpers ──
+
+function blendWithBg(hex, amount) {
+  // Blend a hex color with the background (#1a1a2e) at given amount
+  const bg = { r: 0x1a, g: 0x1a, b: 0x2e };
+  const c = hexToRgb(hex);
+  const r = Math.round(bg.r + (c.r - bg.r) * amount);
+  const g = Math.round(bg.g + (c.g - bg.g) * amount);
+  const b = Math.round(bg.b + (c.b - bg.b) * amount);
+  return `rgb(${r},${g},${b})`;
+}
+
+function hexToRgb(hex) {
+  hex = hex.replace('#', '');
+  if (hex.length === 3) hex = hex[0]+hex[0]+hex[1]+hex[1]+hex[2]+hex[2];
+  return {
+    r: parseInt(hex.slice(0, 2), 16),
+    g: parseInt(hex.slice(2, 4), 16),
+    b: parseInt(hex.slice(4, 6), 16),
+  };
 }
 
 // ── Label Helpers ──
@@ -633,15 +781,19 @@ function getMainLabel(d) {
   if (d.data._nodeType === 'root') return 'INA';
   if (d.data._nodeType === 'hub') return d.data.name;
   if (d.data._nodeType === 'category') {
-    const count = countDescendants(d.data);
-    return d.data.children ? d.data.name : `${d.data.name} (${count})`;
+    return d.data.name;
   }
   if (d.data._nodeType === 'subcategory') {
-    const count = (d.data._children || []).length;
     const fullName = SUBCATEGORY_NAMES[d.data.name] || '';
-    return d.data.children
-      ? `${d.data.name} — ${fullName}`
-      : `${d.data.name} — ${fullName} (${count})`;
+    return `${d.data.name} — ${fullName}`;
+  }
+  if (d.data._nodeType === 'intermediate') {
+    return d.data.name;
+  }
+  if (d.data._nodeType === 'principal') {
+    const nd = d.data.nodeData;
+    if (nd) return `${nd.id} — ${nd.name}`;
+    return d.data.name;
   }
   // Leaf node
   const nd = d.data.nodeData;
@@ -660,6 +812,11 @@ function getSubtitle(d) {
     return CATEGORY_DESCRIPTIONS[d.data._fullCategory] || '';
   }
   if (d.data._nodeType === 'subcategory') return null;
+  if (d.data._nodeType === 'intermediate') return null;
+  if (d.data._nodeType === 'principal') {
+    const nd = d.data.nodeData;
+    return nd ? nd.law : null;
+  }
   // Leaf: show law citation
   const nd = d.data.nodeData;
   if (nd) return nd.law;
@@ -669,7 +826,7 @@ function getSubtitle(d) {
 // ── Tree Layout ──
 
 function renderTree(g, root, w, h, svg, zoom) {
-  const treeLayout = d3.tree().nodeSize([20, 360]).separation((a, b) => {
+  const treeLayout = d3.tree().nodeSize([20, 100]).separation((a, b) => {
     // Bigger nodes get more space
     const aH = getNodeHeight(a);
     const bH = getNodeHeight(b);
@@ -679,12 +836,14 @@ function renderTree(g, root, w, h, svg, zoom) {
 
   function getNodeHeight(d) {
     const type = d.data._nodeType;
-    // Account for two-line labels (title + subtitle) + padding
+    // Estimated rendered height: text lines + padding (padY=10 top+bottom)
+    // Title ~15px + subtitle ~11px + padY*2=20 + gap 4px
     if (type === 'root') return 56;
     if (type === 'hub') return 52;
-    if (type === 'category') return 52; // title + long description subtitle
-    if (type === 'subcategory') return 38; // title + full name
-    return 34; // leaf: code + name + law subtitle
+    if (type === 'category') return 54;
+    if (type === 'subcategory') return 44;
+    if (type === 'intermediate' || type === 'principal') return 48;
+    return 48; // leaf: long title + law citation subtitle + padding
   }
 
   function update(source) {
@@ -695,37 +854,96 @@ function renderTree(g, root, w, h, svg, zoom) {
     const links = freshRoot.links();
     const dur = 500;
 
+    const boxWidths = new Map();
+
+    // ── Pre-measure: render hidden text to get widths per node ──
+    const measureG = g.append('g').attr('class', 'measure-tmp').style('visibility', 'hidden');
+    nodes.forEach(d => {
+      const mg = measureG.append('g');
+      const main = mg.append('text')
+        .attr('class', 'node-label')
+        .attr('font-size', d.data._nodeType === 'category' || d.data._nodeType === 'hub' ? '15px' : d.data._nodeType === 'subcategory' ? '13px' : '12px')
+        .text(getMainLabel(d));
+      const sub = mg.append('text')
+        .attr('class', 'node-subtitle')
+        .attr('font-size', '10px')
+        .text(getSubtitle(d) || '');
+      const mw = Math.max(main.node().getComputedTextLength(), sub.node().getComputedTextLength());
+      const padL = 10, padR = 24;
+      boxWidths.set(d, mw + padL + padR);
+    });
+    measureG.remove();
+
+    // ── Reposition nodes: each depth level starts after the widest box at the previous depth ──
+    const hGap = 30;
+    const maxWidthAtDepth = {};
+    nodes.forEach(d => {
+      const depth = d.depth;
+      const w = boxWidths.get(d) || 100;
+      if (!maxWidthAtDepth[depth] || w > maxWidthAtDepth[depth]) {
+        maxWidthAtDepth[depth] = w;
+      }
+    });
+
+    // Compute cumulative x position per depth
+    const depthX = { 0: 0 };
+    const maxDepth = Math.max(...Object.keys(maxWidthAtDepth).map(Number));
+    for (let i = 1; i <= maxDepth; i++) {
+      depthX[i] = depthX[i - 1] + (maxWidthAtDepth[i - 1] || 100) + hGap;
+    }
+
+    nodes.forEach(d => {
+      d.y = depthX[d.depth] || 0;
+    });
+
+    // Add fixed vertical gap between NIV and IV
+    const ivNodes = nodes.filter(d => {
+      let n = d;
+      while (n.parent) {
+        if (n.data._nodeType === 'hub' && n.data.name === 'IV') return true;
+        n = n.parent;
+      }
+      return d.data._nodeType === 'hub' && d.data.name === 'IV';
+    });
+    ivNodes.forEach(d => { d.x += 80; });
+
     nodePositions = {};
     nodes.forEach(d => {
       if (d.data.nodeData) nodePositions[d.data.nodeData.id] = { x: d.y, y: d.x };
     });
 
-    // ── Links ──
-    g.selectAll('.link').remove();
-    g.selectAll('.link-path')
-      .data(links, d => d.target.data.name + '|' + (d.target.parent ? d.target.parent.data.name : ''))
-      .join('path')
-      .attr('class', 'link')
-      .attr('d', d3.linkHorizontal().x(d => d.y).y(d => d.x));
-
     // ── Nodes ──
     g.selectAll('.node').remove();
+    g.selectAll('.link').remove();
 
     const nodeGroups = g.selectAll('.node')
       .data(nodes, d => d.data.name + '|' + (d.parent ? d.parent.data.name : ''))
       .join('g')
-      .attr('class', 'node')
+      .attr('class', d => {
+        const isSelected = (d.data.nodeData && d.data.nodeData.id === selectedLeafId) ||
+          (d.data._nodeType === 'principal' && d.data.nodeData && d.data.nodeData.id === selectedLeafId);
+        return isSelected ? 'node node-selected' : 'node';
+      })
       .attr('transform', d => `translate(${d.y},${d.x})`)
       .style('cursor', 'pointer')
       .on('click', (event, d) => {
         event.stopPropagation();
-        if (d.data.nodeData) {
+        if (d.data._nodeType === 'principal') {
+          // Principal: show its own detail AND expand/collapse children
+          selectedLeafId = d.data.nodeData.id;
           showDetail(d.data.nodeData);
+          toggleNode(d, freshRoot);
+          update(d);
           return;
         }
-        // Show category/hub description
+        if (d.data.nodeData) {
+          selectedLeafId = d.data.nodeData.id;
+          showDetail(d.data.nodeData);
+          update(d);
+          return;
+        }
+        selectedLeafId = null;
         showCategoryDetail(d);
-        // Also expand/collapse (except root)
         if (d.data._nodeType !== 'root') {
           toggleNode(d, freshRoot);
           update(d);
@@ -737,8 +955,10 @@ function renderTree(g, root, w, h, svg, zoom) {
       .attr('class', d => {
         if (d.data._nodeType === 'category' || d.data._nodeType === 'hub')
           return 'node-label node-label-category';
-        if (d.data._nodeType === 'subcategory')
+        if (d.data._nodeType === 'subcategory' || d.data._nodeType === 'intermediate')
           return 'node-label node-label-subcategory';
+        if (d.data._nodeType === 'principal')
+          return 'node-label node-label-leaf';
         return 'node-label node-label-leaf';
       })
       .attr('dy', d => getSubtitle(d) ? '-0.2em' : '0.35em')
@@ -793,13 +1013,20 @@ function renderTree(g, root, w, h, svg, zoom) {
         .attr('height', rectH)
         .attr('rx', 5)
         .attr('fill', () => {
+          // Principals look like leaves regardless of expand state
+          if (d.data._nodeType === 'principal') {
+            return blendWithBg(getNodeColor(d), 0.15);
+          }
+          if (hasChildren(d) && !d.data.children) return '#1a1a2e';
           const c = getNodeColor(d);
-          return hasChildren(d) && !d.data.children
-            ? 'rgba(30,30,60,0.8)'
-            : c + '22';
+          return blendWithBg(c, 0.15);
         })
         .attr('stroke', getNodeColor(d))
-        .attr('stroke-width', 1.5);
+        .attr('stroke-width', d.data._nodeType === 'principal' ? 1.5 :
+          (hasChildren(d) && !d.data.children) ? 1 : 1.5);
+
+      // Store box width for link routing
+      boxWidths.set(d, rectW);
 
       group.select('.node-label')
         .attr('x', textX)
@@ -808,7 +1035,78 @@ function renderTree(g, root, w, h, svg, zoom) {
       group.select('.node-subtitle')
         .attr('x', textX)
         .attr('text-anchor', 'start');
+
+      // Store badge info for rendering on top of links later
+      const type = d.data._nodeType;
+      if (type === 'category' || type === 'subcategory' || type === 'intermediate' || type === 'principal') {
+        const count = type === 'category'
+          ? countDescendants(d.data)
+          : (d.data._children || d.data.children || []).length;
+        d._badgeInfo = {
+          x: d.y + rectW - padL + 4,
+          y: d.x + rectY + rectH / 2,
+          count,
+          color: getNodeColor(d),
+        };
+      }
     });
+
+    // ── Links (drawn after nodes so we have box widths) ──
+    g.selectAll('.link')
+      .data(links, d => d.target.data.name + '|' + (d.target.parent ? d.target.parent.data.name : ''))
+      .join('path')
+      .attr('class', 'link')
+      .attr('d', d => {
+        const padL = 10;
+        const sourceW = boxWidths.get(d.source) || 0;
+        const sx = d.source.y + sourceW - padL;
+        const sy = d.source.x;
+        const tx = d.target.y - padL;
+        const ty = d.target.x;
+        const mx = (sx + tx) / 2;
+        return `M${sx},${sy}C${mx},${sy} ${mx},${ty} ${tx},${ty}`;
+      })
+      .attr('stroke', d => {
+        // Find which hub (NIV/IV) this link belongs to
+        let node = d.source;
+        while (node.parent && node.data._nodeType !== 'hub') {
+          node = node.parent;
+        }
+        if (node.data.name === 'NIV') return '#4fc3f744';
+        if (node.data.name === 'IV') return '#ffb74d44';
+        return '#555';
+      })
+      .attr('stroke-width', d => {
+        // Thicker lines for deeper (more expanded) branches
+        const depth = d.source.depth;
+        if (depth <= 1) return 2;
+        if (depth <= 2) return 1.5;
+        return 1;
+      });
+
+    // ── Count badges (on top of links) ──
+    g.selectAll('.badge').remove();
+    const badgeNodes = nodes.filter(d => d._badgeInfo);
+    const badges = g.selectAll('.badge')
+      .data(badgeNodes)
+      .join('g')
+      .attr('class', 'badge')
+      .attr('transform', d => `translate(${d._badgeInfo.x},${d._badgeInfo.y})`);
+
+    badges.append('circle')
+      .attr('r', 11)
+      .attr('fill', '#1a1a2e')
+      .attr('stroke', d => d._badgeInfo.color)
+      .attr('stroke-width', 1);
+
+    badges.append('text')
+      .attr('dy', '0.35em')
+      .attr('text-anchor', 'middle')
+      .attr('fill', d => d._badgeInfo.color)
+      .attr('font-size', '10px')
+      .attr('font-weight', '700')
+      .style('pointer-events', 'none')
+      .text(d => d._badgeInfo.count);
 
     // Overlays
     g.selectAll('.arc-overlay').remove();
@@ -1079,11 +1377,12 @@ function showDetail(nodeData) {
 
 function closeDetail() {
   document.getElementById('detail-panel').classList.remove('active');
+  selectedLeafId = null;
+  render();
 }
 
 function navigateToNode(nodeId) {
-  const node = rawData.nodes.find(n => n.id === nodeId);
-  if (node) showDetail(node);
+  searchAndExpand(nodeId);
 }
 
 // ── Helpers ──
@@ -1140,6 +1439,124 @@ function collapseAllNodes(d) {
     d._children.forEach(c => collapseAllNodes(c));
   }
 }
+
+// ── Search ──
+
+const searchInput = document.getElementById('search-input');
+const searchResults = document.getElementById('search-results');
+const searchClear = document.getElementById('search-clear');
+
+searchInput.addEventListener('input', () => {
+  searchClear.style.display = searchInput.value ? 'block' : 'none';
+});
+searchClear.addEventListener('click', () => {
+  clearSearch();
+});
+
+searchInput.addEventListener('input', () => {
+  const q = searchInput.value.trim().toLowerCase();
+  if (!q || !rawData) {
+    searchResults.style.display = 'none';
+    searchResults.innerHTML = '';
+    return;
+  }
+  const matches = rawData.nodes.filter(n =>
+    n.id.toLowerCase().includes(q) ||
+    n.name.toLowerCase().includes(q)
+  ).slice(0, 15);
+
+  if (matches.length === 0) {
+    searchResults.style.display = 'none';
+    return;
+  }
+
+  searchResults.innerHTML = matches.map(n =>
+    `<div class="search-item" data-id="${n.id}"><span class="si-code">${n.id}</span><span class="si-name">${n.name}</span></div>`
+  ).join('');
+  searchResults.style.display = 'block';
+
+  searchResults.querySelectorAll('.search-item').forEach(el => {
+    el.addEventListener('click', () => {
+      const id = el.dataset.id;
+      searchAndExpand(id);
+      clearSearch();
+    });
+  });
+});
+
+searchInput.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') clearSearch();
+  if (e.key === 'Enter') {
+    const first = searchResults.querySelector('.search-item');
+    if (first) {
+      searchAndExpand(first.dataset.id);
+      clearSearch();
+    }
+  }
+});
+
+function clearSearch() {
+  searchInput.value = '';
+  searchResults.style.display = 'none';
+  searchResults.innerHTML = '';
+  searchClear.style.display = 'none';
+}
+
+function searchAndExpand(visaId) {
+  if (!rawData || !currentRootData) return;
+
+  const node = rawData.nodes.find(n => n.id === visaId);
+  if (!node) return;
+
+  selectedLeafId = visaId;
+  expandPathTo(currentRootData, visaId);
+  render();
+  showDetail(node);
+
+  // Center on the found node
+  centerOnNode(visaId);
+}
+
+function centerOnNode(visaId) {
+  const pos = nodePositions[visaId];
+  if (!pos || !currentSvg || !currentZoom) return;
+
+  const container = document.getElementById('canvas-container');
+  const w = container.clientWidth;
+  const h = container.clientHeight;
+  const scale = 0.85;
+
+  // Position node at right-center: 70% across, 50% down
+  const tx = w * 0.7 - pos.x * scale;
+  const ty = h * 0.5 - pos.y * scale;
+
+  currentSvg.transition().duration(600)
+    .call(currentZoom.transform, d3.zoomIdentity.translate(tx, ty).scale(scale));
+}
+
+function expandPathTo(treeNode, targetId) {
+  // If this node IS the target leaf, we found it
+  if (treeNode.nodeData && treeNode.nodeData.id === targetId) return true;
+
+  const kids = treeNode._children || treeNode.children || [];
+  for (const child of kids) {
+    if (expandPathTo(child, targetId)) {
+      // This ancestor is on the path — expand it
+      if (treeNode._children) {
+        treeNode.children = treeNode._children;
+      }
+      return true;
+    }
+  }
+  return false;
+}
+
+// Clear search when clicking any node on the tree
+document.getElementById('viz').addEventListener('click', () => {
+  if (searchInput.value) clearSearch();
+});
+
+// ── Expand / Collapse ──
 
 document.getElementById('btn-expand').addEventListener('click', () => {
   if (!currentRootData) return;
