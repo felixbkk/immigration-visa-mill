@@ -2054,7 +2054,8 @@ document.getElementById('theme-select').addEventListener('change', e => {
 // Easter egg: click title 5 times
 let titleClicks = 0;
 let titleTimer = null;
-document.getElementById('app-title').addEventListener('click', () => {
+document.getElementById('app-title').addEventListener('click', (e) => {
+  e.stopPropagation();
   titleClicks++;
   clearTimeout(titleTimer);
   titleTimer = setTimeout(() => { titleClicks = 0; }, 3000);
