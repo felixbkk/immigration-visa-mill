@@ -5,14 +5,34 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>U.S. Visa Classification System</title>
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <script src="https://d3js.org/d3.v7.min.js"></script>
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
 
+  :root {
+    --bg-deep: #080b14;
+    --bg-panel: #0e1221;
+    --bg-surface: #161d30;
+    --border: #1e2740;
+    --border-hover: #2a3654;
+    --text-primary: #e8ecf4;
+    --text-secondary: #8892a8;
+    --text-muted: #4a5470;
+    --niv-accent: #4fc3f7;
+    --iv-accent: #ffb74d;
+  }
+
+  ::-webkit-scrollbar { width: 6px; }
+  ::-webkit-scrollbar-track { background: var(--bg-deep); }
+  ::-webkit-scrollbar-thumb { background: #2a3654; border-radius: 3px; }
+  ::-webkit-scrollbar-thumb:hover { background: #3a4a6a; }
+
   body {
-    background: #1a1a2e;
-    color: #fff;
-    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    background: var(--bg-deep);
+    color: var(--text-primary);
+    font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
     overflow: hidden;
     height: 100vh;
     width: 100vw;
@@ -24,96 +44,94 @@
     left: 0;
     right: 0;
     height: 48px;
-    background: #16213e;
-    border-bottom: 1px solid #2a2a4a;
+    background: var(--bg-panel);
+    border-bottom: 1px solid var(--border);
     display: flex;
     align-items: center;
     padding: 0 20px;
-    gap: 16px;
+    gap: 12px;
     z-index: 100;
   }
 
   #toolbar h1 {
-    font-size: 14px;
-    font-weight: 600;
-    letter-spacing: 0.5px;
-    color: #ccc;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--text-secondary);
     white-space: nowrap;
   }
 
-  #toolbar select {
-    background: #1a1a2e;
-    color: #fff;
-    border: 1px solid #444;
-    padding: 4px 8px;
-    border-radius: 4px;
-    font-size: 13px;
+  #toolbar select, #toolbar button {
+    background: var(--bg-deep);
+    color: var(--text-secondary);
+    border: 1px solid var(--border);
+    padding: 5px 12px;
+    border-radius: 6px;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
     cursor: pointer;
+    transition: all .15s;
+  }
+  #toolbar select:hover, #toolbar button:hover {
+    border-color: var(--border-hover);
+    color: var(--text-primary);
   }
 
-  #toolbar label {
-    font-size: 12px;
-    color: #999;
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    cursor: pointer;
+  #toolbar .ref-link {
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--niv-accent);
+    text-decoration: none;
+    border: 1px solid #4fc3f730;
+    padding: 5px 12px;
+    border-radius: 6px;
+    transition: all .15s;
   }
-
-  #toolbar input[type="checkbox"] {
-    accent-color: #ff7043;
-  }
+  #toolbar .ref-link:hover { background: #4fc3f710; border-color: var(--niv-accent); }
 
   .spacer { flex: 1; }
 
-  #legend {
+  /* ── Side Panel ── */
+  #side-panel {
     position: fixed;
     top: 48px;
     right: 0;
-    width: 220px;
+    width: 320px;
     bottom: 0;
-    background: #16213e;
-    border-left: 1px solid #2a2a4a;
-    padding: 12px;
+    background: var(--bg-panel);
+    border-left: 1px solid var(--border);
     overflow-y: auto;
     z-index: 90;
-    font-size: 11px;
-  }
-
-  #legend h3 {
-    font-size: 12px;
-    color: #999;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    margin: 12px 0 6px 0;
-  }
-
-  #legend h3:first-child { margin-top: 0; }
-
-  .legend-item {
     display: flex;
-    align-items: center;
-    gap: 8px;
-    padding: 3px 0;
-    cursor: pointer;
-    opacity: 0.85;
-    transition: opacity 0.15s;
+    flex-direction: column;
   }
 
-  .legend-item:hover { opacity: 1; }
-
-  .legend-dot {
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    flex-shrink: 0;
+  #side-panel .panel-empty {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-muted);
+    font-size: 13px;
+    text-align: center;
+    padding: 32px;
+    gap: 12px;
+  }
+  #side-panel .panel-empty svg { opacity: 0.25; }
+  #side-panel .panel-empty .hint {
+    font-size: 11px;
+    color: var(--text-muted);
+    opacity: 0.6;
   }
 
   #canvas-container {
     position: fixed;
     top: 48px;
     left: 0;
-    right: 220px;
+    right: 320px;
     bottom: 0;
   }
 
@@ -194,133 +212,152 @@
     stroke-dasharray: 3,3;
   }
 
+  /* ── Detail Panel ── */
   #detail-panel {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 220px;
-    background: #16213e;
-    border-top: 2px solid #4fc3f7;
-    padding: 16px 24px;
-    z-index: 95;
+    padding: 0;
     display: none;
-    max-height: 35vh;
     overflow-y: auto;
+    flex: 1;
+  }
+  #detail-panel.active { display: flex; flex-direction: column; }
+
+  .detail-hero {
+    padding: 20px 20px 16px;
+    border-bottom: 1px solid var(--border);
+    position: relative;
+  }
+  .detail-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
   }
 
-  #detail-panel.active { display: block; }
-
-  #detail-panel .detail-header {
-    display: flex;
-    align-items: baseline;
-    gap: 12px;
-    margin-bottom: 8px;
-  }
-
-  #detail-panel .detail-id {
-    font-size: 20px;
-    font-weight: 700;
-  }
-
-  #detail-panel .detail-name {
-    font-size: 14px;
-    color: #ccc;
-  }
-
-  #detail-panel .detail-close {
+  .detail-close {
     position: absolute;
     top: 12px;
-    right: 16px;
+    right: 12px;
     background: none;
     border: none;
-    color: #999;
+    color: var(--text-muted);
     font-size: 18px;
     cursor: pointer;
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 6px;
+    transition: all .15s;
+  }
+  .detail-close:hover { background: var(--bg-surface); color: var(--text-primary); }
+
+  .detail-id {
+    font-family: 'DM Mono', monospace;
+    font-size: 28px;
+    font-weight: 500;
+    line-height: 1.2;
+  }
+  .detail-name {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--text-secondary);
+    margin-top: 4px;
+    line-height: 1.4;
   }
 
-  #detail-panel .detail-close:hover { color: #fff; }
+  .detail-body { padding: 16px 20px; flex: 1; }
 
-  #detail-panel .detail-row {
-    margin: 6px 0;
-    font-size: 12px;
-    line-height: 1.5;
+  .detail-section {
+    margin-bottom: 16px;
   }
-
-  #detail-panel .detail-label {
-    color: #999;
-    display: inline-block;
-    width: 90px;
+  .detail-label {
+    font-size: 9px;
+    font-weight: 700;
     text-transform: uppercase;
-    font-size: 10px;
-    letter-spacing: 0.5px;
+    letter-spacing: 1.5px;
+    color: var(--text-muted);
+    margin-bottom: 4px;
+    display: block;
+  }
+  .detail-value {
+    font-size: 12px;
+    color: var(--text-secondary);
+    line-height: 1.6;
+  }
+  .detail-value-mono {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    color: var(--text-muted);
   }
 
-  #detail-panel .detail-value {
-    color: #e0e0e0;
-  }
-
-  #detail-panel a {
-    color: #4fc3f7;
-    text-decoration: none;
-  }
-
-  #detail-panel a:hover { text-decoration: underline; }
-
-  #detail-panel .detail-links {
-    margin-top: 10px;
+  .detail-links {
     display: flex;
     flex-wrap: wrap;
     gap: 6px;
+    margin-top: 6px;
   }
 
-  #detail-panel .detail-link-chip {
-    background: #1a1a2e;
-    border: 1px solid #444;
-    border-radius: 12px;
-    padding: 2px 10px;
+  .detail-link-chip {
+    font-family: 'DM Mono', monospace;
     font-size: 11px;
+    background: var(--bg-deep);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 4px 10px;
     cursor: pointer;
-    color: #ccc;
-    transition: border-color 0.15s;
+    color: var(--text-secondary);
+    transition: all .15s;
+    display: flex;
+    align-items: center;
+    gap: 4px;
   }
-
-  #detail-panel .detail-link-chip:hover {
-    border-color: #4fc3f7;
-    color: #fff;
+  .detail-link-chip:hover { border-color: var(--niv-accent); color: var(--niv-accent); }
+  .detail-link-chip .chip-type {
+    font-size: 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    opacity: 0.6;
   }
+  .detail-link-chip.pathway { border-color: #ff8a6530; color: #ff8a65; }
+  .detail-link-chip.spouse { border-color: #c586f030; color: #c586f0; }
+  .detail-link-chip.child { border-color: #6dd49830; color: #6dd498; }
+  .detail-link-chip.derivative { border-color: #5ba4d930; color: #5ba4d9; }
 
-  .detail-link-chip.pathway { border-color: #ff7043; color: #ff7043; }
-  .detail-link-chip.spouse { border-color: #ce93d8; color: #ce93d8; }
-  .detail-link-chip.child { border-color: #a5d6a7; color: #a5d6a7; }
+  .detail-refs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 6px;
+  }
+  .detail-refs a {
+    font-size: 10px;
+    color: var(--text-muted);
+    border: 1px solid var(--border);
+    padding: 4px 10px;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: all .15s;
+  }
+  .detail-refs a:hover { border-color: var(--niv-accent); color: var(--niv-accent); text-decoration: none; }
 
+  /* ── Search Dropdown ── */
   .search-item {
-    padding: 6px 12px;
+    padding: 8px 14px;
     cursor: pointer;
     font-size: 12px;
-    border-bottom: 1px solid #1a1a2e;
+    border-bottom: 1px solid var(--border);
     transition: background 0.1s;
   }
-  .search-item:hover { background: #1a1a2e; }
-  .search-item .si-code { font-weight: 700; color: #fff; }
-  .search-item .si-name { color: #999; margin-left: 6px; }
-  .detail-link-chip.derivative { border-color: #90a4ae; color: #90a4ae; }
-
-  #detail-panel .detail-refs {
-    margin-top: 10px;
-    display: flex;
-    gap: 12px;
-    flex-wrap: wrap;
+  .search-item:hover { background: var(--bg-surface); }
+  .search-item .si-code {
+    font-family: 'DM Mono', monospace;
+    font-weight: 500;
+    color: var(--text-primary);
   }
-
-  #detail-panel .ref-link {
-    font-size: 11px;
-    color: #999;
-    border: 1px solid #333;
-    padding: 2px 8px;
-    border-radius: 4px;
-  }
-
-  #detail-panel .ref-link:hover { border-color: #4fc3f7; color: #4fc3f7; }
+  .search-item .si-name { color: var(--text-muted); margin-left: 8px; font-size: 11px; }
 </style>
 </head>
 <body>
@@ -328,31 +365,33 @@
 <div id="toolbar">
   <h1>U.S. VISA CLASSIFICATION SYSTEM</h1>
   <div style="position:relative;">
-    <input type="text" id="search-input" placeholder="Search visa code..." style="background:#1a1a2e;color:#fff;border:1px solid #444;padding:4px 28px 4px 10px;border-radius:4px;font-size:12px;width:200px;outline:none;" autocomplete="off">
-    <button id="search-clear" style="display:none;position:absolute;right:4px;top:50%;transform:translateY(-50%);background:none;border:none;color:#999;font-size:14px;cursor:pointer;padding:0 4px;">&times;</button>
-    <div id="search-results" style="display:none;position:absolute;top:100%;left:0;width:280px;max-height:240px;overflow-y:auto;background:#16213e;border:1px solid #444;border-radius:0 0 6px 6px;z-index:200;"></div>
+    <input type="text" id="search-input" placeholder="Search visa code..." style="background:var(--bg-deep);color:var(--text-primary);border:1px solid var(--border);padding:6px 28px 6px 12px;border-radius:6px;font-family:'Plus Jakarta Sans',sans-serif;font-size:11px;width:220px;outline:none;transition:border-color .2s;" autocomplete="off" onfocus="this.style.borderColor='var(--niv-accent)'" onblur="this.style.borderColor='var(--border)'">
+    <button id="search-clear" style="display:none;position:absolute;right:6px;top:50%;transform:translateY(-50%);background:none;border:none;color:var(--text-muted);font-size:14px;cursor:pointer;padding:0 4px;">&times;</button>
+    <div id="search-results" style="display:none;position:absolute;top:100%;left:0;width:300px;max-height:280px;overflow-y:auto;background:var(--bg-panel);border:1px solid var(--border);border-radius:0 0 8px 8px;z-index:200;"></div>
   </div>
   <div class="spacer"></div>
   <select id="layout-select">
     <option value="tree">Top-Down Tree</option>
     <option value="radial">Radial Dendrogram</option>
   </select>
-  <button id="btn-expand" style="background:#1a1a2e;color:#ccc;border:1px solid #444;padding:4px 10px;border-radius:4px;font-size:12px;cursor:pointer;">Expand All</button>
-  <button id="btn-collapse" style="background:#1a1a2e;color:#ccc;border:1px solid #444;padding:4px 10px;border-radius:4px;font-size:12px;cursor:pointer;">Collapse All</button>
-  <label><input type="checkbox" id="toggle-pathways"> Pathways</label>
-  <label><input type="checkbox" id="toggle-multiparent"> Multi-Parent</label>
-  <a href="reference.html" target="_blank" style="font-size:12px;color:#4fc3f7;text-decoration:none;border:1px solid #333;padding:4px 10px;border-radius:4px;">Reference Table</a>
+  <button id="btn-expand">Expand All</button>
+  <button id="btn-collapse">Collapse All</button>
+  <a class="ref-link" href="reference.html" target="_blank">Reference Table</a>
 </div>
 
-<div id="legend"></div>
+<div id="side-panel">
+  <div class="panel-empty" id="panel-empty">
+    <svg width="32" height="32" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1"><circle cx="8" cy="8" r="6"/><path d="M8 5v3M8 10v.5"/></svg>
+    Select a node to inspect
+    <span class="hint">Click any box in the tree</span>
+  </div>
+  <div id="detail-panel">
+    <div id="detail-content"></div>
+  </div>
+</div>
 
 <div id="canvas-container">
   <svg id="viz"></svg>
-</div>
-
-<div id="detail-panel">
-  <button class="detail-close" onclick="closeDetail()">&times;</button>
-  <div id="detail-content"></div>
 </div>
 
 <script>
@@ -464,7 +503,6 @@ let currentZoom = null;
 d3.json('visa_data.json').then(data => {
   rawData = data;
   currentRootData = null; // force fresh hierarchy build
-  buildLegend();
   render();
 });
 
@@ -1307,16 +1345,19 @@ function showCategoryDetail(d) {
   }
 
   content.innerHTML = `
-    <div class="detail-header">
-      <span class="detail-id" style="color:${color}">${title}</span>
-      <span class="detail-name">${subtitle}</span>
+    <div class="detail-hero" style="border-top: 3px solid ${color}; padding: 20px 20px 16px;">
+      <button class="detail-close" onclick="closeDetail()">&times;</button>
+      <div class="detail-id" style="color:${color}">${title}</div>
+      <div class="detail-name">${subtitle}</div>
     </div>
-    ${law ? `<div class="detail-row"><span class="detail-label">LAW</span><span class="detail-value">${law}</span></div>` : ''}
-    <div class="detail-row"><span class="detail-label">ABOUT</span><span class="detail-value">${desc}</span></div>
+    <div class="detail-body">
+      ${law ? `<div class="detail-section"><span class="detail-label">Law</span><div class="detail-value-mono">${law}</div></div>` : ''}
+      <div class="detail-section"><span class="detail-label">Description</span><div class="detail-value">${desc}</div></div>
+    </div>
   `;
 
-  panel.style.borderTopColor = color;
   panel.classList.add('active');
+  document.getElementById('panel-empty').style.display = 'none';
 }
 
 function showDetail(nodeData) {
@@ -1325,58 +1366,61 @@ function showDetail(nodeData) {
 
   const color = COLORS[nodeData.category] || '#888';
 
-  // Find all links involving this node
   const inbound = rawData.links.filter(l => l.target === nodeData.id);
   const outbound = rawData.links.filter(l => l.source === nodeData.id);
 
-  let linksHtml = '';
+  let connectionsHtml = '';
   if (inbound.length || outbound.length) {
-    linksHtml = '<div class="detail-row"><span class="detail-label">CONNECTIONS</span></div><div class="detail-links">';
+    connectionsHtml = '<div class="detail-section"><span class="detail-label">Connections</span><div class="detail-links">';
     for (const l of inbound) {
-      linksHtml += `<span class="detail-link-chip ${l.relation_type}" onclick="navigateToNode('${l.source}')" title="${l.label}">&larr; ${l.source} <small>(${l.relation_type})</small></span>`;
+      connectionsHtml += `<span class="detail-link-chip ${l.relation_type}" onclick="navigateToNode('${l.source}')"><span class="chip-type">${l.relation_type}</span> &larr; ${l.source}</span>`;
     }
     for (const l of outbound) {
-      linksHtml += `<span class="detail-link-chip ${l.relation_type}" onclick="navigateToNode('${l.target}')" title="${l.label}">${l.target} &rarr; <small>(${l.relation_type})</small></span>`;
+      connectionsHtml += `<span class="detail-link-chip ${l.relation_type}" onclick="navigateToNode('${l.target}')">${l.target} &rarr; <span class="chip-type">${l.relation_type}</span></span>`;
     }
-    linksHtml += '</div>';
+    connectionsHtml += '</div></div>';
   }
 
   let dhsHtml = '';
   if (nodeData.dhs_codes && nodeData.dhs_codes.length) {
-    dhsHtml = `<div class="detail-row"><span class="detail-label">DHS CODES</span><span class="detail-value">${nodeData.dhs_codes.join(', ')}</span></div>`;
+    dhsHtml = `<div class="detail-section"><span class="detail-label">DHS Codes</span><div class="detail-value-mono">${nodeData.dhs_codes.join(', ')}</div></div>`;
   }
 
-  // Build reference links
-  const lawText = nodeData.law || '';
-  let refsHtml = '<div class="detail-refs">';
+  let refsHtml = '<div class="detail-section"><span class="detail-label">References</span><div class="detail-refs">';
   if (nodeData.group === 'NIV') {
-    refsHtml += `<a class="ref-link" href="https://travel.state.gov/content/travel/en/us-visas/visa-information-resources/all-visa-categories.html" target="_blank">DoS Visa Categories</a>`;
+    refsHtml += `<a href="https://travel.state.gov/content/travel/en/us-visas/visa-information-resources/all-visa-categories.html" target="_blank">DoS Categories</a>`;
   } else {
-    refsHtml += `<a class="ref-link" href="https://ohss.dhs.gov/topics/immigration/lawful-permanent-residents/immigrant-classes-admission" target="_blank">DHS Classes</a>`;
+    refsHtml += `<a href="https://ohss.dhs.gov/topics/immigration/lawful-permanent-residents/immigrant-classes-admission" target="_blank">DHS Classes</a>`;
   }
-  refsHtml += `<a class="ref-link" href="https://uscode.house.gov/view.xhtml?req=granuleid:USC-prelim-title8-section1101&num=0" target="_blank">8 U.S.C. &sect;1101</a>`;
-  refsHtml += '</div>';
+  refsHtml += `<a href="https://uscode.house.gov/view.xhtml?req=granuleid:USC-prelim-title8-section1101&num=0" target="_blank">8 U.S.C. &sect;1101</a>`;
+  refsHtml += '</div></div>';
 
   content.innerHTML = `
-    <div class="detail-header">
-      <span class="detail-id" style="color:${color}">${nodeData.id}</span>
-      <span class="detail-name">${nodeData.name}</span>
+    <div class="detail-hero" style="--accent:${color}">
+      <div class="detail-hero" style="border-top: 3px solid ${color}; padding-top: 16px;">
+        <button class="detail-close" onclick="closeDetail()">&times;</button>
+        <div class="detail-id" style="color:${color}">${nodeData.id}</div>
+        <div class="detail-name">${nodeData.name}</div>
+      </div>
     </div>
-    <div class="detail-row"><span class="detail-label">LAW</span><span class="detail-value">${nodeData.law}</span></div>
-    <div class="detail-row"><span class="detail-label">GROUP</span><span class="detail-value">${nodeData.group} &mdash; ${nodeData.category}</span></div>
-    <div class="detail-row"><span class="detail-label">FAMILY</span><span class="detail-value">${nodeData.subcategory}</span></div>
-    <div class="detail-row"><span class="detail-label">ABOUT</span><span class="detail-value">${nodeData.description}</span></div>
-    ${dhsHtml}
-    ${linksHtml}
-    ${refsHtml}
+    <div class="detail-body">
+      <div class="detail-section"><span class="detail-label">Law</span><div class="detail-value-mono">${nodeData.law || 'N/A'}</div></div>
+      <div class="detail-section"><span class="detail-label">Classification</span><div class="detail-value">${nodeData.category}</div></div>
+      <div class="detail-section"><span class="detail-label">Family</span><div class="detail-value">${nodeData.subcategory}</div></div>
+      <div class="detail-section"><span class="detail-label">Description</span><div class="detail-value">${nodeData.description || 'N/A'}</div></div>
+      ${dhsHtml}
+      ${connectionsHtml}
+      ${refsHtml}
+    </div>
   `;
 
-  panel.style.borderTopColor = color;
   panel.classList.add('active');
+  document.getElementById('panel-empty').style.display = 'none';
 }
 
 function closeDetail() {
   document.getElementById('detail-panel').classList.remove('active');
+  document.getElementById('panel-empty').style.display = 'flex';
   selectedLeafId = null;
   render();
 }
@@ -1453,11 +1497,35 @@ searchClear.addEventListener('click', () => {
   clearSearch();
 });
 
+searchInput.addEventListener('focus', () => {
+  if (!searchInput.value.trim() && rawData) {
+    showAllSearchResults();
+  }
+});
+
+function showAllSearchResults() {
+  const all = rawData.nodes.slice(0, 30);
+  searchResults.innerHTML = all.map(n =>
+    `<div class="search-item" data-id="${n.id}"><span class="si-code">${n.id}</span><span class="si-name">${n.name}</span></div>`
+  ).join('');
+  searchResults.style.display = 'block';
+  searchResults.querySelectorAll('.search-item').forEach(el => {
+    el.addEventListener('click', () => {
+      searchAndExpand(el.dataset.id);
+      clearSearch();
+    });
+  });
+}
+
 searchInput.addEventListener('input', () => {
   const q = searchInput.value.trim().toLowerCase();
   if (!q || !rawData) {
-    searchResults.style.display = 'none';
-    searchResults.innerHTML = '';
+    if (document.activeElement === searchInput && rawData) {
+      showAllSearchResults();
+    } else {
+      searchResults.style.display = 'none';
+      searchResults.innerHTML = '';
+    }
     return;
   }
   const matches = rawData.nodes.filter(n =>
@@ -1526,8 +1594,8 @@ function centerOnNode(visaId) {
   const h = container.clientHeight;
   const scale = 0.85;
 
-  // Position node at right-center: 70% across, 50% down
-  const tx = w * 0.7 - pos.x * scale;
+  // Position node at 60% across the canvas (which already excludes the 320px panel), 50% down
+  const tx = w * 0.6 - pos.x * scale;
   const ty = h * 0.5 - pos.y * scale;
 
   currentSvg.transition().duration(600)

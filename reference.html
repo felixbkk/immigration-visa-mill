@@ -5,91 +5,660 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>U.S. Visa Classifications — Complete Reference</title>
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-body{background:#0d1117;color:#e6edf3;font-family:'Segoe UI',system-ui,-apple-system,sans-serif;line-height:1.6}
-a{color:#58a6ff;text-decoration:none}
-a:hover{text-decoration:underline}
 
-.container{max-width:1200px;margin:0 auto;padding:24px 20px 60px}
+:root {
+  --bg-deep: #080b14;
+  --bg-card: #0e1221;
+  --bg-card-hover: #131829;
+  --bg-surface: #161d30;
+  --border: #1e2740;
+  --border-hover: #2a3654;
+  --text-primary: #e8ecf4;
+  --text-secondary: #8892a8;
+  --text-muted: #4a5470;
+  --niv-accent: #4fc3f7;
+  --niv-glow: #4fc3f720;
+  --iv-accent: #ffb74d;
+  --iv-glow: #ffb74d20;
+  --link-spouse: #c586f0;
+  --link-child: #6dd498;
+  --link-derivative: #5ba4d9;
+  --link-pathway: #ff8a65;
+}
 
-header{text-align:center;padding:40px 0 20px}
-header h1{font-size:26px;font-weight:700;letter-spacing:1px;margin-bottom:6px}
-header p{color:#7d8590;font-size:14px;max-width:650px;margin:0 auto}
-header .sources{margin-top:10px;font-size:11px;color:#484f58}
-header .sources a{color:#58a6ff;opacity:0.7}
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--bg-deep); }
+::-webkit-scrollbar-thumb { background: #2a3654; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #3a4a6a; }
 
-.back-link{display:inline-flex;align-items:center;gap:6px;margin-bottom:16px;font-size:13px;color:#58a6ff}
+body {
+  background: var(--bg-deep);
+  color: var(--text-primary);
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  line-height: 1.6;
+  min-height: 100vh;
+}
 
-.search-bar{position:sticky;top:0;z-index:10;background:#0d1117;padding:14px 0;border-bottom:1px solid #21262d;margin-bottom:20px}
-.search-wrap{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
-.search-wrap input{flex:1;min-width:250px;background:#161b22;border:1px solid #30363d;border-radius:8px;padding:10px 14px;color:#e6edf3;font-size:14px;outline:none;transition:border-color .2s}
-.search-wrap input:focus{border-color:#58a6ff}
-.search-wrap input::placeholder{color:#484f58}
-.stats{font-size:12px;color:#7d8590;white-space:nowrap}
-.tab-bar{display:flex;gap:0;margin-top:12px;border-bottom:2px solid #21262d}
-.tab{padding:8px 20px;font-size:13px;font-weight:600;color:#7d8590;cursor:pointer;border-bottom:2px solid transparent;margin-bottom:-2px;transition:all .15s}
-.tab:hover{color:#c9d1d9}
-.tab.active{color:#58a6ff;border-bottom-color:#58a6ff}
+/* Subtle grid background */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image:
+    linear-gradient(var(--border) 1px, transparent 1px),
+    linear-gradient(90deg, var(--border) 1px, transparent 1px);
+  background-size: 60px 60px;
+  opacity: 0.15;
+  pointer-events: none;
+  z-index: 0;
+}
 
-.category{margin-bottom:16px;border:1px solid #21262d;border-radius:10px;overflow:hidden;background:#161b22}
-.cat-header{padding:14px 18px;cursor:pointer;display:flex;align-items:center;gap:12px;user-select:none;transition:background .15s}
-.cat-header:hover{background:#1c2128}
-.cat-header .arrow{font-size:11px;color:#484f58;transition:transform .2s;flex-shrink:0}
-.cat-header.open .arrow{transform:rotate(90deg)}
-.cat-header .cat-dot{width:10px;height:10px;border-radius:50%;flex-shrink:0}
-.cat-header h2{font-size:15px;font-weight:600;flex:1}
-.cat-header .cat-count{font-size:11px;color:#7d8590;background:#21262d;padding:2px 8px;border-radius:10px}
-.cat-desc{padding:0 18px 10px 40px;font-size:12px;color:#7d8590;display:none}
-.cat-header.open+.cat-desc{display:block}
-.cat-body{display:none}
-.cat-header.open~.cat-body{display:block}
+.container { max-width: 1100px; margin: 0 auto; padding: 0 24px 80px; position: relative; z-index: 1; margin-right: 320px; }
 
-.subcat{border-top:1px solid #21262d}
-.subcat-header{padding:8px 18px 8px 40px;font-size:13px;font-weight:600;color:#c9d1d9;display:flex;align-items:center;gap:8px}
-.subcat-badge{font-size:11px;font-weight:700;padding:1px 8px;border-radius:4px;background:#21262d;color:#7d8590}
+/* ── Side Panel ── */
+#side-panel {
+  position: fixed;
+  top: 49px;
+  right: 0;
+  width: 320px;
+  bottom: 0;
+  background: var(--bg-card);
+  border-left: 1px solid var(--border);
+  overflow-y: auto;
+  z-index: 90;
+  display: flex;
+  flex-direction: column;
+}
 
-table{width:100%;border-collapse:collapse}
-table tr{transition:background .1s}
-table tr:hover{background:#1c212899}
-table td{padding:5px 18px 5px 52px;font-size:12px;vertical-align:top;color:#c9d1d9}
-table td:first-child{width:80px;font-family:'Fira Code','Cascadia Code',monospace;font-weight:700;font-size:12px;white-space:nowrap;padding-left:56px}
-table td:nth-child(2){color:#7d8590;font-size:11px;width:220px}
-table td:nth-child(3){color:#484f58;font-size:11px}
-.highlight{background:#58a6ff33;border-radius:2px;padding:0 2px}
+#side-panel .panel-empty {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-muted);
+  font-size: 13px;
+  text-align: center;
+  padding: 24px;
+  flex-direction: column;
+  gap: 8px;
+}
+#side-panel .panel-empty svg { opacity: 0.3; }
 
-.no-results{text-align:center;padding:60px 20px;color:#484f58;font-size:15px;display:none}
+#side-detail {
+  display: none;
+  padding: 20px;
+  flex: 1;
+  overflow-y: auto;
+}
+#side-detail.active { display: block; }
 
-@media(max-width:600px){
-  table td{padding:4px 10px 4px 24px}
-  table td:first-child{padding-left:28px}
+#side-detail .detail-close {
+  float: right;
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  font-size: 18px;
+  cursor: pointer;
+  padding: 0 4px;
+  transition: color .15s;
+}
+#side-detail .detail-close:hover { color: var(--text-primary); }
+
+#side-detail .detail-code {
+  font-family: 'DM Mono', monospace;
+  font-size: 28px;
+  font-weight: 500;
+  margin-bottom: 2px;
+}
+#side-detail .detail-name {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  margin-bottom: 16px;
+  line-height: 1.4;
+}
+
+#side-detail .detail-section {
+  margin-bottom: 14px;
+}
+#side-detail .detail-label {
+  font-size: 9px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: var(--text-muted);
+  margin-bottom: 4px;
+}
+#side-detail .detail-value {
+  font-size: 12px;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+#side-detail .detail-value-mono {
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+#side-detail .detail-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 6px;
+}
+#side-detail .detail-chip {
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  padding: 4px 10px;
+  border-radius: 6px;
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all .15s;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+#side-detail .detail-chip:hover { border-color: var(--niv-accent); color: var(--niv-accent); }
+#side-detail .detail-chip .chip-rel {
+  font-size: 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  opacity: 0.6;
+}
+#side-detail .detail-chip.ch-spouse { border-color: #c586f030; }
+#side-detail .detail-chip.ch-child { border-color: #6dd49830; }
+#side-detail .detail-chip.ch-pathway { border-color: #ff8a6530; color: var(--link-pathway); }
+
+#side-detail .detail-refs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 8px;
+}
+#side-detail .ref-link {
+  font-size: 10px;
+  color: var(--text-muted);
+  border: 1px solid var(--border);
+  padding: 3px 10px;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: all .15s;
+}
+#side-detail .ref-link:hover { border-color: var(--niv-accent); color: var(--niv-accent); text-decoration: none; }
+
+#back-to-top {
+  position: fixed;
+  bottom: 24px;
+  left: calc(50% - 160px);
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+  font-size: 12px;
+  font-weight: 600;
+  padding: 8px 16px;
+  border-radius: 20px;
+  cursor: pointer;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .2s, transform .2s;
+  transform: translateY(10px);
+  z-index: 80;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+#back-to-top.visible { opacity: 1; pointer-events: auto; transform: translateY(0); }
+#back-to-top:hover { border-color: var(--niv-accent); color: var(--niv-accent); }
+
+@media (max-width: 900px) {
+  .container { margin-right: 0; }
+  #side-panel { display: none; }
+}
+
+/* ── Header ── */
+.top-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 24px;
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--bg-deep);
+  backdrop-filter: blur(12px);
+}
+
+.top-bar .back {
+  font-size: 13px;
+  color: var(--text-secondary);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: color .15s;
+}
+.top-bar .back:hover { color: var(--text-primary); text-decoration: none; }
+.top-bar .back svg { width: 16px; height: 16px; }
+
+.top-bar .title-group { text-align: center; }
+.top-bar .title {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+}
+.top-bar .subtitle {
+  font-size: 10px;
+  color: var(--text-muted);
+  letter-spacing: 0.5px;
+}
+
+.top-bar .sources {
+  display: flex;
+  gap: 12px;
+  font-size: 10px;
+}
+.top-bar .sources a {
+  color: var(--text-muted);
+  text-decoration: none;
+  transition: color .15s;
+}
+.top-bar .sources a:hover { color: var(--niv-accent); }
+
+/* ── Hero ── */
+.hero {
+  text-align: center;
+  padding: 48px 0 32px;
+}
+.hero h1 {
+  font-size: 42px;
+  font-weight: 800;
+  letter-spacing: -1px;
+  background: linear-gradient(135deg, var(--niv-accent) 0%, #a78bfa 50%, var(--iv-accent) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.hero .count {
+  font-family: 'DM Mono', monospace;
+  font-size: 14px;
+  color: var(--text-muted);
+  margin-top: 8px;
+  letter-spacing: 1px;
+}
+.hero .divider {
+  width: 60px;
+  height: 2px;
+  background: linear-gradient(90deg, var(--niv-accent), var(--iv-accent));
+  margin: 20px auto 0;
+  border-radius: 1px;
+}
+
+/* ── Search & Tabs ── */
+.controls {
+  position: sticky;
+  top: 49px;
+  z-index: 90;
+  background: var(--bg-deep);
+  padding: 16px 0 12px;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 24px;
+}
+
+.search-row {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.search-box {
+  flex: 1;
+  position: relative;
+}
+
+.search-box input {
+  width: 100%;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 11px 16px 11px 40px;
+  color: var(--text-primary);
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 14px;
+  outline: none;
+  transition: border-color .2s, box-shadow .2s;
+}
+.search-box input:focus {
+  border-color: var(--niv-accent);
+  box-shadow: 0 0 0 3px var(--niv-glow);
+}
+.search-box input::placeholder { color: var(--text-muted); }
+
+.search-box .search-icon {
+  position: absolute;
+  left: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-muted);
+  pointer-events: none;
+}
+
+.search-stats {
+  font-family: 'DM Mono', monospace;
+  font-size: 12px;
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+
+.tab-row {
+  display: flex;
+  gap: 2px;
+  margin-top: 12px;
+  background: var(--bg-card);
+  border-radius: 8px;
+  padding: 3px;
+}
+
+.tab {
+  flex: 1;
+  text-align: center;
+  padding: 7px 16px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-muted);
+  cursor: pointer;
+  border-radius: 6px;
+  transition: all .15s;
+  user-select: none;
+}
+.tab:hover { color: var(--text-secondary); background: var(--bg-surface); }
+.tab.active-niv { color: var(--niv-accent); background: var(--niv-glow); }
+.tab.active-iv { color: var(--iv-accent); background: var(--iv-glow); }
+.tab.active-all { color: var(--text-primary); background: var(--bg-surface); }
+
+/* ── Category Cards ── */
+.cat-card {
+  margin-bottom: 12px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+  background: var(--bg-card);
+  transition: border-color .2s;
+}
+.cat-card:hover { border-color: var(--border-hover); }
+
+.cat-trigger {
+  padding: 16px 20px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  user-select: none;
+  transition: background .15s;
+}
+.cat-trigger:hover { background: var(--bg-card-hover); }
+
+.cat-indicator {
+  width: 4px;
+  height: 32px;
+  border-radius: 2px;
+  flex-shrink: 0;
+}
+
+.cat-info { flex: 1; }
+.cat-info h2 {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.3;
+}
+.cat-info .cat-meta {
+  font-size: 11px;
+  color: var(--text-muted);
+  margin-top: 2px;
+  font-family: 'DM Mono', monospace;
+}
+
+.cat-badge {
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  font-weight: 500;
+  padding: 3px 10px;
+  border-radius: 6px;
+  letter-spacing: 0.5px;
+}
+.cat-badge-niv { background: var(--niv-glow); color: var(--niv-accent); border: 1px solid #4fc3f730; }
+.cat-badge-iv { background: var(--iv-glow); color: var(--iv-accent); border: 1px solid #ffb74d30; }
+
+.cat-count {
+  font-family: 'DM Mono', monospace;
+  font-size: 20px;
+  font-weight: 500;
+  color: var(--text-muted);
+  min-width: 36px;
+  text-align: right;
+}
+
+.cat-arrow {
+  color: var(--text-muted);
+  transition: transform .25s ease;
+  flex-shrink: 0;
+}
+.cat-card.open .cat-arrow { transform: rotate(90deg); }
+
+.cat-body {
+  display: none;
+  border-top: 1px solid var(--border);
+}
+.cat-card.open .cat-body { display: block; }
+
+/* ── Subcategory ── */
+.subcat-section { border-top: 1px solid var(--border); }
+.subcat-section:first-child { border-top: none; }
+
+.subcat-head {
+  padding: 10px 20px 10px 38px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 12px;
+}
+
+.subcat-code {
+  font-family: 'DM Mono', monospace;
+  font-weight: 500;
+  font-size: 12px;
+  padding: 2px 8px;
+  border-radius: 4px;
+  background: var(--bg-surface);
+  color: var(--text-secondary);
+  letter-spacing: 0.5px;
+}
+
+.subcat-name {
+  color: var(--text-muted);
+  font-size: 12px;
+}
+
+/* ── Visa Rows ── */
+.visa-row {
+  display: grid;
+  grid-template-columns: 90px 1fr auto;
+  gap: 0;
+  padding: 8px 20px 8px 50px;
+  align-items: start;
+  transition: background .1s;
+  position: relative;
+}
+.visa-row:hover { background: var(--bg-card-hover); cursor: pointer; }
+.visa-row.selected { background: var(--bg-surface); box-shadow: inset 3px 0 0 var(--niv-accent); }
+
+/* Dependency indicator */
+.visa-row .dep-line {
+  position: absolute;
+  left: 38px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+}
+.visa-row .dep-branch {
+  position: absolute;
+  left: 38px;
+  top: 50%;
+  width: 8px;
+  height: 2px;
+}
+
+.visa-row.is-principal { padding-top: 14px; }
+.visa-row.is-principal .visa-code { font-size: 13px; }
+.visa-row.is-derivative { padding-left: 68px; }
+.visa-row.is-derivative .dep-line { left: 56px; }
+.visa-row.is-derivative .dep-branch { left: 56px; }
+.visa-row.is-orphan { opacity: 0.7; }
+
+.visa-code {
+  font-family: 'DM Mono', monospace;
+  font-weight: 500;
+  font-size: 12px;
+  color: var(--text-primary);
+  white-space: nowrap;
+  padding-top: 1px;
+}
+
+.visa-details { min-width: 0; }
+.visa-name {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--text-secondary);
+  line-height: 1.4;
+}
+.visa-law {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  color: var(--text-muted);
+  margin-top: 1px;
+}
+
+.visa-relation {
+  font-size: 9px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 2px 8px;
+  border-radius: 4px;
+  white-space: nowrap;
+  align-self: center;
+}
+.rel-spouse { background: #c586f010; color: #9070a8; border: 1px solid #c586f018; font-size: 8px; }
+.rel-child { background: #6dd49810; color: #5a9e74; border: 1px solid #6dd49818; font-size: 8px; }
+.rel-derivative { background: #5ba4d910; color: #5a8aaa; border: 1px solid #5ba4d918; font-size: 8px; }
+.rel-principal-niv { background: var(--niv-accent); color: var(--bg-deep); border: 1px solid var(--niv-accent); font-weight: 700; font-size: 9px; }
+.rel-principal-iv { background: var(--iv-accent); color: var(--bg-deep); border: 1px solid var(--iv-accent); font-weight: 700; font-size: 9px; }
+
+.highlight { background: var(--niv-accent); color: var(--bg-deep); border-radius: 2px; padding: 0 2px; }
+
+/* ── Pathway Pills ── */
+.pathway-row {
+  padding: 6px 20px 6px 50px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.pathway-pill {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  padding: 3px 10px;
+  border-radius: 20px;
+  background: #ff8a6510;
+  color: var(--link-pathway);
+  border: 1px solid #ff8a6525;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.pathway-pill .arrow { font-size: 10px; opacity: 0.5; }
+
+/* ── No Results ── */
+.no-results {
+  text-align: center;
+  padding: 80px 20px;
+  color: var(--text-muted);
+  font-size: 15px;
+  display: none;
+}
+
+/* ── Responsive ── */
+@media (max-width: 700px) {
+  .top-bar { flex-direction: column; gap: 8px; }
+  .top-bar .sources { display: none; }
+  .hero h1 { font-size: 28px; }
+  .visa-row { grid-template-columns: 70px 1fr; }
+  .visa-relation { display: none; }
+  .visa-row.is-derivative { padding-left: 50px; }
 }
 </style>
 </head>
 <body>
+
+<div class="top-bar">
+  <a class="back" href="index.html">
+    <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M10 3L5 8l5 5"/></svg>
+    Visualization
+  </a>
+  <div class="title-group">
+    <div class="title">Visa Classifications</div>
+    <div class="subtitle">22 CFR &sect;41.12 &middot; 22 CFR &sect;42.11</div>
+  </div>
+  <div class="sources">
+    <a href="https://travel.state.gov/content/travel/en/us-visas/visa-information-resources/all-visa-categories.html" target="_blank">DoS</a>
+    <a href="https://ohss.dhs.gov/topics/immigration/lawful-permanent-residents/immigrant-classes-admission" target="_blank">DHS</a>
+    <a href="https://uscode.house.gov/view.xhtml?req=granuleid:USC-prelim-title8-section1101&num=0" target="_blank">8 USC</a>
+  </div>
+</div>
+
+<div id="side-panel">
+  <div class="panel-empty" id="panel-empty">
+    <svg width="32" height="32" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1"><circle cx="8" cy="8" r="6"/><path d="M8 5v3M8 10v.5"/></svg>
+    Click any visa code to see full details
+  </div>
+  <div id="side-detail">
+    <button class="detail-close" onclick="closeSidePanel()">&times;</button>
+    <div id="side-content"></div>
+  </div>
+</div>
+
 <div class="container">
 
-<a class="back-link" href="index.html">&larr; Back to Visualization</a>
+<div class="hero">
+  <h1>Reference</h1>
+  <div class="count" id="hero-count"></div>
+  <div class="divider"></div>
+</div>
 
-<header>
-  <h1>U.S. VISA CLASSIFICATIONS</h1>
-  <p>Complete reference of all nonimmigrant (NIV) and immigrant (IV) visa classification symbols per 22 CFR &sect;41.12 and &sect;42.11.</p>
-  <div class="sources">
-    <a href="https://travel.state.gov/content/travel/en/us-visas/visa-information-resources/all-visa-categories.html" target="_blank">DoS Visa Categories</a> &middot;
-    <a href="https://ohss.dhs.gov/topics/immigration/lawful-permanent-residents/immigrant-classes-admission" target="_blank">DHS Classes of Admission</a> &middot;
-    <a href="https://uscode.house.gov/view.xhtml?req=granuleid:USC-prelim-title8-section1101&num=0" target="_blank">8 U.S.C. &sect;1101</a>
+<div class="controls">
+  <div class="search-row">
+    <div class="search-box">
+      <span class="search-icon">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="7" cy="7" r="4.5"/><path d="M10.5 10.5L14 14"/></svg>
+      </span>
+      <input type="text" id="search" placeholder="Search codes, names, laws..." autocomplete="off">
+      <button id="search-clear" style="display:none;position:absolute;right:12px;top:50%;transform:translateY(-50%);background:none;border:none;color:var(--text-muted);font-size:16px;cursor:pointer;padding:0 4px;" onclick="clearRefSearch()">&times;</button>
+    </div>
+    <span class="search-stats" id="stats"></span>
   </div>
-</header>
-
-<div class="search-bar">
-  <div class="search-wrap">
-    <input type="text" id="search" placeholder="Search by code, name, law, or description (e.g. H-1B, spouse, INA 203...)">
-    <span class="stats" id="stats"></span>
-  </div>
-  <div class="tab-bar">
-    <div class="tab active" data-tab="all">All</div>
-    <div class="tab" data-tab="NIV">NIV &mdash; Nonimmigrant</div>
-    <div class="tab" data-tab="IV">IV &mdash; Immigrant</div>
+  <div class="tab-row">
+    <div class="tab active-all" data-tab="all">All</div>
+    <div class="tab" data-tab="NIV">Nonimmigrant</div>
+    <div class="tab" data-tab="IV">Immigrant</div>
   </div>
 </div>
 
@@ -98,13 +667,29 @@ table td:nth-child(3){color:#484f58;font-size:11px}
 
 </div>
 
+<button id="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+  <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 12V4M4 7l4-4 4 4"/></svg>
+  Back to top
+</button>
+
 <script>
 let DATA = null;
 let activeTab = 'all';
 
 fetch('visa_data.json').then(r => r.json()).then(data => {
   DATA = data;
-  document.getElementById('stats').textContent = `${data.nodes.length} classifications`;
+  // Build link index
+  DATA._outLinks = {};
+  DATA._inLinks = {};
+  for (const l of data.links) {
+    if (!DATA._outLinks[l.source]) DATA._outLinks[l.source] = [];
+    DATA._outLinks[l.source].push(l);
+    if (!DATA._inLinks[l.target]) DATA._inLinks[l.target] = [];
+    DATA._inLinks[l.target].push(l);
+  }
+  document.getElementById('hero-count').textContent =
+    `${data.nodes.length} classifications across ${new Set(data.nodes.map(n=>n.subcategory)).size} families`;
+  document.getElementById('stats').textContent = data.nodes.length;
   renderAll();
 });
 
@@ -112,7 +697,6 @@ function renderAll() {
   const query = document.getElementById('search').value.toLowerCase().trim();
   const container = document.getElementById('content');
 
-  // Filter nodes
   let nodes = DATA.nodes.filter(n => {
     if (activeTab !== 'all' && n.group !== activeTab) return false;
     if (!query) return true;
@@ -128,13 +712,15 @@ function renderAll() {
   if (nodes.length === 0) {
     container.innerHTML = '';
     document.getElementById('no-results').style.display = 'block';
-    document.getElementById('stats').textContent = '0 results';
+    document.getElementById('stats').textContent = '0';
     return;
   }
   document.getElementById('no-results').style.display = 'none';
-  document.getElementById('stats').textContent = `${nodes.length} of ${DATA.nodes.length}`;
+  document.getElementById('stats').textContent = query
+    ? `${nodes.length} / ${DATA.nodes.length}`
+    : `${DATA.nodes.length}`;
 
-  // Group by category, then subcategory
+  // Group
   const grouped = {};
   for (const n of nodes) {
     if (!grouped[n.category]) grouped[n.category] = {};
@@ -142,86 +728,162 @@ function renderAll() {
     grouped[n.category][n.subcategory].push(n);
   }
 
-  // Sort categories: NIV first, then IV
   const catOrder = Object.keys(grouped).sort((a, b) => {
-    const aIsNIV = a.startsWith('NIV');
-    const bIsNIV = b.startsWith('NIV');
-    if (aIsNIV && !bIsNIV) return -1;
-    if (!aIsNIV && bIsNIV) return 1;
+    const aN = a.startsWith('NIV'), bN = b.startsWith('NIV');
+    if (aN && !bN) return -1;
+    if (!aN && bN) return 1;
     return a.localeCompare(b);
   });
 
   let html = '';
   for (const cat of catOrder) {
     const subs = grouped[cat];
-    const totalInCat = Object.values(subs).reduce((s, arr) => s + arr.length, 0);
-    const isOpen = !!query; // auto-open when searching
-    const badge = cat.startsWith('NIV') ? 'NIV' : 'IV';
-    const badgeColor = cat.startsWith('NIV') ? '#4fc3f7' : '#ffb74d';
-    const catColor = getCatColor(cat);
+    const total = Object.values(subs).reduce((s, a) => s + a.length, 0);
+    const isOpen = !!query;
+    const isNIV = cat.startsWith('NIV');
+    const color = getCatColor(cat);
 
-    html += `<div class="category">`;
-    html += `<div class="cat-header${isOpen ? ' open' : ''}" onclick="this.classList.toggle('open')">`;
-    html += `<span class="arrow">&#9654;</span>`;
-    html += `<span class="cat-dot" style="background:${catColor}"></span>`;
-    html += `<h2>${cat}</h2>`;
-    html += `<span class="cat-count" style="color:${badgeColor}">${badge}</span>`;
-    html += `<span class="cat-count">${totalInCat}</span>`;
+    html += `<div class="cat-card${isOpen ? ' open' : ''}">`;
+    html += `<div class="cat-trigger" onclick="this.parentElement.classList.toggle('open')">`;
+    html += `<div class="cat-indicator" style="background:${color}"></div>`;
+    html += `<div class="cat-info"><h2>${cat.replace(/^(NIV|IV) — /, '')}</h2>`;
+    html += `<div class="cat-meta">${cat}</div></div>`;
+    html += `<span class="cat-badge ${isNIV ? 'cat-badge-niv' : 'cat-badge-iv'}">${isNIV ? 'NIV' : 'IV'}</span>`;
+    html += `<span class="cat-count">${total}</span>`;
+    html += `<span class="cat-arrow">&#9656;</span>`;
     html += `</div>`;
-
     html += `<div class="cat-body">`;
-    const subOrder = Object.keys(subs).sort();
-    for (const sub of subOrder) {
-      const codes = subs[sub];
-      html += `<div class="subcat">`;
-      html += `<div class="subcat-header"><span class="subcat-badge">${sub}</span> ${getSubName(sub)}</div>`;
-      html += `<table>`;
-      for (const c of codes.sort((a, b) => a.id.localeCompare(b.id))) {
-        const hl = query ? highlightMatch : noHighlight;
-        html += `<tr>`;
-        html += `<td>${hl(c.id, query)}</td>`;
-        html += `<td>${hl(c.name, query)}</td>`;
-        html += `<td>${hl(c.law || '', query)}</td>`;
-        html += `</tr>`;
+
+    for (const sub of Object.keys(subs).sort()) {
+      const codes = subs[sub].sort((a, b) => a.id.localeCompare(b.id));
+      html += `<div class="subcat-section">`;
+      html += `<div class="subcat-head"><span class="subcat-code">${sub}</span><span class="subcat-name">${getSubName(sub)}</span></div>`;
+
+      // Identify principals and derivatives within this subcategory
+      const subIds = new Set(codes.map(c => c.id));
+      const principals = new Set();
+      const derivativeOf = {}; // id -> {source, relation_type}
+
+      for (const c of codes) {
+        const outLinks = (DATA._outLinks[c.id] || []).filter(l => subIds.has(l.target));
+        const inLinks = (DATA._inLinks[c.id] || []).filter(l => subIds.has(l.source));
+        if (outLinks.length > 0 && inLinks.length === 0) principals.add(c.id);
+        if (inLinks.length > 0) {
+          derivativeOf[c.id] = inLinks[0]; // take first parent
+        }
       }
-      html += `</table></div>`;
+
+      // Render: principals first with their derivatives grouped, then orphans
+      const rendered = new Set();
+
+      for (const c of codes) {
+        if (!principals.has(c.id)) continue;
+        rendered.add(c.id);
+        const derivs = (DATA._outLinks[c.id] || [])
+          .filter(l => subIds.has(l.target))
+          .sort((a, b) => a.target.localeCompare(b.target));
+
+        // Principal row
+        html += renderVisaRow(c, query, 'principal', null, derivs.length > 0);
+
+        // Pathway pills for this principal
+        const pathways = (DATA._outLinks[c.id] || []).filter(l => l.relation_type === 'pathway');
+        const pathwaysIn = (DATA._inLinks[c.id] || []).filter(l => l.relation_type === 'pathway');
+        if (pathways.length || pathwaysIn.length) {
+          html += `<div class="pathway-row">`;
+          for (const p of pathwaysIn) html += `<span class="pathway-pill">${p.source} <span class="arrow">&rarr;</span> ${c.id}</span>`;
+          for (const p of pathways) html += `<span class="pathway-pill">${c.id} <span class="arrow">&rarr;</span> ${p.target}</span>`;
+          html += `</div>`;
+        }
+
+        // Derivative rows
+        for (let i = 0; i < derivs.length; i++) {
+          const dl = derivs[i];
+          const dn = codes.find(x => x.id === dl.target);
+          if (!dn || rendered.has(dn.id)) continue;
+          rendered.add(dn.id);
+          html += renderVisaRow(dn, query, 'derivative', dl.relation_type, false, i === derivs.length - 1);
+        }
+      }
+
+      // Orphans
+      for (const c of codes) {
+        if (rendered.has(c.id)) continue;
+        if (derivativeOf[c.id]) {
+          html += renderVisaRow(c, query, 'derivative', derivativeOf[c.id].relation_type, false, true);
+        } else {
+          html += renderVisaRow(c, query, 'orphan', null, false);
+        }
+      }
+
+      html += `</div>`;
     }
+
     html += `</div></div>`;
   }
 
   container.innerHTML = html;
 }
 
-function highlightMatch(text, query) {
-  if (!query) return text;
-  const idx = text.toLowerCase().indexOf(query);
-  if (idx === -1) return text;
-  return text.slice(0, idx) + '<span class="highlight">' + text.slice(idx, idx + query.length) + '</span>' + text.slice(idx + query.length);
+function renderVisaRow(node, query, role, relType, hasDerivsBelow, isLast) {
+  const hl = query ? highlightMatch : noHl;
+  let cls = 'visa-row';
+  if (role === 'principal') cls += ' is-principal';
+  if (role === 'derivative') cls += ' is-derivative';
+  if (role === 'orphan') cls += ' is-orphan';
+
+  let depIndicator = '';
+  if (role === 'derivative') {
+    const lineColor = relType === 'spouse' ? 'var(--link-spouse)'
+      : relType === 'child' ? 'var(--link-child)'
+      : 'var(--link-derivative)';
+    depIndicator = `<span class="dep-line" style="background:${lineColor};${isLast ? 'height:50%' : ''}"></span>`;
+    depIndicator += `<span class="dep-branch" style="background:${lineColor}"></span>`;
+  }
+
+  let relBadge = '';
+  if (role === 'principal') {
+    const isNIV = node.group === 'NIV';
+    relBadge = `<span class="visa-relation ${isNIV ? 'rel-principal-niv' : 'rel-principal-iv'}">principal</span>`;
+  }
+  else if (relType === 'spouse') relBadge = `<span class="visa-relation rel-spouse">spouse</span>`;
+  else if (relType === 'child') relBadge = `<span class="visa-relation rel-child">child</span>`;
+  else if (relType === 'derivative') relBadge = `<span class="visa-relation rel-derivative">derivative</span>`;
+
+  return `<div class="${cls}" onclick="showVisaDetail('${node.id}')" data-visa-id="${node.id}">
+    ${depIndicator}
+    <div class="visa-code">${hl(node.id, query)}</div>
+    <div class="visa-details">
+      <div class="visa-name">${hl(node.name, query)}</div>
+      <div class="visa-law">${hl(node.law || '', query)}</div>
+    </div>
+    ${relBadge}
+  </div>`;
 }
 
-function noHighlight(text) { return text; }
+function highlightMatch(text, q) {
+  if (!q) return text;
+  const i = text.toLowerCase().indexOf(q);
+  if (i === -1) return text;
+  return text.slice(0,i) + '<span class="highlight">' + text.slice(i, i+q.length) + '</span>' + text.slice(i+q.length);
+}
+function noHl(t) { return t; }
 
 function getCatColor(cat) {
-  const colors = {
-    'NIV — Diplomatic & Official': '#4fc3f7',
-    'NIV — Visitor & Transit': '#81d4fa',
-    'NIV — Worker & Exchange': '#29b6f6',
-    'NIV — Student & Exchange': '#4dd0e1',
-    'NIV — Family': '#80cbc4',
-    'NIV — Humanitarian': '#a5d6a7',
-    'IV — Immediate Relative': '#ffb74d',
-    'IV — Family Preference': '#ffa726',
-    'IV — Employment': '#ff8a65',
-    'IV — Diversity': '#ce93d8',
-    'IV — Humanitarian': '#ef9a9a',
-    'IV — Special Programs': '#fff176',
-    'IV — Administrative': '#b0bec5',
+  const c = {
+    'NIV — Diplomatic & Official':'#4fc3f7','NIV — Visitor & Transit':'#81d4fa',
+    'NIV — Worker & Exchange':'#29b6f6','NIV — Student & Exchange':'#4dd0e1',
+    'NIV — Family':'#80cbc4','NIV — Humanitarian':'#a5d6a7',
+    'IV — Immediate Relative':'#ffb74d','IV — Family Preference':'#ffa726',
+    'IV — Employment':'#ff8a65','IV — Diversity':'#ce93d8',
+    'IV — Humanitarian':'#ef9a9a','IV — Special Programs':'#fff176',
+    'IV — Administrative':'#b0bec5',
   };
-  return colors[cat] || '#7d8590';
+  return c[cat] || '#7d8590';
 }
 
 function getSubName(sub) {
-  const names = {
+  const n = {
     'A':'Diplomats & Officials','B':'Visitors','C':'Transit','CW':'CNMI Workers',
     'D':'Crewmembers','E':'Treaty Traders & Investors','F':'Academic Students',
     'G':"Int'l Organization Reps",'H':'Temporary Workers','I':'Foreign Media',
@@ -233,40 +895,128 @@ function getSubName(sub) {
     'IR':'Immediate Relatives','IB':'VAWA Self-Petitioners','IW':'Widows/Widowers',
     'Born Abroad':'Children Born Abroad','Diplomatic':'Diplomatic Birth',
     'Citizenship Restoration':'Citizenship Restored','Administrative':'Administrative',
-    'F1':'1st Pref — Unmarried Sons/Daughters of Citizens',
-    'F2':'2nd Pref — Spouses & Children of LPRs',
-    'F3':'3rd Pref — Married Sons/Daughters of Citizens',
-    'F4':'4th Pref — Siblings of Citizens',
-    'EB-1':'1st Pref — Extraordinary/Professors/Executives',
-    'EB-2':'2nd Pref — Advanced Degrees',
-    'EB-3':'3rd Pref — Skilled/Professional Workers',
-    'EB-4':'4th Pref — Special Immigrants',
-    'EB-5':'5th Pref — Investors (Pre-2022)',
-    'EB-5-Reform':'5th Pref — Investors (Post-2022)',
-    'GRATEFUL':'GRATEFUL Act — Gov\'t Employees',
+    'F1':'1st Pref: Unmarried Sons/Daughters of Citizens',
+    'F2':'2nd Pref: Spouses & Children of LPRs',
+    'F3':'3rd Pref: Married Sons/Daughters of Citizens',
+    'F4':'4th Pref: Siblings of Citizens',
+    'EB-1':'1st Pref: Extraordinary / Professors / Executives',
+    'EB-2':'2nd Pref: Advanced Degrees / Exceptional Ability',
+    'EB-3':'3rd Pref: Skilled Workers / Professionals',
+    'EB-4':'4th Pref: Special Immigrants',
+    'EB-5':'5th Pref: Investors (Pre-2022)',
+    'EB-5-Reform':'5th Pref: Investors (Post-2022 Reform)',
+    'GRATEFUL':'GRATEFUL Act: Gov\'t Employees Abroad',
     'Special Immigrant':'Returning Residents',
     'DV':'Diversity Visa Lottery',
     'Refugee':'Refugees','Asylee':'Asylees',
-    'T-Adjustment':'Trafficking Victim Adjustment',
-    'U-Adjustment':'Crime Victim Adjustment',
-    'NACARA':'Nicaraguan/Central American Relief',
+    'T-Adjustment':'Trafficking Victim \u2192 LPR',
+    'U-Adjustment':'Crime Victim \u2192 LPR',
+    'NACARA':'Nicaraguan / Central American Relief',
     'HRIFA':'Haitian Refugee Fairness Act',
     'IRCA':'Immigration Reform 1986','Amerasian':'Vietnam Amerasians',
     'CNMI':'Northern Mariana Islands','Registry':'Registry & Historical',
     'Legacy':'Expired Programs',
   };
-  return names[sub] || '';
+  return n[sub] || '';
 }
 
-// Search
-document.getElementById('search').addEventListener('input', renderAll);
+// ── Side Panel ──
 
-// Tabs
+function showVisaDetail(id) {
+  const node = DATA.nodes.find(n => n.id === id);
+  if (!node) return;
+
+  const isNIV = node.group === 'NIV';
+  const color = getCatColor(node.category);
+
+  // Highlight selected row
+  document.querySelectorAll('.visa-row.selected').forEach(el => el.classList.remove('selected'));
+  const row = document.querySelector(`[data-visa-id="${id}"]`);
+  if (row) row.classList.add('selected');
+
+  // Connections
+  const inbound = DATA.links.filter(l => l.target === id);
+  const outbound = DATA.links.filter(l => l.source === id);
+
+  let connectionsHtml = '';
+  if (inbound.length || outbound.length) {
+    connectionsHtml = `<div class="detail-section"><div class="detail-label">Connections</div><div class="detail-chips">`;
+    for (const l of inbound) {
+      const cls = l.relation_type === 'spouse' ? 'ch-spouse' : l.relation_type === 'child' ? 'ch-child' : l.relation_type === 'pathway' ? 'ch-pathway' : '';
+      connectionsHtml += `<span class="detail-chip ${cls}" onclick="showVisaDetail('${l.source}')"><span class="chip-rel">${l.relation_type}</span> &larr; ${l.source}</span>`;
+    }
+    for (const l of outbound) {
+      const cls = l.relation_type === 'spouse' ? 'ch-spouse' : l.relation_type === 'child' ? 'ch-child' : l.relation_type === 'pathway' ? 'ch-pathway' : '';
+      connectionsHtml += `<span class="detail-chip ${cls}" onclick="showVisaDetail('${l.target}')">${l.target} &rarr; <span class="chip-rel">${l.relation_type}</span></span>`;
+    }
+    connectionsHtml += '</div></div>';
+  }
+
+  let dhsHtml = '';
+  if (node.dhs_codes && node.dhs_codes.length) {
+    dhsHtml = `<div class="detail-section"><div class="detail-label">DHS Codes</div><div class="detail-value-mono">${node.dhs_codes.join(', ')}</div></div>`;
+  }
+
+  let refsHtml = '<div class="detail-section"><div class="detail-label">References</div><div class="detail-refs">';
+  if (isNIV) {
+    refsHtml += `<a class="ref-link" href="https://travel.state.gov/content/travel/en/us-visas/visa-information-resources/all-visa-categories.html" target="_blank">DoS Categories</a>`;
+  } else {
+    refsHtml += `<a class="ref-link" href="https://ohss.dhs.gov/topics/immigration/lawful-permanent-residents/immigrant-classes-admission" target="_blank">DHS Classes</a>`;
+  }
+  refsHtml += `<a class="ref-link" href="https://uscode.house.gov/view.xhtml?req=granuleid:USC-prelim-title8-section1101&num=0" target="_blank">8 U.S.C. &sect;1101</a>`;
+  refsHtml += '</div></div>';
+
+  document.getElementById('side-content').innerHTML = `
+    <div class="detail-code" style="color:${color}">${node.id}</div>
+    <div class="detail-name">${node.name}</div>
+    <div class="detail-section"><div class="detail-label">Law</div><div class="detail-value-mono">${node.law || 'N/A'}</div></div>
+    <div class="detail-section"><div class="detail-label">Classification</div><div class="detail-value">${node.group} &mdash; ${node.category}</div></div>
+    <div class="detail-section"><div class="detail-label">Family</div><div class="detail-value">${node.subcategory}</div></div>
+    <div class="detail-section"><div class="detail-label">Description</div><div class="detail-value">${node.description || 'N/A'}</div></div>
+    ${dhsHtml}
+    ${connectionsHtml}
+    ${refsHtml}
+  `;
+
+  document.getElementById('side-detail').classList.add('active');
+  document.getElementById('panel-empty').style.display = 'none';
+}
+
+function closeSidePanel() {
+  document.getElementById('side-detail').classList.remove('active');
+  document.getElementById('panel-empty').style.display = 'flex';
+  document.querySelectorAll('.visa-row.selected').forEach(el => el.classList.remove('selected'));
+}
+
+// ── Events ──
+
+const searchInput = document.getElementById('search');
+const searchClearBtn = document.getElementById('search-clear');
+
+searchInput.addEventListener('input', () => {
+  searchClearBtn.style.display = searchInput.value ? 'block' : 'none';
+  renderAll();
+});
+
+window.addEventListener('scroll', () => {
+  document.getElementById('back-to-top').classList.toggle('visible', window.scrollY > 400);
+});
+
+function clearRefSearch() {
+  searchInput.value = '';
+  searchClearBtn.style.display = 'none';
+  renderAll();
+  searchInput.focus();
+}
+
 document.querySelectorAll('.tab').forEach(tab => {
   tab.addEventListener('click', () => {
-    document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
-    tab.classList.add('active');
-    activeTab = tab.dataset.tab;
+    document.querySelectorAll('.tab').forEach(t => { t.className = 'tab'; });
+    const val = tab.dataset.tab;
+    activeTab = val;
+    if (val === 'all') tab.classList.add('active-all');
+    else if (val === 'NIV') tab.classList.add('active-niv');
+    else tab.classList.add('active-iv');
     renderAll();
   });
 });
