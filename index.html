@@ -578,6 +578,8 @@ const CAT_KEYS = [
   'IV — Diversity','IV — Humanitarian','IV — Special Programs','IV — Administrative',
 ];
 
+const FONT_STYLES = ['default','editorial','technical','humanist','swiss','brutalist'];
+
 function generateLotteryTheme() {
   const hue = Math.random() * 360;
   const isDark = Math.random() > 0.5;
@@ -2071,7 +2073,6 @@ document.getElementById('theme-select').addEventListener('change', e => {
   render();
 });
 
-const FONT_STYLES = ['default','editorial','technical','humanist','swiss','brutalist'];
 let currentFont = localStorage.getItem('visa-mill-font') || 'default';
 
 function applyFont(name) {
