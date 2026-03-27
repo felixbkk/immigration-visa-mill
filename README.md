@@ -28,11 +28,11 @@ All statutory and regulatory citations in the sidebar are clickable links:
 
 | Citation type | Links to | Example |
 |---|---|---|
+| FAM sections | fam.state.gov with deep-link anchors to specific subsections | `9 FAM 402.10-4(B)` links to `09FAM040210.html#M402_10_4_B` |
 | INA sections | Cornell LII (law.cornell.edu/uscode/text/8) with subsection deep-links | `INA 101(a)(15)(A)(i)` links to `8/1101#a_15_A_i` |
 | U.S.C. sections | Cornell LII | `48 U.S.C. 1806` links to `uscode/text/48/1806` |
 | CFR sections | Cornell LII (law.cornell.edu/cfr/text) with paragraph anchors | `8 CFR 214.2(h)` links to `cfr/text/8/214.2#h` |
 | CFR parts | Cornell LII | `22 CFR Part 41` links to `cfr/text/22/part-41` |
-| FAM sections | fam.state.gov with deep-link anchors to specific subsections | `9 FAM 402.10-4(B)` links to `09FAM040210.html#M402_10_4_B` |
 | Public Laws (104th Congress+) | GovInfo (govinfo.gov) HTML full text | `PL 110-229` links to `PLAW-110publ229` |
 | Named acts | GovInfo via PL number mapping | `TVPA` links to PL 106-386 |
 
