@@ -241,6 +241,144 @@ const NAMED_ACT_PL = [
   ['LIFE Act', '106-553'], ['Nursing Relief Act', '106-95'],
 ];
 
+const INA_FRIENDLY = {
+  'INA §101(a)(15)(A)(i)':'Ambassador / Diplomat',
+  'INA §101(a)(15)(A)(ii)':'Foreign Government Official',
+  'INA §101(a)(15)(A)(iii)':'Attendant of A-1 / A-2',
+  'INA §101(a)(15)(B)':'Visitor (Business / Pleasure)',
+  'INA §101(a)(15)(C)':'Transit',
+  'INA §101(a)(15)(D)(i)':'Crewmember (Same Vessel)',
+  'INA §101(a)(15)(D)(ii)':'Crewmember (Different Vessel)',
+  'INA §101(a)(15)(E)(i)':'Treaty Trader',
+  'INA §101(a)(15)(E)(ii)':'Treaty Investor',
+  'INA §101(a)(15)(E)(iii)':'Australian Specialty Occupation',
+  'INA §101(a)(15)(F)(i)':'Academic Student',
+  'INA §101(a)(15)(F)(ii)':'Spouse/Child of F-1',
+  'INA §101(a)(15)(F)(iii)':'Border Commuter Student',
+  'INA §101(a)(15)(G)(i)':'Principal Rep to Int\'l Org',
+  'INA §101(a)(15)(G)(ii)':'Other Int\'l Org Representative',
+  'INA §101(a)(15)(G)(iii)':'Rep of Non-Recognized Gov\'t',
+  'INA §101(a)(15)(G)(iv)':'Int\'l Org Officer / Employee',
+  'INA §101(a)(15)(G)(v)':'Attendant of G-1 through G-4',
+  'INA §101(a)(15)(H)(i)(b)':'Specialty Occupation Worker',
+  'INA §101(a)(15)(H)(i)(b1)':'FTA Professional (Chile / Singapore)',
+  'INA §101(a)(15)(H)(i)(c)':'Registered Nurse (Shortage Area)',
+  'INA §101(a)(15)(H)(ii)(a)':'Temporary Agricultural Worker',
+  'INA §101(a)(15)(H)(ii)(b)':'Temporary Non-Agricultural Worker',
+  'INA §101(a)(15)(H)(iii)':'Trainee / Special Education',
+  'INA §101(a)(15)(I)':'Foreign Media Representative',
+  'INA §101(a)(15)(J)':'Exchange Visitor',
+  'INA §101(a)(15)(K)(i)':'Fiancé(e) of U.S. Citizen',
+  'INA §101(a)(15)(K)(ii)':'Spouse of U.S. Citizen (LIFE Act)',
+  'INA §101(a)(15)(K)(iii)':'Child of K-3',
+  'INA §101(a)(15)(L)':'Intracompany Transferee',
+  'INA §101(a)(15)(M)(i)':'Vocational Student',
+  'INA §101(a)(15)(M)(ii)':'Spouse/Child of M-1',
+  'INA §101(a)(15)(M)(iii)':'Border Commuter Vocational Student',
+  'INA §101(a)(15)(N)(i)':'Parent of Special Immigrant',
+  'INA §101(a)(15)(N)(ii)':'Child of N-8',
+  'INA §101(a)(15)(O)(i)':'Extraordinary Ability',
+  'INA §101(a)(15)(O)(ii)':'Accompanying Artist / Athlete',
+  'INA §101(a)(15)(O)(iii)':'Dependent of O-1 / O-2',
+  'INA §101(a)(15)(P)(i)':'Internationally Recognized Athlete/Entertainer',
+  'INA §101(a)(15)(P)(ii)':'Reciprocal Exchange Artist',
+  'INA §101(a)(15)(P)(iii)':'Culturally Unique Artist',
+  'INA §101(a)(15)(P)(iv)':'Dependent of P-1/P-2/P-3',
+  'INA §101(a)(15)(Q)(i)':'Cultural Exchange Visitor',
+  'INA §101(a)(15)(R)(i)':'Religious Worker',
+  'INA §101(a)(15)(R)(ii)':'Dependent of R-1',
+  'INA §101(a)(15)(S)(i)':'Informant — Criminal Organization',
+  'INA §101(a)(15)(S)(ii)':'Informant — Terrorism',
+  'INA §101(a)(15)(T)(i)':'Trafficking Victim',
+  'INA §101(a)(15)(T)(ii)':'Family of Trafficking Victim',
+  'INA §101(a)(15)(U)(i)':'Crime Victim',
+  'INA §101(a)(15)(U)(ii)':'Family of Crime Victim',
+  'INA §101(a)(15)(V)(i)':'Spouse of LPR (Long-Pending)',
+  'INA §101(a)(15)(V)(ii)':'Child of LPR (Long-Pending)',
+  'INA §101(a)(15)(V)(iii)':'Derivative Child of V-1/V-2',
+  'INA §101(a)(27)(C)':'Minister of Religion',
+  'INA §101(a)(27)(D)(i)':'U.S. Gov\'t Employee Abroad',
+  'INA §101(a)(27)(D)(ii)':'Surviving Spouse/Child of Gov\'t Employee',
+  'INA §101(a)(27)(E)':'Panama Canal Company Employee',
+  'INA §101(a)(27)(H)':'Foreign Medical Graduate',
+  'INA §101(a)(27)(I)':'Retired Int\'l Org Employee',
+  'INA §101(a)(27)(J)':'Juvenile Court Dependent',
+  'INA §101(a)(27)(K)':'Armed Forces Member',
+  'INA §101(a)(27)(L)':'Retired NATO Civilian',
+  'INA §203(b)(1)(A)':'Extraordinary Ability',
+  'INA §203(b)(1)(B)':'Outstanding Professor / Researcher',
+  'INA §203(b)(1)(C)':'Multinational Manager / Executive',
+  'INA §203(b)(2)':'Advanced Degree / Exceptional Ability',
+  'INA §203(b)(3)(A)(i)':'Skilled Worker',
+  'INA §203(b)(3)(A)(ii)':'Professional (Baccalaureate)',
+  'INA §203(b)(3)(A)(iii)':'Other / Unskilled Worker',
+  'INA §203(b)(5)(A)':'Investor (Non-Targeted)',
+  'INA §203(b)(5)(B)':'Investor (Targeted Area)',
+  'INA §203(c)':'Diversity Visa Lottery',
+};
+
+const USC_FRIENDLY = {
+  '8/1101':'Definitions',
+  '8/1151':'Worldwide Level of Immigration',
+  '8/1152':'Per-Country Numerical Limitations',
+  '8/1153':'Allocation of Immigrant Visas',
+  '8/1154':'Procedure for Granting Immigrant Status',
+  '8/1157':'Annual Admission of Refugees',
+  '8/1158':'Asylum',
+  '8/1160':'Special Agricultural Workers',
+  '8/1182':'Inadmissible Aliens',
+  '8/1183':'Admission on Bond or Undertaking',
+  '8/1183a':'Affidavit of Support',
+  '8/1184':'Admission of Nonimmigrants',
+  '8/1186a':'Conditional Permanent Resident Status',
+  '8/1201':'Issuance of Visas',
+  '8/1254a':'Temporary Protected Status',
+  '8/1255':'Adjustment of Status',
+  '8/1255a':'Legalization (Pre-1982 Entrants)',
+  '8/1257':'Adjustment to Nonimmigrant Status',
+  '8/1259':'Record of Admission',
+  '8/1282':'Conditional Permits to Land',
+  '8/1359':'American Indians Born in Canada',
+  '8/1367':'Protections for Battered Immigrants',
+  '48/1806':'CNMI Immigration and Transition',
+  '18/1351':'Fraud and Related Activity',
+  '22/2669':'Foreign Service Personnel',
+  '22/3943':'Foreign Service Survivors',
+};
+
+const CFR_FRIENDLY = {
+  '8/204.2':'Petitions for Relatives',
+  '8/204.5':'Petitions for Employment-Based Immigrants',
+  '8/211.1':'Immigrant Visa Documentation',
+  '8/212.6':'Border Crossing Identification Cards',
+  '8/212.15':'Attestations for TN Professionals',
+  '8/212.16':'Waivers for T Nonimmigrants',
+  '8/212.17':'Waivers for U Nonimmigrants',
+  '8/214.2':'Nonimmigrant Requirements',
+  '8/214.3':'Student and Exchange Documentation',
+  '8/214.6':'TN Nonimmigrant Status',
+  '8/214.11':'T Nonimmigrant Processing',
+  '8/214.14':'U Nonimmigrant Status',
+  '8/245.23':'T Visa Adjustment',
+  '8/245.24':'U Visa Adjustment',
+  '22/41.12':'NIV Classification Symbols',
+  '22/41.21':'A Visa — Foreign Officials',
+  '22/41.22':'A-1 Visa Requirements',
+  '22/41.23':'C-2 Visa — Transit to UN',
+  '22/41.24':'G Visa — Int\'l Org Officials',
+  '22/41.25':'NATO Visa',
+  '22/41.31':'B Visa — Visitors',
+  '22/41.32':'Border Crossing Cards',
+  '22/41.51':'E Visa — Treaty Trader/Investor',
+  '22/41.61':'F/M Visa — Students',
+  '22/41.62':'J-1 Visa — Exchange Visitors',
+  '22/42.21':'IR Visa — Immediate Relatives',
+  '22/42.32':'EB Visa — Employment Preference',
+  '22/42.41':'Family-Based Immigrant Visas',
+  '22/42.42':'Conditional Resident Processing',
+  '20/656.10':'Labor Certification',
+};
+
 const RE_INA = /^INA\s*§(\d+[A-Z]?)((?:\([^)]+\))*)/;
 const RE_USC = /^(\d+)\s*U\.S\.C\.\s*§(\d+[a-z]?)/;
 const RE_CFR = /^(\d+)\s*CFR\s*§([\d.]+)((?:\([^)]+\))*)/;
@@ -263,13 +401,13 @@ function parseCitation(p) {
   p = p.trim();
   const ina = p.match(RE_INA);
   if (ina && INA_TO_USC[ina[1]])
-    return { url: `https://www.law.cornell.edu/uscode/text/8/${INA_TO_USC[ina[1]]}${parseSubs(ina[2])}`, label: p };
+    return { url: `https://www.law.cornell.edu/uscode/text/8/${INA_TO_USC[ina[1]]}${parseSubs(ina[2])}`, label: p, friendly: INA_FRIENDLY[p] };
   const usc = p.match(RE_USC);
   if (usc)
-    return { url: `https://www.law.cornell.edu/uscode/text/${usc[1]}/${usc[2]}`, label: p };
+    return { url: `https://www.law.cornell.edu/uscode/text/${usc[1]}/${usc[2]}`, label: p, friendly: USC_FRIENDLY[`${usc[1]}/${usc[2]}`] };
   const cfr = p.match(RE_CFR);
   if (cfr)
-    return { url: `https://www.law.cornell.edu/cfr/text/${cfr[1]}/${cfr[2]}${parseSubs(cfr[3])}`, label: p };
+    return { url: `https://www.law.cornell.edu/cfr/text/${cfr[1]}/${cfr[2]}${parseSubs(cfr[3])}`, label: p, friendly: CFR_FRIENDLY[`${cfr[1]}/${cfr[2]}`] };
   const cfrPart = p.match(RE_CFR_PART);
   if (cfrPart)
     return { url: `https://www.law.cornell.edu/cfr/text/${cfrPart[1]}/part-${cfrPart[2]}`, label: p };
@@ -319,7 +457,9 @@ function linkifyLaw(lawStr) {
   if (!lawStr) return 'N/A';
   return lawStr.split(/;\s*/).map(p => {
     const c = parseCitation(p);
-    return c ? `<a href="${c.url}" target="_blank">${c.label}</a>` : p.trim();
+    if (!c) return p.trim();
+    const link = `<a href="${c.url}" target="_blank">${c.label}</a>`;
+    return c.friendly ? `${link}<br><span style="font-size:10px;color:var(--text-muted);font-style:italic;padding-left:8px;">${c.friendly}</span>` : link;
   }).join('<br>');
 }
 
