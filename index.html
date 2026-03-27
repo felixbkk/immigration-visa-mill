@@ -343,6 +343,13 @@
   }
   .detail-refs a:hover { border-color: var(--niv-accent); color: var(--niv-accent); text-decoration: none; }
 
+  .detail-value-mono a {
+    color: var(--niv-accent);
+    text-decoration: none;
+    transition: opacity .15s;
+  }
+  .detail-value-mono a:hover { opacity: 0.8; text-decoration: underline; }
+
   /* ── Search Dropdown ── */
   .search-item {
     padding: 8px 14px;
@@ -370,10 +377,6 @@
     <div id="search-results" style="display:none;position:absolute;top:100%;left:0;width:300px;max-height:280px;overflow-y:auto;background:var(--bg-panel);border:1px solid var(--border);border-radius:0 0 8px 8px;z-index:200;"></div>
   </div>
   <div class="spacer"></div>
-  <select id="layout-select">
-    <option value="tree">Top-Down Tree</option>
-    <option value="radial">Radial Dendrogram</option>
-  </select>
   <button id="btn-expand">Expand All</button>
   <button id="btn-collapse">Collapse All</button>
   <a class="ref-link" href="reference.html" target="_blank">Reference Table</a>
@@ -388,8 +391,8 @@
   <div id="detail-panel" class="active">
     <div id="detail-content">
       <div class="detail-hero" style="border-top: 3px solid #e0e0e0; padding: 20px 20px 16px;">
-        <div class="detail-id" style="color:#e0e0e0">INA</div>
-        <div class="detail-name">Immigration &amp; Nationality Act of 1952, as amended</div>
+        <div class="detail-id" style="color:#e0e0e0">VISA MILL</div>
+        <div class="detail-name">Every visa the embassy wishes you'd stop asking about</div>
       </div>
       <div class="detail-body">
         <div class="detail-section"><span class="detail-label">Codification</span><div class="detail-value-mono">8 U.S.C. &sect;1101 et seq. (Public Law 82-414)</div></div>
@@ -498,6 +501,142 @@ const SUBCATEGORY_NAMES = {
   'Legacy': 'Expired / Historical Programs',
 };
 
+const SUBCATEGORY_FAM = {
+  // NIV — 9 FAM 402.X (verified page titles)
+  'A':'402.3',    // Officials & Employees of Foreign Gov'ts & Int'l Orgs
+  'B':'402.2',    // Tourists & Business Visitors
+  'C':'402.4',    // Transit
+  'CW':'402.18',  // CNMI Workers
+  'D':'402.8',    // Crew
+  'E':'402.9',    // Treaty Traders, Investors, Specialty Occupations
+  'F':'402.5',    // Students & Exchange Visitors (F, M, J)
+  'G':'402.3',    // Officials & Employees of Foreign Gov'ts & Int'l Orgs
+  'H':'402.10',   // Temporary Workers & Trainees
+  'I':'402.11',   // Information Media Representatives
+  'J':'402.5',    // Students & Exchange Visitors (F, M, J)
+  'K':'402.7',    // Fiancé(e) & Other NIV Family Members
+  'L':'402.12',   // Intracompany Transferees
+  'M':'402.5',    // Students & Exchange Visitors (F, M, J)
+  'N':'402.7',    // Fiancé(e) & Other NIV Family Members
+  'NATO':'402.3', // Officials & Employees of Foreign Gov'ts & Int'l Orgs
+  'O':'402.13',   // Extraordinary Ability
+  'P':'402.14',   // Athletes, Artists, Entertainers
+  'Q':'402.15',   // International Cultural Exchange
+  'R':'402.16',   // Religious Occupations
+  'S':'402.6',    // Witnesses, Informants & Victims (S, T, U)
+  'T':'402.6',    // Witnesses, Informants & Victims (S, T, U)
+  'TN':'402.17',  // USMCA Professionals
+  'U':'402.6',    // Witnesses, Informants & Victims (S, T, U)
+  'V':'402.7',    // Fiancé(e) & Other NIV Family Members
+  // IV — 9 FAM 502.X (verified page titles)
+  'IR':'502.2','IB':'502.2','IW':'502.2','Born Abroad':'502.2', // Family-Based
+  'F1':'502.2','F2':'502.2','F3':'502.2','F4':'502.2',          // Family Preference
+  'EB-1':'502.4','EB-2':'502.4','EB-3':'502.4',                 // Employment-Based
+  'EB-4':'502.5','GRATEFUL':'502.5','Special Immigrant':'502.5', // Special Immigrants
+  'EB-5':'502.4','EB-5-Reform':'502.4',                         // Employment-Based
+  'DV':'502.6',                                                  // Diversity
+  'Refugee':'502.7','Asylee':'502.7',                            // Other IV
+  'T-Adjustment':'502.7','U-Adjustment':'502.7',                 // Other IV
+  'NACARA':'502.7','HRIFA':'502.7',                              // Other IV
+  'IRCA':'502.7','Amerasian':'502.7','CNMI':'502.7',             // Other IV
+  'Registry':'502.7','Legacy':'502.7',                           // Other IV
+  'Diplomatic':'502.7','Citizenship Restoration':'502.7',        // Other IV
+  'Administrative':'502.7',                                      // Other IV
+};
+
+// Per-visa deep-link anchors (curated from FAM page structure)
+const VISA_FAM_ANCHORS = {
+  // 402.10 — H visas
+  'H-1B':'M402_10_4_B','H-1B1':'M402_10_5','H-1C':'M402_10_4_C',
+  'H-2A':'M402_10_4_D','H-2B':'M402_10_4_E','H-3':'M402_10_4_F','H-4':'M402_10_14',
+  // 402.2 — B visas
+  'B-1':'M402_2_5','B-2':'M402_2_4','B-1_B-2':'M402_2_4','BCC':'M402_2_7',
+  // 402.3 — A visas
+  'A-1':'M402_3_5_C','A-2':'M402_3_5_D_1','A-3':'M402_3_5_G',
+  // 402.3 — G visas
+  'G-1':'M402_3_7','G-2':'M402_3_7','G-3':'M402_3_7','G-4':'M402_3_7',
+  'G-5':'M402_3_9',
+  // 402.3 — NATO
+  'NATO-1':'M402_3_8','NATO-2':'M402_3_8','NATO-3':'M402_3_8',
+  'NATO-4':'M402_3_8','NATO-5':'M402_3_8','NATO-6':'M402_3_8','NATO-7':'M402_3_9',
+  // 402.3 — C-2/C-3 (on 402.3 page, not 402.4)
+  'C-2':'M402_3_6','C-3':'M402_3_6',
+  // 402.8 — D crew
+  'D-1':'M402_8_3_A','D-2':'M402_8_3_B',
+  // 402.4 — C transit
+  'C-1':'M402_4_6','C-1_D':'M402_8_5',
+  // 402.9 — E visas
+  'E-1':'M402_9_5','E-2':'M402_9_6','E-2C':'M402_9_6','E-3':'M402_9_8','E-3D':'M402_9_8','E-3R':'M402_9_8',
+  // 402.7 — K, N, V
+  'K-1':'M402_7_3','K-2':'M402_7_3','K-3':'M402_7_3','K-4':'M402_7_3',
+  'N-8':'M402_7_4','N-9':'M402_7_4',
+  'V-1':'M402_7_3','V-2':'M402_7_3','V-3':'M402_7_3',
+  // 402.5 — F, J, M
+  'F-1':'M402_5_5','F-2':'M402_5_5','F-3':'M402_5_5',
+  'J-1':'M402_5_6','J-2':'M402_5_6',
+  'M-1':'M402_5_5','M-2':'M402_5_5','M-3':'M402_5_5',
+  // 402.6 — S, T, U
+  'S-5':'M402_6_4_C','S-6':'M402_6_4_D','S-7':'M402_6_4_E',
+  'T-1':'M402_6_5','T-2':'M402_6_5','T-3':'M402_6_5',
+  'T-4':'M402_6_5','T-5':'M402_6_5','T-6':'M402_6_5',
+  'U-1':'M402_6_6','U-2':'M402_6_6','U-3':'M402_6_6','U-4':'M402_6_6','U-5':'M402_6_6',
+  // 402.11 — I visa
+  'I':'M402_11_3',
+  // 402.12 — L visas
+  'L-1A':'M402_12_4','L-1B':'M402_12_4','L-2':'M402_12_3',
+  // 402.13 — O visas
+  'O-1A':'M402_13_4_A','O-1B':'M402_13_4_A','O-2':'M402_13_4_B','O-3':'M402_13_4_C',
+  // 402.14 — P visas
+  'P-1A':'M402_14_5_A','P-1B':'M402_14_5_A','P-2':'M402_14_5_B','P-3':'M402_14_5_C','P-4':'M402_14_5_D',
+  // 402.15 — Q visas
+  'Q-1':'M402_15_4',
+  // 402.16 — R visas
+  'R-1':'M402_16_7','R-2':'M402_16_3',
+  // 402.17 — TN/TD
+  'TN':'M402_17_4','TD':'M402_17_10',
+  // 402.18 — CW
+  'CW-1':'M402_18_4_C','CW-2':'M402_18_4_D',
+  // 502.5 — Special Immigrants (EB-4)
+  'SD1':'M502_5_2','SD2':'M502_5_2','SD3':'M502_5_2',
+  'SR1':'M502_5_2','SR2':'M502_5_2','SR3':'M502_5_2',
+  'SE1':'M502_5_3','SE2':'M502_5_3','SE3':'M502_5_3',
+  'SS1':'M502_5_3','SS2':'M502_5_3','SS3':'M502_5_3',
+  'GS1':'M502_5_3','GV1':'M502_5_3','GV2':'M502_5_3','GV3':'M502_5_3',
+  'SF1':'M502_5_4','SF2':'M502_5_4',
+  'SG1':'M502_5_4','SG2':'M502_5_4',
+  'SH1':'M502_5_4','SH2':'M502_5_4',
+  'SJ1':'M502_5_5','SJ2':'M502_5_5',
+  'SK1':'M502_5_6','SK2':'M502_5_6','SK3':'M502_5_6','SK4':'M502_5_6',
+  'SN1':'M502_5_6','SN2':'M502_5_6','SN3':'M502_5_6','SN4':'M502_5_6',
+  'SL1':'M502_5_7',
+  'SM1':'M502_5_8','SM2':'M502_5_8','SM3':'M502_5_8','SM4':'M502_5_8','SM5':'M502_5_8',
+  'BC1':'M502_5_9','BC2':'M502_5_9','BC3':'M502_5_9',
+  'SP':'M502_5_10',
+  'SI1':'M502_5_11','SI2':'M502_5_11','SI3':'M502_5_11',
+  'SQ1':'M502_5_12','SQ2':'M502_5_12','SQ3':'M502_5_12',
+  // 502.7 — Other IV
+  'SB1':'M502_7_2',
+  // 502.2 — Family IV
+  'IR1':'M502_2_2','IR2':'M502_2_2','IR3':'M502_2_2','IR4':'M502_2_2','IR5':'M502_2_2',
+  'CR1':'M502_2_2','CR2':'M502_2_2','CF1':'M502_2_2','CF2':'M502_2_2',
+  'AR1':'M502_2_2','IF1':'M502_2_2','IF2':'M502_2_2',
+  'IH3':'M502_2_2','IH4':'M502_2_2','VI5':'M502_2_2',
+  'IB1':'M502_2_2','IB2':'M502_2_2','IB3':'M502_2_2','IB5':'M502_2_2',
+  'IW1':'M502_2_2','IW2':'M502_2_2',
+  'F11':'M502_2_3','F12':'M502_2_3',
+  'F21':'M502_2_3','F22':'M502_2_3','F23':'M502_2_3','F24':'M502_2_3','F25':'M502_2_3',
+  'F31':'M502_2_3','F32':'M502_2_3','F33':'M502_2_3',
+  'F41':'M502_2_3','F42':'M502_2_3','F43':'M502_2_3',
+  'AM1':'M502_2_4','AM2':'M502_2_4','AM3':'M502_2_4',
+};
+
+function famUrl(section, anchor) {
+  const [major, minor] = section.split('.');
+  const base = `https://fam.state.gov/fam/09FAM/09FAM0${major}${minor.padStart(2, '0')}.html`;
+  const frag = anchor || `M${section.replace('.', '_')}_3`;
+  return `${base}#${frag}`;
+}
+
 let rawData = null;
 let overlayLinks = [];
 let currentLayout = 'tree';
@@ -525,8 +664,8 @@ function showInaDefault() {
 
   content.innerHTML = `
     <div class="detail-hero" style="border-top: 3px solid #e0e0e0; padding: 20px 20px 16px;">
-      <div class="detail-id" style="color:#e0e0e0">INA</div>
-      <div class="detail-name">Immigration & Nationality Act of 1952, as amended</div>
+      <div class="detail-id" style="color:#e0e0e0">VISA MILL</div>
+      <div class="detail-name">Every visa the embassy wishes you'd stop asking about</div>
     </div>
     <div class="detail-body">
       <div class="detail-section"><span class="detail-label">Codification</span><div class="detail-value-mono">8 U.S.C. &sect;1101 et seq. (Public Law 82-414)</div></div>
@@ -537,9 +676,10 @@ function showInaDefault() {
         <div class="detail-value-mono">IV: 22 CFR &sect;42.11 &middot; 9 FAM 502.1</div>
       </div>
       <div class="detail-section"><span class="detail-label">References</span><div class="detail-refs">
-        <a href="https://travel.state.gov/content/travel/en/us-visas/visa-information-resources/all-visa-categories.html" target="_blank">DoS Categories</a>
-        <a href="https://ohss.dhs.gov/topics/immigration/lawful-permanent-residents/immigrant-classes-admission" target="_blank">DHS Classes</a>
-        <a href="https://uscode.house.gov/view.xhtml?req=granuleid:USC-prelim-title8-section1101&num=0" target="_blank">8 U.S.C. &sect;1101</a>
+        <a href="https://www.law.cornell.edu/uscode/text/8/1101" target="_blank">8 U.S.C. §1101</a>
+        <a href="https://www.law.cornell.edu/uscode/text/8/chapter-12" target="_blank">8 U.S.C. Ch. 12 (INA)</a>
+        <a href="https://www.law.cornell.edu/cfr/text/22/part-41" target="_blank">22 CFR Part 41 (NIV)</a>
+        <a href="https://www.law.cornell.edu/cfr/text/22/part-42" target="_blank">22 CFR Part 42 (IV)</a>
       </div></div>
     </div>
   `;
@@ -698,9 +838,9 @@ function transformToHierarchy(data) {
 
   return {
     root: {
-      name: 'INA',
+      name: 'VISA MILL',
       _nodeType: 'root',
-      _fullName: 'Immigration & Nationality Act',
+      _fullName: 'Every visa the embassy wishes you\'d stop asking about',
       _subtitle: '8 U.S.C. §1101 et seq.',
       children: rootChildren,
     },
@@ -855,10 +995,111 @@ function hexToRgb(hex) {
   };
 }
 
+// ── Law Link Helpers ──
+
+const INA_TO_USC = {
+  '101':'1101','201':'1151','202':'1152','203':'1153','204':'1154',
+  '207':'1157','208':'1158','209':'1159','210':'1160','212':'1182',
+  '214':'1184','216':'1186a','244':'1254a','245':'1255','245A':'1255a',
+  '249':'1259','289':'1359','324':'1435','327':'1438',
+};
+
+const NAMED_ACT_PL = [
+  ['TVPA', '106-386'], ['VTVPA', '106-386'],
+  ['LIFE Act', '106-553'], ['Nursing Relief Act', '106-95'],
+];
+
+function govInfoUrl(congress, number) {
+  return `https://www.govinfo.gov/content/pkg/PLAW-${congress}publ${number}/html/PLAW-${congress}publ${number}.htm`;
+}
+
+function linkifyLaw(lawStr) {
+  if (!lawStr) return 'N/A';
+  return lawStr.split(/;\s*/).map(p => {
+    p = p.trim();
+    const ina = p.match(/^INA\s*§(\d+[A-Z]?)((?:\([^)]+\))*)/);
+    if (ina && INA_TO_USC[ina[1]]) {
+      let frag = '';
+      if (ina[2]) {
+        const subs = ina[2].match(/\(([^)]+)\)/g);
+        if (subs) frag = '#' + subs.map(s => s.slice(1, -1)).join('_');
+      }
+      return `<a href="https://www.law.cornell.edu/uscode/text/8/${INA_TO_USC[ina[1]]}${frag}" target="_blank">${p}</a>`;
+    }
+    const usc = p.match(/^(\d+)\s*U\.S\.C\.\s*§(\d+[a-z]?)/);
+    if (usc)
+      return `<a href="https://www.law.cornell.edu/uscode/text/${usc[1]}/${usc[2]}" target="_blank">${p}</a>`;
+    const cfr = p.match(/^(\d+)\s*CFR\s*§([\d.]+)((?:\([^)]+\))*)/);
+    if (cfr) {
+      let frag = '';
+      if (cfr[3]) {
+        const subs = cfr[3].match(/\(([^)]+)\)/g);
+        if (subs) frag = '#' + subs.map(s => s.slice(1, -1)).join('_');
+      }
+      return `<a href="https://www.law.cornell.edu/cfr/text/${cfr[1]}/${cfr[2]}${frag}" target="_blank">${p}</a>`;
+    }
+    const cfrPart = p.match(/^(\d+)\s*CFR\s*Part\s*(\d+)/);
+    if (cfrPart)
+      return `<a href="https://www.law.cornell.edu/cfr/text/${cfrPart[1]}/part-${cfrPart[2]}" target="_blank">${p}</a>`;
+    const fam = p.match(/^9\s*FAM\s*([\d.]+)/);
+    if (fam)
+      return `<a href="${famUrl(fam[1])}" target="_blank">${p}</a>`;
+    const pl = p.match(/^PL\s*(\d+)-(\d+)/);
+    if (pl && parseInt(pl[1]) >= 104)
+      return `<a href="${govInfoUrl(pl[1], pl[2])}" target="_blank">${p}</a>`;
+    for (const [prefix, plNum] of NAMED_ACT_PL) {
+      if (p.startsWith(prefix)) {
+        const [c, n] = plNum.split('-');
+        return `<a href="${govInfoUrl(c, n)}" target="_blank">${p}</a>`;
+      }
+    }
+    return p;
+  }).join('; ');
+}
+
+function buildLawRefs(lawStr, subcategory) {
+  let html = '';
+  const seen = new Set();
+  if (subcategory && SUBCATEGORY_FAM[subcategory]) {
+    const sec = SUBCATEGORY_FAM[subcategory];
+    seen.add(`fam${sec}`);
+    html += `<a href="${famUrl(sec)}" target="_blank">9 FAM ${sec}</a>`;
+  }
+  if (lawStr) {
+    for (const p of lawStr.split(/;\s*/)) {
+      const ina = p.match(/INA\s*§(\d+[A-Z]?)/);
+      if (ina && INA_TO_USC[ina[1]] && !seen.has(INA_TO_USC[ina[1]])) {
+        const u = INA_TO_USC[ina[1]];
+        seen.add(u);
+        html += `<a href="https://www.law.cornell.edu/uscode/text/8/${u}" target="_blank">8 U.S.C. §${u}</a>`;
+      }
+      const usc = p.match(/(\d+)\s*U\.S\.C\.\s*§(\d+[a-z]?)/);
+      if (usc && !seen.has(`${usc[1]}/${usc[2]}`)) {
+        seen.add(`${usc[1]}/${usc[2]}`);
+        html += `<a href="https://www.law.cornell.edu/uscode/text/${usc[1]}/${usc[2]}" target="_blank">${usc[1]} U.S.C. §${usc[2]}</a>`;
+      }
+      const cfr = p.match(/(\d+)\s*CFR\s*§([\d.]+)/);
+      if (cfr && !seen.has(`cfr${cfr[1]}/${cfr[2]}`)) {
+        seen.add(`cfr${cfr[1]}/${cfr[2]}`);
+        html += `<a href="https://www.law.cornell.edu/cfr/text/${cfr[1]}/${cfr[2]}" target="_blank">${cfr[1]} CFR §${cfr[2]}</a>`;
+      }
+      const pl = p.match(/PL\s*(\d+)-(\d+)/);
+      if (pl && parseInt(pl[1]) >= 104 && !seen.has(`pl${pl[1]}-${pl[2]}`)) {
+        seen.add(`pl${pl[1]}-${pl[2]}`);
+        html += `<a href="${govInfoUrl(pl[1], pl[2])}" target="_blank">PL ${pl[1]}-${pl[2]}</a>`;
+      }
+    }
+  }
+  if (!seen.has('1101')) {
+    html += `<a href="https://www.law.cornell.edu/uscode/text/8/1101" target="_blank">8 U.S.C. §1101</a>`;
+  }
+  return html;
+}
+
 // ── Label Helpers ──
 
 function getMainLabel(d) {
-  if (d.data._nodeType === 'root') return 'INA';
+  if (d.data._nodeType === 'root') return 'VISA MILL';
   if (d.data._nodeType === 'hub') return d.data.name;
   if (d.data._nodeType === 'category') {
     return d.data.name;
@@ -1306,7 +1547,7 @@ function renderRadial(g, root, w, h, svg, zoom) {
         return 'node-label node-label-leaf';
       })
       .text(d => {
-        if (d.data._nodeType === 'root') return 'INA';
+        if (d.data._nodeType === 'root') return 'VISA MILL';
         if (d.data._nodeType === 'hub') return d.data.name;
         if (d.data._nodeType === 'category') {
           const label = d.data.name;
@@ -1364,8 +1605,8 @@ function showCategoryDetail(d) {
   let title = '', subtitle = '', desc = '', law = '', color = '#888';
 
   if (type === 'root') {
-    title = 'INA';
-    subtitle = 'Immigration & Nationality Act of 1952, as amended';
+    title = 'VISA MILL';
+    subtitle = 'Every visa the embassy wishes you\'d stop asking about';
     desc = 'The foundational federal law governing all immigration to the United States. Codified at 8 U.S.C. §1101 et seq. Defines all nonimmigrant classifications (§101(a)(15)), immigrant preferences (§203), and special immigrant categories (§101(a)(27)).';
     law = '8 U.S.C. §1101 et seq. (Public Law 82-414)';
     color = '#e0e0e0';
@@ -1374,13 +1615,13 @@ function showCategoryDetail(d) {
     if (d.data.name === 'NIV') {
       title = 'NIV';
       subtitle = 'Nonimmigrant Visas';
-      desc = 'Temporary visas for visitors, workers, students, diplomats, and others who intend to stay in the U.S. for a specific purpose and limited time. Defined in INA §101(a)(15), subparagraphs (A) through (V). Classification symbols per 22 CFR §41.12 and 9 FAM 402.1.';
-      law = 'INA §101(a)(15) · 22 CFR Part 41';
+      desc = 'Temporary visas for visitors, workers, students, diplomats, and others who intend to stay in the U.S. for a specific purpose and limited time. Defined in INA §101(a)(15), subparagraphs (A) through (V). Classification symbols per 22 CFR §41.12.';
+      law = 'INA §101(a)(15); 22 CFR Part 41; 9 FAM 402.1';
     } else {
       title = 'IV';
       subtitle = 'Immigrant Visas';
-      desc = 'Visas for persons seeking lawful permanent resident (LPR / green card) status. Includes immediate relatives (INA §201(b)), family preferences (INA §203(a)), employment preferences (INA §203(b)), diversity lottery (INA §203(c)), and special immigrants (INA §101(a)(27)). Classification symbols per 22 CFR §42.11 and 9 FAM 502.1.';
-      law = 'INA §201–203 · 22 CFR Part 42';
+      desc = 'Visas for persons seeking lawful permanent resident (LPR / green card) status. Includes immediate relatives (INA §201(b)), family preferences (INA §203(a)), employment preferences (INA §203(b)), diversity lottery (INA §203(c)), and special immigrants (INA §101(a)(27)). Classification symbols per 22 CFR §42.11.';
+      law = 'INA §201; INA §203; 22 CFR Part 42; 9 FAM 502.1';
     }
   } else if (type === 'category') {
     const fullCat = d.data._fullCategory;
@@ -1396,6 +1637,9 @@ function showCategoryDetail(d) {
     subtitle = SUBCATEGORY_NAMES[d.data.name] || '';
     const count = (d.data._children || d.data.children || []).length;
     desc = `${count} visa classification${count !== 1 ? 's' : ''} in this family.`;
+    if (SUBCATEGORY_FAM[d.data.name]) {
+      law = `9 FAM ${SUBCATEGORY_FAM[d.data.name]}`;
+    }
   }
 
   content.innerHTML = `
@@ -1405,7 +1649,7 @@ function showCategoryDetail(d) {
       <div class="detail-name">${subtitle}</div>
     </div>
     <div class="detail-body">
-      ${law ? `<div class="detail-section"><span class="detail-label">Law</span><div class="detail-value-mono">${law}</div></div>` : ''}
+      ${law ? `<div class="detail-section"><span class="detail-label">Law</span><div class="detail-value-mono">${linkifyLaw(law)}</div></div>` : ''}
       <div class="detail-section"><span class="detail-label">Description</span><div class="detail-value">${desc}</div></div>
     </div>
   `;
@@ -1440,14 +1684,7 @@ function showDetail(nodeData) {
     dhsHtml = `<div class="detail-section"><span class="detail-label">DHS Codes</span><div class="detail-value-mono">${nodeData.dhs_codes.join(', ')}</div></div>`;
   }
 
-  let refsHtml = '<div class="detail-section"><span class="detail-label">References</span><div class="detail-refs">';
-  if (nodeData.group === 'NIV') {
-    refsHtml += `<a href="https://travel.state.gov/content/travel/en/us-visas/visa-information-resources/all-visa-categories.html" target="_blank">DoS Categories</a>`;
-  } else {
-    refsHtml += `<a href="https://ohss.dhs.gov/topics/immigration/lawful-permanent-residents/immigrant-classes-admission" target="_blank">DHS Classes</a>`;
-  }
-  refsHtml += `<a href="https://uscode.house.gov/view.xhtml?req=granuleid:USC-prelim-title8-section1101&num=0" target="_blank">8 U.S.C. &sect;1101</a>`;
-  refsHtml += '</div></div>';
+  let refsHtml = `<div class="detail-section"><span class="detail-label">References</span><div class="detail-refs">${buildLawRefs(nodeData.law, nodeData.subcategory)}</div></div>`;
 
   content.innerHTML = `
     <div class="detail-hero" style="--accent:${color}">
@@ -1458,10 +1695,11 @@ function showDetail(nodeData) {
       </div>
     </div>
     <div class="detail-body">
-      <div class="detail-section"><span class="detail-label">Law</span><div class="detail-value-mono">${nodeData.law || 'N/A'}</div></div>
+      <div class="detail-section"><span class="detail-label">Description</span><div class="detail-value">${nodeData.description || 'N/A'}</div></div>
       <div class="detail-section"><span class="detail-label">Classification</span><div class="detail-value">${nodeData.category}</div></div>
       <div class="detail-section"><span class="detail-label">Family</span><div class="detail-value">${nodeData.subcategory}</div></div>
-      <div class="detail-section"><span class="detail-label">Description</span><div class="detail-value">${nodeData.description || 'N/A'}</div></div>
+      <div class="detail-section"><span class="detail-label">Law</span><div class="detail-value-mono">${linkifyLaw(nodeData.law)}</div></div>
+      ${SUBCATEGORY_FAM[nodeData.subcategory] ? `<div class="detail-section"><span class="detail-label">FAM</span><div class="detail-value-mono"><a href="${famUrl(SUBCATEGORY_FAM[nodeData.subcategory], VISA_FAM_ANCHORS[nodeData.id])}" target="_blank">9 FAM ${SUBCATEGORY_FAM[nodeData.subcategory]}</a></div></div>` : ''}
       ${dhsHtml}
       ${connectionsHtml}
       ${refsHtml}
@@ -1720,11 +1958,6 @@ document.getElementById('btn-collapse').addEventListener('click', () => {
   closeDetail();
 });
 
-document.getElementById('layout-select').addEventListener('change', e => {
-  currentLayout = e.target.value;
-  closeDetail();
-  render();
-});
 
 
 window.addEventListener('resize', () => render());
