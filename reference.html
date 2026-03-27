@@ -241,6 +241,22 @@ body::before {
 #back-to-top.visible { opacity: 1; pointer-events: auto; transform: translateY(0); }
 #back-to-top:hover { border-color: var(--niv-accent); color: var(--niv-accent); }
 
+.copy-md-btn {
+  width: 100%;
+  padding: 8px;
+  margin-top: 8px;
+  background: var(--bg-surface);
+  color: var(--text-muted);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all .15s;
+}
+.copy-md-btn:hover { border-color: var(--niv-accent); color: var(--niv-accent); }
+
 .sidebar-disclaimer {
   padding: 16px 20px;
   font-size: 9px;
@@ -1007,14 +1023,51 @@ function showVisaDetail(id) {
     <div class="detail-section"><div class="detail-label">Description</div><div class="detail-value">${node.description || 'N/A'}</div></div>
     <div class="detail-section"><div class="detail-label">Classification</div><div class="detail-value">${node.group} &mdash; ${node.category}</div></div>
     <div class="detail-section"><div class="detail-label">Family</div><div class="detail-value">${node.subcategory}</div></div>
+    ${dhsHtml}
     ${buildFamSection(node.subcategory, node.id)}
     <div class="detail-section"><div class="detail-label">Law</div><div class="detail-value-mono">${linkifyLaw(node.law)}</div></div>
-    ${dhsHtml}
     ${connectionsHtml}
+    <button class="copy-md-btn" onclick="copyAsMarkdown('${id}')">Copy as Markdown</button>
   `;
 
   document.getElementById('side-detail').classList.add('active');
   document.getElementById('panel-empty').style.display = 'none';
+}
+
+function copyAsMarkdown(id) {
+  const n = DATA.nodes.find(n => n.id === id);
+  if (!n) return;
+  const inbound = DATA.links.filter(l => l.target === n.id);
+  const outbound = DATA.links.filter(l => l.source === n.id);
+  const fam = famLabel(n.subcategory, n.id);
+  const famSec = SUBCATEGORY_FAM[n.subcategory];
+  const famAnchor = VISA_FAM_ANCHORS[n.id];
+  const famLink = famSec ? famUrl(famSec, famAnchor) : '';
+  const famTitle = famSec ? (FAM_TITLES[famAnchor || `M${famSec.replace('.','_')}_3`] || '') : '';
+
+  let md = `## ${n.id} — ${n.name}\n\n`;
+  md += `${n.description || 'N/A'}\n\n`;
+  md += `**Classification:** ${n.category}\n\n`;
+  md += `**Family:** ${n.subcategory}\n\n`;
+  if (n.dhs_codes && n.dhs_codes.length) md += `**DHS Codes:** ${n.dhs_codes.join(', ')}\n\n`;
+  if (fam) md += `### FAM\n\n[${fam}](${famLink})${famTitle ? ' — ' + famTitle : ''}\n\n`;
+  md += `### Law\n\n`;
+  if (n.law) {
+    n.law.split(';').forEach(ref => {
+      const c = parseCitation(ref.trim());
+      if (c) md += `- [${c.label}](${c.url})\n`;
+      else md += `- ${ref.trim()}\n`;
+    });
+  }
+  if (inbound.length || outbound.length) {
+    md += `\n### Connections\n\n`;
+    inbound.forEach(l => { md += `- ${l.source} → ${l.relation_type} → **${n.id}**\n`; });
+    outbound.forEach(l => { md += `- **${n.id}** → ${l.relation_type} → ${l.target}\n`; });
+  }
+  navigator.clipboard.writeText(md).then(() => {
+    const btn = document.querySelector('.copy-md-btn');
+    if (btn) { btn.textContent = 'Copied!'; setTimeout(() => { btn.textContent = 'Copy as Markdown'; }, 1500); }
+  });
 }
 
 function closeSidePanel() {

@@ -833,7 +833,7 @@
       "name": "Spouse of U.S. Citizen (New Arrival)",
       "group": "IV",
       "law": "INA \u00a7101(b)(1); INA \u00a7101(c); INA \u00a7201(b)(2)(A)(i); INA \u00a7203(a)(1); INA \u00a7203(d); 8 U.S.C. \u00a71101; 8 U.S.C. \u00a71151; 8 U.S.C. \u00a71153; 8 U.S.C. \u00a71186a; 8 CFR \u00a7204.2; 22 CFR \u00a742.21; 22 CFR \u00a742.41; 22 CFR \u00a742.42; PL 99-639; PL 101-649; PL 103-322; PL 103-416",
-      "description": "Immediate relative \u2014 spouse of a U.S. citizen, consular processing. DHS codes: IR1 (new), IR6 (adjustment).",
+      "description": "Immediate relative \u2014 spouse of a U.S. citizen, consular processing.",
       "dhs_codes": [
         "IR1",
         "IR6"
@@ -846,7 +846,7 @@
       "name": "Spouse of U.S. Citizen (Conditional)",
       "group": "IV",
       "law": "INA \u00a7101(b)(1); INA \u00a7101(c); INA \u00a7201(b)(2)(A)(i); INA \u00a7203(a)(1); INA \u00a7203(d); INA \u00a7216; 8 U.S.C. \u00a71101; 8 U.S.C. \u00a71151; 8 U.S.C. \u00a71153; 8 U.S.C. \u00a71186a; 8 CFR \u00a7204.2; 22 CFR \u00a742.21; 22 CFR \u00a742.41; 22 CFR \u00a742.42; PL 99-639; PL 101-649; PL 103-322; PL 103-416",
-      "description": "Conditional resident spouse of a U.S. citizen (married < 2 years at admission). Must file I-751 to remove conditions. DHS codes: CR1 (new), CR6 (adj).",
+      "description": "Conditional resident spouse of a U.S. citizen (married < 2 years at admission). Must file I-751 to remove conditions.",
       "dhs_codes": [
         "CR1",
         "CR6"
@@ -859,7 +859,7 @@
       "name": "Self-Petitioning Spouse of U.S. Citizen",
       "group": "IV",
       "law": "INA \u00a7101(b)(1); INA \u00a7101(c); INA \u00a7201(b); INA \u00a7203(a)(1); INA \u00a7203(d); INA \u00a7204(a)(1)(A)(iii)-(iv); 8 U.S.C. \u00a71101; 8 U.S.C. \u00a71151; 8 U.S.C. \u00a71153; 8 U.S.C. \u00a71186a; 8 CFR \u00a7204.2; 22 CFR \u00a742.21; 22 CFR \u00a742.41; 22 CFR \u00a742.42; PL 99-639; PL 101-649; PL 103-322; PL 103-416; VAWA",
-      "description": "Self-petitioning battered or abused spouse of a U.S. citizen under VAWA. DHS codes: IB1 (new), IB6 (adj).",
+      "description": "Self-petitioning battered or abused spouse of a U.S. citizen under VAWA.",
       "dhs_codes": [
         "IB1",
         "IB6"
@@ -872,7 +872,7 @@
       "name": "Widow(er) of U.S. Citizen",
       "group": "IV",
       "law": "INA \u00a7101(b)(1); INA \u00a7101(c); INA \u00a7201(b)(2)(A)(i); INA \u00a7203(a)(1); INA \u00a7203(d); 8 U.S.C. \u00a71101; 8 U.S.C. \u00a71151; 8 U.S.C. \u00a71153; 8 U.S.C. \u00a71186a; 8 CFR \u00a7204.2; 22 CFR \u00a742.21; 22 CFR \u00a742.41; 22 CFR \u00a742.42; PL 99-639; PL 101-649; PL 103-322; PL 103-416",
-      "description": "Widow or widower of a deceased U.S. citizen (married 2+ years, petition within 2 years of death). DHS codes: IW1 (new), IW6 (adj).",
+      "description": "Widow or widower of a deceased U.S. citizen (married 2+ years, petition within 2 years of death).",
       "dhs_codes": [
         "IW1",
         "IW6"
@@ -885,7 +885,7 @@
       "name": "Spouse via Fiance(e) Entry (Conditional)",
       "group": "IV",
       "law": "INA \u00a7101(b)(1); INA \u00a7101(c); INA \u00a7201(b)(2)(A)(i); INA \u00a7203(a)(1); INA \u00a7203(d); INA \u00a7216; 8 U.S.C. \u00a71101; 8 U.S.C. \u00a71151; 8 U.S.C. \u00a71153; 8 U.S.C. \u00a71186a; 8 CFR \u00a7204.2; 22 CFR \u00a742.21; 22 CFR \u00a742.41; 22 CFR \u00a742.42; PL 99-639; PL 101-649; PL 103-322; PL 103-416",
-      "description": "Spouse who entered as K-1 fianc\u00e9(e), married U.S. citizen, adjusting status (conditional). DHS codes: CF1 (adj, conditional).",
+      "description": "Spouse who entered as K-1 fianc\u00e9(e), married U.S. citizen, adjusting status (conditional).",
       "dhs_codes": [
         "CF1"
       ],
@@ -897,7 +897,7 @@
       "name": "Spouse via Fiance(e) Entry",
       "group": "IV",
       "law": "INA \u00a7101(b)(1); INA \u00a7101(c); INA \u00a7201(b)(2)(A)(i); INA \u00a7203(a)(1); INA \u00a7203(d); 8 U.S.C. \u00a71101; 8 U.S.C. \u00a71151; 8 U.S.C. \u00a71153; 8 U.S.C. \u00a71186a; 8 CFR \u00a7204.2; 22 CFR \u00a742.21; 22 CFR \u00a742.41; 22 CFR \u00a742.42; PL 99-639; PL 101-649; PL 103-322; PL 103-416",
-      "description": "Spouse who entered as K-1 fianc\u00e9(e), married U.S. citizen, adjusting status (conditions removed). DHS codes: IF1 (adj).",
+      "description": "Spouse who entered as K-1 fianc\u00e9(e), married U.S. citizen, adjusting status (conditions removed).",
       "dhs_codes": [
         "IF1"
       ],
@@ -909,7 +909,7 @@
       "name": "Child of U.S. Citizen",
       "group": "IV",
       "law": "INA \u00a7101(b)(1); INA \u00a7101(c); INA \u00a7201(b)(2)(A)(i); INA \u00a7203(a)(1); INA \u00a7203(d); 8 U.S.C. \u00a71101; 8 U.S.C. \u00a71151; 8 U.S.C. \u00a71153; 8 U.S.C. \u00a71186a; 8 CFR \u00a7204.2; 22 CFR \u00a742.21; 22 CFR \u00a742.41; 22 CFR \u00a742.42; PL 99-639; PL 101-649; PL 103-322; PL 103-416",
-      "description": "Immediate relative \u2014 unmarried child under 21 of a U.S. citizen. DHS codes: IR2 (new), IR7 (adj).",
+      "description": "Immediate relative \u2014 unmarried child under 21 of a U.S. citizen.",
       "dhs_codes": [
         "IR2",
         "IR7"
@@ -922,7 +922,7 @@
       "name": "Child of U.S. Citizen (Conditional)",
       "group": "IV",
       "law": "INA \u00a7101(b)(1); INA \u00a7101(c); INA \u00a7201(b)(2)(A)(i); INA \u00a7203(a)(1); INA \u00a7203(d); INA \u00a7216; 8 U.S.C. \u00a71101; 8 U.S.C. \u00a71151; 8 U.S.C. \u00a71153; 8 U.S.C. \u00a71186a; 8 CFR \u00a7204.2; 22 CFR \u00a742.21; 22 CFR \u00a742.41; 22 CFR \u00a742.42; PL 99-639; PL 101-649; PL 103-322; PL 103-416",
-      "description": "Conditional resident child accompanying conditional resident spouse. DHS codes: CR2 (new), CR7 (adj).",
+      "description": "Conditional resident child accompanying conditional resident spouse.",
       "dhs_codes": [
         "CR2",
         "CR7"
@@ -935,7 +935,7 @@
       "name": "Self-Petitioning Child of U.S. Citizen",
       "group": "IV",
       "law": "INA \u00a7101(b)(1); INA \u00a7101(c); INA \u00a7201(b); INA \u00a7203(a)(1); INA \u00a7203(d); INA \u00a7204(a)(1)(A)(iv); 8 U.S.C. \u00a71101; 8 U.S.C. \u00a71151; 8 U.S.C. \u00a71153; 8 U.S.C. \u00a71186a; 8 CFR \u00a7204.2; 22 CFR \u00a742.21; 22 CFR \u00a742.41; 22 CFR \u00a742.42; PL 99-639; PL 101-649; PL 103-322; PL 103-416; VAWA",
-      "description": "Self-petitioning battered or abused child of a U.S. citizen. DHS codes: IB2 (new), IB7 (adj).",
+      "description": "Self-petitioning battered or abused child of a U.S. citizen.",
       "dhs_codes": [
         "IB2",
         "IB7"
@@ -948,7 +948,7 @@
       "name": "Child of IB1 Self-Petitioner",
       "group": "IV",
       "law": "INA \u00a7101(b)(1); INA \u00a7101(c); INA \u00a7201(b); INA \u00a7203(a)(1); INA \u00a7203(d); INA \u00a7204(a)(1)(A); 8 U.S.C. \u00a71101; 8 U.S.C. \u00a71151; 8 U.S.C. \u00a71153; 8 U.S.C. \u00a71186a; 8 CFR \u00a7204.2; 22 CFR \u00a742.21; 22 CFR \u00a742.41; 22 CFR \u00a742.42; PL 99-639; PL 101-649; PL 103-322; PL 103-416; VAWA",
-      "description": "Child accompanying or following to join an IB1/IB6 self-petitioning spouse. DHS codes: IB3 (new), IB8 (adj).",
+      "description": "Child accompanying or following to join an IB1/IB6 self-petitioning spouse.",
       "dhs_codes": [
         "IB3",
         "IB8"
@@ -961,7 +961,7 @@
       "name": "Child of Widow(er)",
       "group": "IV",
       "law": "INA \u00a7101(b)(1); INA \u00a7101(c); INA \u00a7201(b)(2)(A)(i); INA \u00a7203(a)(1); INA \u00a7203(d); 8 U.S.C. \u00a71101; 8 U.S.C. \u00a71151; 8 U.S.C. \u00a71153; 8 U.S.C. \u00a71186a; 8 CFR \u00a7204.2; 22 CFR \u00a742.21; 22 CFR \u00a742.41; 22 CFR \u00a742.42; PL 99-639; PL 101-649; PL 103-322; PL 103-416",
-      "description": "Child accompanying or following to join IW1/IW6 widow(er). DHS codes: IW2 (new), IW7 (adj).",
+      "description": "Child accompanying or following to join IW1/IW6 widow(er).",
       "dhs_codes": [
         "IW2",
         "IW7"
@@ -974,7 +974,7 @@
       "name": "Child of CF1 (Conditional)",
       "group": "IV",
       "law": "INA \u00a7101(b)(1); INA \u00a7101(c); INA \u00a7201(b)(2)(A)(i); INA \u00a7203(a)(1); INA \u00a7203(d); INA \u00a7216; 8 U.S.C. \u00a71101; 8 U.S.C. \u00a71151; 8 U.S.C. \u00a71153; 8 U.S.C. \u00a71186a; 8 CFR \u00a7204.2; 22 CFR \u00a742.21; 22 CFR \u00a742.41; 22 CFR \u00a742.42; PL 99-639; PL 101-649; PL 103-322; PL 103-416",
-      "description": "Child of CF1 spouse (entered via K-2, conditional). DHS code: CF2.",
+      "description": "Child of CF1 spouse (entered via K-2, conditional).",
       "dhs_codes": [
         "CF2"
       ],
@@ -986,7 +986,7 @@
       "name": "Child of IF1",
       "group": "IV",
       "law": "INA \u00a7101(b)(1); INA \u00a7101(c); INA \u00a7201(b)(2)(A)(i); INA \u00a7203(a)(1); INA \u00a7203(d); 8 U.S.C. \u00a71101; 8 U.S.C. \u00a71151; 8 U.S.C. \u00a71153; 8 U.S.C. \u00a71186a; 8 CFR \u00a7204.2; 22 CFR \u00a742.21; 22 CFR \u00a742.41; 22 CFR \u00a742.42; PL 99-639; PL 101-649; PL 103-322; PL 103-416",
-      "description": "Child of IF1 spouse (entered via K-2, conditions removed). DHS code: IF2.",
+      "description": "Child of IF1 spouse (entered via K-2, conditions removed).",
       "dhs_codes": [
         "IF2"
       ],
@@ -998,7 +998,7 @@
       "name": "Amerasian Child of U.S. Citizen",
       "group": "IV",
       "law": "INA \u00a7101(b)(1); INA \u00a7101(c); INA \u00a7201(b)(2)(A)(i); INA \u00a7203(a)(1); INA \u00a7203(d); 8 U.S.C. \u00a71101; 8 U.S.C. \u00a71151; 8 U.S.C. \u00a71153; 8 U.S.C. \u00a71186a; 8 CFR \u00a7204.2; 22 CFR \u00a742.21; 22 CFR \u00a742.41; 22 CFR \u00a742.42; PL 97-359; PL 99-639; PL 101-649; PL 103-322; PL 103-416",
-      "description": "Amerasian immediate relative child. DHS codes: AR1 (new), AR6 (adj).",
+      "description": "Amerasian immediate relative child.",
       "dhs_codes": [
         "AR1",
         "AR6"
@@ -1011,7 +1011,7 @@
       "name": "Orphan Adopted Abroad",
       "group": "IV",
       "law": "INA \u00a7101(b)(1)(E); INA \u00a7101(c); INA \u00a7201(b)(2)(A)(i); INA \u00a7203(a)(1); INA \u00a7203(d); 8 U.S.C. \u00a71101; 8 U.S.C. \u00a71151; 8 U.S.C. \u00a71153; 8 U.S.C. \u00a71186a; 8 CFR \u00a7204.2; 22 CFR \u00a742.21; 22 CFR \u00a742.41; 22 CFR \u00a742.42; PL 99-639; PL 101-649; PL 103-322; PL 103-416",
-      "description": "Orphan adopted abroad by a U.S. citizen (non-Hague). DHS codes: IR3 (new), IR8 (adj).",
+      "description": "Orphan adopted abroad by a U.S. citizen (non-Hague).",
       "dhs_codes": [
         "IR3",
         "IR8"
@@ -1024,7 +1024,7 @@
       "name": "Orphan to be Adopted in U.S.",
       "group": "IV",
       "law": "INA \u00a7101(b)(1)(E); INA \u00a7101(c); INA \u00a7201(b)(2)(A)(i); INA \u00a7203(a)(1); INA \u00a7203(d); 8 U.S.C. \u00a71101; 8 U.S.C. \u00a71151; 8 U.S.C. \u00a71153; 8 U.S.C. \u00a71186a; 8 CFR \u00a7204.2; 22 CFR \u00a742.21; 22 CFR \u00a742.41; 22 CFR \u00a742.42; PL 99-639; PL 101-649; PL 103-322; PL 103-416",
-      "description": "Orphan coming to the U.S. to be adopted by a U.S. citizen (non-Hague). DHS codes: IR4 (new), IR9 (adj).",
+      "description": "Orphan coming to the U.S. to be adopted by a U.S. citizen (non-Hague).",
       "dhs_codes": [
         "IR4",
         "IR9"
@@ -1037,7 +1037,7 @@
       "name": "Hague Convention Adoptee (Abroad)",
       "group": "IV",
       "law": "INA \u00a7101(b)(1)(G); INA \u00a7101(c); INA \u00a7201(b); INA \u00a7203(a)(1); INA \u00a7203(d); 8 U.S.C. \u00a71101; 8 U.S.C. \u00a71151; 8 U.S.C. \u00a71153; 8 U.S.C. \u00a71186a; 8 CFR \u00a7204.2; 22 CFR \u00a742.21; 22 CFR \u00a742.41; 22 CFR \u00a742.42; PL 99-639; PL 101-649; PL 103-322; PL 103-416; Hague Adoption Convention",
-      "description": "Child adopted abroad under the Hague Intercountry Adoption Convention. DHS codes: IH3 (new), IH8 (adj).",
+      "description": "Child adopted abroad under the Hague Intercountry Adoption Convention.",
       "dhs_codes": [
         "IH3",
         "IH8"
@@ -1050,7 +1050,7 @@
       "name": "Hague Convention Adoptee (U.S.)",
       "group": "IV",
       "law": "INA \u00a7101(b)(1)(G); INA \u00a7101(c); INA \u00a7201(b); INA \u00a7203(a)(1); INA \u00a7203(d); 8 U.S.C. \u00a71101; 8 U.S.C. \u00a71151; 8 U.S.C. \u00a71153; 8 U.S.C. \u00a71186a; 8 CFR \u00a7204.2; 22 CFR \u00a742.21; 22 CFR \u00a742.41; 22 CFR \u00a742.42; PL 99-639; PL 101-649; PL 103-322; PL 103-416; Hague Adoption Convention",
-      "description": "Child coming to be adopted in the U.S. under the Hague Convention. DHS codes: IH4 (new), IH9 (adj).",
+      "description": "Child coming to be adopted in the U.S. under the Hague Convention.",
       "dhs_codes": [
         "IH4",
         "IH9"
@@ -1063,10 +1063,10 @@
       "name": "Parent of Adult U.S. Citizen",
       "group": "IV",
       "law": "INA \u00a7101(b)(1); INA \u00a7101(c); INA \u00a7201(b)(2)(A)(i); INA \u00a7203(a)(1); INA \u00a7203(d); 8 U.S.C. \u00a71101; 8 U.S.C. \u00a71151; 8 U.S.C. \u00a71153; 8 U.S.C. \u00a71186a; 8 CFR \u00a7204.2; 22 CFR \u00a742.21; 22 CFR \u00a742.41; 22 CFR \u00a742.42; PL 99-639; PL 101-649; PL 103-322; PL 103-416",
-      "description": "Parent of a U.S. citizen who is at least 21 years old. DHS codes: IR5 (new), IR0 (adj).",
+      "description": "Parent of a U.S. citizen who is at least 21 years old.",
       "dhs_codes": [
-        "IR5",
-        "IR0"
+        "IR0",
+        "IR5"
       ],
       "subcategory": "IR",
       "category": "IV \u2014 Immediate Relative"
@@ -1076,10 +1076,10 @@
       "name": "Self-Petitioning Parent (VAWA)",
       "group": "IV",
       "law": "INA \u00a7101(b)(1); INA \u00a7101(c); INA \u00a7201(b); INA \u00a7203(a)(1); INA \u00a7203(d); INA \u00a7204(a)(1)(A)(vii); 8 U.S.C. \u00a71101; 8 U.S.C. \u00a71151; 8 U.S.C. \u00a71153; 8 U.S.C. \u00a71186a; 8 CFR \u00a7204.2; 22 CFR \u00a742.21; 22 CFR \u00a742.41; 22 CFR \u00a742.42; PL 99-639; PL 101-649; PL 103-322; PL 103-416; VAWA",
-      "description": "Battered or abused parent of U.S. citizen, self-petitioning. DHS codes: IB5 (new), IB0 (adj).",
+      "description": "Battered or abused parent of U.S. citizen, self-petitioning.",
       "dhs_codes": [
-        "IB5",
-        "IB0"
+        "IB0",
+        "IB5"
       ],
       "subcategory": "IB",
       "category": "IV \u2014 Immediate Relative"
@@ -1101,14 +1101,15 @@
       "name": "F1 \u2014 Unmarried Son/Daughter of U.S. Citizen",
       "group": "IV",
       "law": "INA \u00a7101(a)(27)(A); INA \u00a7203(a)(1); 8 U.S.C. \u00a71101; 8 U.S.C. \u00a71153; 22 CFR \u00a742.31; PL 107-56; PL 107-208",
-      "description": "First family preference \u2014 unmarried sons and daughters (21+) of U.S. citizens. DHS codes: F11/F16, A11/A16 (Amerasian), B11/B16 (VAWA).",
+      "description": "First family preference \u2014 unmarried sons and daughters (21+) of U.S. citizens.",
       "dhs_codes": [
-        "F11",
-        "F16",
         "A11",
         "A16",
         "B11",
-        "B16"
+        "B16",
+        "F11",
+        "F16",
+        "VAWA"
       ],
       "subcategory": "F1",
       "category": "IV \u2014 Family Preference"
@@ -1118,14 +1119,14 @@
       "name": "F1 \u2014 Child of F11",
       "group": "IV",
       "law": "INA \u00a7101(a)(27)(A); INA \u00a7203(a)(1); INA \u00a7203(d); 8 U.S.C. \u00a71101; 8 U.S.C. \u00a71153; 22 CFR \u00a742.31; PL 107-56; PL 107-208",
-      "description": "Derivative child of an F1 preference principal. DHS codes: F12/F17, A12/A17, B12/B17.",
+      "description": "Derivative child of an F1 preference principal.",
       "dhs_codes": [
-        "F12",
-        "F17",
         "A12",
         "A17",
         "B12",
-        "B17"
+        "B17",
+        "F12",
+        "F17"
       ],
       "subcategory": "F1",
       "category": "IV \u2014 Family Preference"
@@ -1135,20 +1136,20 @@
       "name": "F2A \u2014 Spouse of LPR",
       "group": "IV",
       "law": "INA \u00a7101(a)(27)(A); INA \u00a7203(a)(2)(A); 8 U.S.C. \u00a71101; 8 U.S.C. \u00a71153; 22 CFR \u00a742.31; PL 107-56; PL 107-208",
-      "description": "Second family preference (A) \u2014 spouse of a lawful permanent resident. DHS codes: F21/F26, B21/B26, C21/C26, FX1/FX6, BX1/BX6, CX1/CX6.",
+      "description": "Second family preference (A) \u2014 spouse of a lawful permanent resident.",
       "dhs_codes": [
-        "F21",
-        "F26",
         "B21",
         "B26",
-        "C21",
-        "C26",
-        "FX1",
-        "FX6",
         "BX1",
         "BX6",
+        "C21",
+        "C26",
         "CX1",
-        "CX6"
+        "CX6",
+        "F21",
+        "F26",
+        "FX1",
+        "FX6"
       ],
       "subcategory": "F2",
       "category": "IV \u2014 Family Preference"
@@ -1158,20 +1159,20 @@
       "name": "F2A \u2014 Child of LPR",
       "group": "IV",
       "law": "INA \u00a7101(a)(27)(A); INA \u00a7203(a)(2)(A); 8 U.S.C. \u00a71101; 8 U.S.C. \u00a71153; 22 CFR \u00a742.31; PL 107-56; PL 107-208",
-      "description": "Second family preference (A) \u2014 child under 21 of a lawful permanent resident. DHS codes: F22/F27, B22/B27, C22/C27, FX2/FX7, BX2/BX7, CX2/CX7.",
+      "description": "Second family preference (A) \u2014 child under 21 of a lawful permanent resident.",
       "dhs_codes": [
-        "F22",
-        "F27",
         "B22",
         "B27",
-        "C22",
-        "C27",
-        "FX2",
-        "FX7",
         "BX2",
         "BX7",
+        "C22",
+        "C27",
         "CX2",
-        "CX7"
+        "CX7",
+        "F22",
+        "F27",
+        "FX2",
+        "FX7"
       ],
       "subcategory": "F2",
       "category": "IV \u2014 Family Preference"
@@ -1181,20 +1182,20 @@
       "name": "F2A \u2014 Derivative Child of F2A Spouse/Child",
       "group": "IV",
       "law": "INA \u00a7101(a)(27)(A); INA \u00a7203(a)(2)(A); INA \u00a7203(d); 8 U.S.C. \u00a71101; 8 U.S.C. \u00a71153; 22 CFR \u00a742.31; PL 107-56; PL 107-208",
-      "description": "Derivative child of F2A spouse or child principal. DHS codes: F23/F28, B23/B28, C23/C28, FX3/FX8, BX3/BX8, CX3/CX8.",
+      "description": "Derivative child of F2A spouse or child principal.",
       "dhs_codes": [
-        "F23",
-        "F28",
         "B23",
         "B28",
-        "C23",
-        "C28",
-        "FX3",
-        "FX8",
         "BX3",
         "BX8",
+        "C23",
+        "C28",
         "CX3",
-        "CX8"
+        "CX8",
+        "F23",
+        "F28",
+        "FX3",
+        "FX8"
       ],
       "subcategory": "F2",
       "category": "IV \u2014 Family Preference"
@@ -1204,14 +1205,14 @@
       "name": "F2B \u2014 Unmarried Son/Daughter of LPR",
       "group": "IV",
       "law": "INA \u00a7101(a)(27)(A); INA \u00a7203(a)(2)(B); 8 U.S.C. \u00a71101; 8 U.S.C. \u00a71153; 22 CFR \u00a742.31; PL 107-56; PL 107-208",
-      "description": "Second family preference (B) \u2014 unmarried sons and daughters (21+) of a lawful permanent resident. DHS codes: F24/F29, B24/B29, C24/C29.",
+      "description": "Second family preference (B) \u2014 unmarried sons and daughters (21+) of a lawful permanent resident.",
       "dhs_codes": [
-        "F24",
-        "F29",
         "B24",
         "B29",
         "C24",
-        "C29"
+        "C29",
+        "F24",
+        "F29"
       ],
       "subcategory": "F2",
       "category": "IV \u2014 Family Preference"
@@ -1221,14 +1222,14 @@
       "name": "F2B \u2014 Child of F24",
       "group": "IV",
       "law": "INA \u00a7101(a)(27)(A); INA \u00a7203(a)(2)(B); INA \u00a7203(d); 8 U.S.C. \u00a71101; 8 U.S.C. \u00a71153; 22 CFR \u00a742.31; PL 107-56; PL 107-208",
-      "description": "Derivative child of an F2B principal. DHS codes: F25/F20, B25/B20, C25/C20.",
+      "description": "Derivative child of an F2B principal.",
       "dhs_codes": [
-        "F25",
-        "F20",
-        "B25",
         "B20",
+        "B25",
+        "C20",
         "C25",
-        "C20"
+        "F20",
+        "F25"
       ],
       "subcategory": "F2",
       "category": "IV \u2014 Family Preference"
@@ -1238,16 +1239,16 @@
       "name": "F3 \u2014 Married Son/Daughter of U.S. Citizen",
       "group": "IV",
       "law": "INA \u00a7101(a)(27)(A); INA \u00a7203(a)(3); 8 U.S.C. \u00a71101; 8 U.S.C. \u00a71153; 22 CFR \u00a742.31; PL 107-56; PL 107-208",
-      "description": "Third family preference \u2014 married sons and daughters of U.S. citizens. DHS codes: F31/F36, A31/A36, C31/C36, B31/B36.",
+      "description": "Third family preference \u2014 married sons and daughters of U.S. citizens.",
       "dhs_codes": [
-        "F31",
-        "F36",
         "A31",
         "A36",
+        "B31",
+        "B36",
         "C31",
         "C36",
-        "B31",
-        "B36"
+        "F31",
+        "F36"
       ],
       "subcategory": "F3",
       "category": "IV \u2014 Family Preference"
@@ -1257,16 +1258,16 @@
       "name": "F3 \u2014 Spouse of F31",
       "group": "IV",
       "law": "INA \u00a7101(a)(27)(A); INA \u00a7203(a)(3); INA \u00a7203(d); 8 U.S.C. \u00a71101; 8 U.S.C. \u00a71153; 22 CFR \u00a742.31; PL 107-56; PL 107-208",
-      "description": "Spouse of F3 principal. DHS codes: F32/F37, A32/A37, C32/C37, B32/B37.",
+      "description": "Spouse of F3 principal.",
       "dhs_codes": [
-        "F32",
-        "F37",
         "A32",
         "A37",
+        "B32",
+        "B37",
         "C32",
         "C37",
-        "B32",
-        "B37"
+        "F32",
+        "F37"
       ],
       "subcategory": "F3",
       "category": "IV \u2014 Family Preference"
@@ -1276,16 +1277,16 @@
       "name": "F3 \u2014 Child of F31",
       "group": "IV",
       "law": "INA \u00a7101(a)(27)(A); INA \u00a7203(a)(3); INA \u00a7203(d); 8 U.S.C. \u00a71101; 8 U.S.C. \u00a71153; 22 CFR \u00a742.31; PL 107-56; PL 107-208",
-      "description": "Child of F3 principal. DHS codes: F33/F38, A33/A38, C33/C38, B33/B38.",
+      "description": "Child of F3 principal.",
       "dhs_codes": [
-        "F33",
-        "F38",
         "A33",
         "A38",
+        "B33",
+        "B38",
         "C33",
         "C38",
-        "B33",
-        "B38"
+        "F33",
+        "F38"
       ],
       "subcategory": "F3",
       "category": "IV \u2014 Family Preference"
@@ -1295,7 +1296,7 @@
       "name": "F4 \u2014 Sibling of U.S. Citizen",
       "group": "IV",
       "law": "INA \u00a7101(a)(27)(A); INA \u00a7203(a)(4); 8 U.S.C. \u00a71101; 8 U.S.C. \u00a71153; 22 CFR \u00a742.31; PL 107-56; PL 107-208",
-      "description": "Fourth family preference \u2014 brothers and sisters of adult U.S. citizens. DHS codes: F41/F46.",
+      "description": "Fourth family preference \u2014 brothers and sisters of adult U.S. citizens.",
       "dhs_codes": [
         "F41",
         "F46"
@@ -1308,7 +1309,7 @@
       "name": "F4 \u2014 Spouse of F41",
       "group": "IV",
       "law": "INA \u00a7101(a)(27)(A); INA \u00a7203(a)(4); INA \u00a7203(d); 8 U.S.C. \u00a71101; 8 U.S.C. \u00a71153; 22 CFR \u00a742.31; PL 107-56; PL 107-208",
-      "description": "Spouse of F4 principal. DHS codes: F42/F47.",
+      "description": "Spouse of F4 principal.",
       "dhs_codes": [
         "F42",
         "F47"
@@ -1321,7 +1322,7 @@
       "name": "F4 \u2014 Child of F41",
       "group": "IV",
       "law": "INA \u00a7101(a)(27)(A); INA \u00a7203(a)(4); INA \u00a7203(d); 8 U.S.C. \u00a71101; 8 U.S.C. \u00a71153; 22 CFR \u00a742.31; PL 107-56; PL 107-208",
-      "description": "Child of F4 principal. DHS codes: F43/F48.",
+      "description": "Child of F4 principal.",
       "dhs_codes": [
         "F43",
         "F48"
@@ -1334,7 +1335,7 @@
       "name": "EB-1A \u2014 Extraordinary Ability",
       "group": "IV",
       "law": "INA \u00a7203(b)(1)(A); INA \u00a7203(d); 8 U.S.C. \u00a71152; 8 U.S.C. \u00a71153; 22 CFR \u00a742.32; PL 106-95",
-      "description": "First employment preference \u2014 persons of extraordinary ability in sciences, arts, education, business, or athletics. DHS codes: E11/E16.",
+      "description": "First employment preference \u2014 persons of extraordinary ability in sciences, arts, education, business, or athletics.",
       "dhs_codes": [
         "E11",
         "E16"
@@ -1347,7 +1348,7 @@
       "name": "EB-1B \u2014 Outstanding Professor / Researcher",
       "group": "IV",
       "law": "INA \u00a7203(b)(1)(B); INA \u00a7203(d); 8 U.S.C. \u00a71152; 8 U.S.C. \u00a71153; 22 CFR \u00a742.32; PL 106-95",
-      "description": "First employment preference \u2014 outstanding professors and researchers with 3+ years of experience. DHS codes: E12/E17.",
+      "description": "First employment preference \u2014 outstanding professors and researchers with 3+ years of experience.",
       "dhs_codes": [
         "E12",
         "E17"
@@ -1360,7 +1361,7 @@
       "name": "EB-1C \u2014 Multinational Manager / Executive",
       "group": "IV",
       "law": "INA \u00a7203(b)(1)(C); INA \u00a7203(d); 8 U.S.C. \u00a71152; 8 U.S.C. \u00a71153; 22 CFR \u00a742.32; PL 106-95",
-      "description": "First employment preference \u2014 multinational managers or executives. DHS codes: E13/E18.",
+      "description": "First employment preference \u2014 multinational managers or executives.",
       "dhs_codes": [
         "E13",
         "E18"
@@ -1373,7 +1374,7 @@
       "name": "EB-1 \u2014 Spouse",
       "group": "IV",
       "law": "INA \u00a7203(b)(1); INA \u00a7203(d); 8 U.S.C. \u00a71152; 8 U.S.C. \u00a71153; 22 CFR \u00a742.32; PL 106-95",
-      "description": "Spouse of EB-1 principal. DHS codes: E14/E19.",
+      "description": "Spouse of EB-1 principal.",
       "dhs_codes": [
         "E14",
         "E19"
@@ -1386,10 +1387,10 @@
       "name": "EB-1 \u2014 Child",
       "group": "IV",
       "law": "INA \u00a7203(b)(1); INA \u00a7203(d); 8 U.S.C. \u00a71152; 8 U.S.C. \u00a71153; 22 CFR \u00a742.32; PL 106-95",
-      "description": "Child of EB-1 principal. DHS codes: E15/E10.",
+      "description": "Child of EB-1 principal.",
       "dhs_codes": [
-        "E15",
-        "E10"
+        "E10",
+        "E15"
       ],
       "subcategory": "EB-1",
       "category": "IV \u2014 Employment"
@@ -1399,7 +1400,7 @@
       "name": "EB-2 \u2014 Advanced Degree Professional / Exceptional Ability",
       "group": "IV",
       "law": "INA \u00a7203(b)(2); INA \u00a7203(d); 8 U.S.C. \u00a71152; 8 U.S.C. \u00a71153; 22 CFR \u00a742.32; PL 106-95",
-      "description": "Second employment preference \u2014 professionals holding advanced degrees or persons of exceptional ability. Includes NIW (National Interest Waiver). DHS codes: E21/E26.",
+      "description": "Second employment preference \u2014 professionals holding advanced degrees or persons of exceptional ability. Includes NIW (National Interest Waiver).",
       "dhs_codes": [
         "E21",
         "E26"
@@ -1412,7 +1413,7 @@
       "name": "EB-2 \u2014 Soviet Scientist",
       "group": "IV",
       "law": "INA \u00a7203(b)(2); INA \u00a7203(d); 8 U.S.C. \u00a71152; 8 U.S.C. \u00a71153; 22 CFR \u00a742.32; PL 102-509; PL 106-95",
-      "description": "Former Soviet Union scientists admitted under special legislation. DHS codes: ES1/ES6.",
+      "description": "Former Soviet Union scientists admitted under special legislation.",
       "dhs_codes": [
         "ES1",
         "ES6"
@@ -1425,7 +1426,7 @@
       "name": "EB-2 \u2014 Spouse",
       "group": "IV",
       "law": "INA \u00a7203(b)(2); INA \u00a7203(d); 8 U.S.C. \u00a71152; 8 U.S.C. \u00a71153; 22 CFR \u00a742.32; PL 106-95",
-      "description": "Spouse of EB-2 principal. DHS codes: E22/E27.",
+      "description": "Spouse of EB-2 principal.",
       "dhs_codes": [
         "E22",
         "E27"
@@ -1438,7 +1439,7 @@
       "name": "EB-2 \u2014 Child",
       "group": "IV",
       "law": "INA \u00a7203(b)(2); INA \u00a7203(d); 8 U.S.C. \u00a71152; 8 U.S.C. \u00a71153; 22 CFR \u00a742.32; PL 106-95",
-      "description": "Child of EB-2 principal. DHS codes: E23/E28.",
+      "description": "Child of EB-2 principal.",
       "dhs_codes": [
         "E23",
         "E28"
@@ -1451,7 +1452,7 @@
       "name": "EB-3 \u2014 Skilled Worker",
       "group": "IV",
       "law": "INA \u00a7203(b)(3)(A)(i); INA \u00a7203(d); 8 U.S.C. \u00a71152; 8 U.S.C. \u00a71153; 22 CFR \u00a742.32; PL 106-95",
-      "description": "Third employment preference \u2014 skilled workers with 2+ years training/experience. DHS codes: E31/E36.",
+      "description": "Third employment preference \u2014 skilled workers with 2+ years training/experience.",
       "dhs_codes": [
         "E31",
         "E36"
@@ -1464,7 +1465,7 @@
       "name": "EB-3 \u2014 Professional (Baccalaureate)",
       "group": "IV",
       "law": "INA \u00a7203(b)(3)(A)(ii); INA \u00a7203(d); 8 U.S.C. \u00a71152; 8 U.S.C. \u00a71153; 22 CFR \u00a742.32; PL 106-95",
-      "description": "Third employment preference \u2014 professionals with baccalaureate degrees. DHS codes: E32/E37.",
+      "description": "Third employment preference \u2014 professionals with baccalaureate degrees.",
       "dhs_codes": [
         "E32",
         "E37"
@@ -1477,7 +1478,7 @@
       "name": "EB-3 \u2014 Other / Unskilled Worker",
       "group": "IV",
       "law": "INA \u00a7203(b)(3)(A)(iii); INA \u00a7203(d); 8 U.S.C. \u00a71152; 8 U.S.C. \u00a71153; 22 CFR \u00a742.32; PL 106-95",
-      "description": "Third employment preference \u2014 other (unskilled) workers performing labor for which qualified workers are not available. DHS codes: EW3/EW8.",
+      "description": "Third employment preference \u2014 other (unskilled) workers performing labor for which qualified workers are not available.",
       "dhs_codes": [
         "EW3",
         "EW8"
@@ -1490,7 +1491,7 @@
       "name": "EB-3 \u2014 Schedule A Worker",
       "group": "IV",
       "law": "INA \u00a7203(b)(3); INA \u00a7203(d); 8 U.S.C. \u00a71152; 8 U.S.C. \u00a71153; 20 CFR \u00a7656.10; 22 CFR \u00a742.32; PL 106-95",
-      "description": "Third employment preference \u2014 Schedule A pre-certified occupations (nurses, physical therapists). DHS codes: EX1/EX6.",
+      "description": "Third employment preference \u2014 Schedule A pre-certified occupations (nurses, physical therapists).",
       "dhs_codes": [
         "EX1",
         "EX6"
@@ -1503,7 +1504,7 @@
       "name": "EB-3 \u2014 Chinese Student Protection Act",
       "group": "IV",
       "law": "INA \u00a7203(b); INA \u00a7203(d); 8 U.S.C. \u00a71152; 8 U.S.C. \u00a71153; 22 CFR \u00a742.32; PL 102-404 (CSPA 1992); PL 106-95",
-      "description": "Chinese nationals who were in the U.S. after June 4, 1989 (Tiananmen). DHS code: EC6.",
+      "description": "Chinese nationals who were in the U.S. after June 4, 1989 (Tiananmen).",
       "dhs_codes": [
         "EC6"
       ],
@@ -1515,15 +1516,15 @@
       "name": "EB-3 \u2014 Spouse (Skilled/Professional)",
       "group": "IV",
       "law": "INA \u00a7203(b)(3); INA \u00a7203(d); 8 U.S.C. \u00a71152; 8 U.S.C. \u00a71153; 22 CFR \u00a742.32; PL 106-95",
-      "description": "Spouse of EB-3 skilled worker or professional. DHS codes: E34/E39, EX2/EX7, EW4/EW9, EC7.",
+      "description": "Spouse of EB-3 skilled worker or professional.",
       "dhs_codes": [
         "E34",
         "E39",
-        "EX2",
-        "EX7",
+        "EC7",
         "EW4",
         "EW9",
-        "EC7"
+        "EX2",
+        "EX7"
       ],
       "subcategory": "EB-3",
       "category": "IV \u2014 Employment"
@@ -1533,15 +1534,15 @@
       "name": "EB-3 \u2014 Child (Skilled/Professional)",
       "group": "IV",
       "law": "INA \u00a7203(b)(3); INA \u00a7203(d); 8 U.S.C. \u00a71152; 8 U.S.C. \u00a71153; 22 CFR \u00a742.32; PL 106-95",
-      "description": "Child of EB-3 skilled worker or professional. DHS codes: E35/E30, EX3/EX8, EW5/EW0, EC8.",
+      "description": "Child of EB-3 skilled worker or professional.",
       "dhs_codes": [
-        "E35",
         "E30",
-        "EX3",
-        "EX8",
-        "EW5",
+        "E35",
+        "EC8",
         "EW0",
-        "EC8"
+        "EW5",
+        "EX3",
+        "EX8"
       ],
       "subcategory": "EB-3",
       "category": "IV \u2014 Employment"
@@ -1551,7 +1552,7 @@
       "name": "EB-4 \u2014 Minister of Religion",
       "group": "IV",
       "law": "INA \u00a7101(a)(27)(C); INA \u00a7203(b)(4); 8 U.S.C. \u00a71101; 8 U.S.C. \u00a71153; 8 CFR \u00a7204.5; 22 CFR \u00a742.32",
-      "description": "Fourth employment preference \u2014 special immigrant minister of religion. DHS codes: SD1/SD6.",
+      "description": "Fourth employment preference \u2014 special immigrant minister of religion.",
       "dhs_codes": [
         "SD1",
         "SD6"
@@ -1564,7 +1565,7 @@
       "name": "EB-4 \u2014 Religious Worker",
       "group": "IV",
       "law": "INA \u00a7101(a)(27)(C); INA \u00a7203(b)(4); 8 U.S.C. \u00a71101; 8 U.S.C. \u00a71153; 8 CFR \u00a7204.5; 22 CFR \u00a742.32",
-      "description": "Fourth employment preference \u2014 special immigrant religious worker (non-minister). DHS codes: SR1/SR6.",
+      "description": "Fourth employment preference \u2014 special immigrant religious worker (non-minister).",
       "dhs_codes": [
         "SR1",
         "SR6"
@@ -1577,7 +1578,7 @@
       "name": "EB-4 \u2014 U.S. Government Employee Abroad",
       "group": "IV",
       "law": "INA \u00a7101(a)(27)(D)(ii); INA \u00a7101(a)(38); INA \u00a7203(b)(4); INA \u00a7203(d); INA \u00a7204(a)(1)(G)(ii); 8 U.S.C. \u00a71101; 8 U.S.C. \u00a71153; 8 U.S.C. \u00a71154; 22 U.S.C. \u00a72669; 22 U.S.C. \u00a73943; 5 CFR \u00a78.3; 22 CFR \u00a742.32; PL 96-465; PL 103-416; PL 117-31",
-      "description": "Certain employees or former employees of the U.S. government abroad. DHS codes: SE1/SE6.",
+      "description": "Certain employees or former employees of the U.S. government abroad.",
       "dhs_codes": [
         "SE1",
         "SE6"
@@ -1590,7 +1591,7 @@
       "name": "EB-4 \u2014 Panama Canal Company Employee",
       "group": "IV",
       "law": "INA \u00a7101(a)(27)(E); INA \u00a7203(b)(4); 8 U.S.C. \u00a71101; 22 CFR \u00a742.32; PL 96-70",
-      "description": "Former employee of the Panama Canal Company or Canal Zone Government. DHS codes: SF1/SF6.",
+      "description": "Former employee of the Panama Canal Company or Canal Zone Government.",
       "dhs_codes": [
         "SF1",
         "SF6"
@@ -1603,7 +1604,7 @@
       "name": "EB-4 \u2014 Panama Canal Zone Gov't Employee",
       "group": "IV",
       "law": "INA \u00a7101(a)(27)(E); INA \u00a7101(a)(27)(F); INA \u00a7203(b)(4); 8 U.S.C. \u00a71101; 22 CFR \u00a742.32; PL 96-70",
-      "description": "Former U.S. government employee in the Panama Canal Zone. DHS codes: SG1/SG6.",
+      "description": "Former U.S. government employee in the Panama Canal Zone.",
       "dhs_codes": [
         "SG1",
         "SG6"
@@ -1616,7 +1617,7 @@
       "name": "EB-4 \u2014 Panama Canal Employee (1979)",
       "group": "IV",
       "law": "INA \u00a7101(a)(27)(E); INA \u00a7101(a)(27)(G); INA \u00a7203(b)(4); 8 U.S.C. \u00a71101; 22 CFR \u00a742.32; PL 96-70",
-      "description": "Former Panama Canal Company employee employed on April 1, 1979. DHS codes: SH1/SH6.",
+      "description": "Former Panama Canal Company employee employed on April 1, 1979.",
       "dhs_codes": [
         "SH1",
         "SH6"
@@ -1642,7 +1643,7 @@
       "name": "EB-4 \u2014 Retired Int'l Org Employee",
       "group": "IV",
       "law": "INA \u00a7101(a)(27)(I); INA \u00a7101(a)(27)(L); INA \u00a7101(a)(33); INA \u00a7203(b)(4); 8 U.S.C. \u00a71101; 22 CFR \u00a742.32; PL 106-396",
-      "description": "Retired employee of an international organization. DHS codes: SK1/SK6.",
+      "description": "Retired employee of an international organization.",
       "dhs_codes": [
         "SK1",
         "SK6"
@@ -1655,7 +1656,7 @@
       "name": "EB-4 \u2014 Surviving Spouse of Int'l Org Employee",
       "group": "IV",
       "law": "INA \u00a7101(a)(27)(I); INA \u00a7101(a)(27)(L); INA \u00a7101(a)(33); INA \u00a7203(b)(4); 8 U.S.C. \u00a71101; 22 CFR \u00a742.32; PL 106-396",
-      "description": "Certain surviving spouses of deceased international organization employees. DHS codes: SK4/SK9.",
+      "description": "Certain surviving spouses of deceased international organization employees.",
       "dhs_codes": [
         "SK4",
         "SK9"
@@ -1668,7 +1669,7 @@
       "name": "EB-4 \u2014 Juvenile Court Dependent",
       "group": "IV",
       "law": "INA \u00a7101(a)(27)(J); INA \u00a7203(b)(4); 8 U.S.C. \u00a71101; 8 U.S.C. \u00a71153; 22 CFR \u00a742.32",
-      "description": "Special immigrant juvenile who has been declared dependent on a juvenile court. DHS codes: SL1/SL6.",
+      "description": "Special immigrant juvenile who has been declared dependent on a juvenile court.",
       "dhs_codes": [
         "SL1",
         "SL6"
@@ -1681,7 +1682,7 @@
       "name": "EB-4 \u2014 Armed Forces (Post-1991)",
       "group": "IV",
       "law": "INA \u00a7101(a)(27)(K); INA \u00a7203(b)(4); 22 CFR \u00a742.32; PL 102-110",
-      "description": "Alien who has served 12 years in the U.S. Armed Forces after October 1, 1991. DHS codes: SM1/SM6.",
+      "description": "Alien who has served 12 years in the U.S. Armed Forces after October 1, 1991.",
       "dhs_codes": [
         "SM1",
         "SM6"
@@ -1694,7 +1695,7 @@
       "name": "EB-4 \u2014 Armed Forces (Pre-1991)",
       "group": "IV",
       "law": "INA \u00a7101(a)(27)(K); INA \u00a7203(b)(4); 22 CFR \u00a742.32; PL 102-110",
-      "description": "Alien who served 12 years in the U.S. Armed Forces before October 1991. DHS codes: SM4/SM9.",
+      "description": "Alien who served 12 years in the U.S. Armed Forces before October 1991.",
       "dhs_codes": [
         "SM4",
         "SM9"
@@ -1707,7 +1708,7 @@
       "name": "EB-4 \u2014 Broadcasting Board Employee",
       "group": "IV",
       "law": "INA \u00a7101(a)(27)(M); INA \u00a7203(b)(4); 8 U.S.C. \u00a71101; 22 CFR \u00a740.1; 22 CFR \u00a742.31; PL 103-236 \u00a7501; PL 106-536",
-      "description": "Employee of the International Broadcasting Bureau (BBG). DHS codes: BC1/BC6.",
+      "description": "Employee of the International Broadcasting Bureau (BBG).",
       "dhs_codes": [
         "BC1",
         "BC6"
@@ -1720,7 +1721,7 @@
       "name": "EB-4 \u2014 Retired NATO-6 Civilian",
       "group": "IV",
       "law": "INA \u00a7101(a)(27)(I); INA \u00a7101(a)(27)(L); INA \u00a7101(a)(33); INA \u00a7203(b)(4); 8 U.S.C. \u00a71101; 22 CFR \u00a742.32; PL 106-396",
-      "description": "Retired NATO-6 civilian employee who was in the U.S. 15+ years. DHS codes: SN1/SN6.",
+      "description": "Retired NATO-6 civilian employee who was in the U.S. 15+ years.",
       "dhs_codes": [
         "SN1",
         "SN6"
@@ -1733,7 +1734,7 @@
       "name": "EB-4 \u2014 Surviving Spouse of NATO-6",
       "group": "IV",
       "law": "INA \u00a7101(a)(27)(I); INA \u00a7101(a)(27)(L); INA \u00a7101(a)(33); INA \u00a7203(b)(4); 8 U.S.C. \u00a71101; 22 CFR \u00a742.32; PL 106-396",
-      "description": "Surviving spouse of a deceased NATO-6 civilian employee. DHS codes: SN4/SN9.",
+      "description": "Surviving spouse of a deceased NATO-6 civilian employee.",
       "dhs_codes": [
         "SN4",
         "SN9"
@@ -1746,7 +1747,7 @@
       "name": "EB-4 \u2014 Iraqi/Afghan Interpreter",
       "group": "IV",
       "law": "INA \u00a7101(a)(27); INA \u00a7203(b)(4); 8 U.S.C. \u00a71101; PL 109-163 \u00a71059; PL 110-28; PL 110-161; PL 110-181; PL 110-242; PL 111-8; PL 117-31",
-      "description": "Special immigrant interpreter/translator who worked with U.S. Armed Forces in Iraq or Afghanistan. DHS codes: SI1/SI6.",
+      "description": "Special immigrant interpreter/translator who worked with U.S. Armed Forces in Iraq or Afghanistan.",
       "dhs_codes": [
         "SI1",
         "SI6"
@@ -1759,7 +1760,7 @@
       "name": "EB-4 \u2014 Iraqi/Afghan U.S. Gov't Employee",
       "group": "IV",
       "law": "INA \u00a7101(a)(27); 8 U.S.C. \u00a71101; 8 U.S.C. \u00a71154; 22 CFR \u00a742.2; PL 110-181 \u00a71244; PL 110-242; PL 111-8 \u00a7602; PL 113-42; PL 113-66; PL 113-76; PL 113-160; PL 113-291; PL 114-92; PL 114-328; PL 115-31; PL 115-91; PL 115-232; PL 116-6; PL 116-92; PL 116-260; PL 116-283; PL 117-31; PL 117-328",
-      "description": "Iraqi or Afghan national employed by or on behalf of the U.S. government. DHS codes: SQ1/SQ6.",
+      "description": "Iraqi or Afghan national employed by or on behalf of the U.S. government.",
       "dhs_codes": [
         "SQ1",
         "SQ6"
@@ -1772,7 +1773,7 @@
       "name": "EB-4 \u2014 Spouse of SD1",
       "group": "IV",
       "law": "INA \u00a7101(a)(27)(C); INA \u00a7203(b)(4); INA \u00a7203(d); 8 U.S.C. \u00a71101; 8 U.S.C. \u00a71153; 8 CFR \u00a7204.5; 22 CFR \u00a742.32",
-      "description": "Spouse of special immigrant minister. DHS codes: SD2/SD7.",
+      "description": "Spouse of special immigrant minister.",
       "dhs_codes": [
         "SD2",
         "SD7"
@@ -1785,7 +1786,7 @@
       "name": "EB-4 \u2014 Child of SD1",
       "group": "IV",
       "law": "INA \u00a7101(a)(27)(C); INA \u00a7203(b)(4); INA \u00a7203(d); 8 U.S.C. \u00a71101; 8 U.S.C. \u00a71153; 8 CFR \u00a7204.5; 22 CFR \u00a742.32",
-      "description": "Child of special immigrant minister. DHS codes: SD3/SD8.",
+      "description": "Child of special immigrant minister.",
       "dhs_codes": [
         "SD3",
         "SD8"
@@ -1798,7 +1799,7 @@
       "name": "EB-4 \u2014 Spouse of SR1",
       "group": "IV",
       "law": "INA \u00a7101(a)(27)(C); INA \u00a7203(b)(4); INA \u00a7203(d); 8 U.S.C. \u00a71101; 8 U.S.C. \u00a71153; 8 CFR \u00a7204.5; 22 CFR \u00a742.32",
-      "description": "Spouse of special immigrant religious worker. DHS codes: SR2/SR7.",
+      "description": "Spouse of special immigrant religious worker.",
       "dhs_codes": [
         "SR2",
         "SR7"
@@ -1811,7 +1812,7 @@
       "name": "EB-4 \u2014 Child of SR1",
       "group": "IV",
       "law": "INA \u00a7101(a)(27)(C); INA \u00a7203(b)(4); INA \u00a7203(d); 8 U.S.C. \u00a71101; 8 U.S.C. \u00a71153; 8 CFR \u00a7204.5; 22 CFR \u00a742.32",
-      "description": "Child of special immigrant religious worker. DHS codes: SR3/SR8.",
+      "description": "Child of special immigrant religious worker.",
       "dhs_codes": [
         "SR3",
         "SR8"
@@ -1824,7 +1825,7 @@
       "name": "EB-4 \u2014 Spouse of SE1",
       "group": "IV",
       "law": "INA \u00a7101(a)(27)(D)(ii); INA \u00a7101(a)(38); INA \u00a7203(b)(4); INA \u00a7203(d); INA \u00a7204(a)(1)(G)(ii); 8 U.S.C. \u00a71101; 8 U.S.C. \u00a71153; 8 U.S.C. \u00a71154; 22 U.S.C. \u00a72669; 22 U.S.C. \u00a73943; 5 CFR \u00a78.3; 22 CFR \u00a742.32; PL 96-465; PL 103-416; PL 117-31",
-      "description": "Spouse of U.S. government employee abroad. DHS codes: SE2/SE7.",
+      "description": "Spouse of U.S. government employee abroad.",
       "dhs_codes": [
         "SE2",
         "SE7"
@@ -1837,7 +1838,7 @@
       "name": "EB-4 \u2014 Child of SE1",
       "group": "IV",
       "law": "INA \u00a7101(a)(27)(D)(ii); INA \u00a7101(a)(38); INA \u00a7203(b)(4); INA \u00a7203(d); INA \u00a7204(a)(1)(G)(ii); 8 U.S.C. \u00a71101; 8 U.S.C. \u00a71153; 8 U.S.C. \u00a71154; 22 U.S.C. \u00a72669; 22 U.S.C. \u00a73943; 5 CFR \u00a78.3; 22 CFR \u00a742.32; PL 96-465; PL 103-416; PL 117-31",
-      "description": "Child of U.S. government employee abroad. DHS codes: SE3/SE8.",
+      "description": "Child of U.S. government employee abroad.",
       "dhs_codes": [
         "SE3",
         "SE8"
@@ -1850,7 +1851,7 @@
       "name": "EB-4 \u2014 Spouse/Child of SF1",
       "group": "IV",
       "law": "INA \u00a7101(a)(27)(E); INA \u00a7203(d); 8 U.S.C. \u00a71101; 22 CFR \u00a742.32; PL 96-70",
-      "description": "Spouse or child of Panama Canal Company employee. DHS codes: SF2/SF7.",
+      "description": "Spouse or child of Panama Canal Company employee.",
       "dhs_codes": [
         "SF2",
         "SF7"
@@ -1863,7 +1864,7 @@
       "name": "EB-4 \u2014 Spouse/Child of SG1",
       "group": "IV",
       "law": "INA \u00a7101(a)(27)(E); INA \u00a7203(d); 8 U.S.C. \u00a71101; 22 CFR \u00a742.32; PL 96-70",
-      "description": "Spouse or child of former U.S. government employee in Canal Zone. DHS codes: SG2/SG7.",
+      "description": "Spouse or child of former U.S. government employee in Canal Zone.",
       "dhs_codes": [
         "SG2",
         "SG7"
@@ -1876,7 +1877,7 @@
       "name": "EB-4 \u2014 Spouse/Child of SH1",
       "group": "IV",
       "law": "INA \u00a7101(a)(27)(E); INA \u00a7203(d); 8 U.S.C. \u00a71101; 22 CFR \u00a742.32; PL 96-70",
-      "description": "Spouse or child of Panama Canal employee (1979). DHS codes: SH2/SH7.",
+      "description": "Spouse or child of Panama Canal employee (1979).",
       "dhs_codes": [
         "SH2",
         "SH7"
@@ -1889,7 +1890,7 @@
       "name": "EB-4 \u2014 Spouse/Child of SJ1",
       "group": "IV",
       "law": "INA \u00a7101(a)(27)(H); INA \u00a7203(b)(4); INA \u00a7203(d); 8 U.S.C. \u00a71101; 22 CFR \u00a740.1; 22 CFR \u00a742.31",
-      "description": "Spouse or child of SJ1 foreign medical graduate. DHS codes: SJ2/SJ7.",
+      "description": "Spouse or child of SJ1 foreign medical graduate.",
       "dhs_codes": [
         "SJ2",
         "SJ7"
@@ -1974,7 +1975,7 @@
       "name": "EB-4 \u2014 Spouse of SK1",
       "group": "IV",
       "law": "INA \u00a7101(a)(27)(I); INA \u00a7101(a)(27)(L); INA \u00a7101(a)(33); INA \u00a7203(d); 8 U.S.C. \u00a71101; 22 CFR \u00a742.32; PL 106-396",
-      "description": "Spouse of retired international organization employee. DHS codes: SK2/SK7.",
+      "description": "Spouse of retired international organization employee.",
       "dhs_codes": [
         "SK2",
         "SK7"
@@ -1987,7 +1988,7 @@
       "name": "EB-4 \u2014 Child of SK1",
       "group": "IV",
       "law": "INA \u00a7101(a)(27)(I); INA \u00a7101(a)(27)(L); INA \u00a7101(a)(33); INA \u00a7203(d); 8 U.S.C. \u00a71101; 22 CFR \u00a742.32; PL 106-396",
-      "description": "Unmarried child of retired international organization employee. DHS codes: SK3/SK8.",
+      "description": "Unmarried child of retired international organization employee.",
       "dhs_codes": [
         "SK3",
         "SK8"
@@ -2000,7 +2001,7 @@
       "name": "EB-4 \u2014 Spouse of SN1",
       "group": "IV",
       "law": "INA \u00a7101(a)(27)(I); INA \u00a7101(a)(27)(L); INA \u00a7101(a)(33); INA \u00a7203(d); 8 U.S.C. \u00a71101; 22 CFR \u00a742.32; PL 106-396",
-      "description": "Spouse of retired NATO-6 civilian. DHS codes: SN2/SN7.",
+      "description": "Spouse of retired NATO-6 civilian.",
       "dhs_codes": [
         "SN2",
         "SN7"
@@ -2013,7 +2014,7 @@
       "name": "EB-4 \u2014 Child of SN1",
       "group": "IV",
       "law": "INA \u00a7101(a)(27)(I); INA \u00a7101(a)(27)(L); INA \u00a7101(a)(33); INA \u00a7203(d); 8 U.S.C. \u00a71101; 22 CFR \u00a742.32; PL 106-396",
-      "description": "Unmarried son/daughter of retired NATO-6 civilian. DHS codes: SN3/SN8.",
+      "description": "Unmarried son/daughter of retired NATO-6 civilian.",
       "dhs_codes": [
         "SN3",
         "SN8"
@@ -2026,7 +2027,7 @@
       "name": "EB-4 \u2014 Spouse of BC1",
       "group": "IV",
       "law": "INA \u00a7101(a)(27)(M); INA \u00a7203(d); 8 U.S.C. \u00a71101; 22 CFR \u00a740.1; 22 CFR \u00a742.31; PL 106-536",
-      "description": "Spouse of BBG broadcasting employee. DHS codes: BC2/BC7.",
+      "description": "Spouse of BBG broadcasting employee.",
       "dhs_codes": [
         "BC2",
         "BC7"
@@ -2039,7 +2040,7 @@
       "name": "EB-4 \u2014 Child of BC1",
       "group": "IV",
       "law": "INA \u00a7101(a)(27)(M); INA \u00a7203(d); 8 U.S.C. \u00a71101; 22 CFR \u00a740.1; 22 CFR \u00a742.31; PL 106-536",
-      "description": "Child of BBG broadcasting employee. DHS codes: BC3/BC8.",
+      "description": "Child of BBG broadcasting employee.",
       "dhs_codes": [
         "BC3",
         "BC8"
@@ -2052,7 +2053,7 @@
       "name": "EB-4 \u2014 Spouse of SI1",
       "group": "IV",
       "law": "INA \u00a7101(a)(27); 8 U.S.C. \u00a71101; PL 109-163 \u00a71059; PL 110-28; PL 110-161; PL 110-181; PL 110-242; PL 111-8; PL 117-31",
-      "description": "Spouse of Iraqi/Afghan interpreter. DHS codes: SI2/SI7.",
+      "description": "Spouse of Iraqi/Afghan interpreter.",
       "dhs_codes": [
         "SI2",
         "SI7"
@@ -2065,7 +2066,7 @@
       "name": "EB-4 \u2014 Child of SI1",
       "group": "IV",
       "law": "INA \u00a7101(a)(27); 8 U.S.C. \u00a71101; PL 109-163 \u00a71059; PL 110-28; PL 110-161; PL 110-181; PL 110-242; PL 111-8; PL 117-31",
-      "description": "Child of Iraqi/Afghan interpreter. DHS codes: SI3/SI8.",
+      "description": "Child of Iraqi/Afghan interpreter.",
       "dhs_codes": [
         "SI3",
         "SI8"
@@ -2078,7 +2079,7 @@
       "name": "EB-4 \u2014 Spouse of SQ1",
       "group": "IV",
       "law": "INA \u00a7101(a)(27); 8 U.S.C. \u00a71101; 8 U.S.C. \u00a71154; 22 CFR \u00a742.2; PL 110-181 \u00a71244; PL 110-242; PL 111-8; PL 113-42; PL 113-66; PL 113-76; PL 113-160; PL 113-291; PL 114-92; PL 114-328; PL 115-31; PL 115-91; PL 115-232; PL 116-6; PL 116-92; PL 116-260; PL 116-283; PL 117-31; PL 117-328",
-      "description": "Spouse of Iraqi/Afghan U.S. government employee. DHS codes: SQ2/SQ7.",
+      "description": "Spouse of Iraqi/Afghan U.S. government employee.",
       "dhs_codes": [
         "SQ2",
         "SQ7"
@@ -2091,7 +2092,7 @@
       "name": "EB-4 \u2014 Child of SQ1",
       "group": "IV",
       "law": "INA \u00a7101(a)(27); 8 U.S.C. \u00a71101; 8 U.S.C. \u00a71154; 22 CFR \u00a742.2; PL 110-181 \u00a71244; PL 110-242; PL 111-8; PL 113-42; PL 113-66; PL 113-76; PL 113-160; PL 113-291; PL 114-92; PL 114-328; PL 115-31; PL 115-91; PL 115-232; PL 116-6; PL 116-92; PL 116-260; PL 116-283; PL 117-31; PL 117-328",
-      "description": "Child of Iraqi/Afghan U.S. government employee. DHS codes: SQ3/SQ8.",
+      "description": "Child of Iraqi/Afghan U.S. government employee.",
       "dhs_codes": [
         "SQ3",
         "SQ8"
@@ -2104,7 +2105,7 @@
       "name": "EB-4 \u2014 Spouse of SM1",
       "group": "IV",
       "law": "INA \u00a7101(a)(27)(K); INA \u00a7203(d); 22 CFR \u00a742.32; PL 102-110",
-      "description": "Spouse of armed forces member (post-1991). DHS codes: SM2/SM7.",
+      "description": "Spouse of armed forces member (post-1991).",
       "dhs_codes": [
         "SM2",
         "SM7"
@@ -2117,7 +2118,7 @@
       "name": "EB-4 \u2014 Child of SM1",
       "group": "IV",
       "law": "INA \u00a7101(a)(27)(K); INA \u00a7203(d); 22 CFR \u00a742.32; PL 102-110",
-      "description": "Child of armed forces member (post-1991). DHS codes: SM3/SM8.",
+      "description": "Child of armed forces member (post-1991).",
       "dhs_codes": [
         "SM3",
         "SM8"
@@ -2130,10 +2131,10 @@
       "name": "EB-4 \u2014 Spouse/Child of SM4",
       "group": "IV",
       "law": "INA \u00a7101(a)(27)(K); INA \u00a7203(d); 22 CFR \u00a742.32; PL 102-110",
-      "description": "Spouse or child of armed forces member (pre-1991). DHS codes: SM5/SM0.",
+      "description": "Spouse or child of armed forces member (pre-1991).",
       "dhs_codes": [
-        "SM5",
-        "SM0"
+        "SM0",
+        "SM5"
       ],
       "subcategory": "EB-4",
       "category": "IV \u2014 Employment"
@@ -2143,7 +2144,7 @@
       "name": "EB-5 \u2014 Investor (Non-Targeted)",
       "group": "IV",
       "law": "INA \u00a7203(b)(5)(A); INA \u00a7203(d); 8 U.S.C. \u00a71152; 8 U.S.C. \u00a71153; 22 CFR \u00a742.32; PL 106-95",
-      "description": "Fifth employment preference \u2014 employment creation investor in a non-targeted employment area. Conditional. DHS codes: C51/C56.",
+      "description": "Fifth employment preference \u2014 employment creation investor in a non-targeted employment area. Conditional.",
       "dhs_codes": [
         "C51",
         "C56"
@@ -2156,7 +2157,7 @@
       "name": "EB-5 \u2014 Investor (Targeted Area)",
       "group": "IV",
       "law": "INA \u00a7203(b)(5)(B); INA \u00a7203(d); 8 U.S.C. \u00a71152; 8 U.S.C. \u00a71153; 22 CFR \u00a742.32; PL 106-95",
-      "description": "Employment creation investor in a targeted employment area (TEA). Conditional. DHS codes: T51/T56.",
+      "description": "Employment creation investor in a targeted employment area (TEA). Conditional.",
       "dhs_codes": [
         "T51",
         "T56"
@@ -2169,7 +2170,7 @@
       "name": "EB-5 \u2014 Investor Pilot Program (Non-Targeted)",
       "group": "IV",
       "law": "INA \u00a7203(b)(5); INA \u00a7203(d); 8 U.S.C. \u00a71152; 8 U.S.C. \u00a71153; 22 CFR \u00a742.32; PL 102-395 \u00a7610; PL 106-95",
-      "description": "Investor through regional center pilot program, non-targeted area. Conditional. DHS codes: R51/R56.",
+      "description": "Investor through regional center pilot program, non-targeted area. Conditional.",
       "dhs_codes": [
         "R51",
         "R56"
@@ -2182,7 +2183,7 @@
       "name": "EB-5 \u2014 Investor Pilot Program (Targeted)",
       "group": "IV",
       "law": "INA \u00a7203(b)(5); INA \u00a7203(d); 8 U.S.C. \u00a71152; 8 U.S.C. \u00a71153; 22 CFR \u00a742.32; PL 102-395 \u00a7610; PL 106-95",
-      "description": "Investor through regional center pilot program, targeted employment area. Conditional. DHS codes: I51/I56.",
+      "description": "Investor through regional center pilot program, targeted employment area. Conditional.",
       "dhs_codes": [
         "I51",
         "I56"
@@ -2195,7 +2196,7 @@
       "name": "EB-5 \u2014 Investor (Unconditional)",
       "group": "IV",
       "law": "INA \u00a7203(b)(5); INA \u00a7203(d); 8 U.S.C. \u00a71152; 8 U.S.C. \u00a71153; 22 CFR \u00a742.32; PL 106-95",
-      "description": "Employment creation investor, conditions removed. DHS codes: E51/E56.",
+      "description": "Employment creation investor, conditions removed.",
       "dhs_codes": [
         "E51",
         "E56"
@@ -2208,7 +2209,7 @@
       "name": "EB-5 \u2014 Spouse (Non-Targeted)",
       "group": "IV",
       "law": "INA \u00a7203(b)(5); INA \u00a7203(d); 8 U.S.C. \u00a71152; 8 U.S.C. \u00a71153; 22 CFR \u00a742.32; PL 106-95",
-      "description": "Spouse of C51 investor. DHS codes: C52/C57.",
+      "description": "Spouse of C51 investor.",
       "dhs_codes": [
         "C52",
         "C57"
@@ -2221,7 +2222,7 @@
       "name": "EB-5 \u2014 Spouse (Targeted)",
       "group": "IV",
       "law": "INA \u00a7203(b)(5); INA \u00a7203(d); 8 U.S.C. \u00a71152; 8 U.S.C. \u00a71153; 22 CFR \u00a742.32; PL 106-95",
-      "description": "Spouse of T51 investor. DHS codes: T52/T57.",
+      "description": "Spouse of T51 investor.",
       "dhs_codes": [
         "T52",
         "T57"
@@ -2234,7 +2235,7 @@
       "name": "EB-5 \u2014 Spouse (Pilot, Non-Targeted)",
       "group": "IV",
       "law": "INA \u00a7203(b)(5); INA \u00a7203(d); 8 U.S.C. \u00a71152; 8 U.S.C. \u00a71153; 22 CFR \u00a742.32; PL 106-95",
-      "description": "Spouse of R51 investor. DHS codes: R52/R57.",
+      "description": "Spouse of R51 investor.",
       "dhs_codes": [
         "R52",
         "R57"
@@ -2247,7 +2248,7 @@
       "name": "EB-5 \u2014 Spouse (Pilot, Targeted)",
       "group": "IV",
       "law": "INA \u00a7203(b)(5); INA \u00a7203(d); 8 U.S.C. \u00a71152; 8 U.S.C. \u00a71153; 22 CFR \u00a742.32; PL 106-95",
-      "description": "Spouse of I51 investor. DHS codes: I52/I57.",
+      "description": "Spouse of I51 investor.",
       "dhs_codes": [
         "I52",
         "I57"
@@ -2260,7 +2261,7 @@
       "name": "EB-5 \u2014 Spouse (Unconditional)",
       "group": "IV",
       "law": "INA \u00a7203(b)(5); INA \u00a7203(d); 8 U.S.C. \u00a71152; 8 U.S.C. \u00a71153; 22 CFR \u00a742.32; PL 106-95",
-      "description": "Spouse of E51 investor. DHS codes: E52/E57.",
+      "description": "Spouse of E51 investor.",
       "dhs_codes": [
         "E52",
         "E57"
@@ -2273,7 +2274,7 @@
       "name": "EB-5 \u2014 Child (Non-Targeted)",
       "group": "IV",
       "law": "INA \u00a7203(b)(5); INA \u00a7203(d); 8 U.S.C. \u00a71152; 8 U.S.C. \u00a71153; 22 CFR \u00a742.32; PL 106-95",
-      "description": "Child of C51 investor. DHS codes: C53/C58.",
+      "description": "Child of C51 investor.",
       "dhs_codes": [
         "C53",
         "C58"
@@ -2286,7 +2287,7 @@
       "name": "EB-5 \u2014 Child (Targeted)",
       "group": "IV",
       "law": "INA \u00a7203(b)(5); INA \u00a7203(d); 8 U.S.C. \u00a71152; 8 U.S.C. \u00a71153; 22 CFR \u00a742.32; PL 106-95",
-      "description": "Child of T51 investor. DHS codes: T53/T58.",
+      "description": "Child of T51 investor.",
       "dhs_codes": [
         "T53",
         "T58"
@@ -2299,7 +2300,7 @@
       "name": "EB-5 \u2014 Child (Pilot, Non-Targeted)",
       "group": "IV",
       "law": "INA \u00a7203(b)(5); INA \u00a7203(d); 8 U.S.C. \u00a71152; 8 U.S.C. \u00a71153; 22 CFR \u00a742.32; PL 106-95",
-      "description": "Child of R51 investor. DHS codes: R53/R58.",
+      "description": "Child of R51 investor.",
       "dhs_codes": [
         "R53",
         "R58"
@@ -2312,7 +2313,7 @@
       "name": "EB-5 \u2014 Child (Pilot, Targeted)",
       "group": "IV",
       "law": "INA \u00a7203(b)(5); INA \u00a7203(d); 8 U.S.C. \u00a71152; 8 U.S.C. \u00a71153; 22 CFR \u00a742.32; PL 106-95",
-      "description": "Child of I51 investor. DHS codes: I53/I58.",
+      "description": "Child of I51 investor.",
       "dhs_codes": [
         "I53",
         "I58"
@@ -2325,7 +2326,7 @@
       "name": "EB-5 \u2014 Child (Unconditional)",
       "group": "IV",
       "law": "INA \u00a7203(b)(5); INA \u00a7203(d); 8 U.S.C. \u00a71152; 8 U.S.C. \u00a71153; 22 CFR \u00a742.32; PL 106-95",
-      "description": "Child of E51 investor. DHS codes: E53/E58.",
+      "description": "Child of E51 investor.",
       "dhs_codes": [
         "E53",
         "E58"
@@ -2590,7 +2591,7 @@
       "name": "Diversity Visa \u2014 Principal",
       "group": "IV",
       "law": "INA \u00a7202(b); INA \u00a7203(c); INA \u00a7204(a)(1)(I); INA \u00a7212(a)(6)(C); INA \u00a7212(e); INA \u00a7213(a); INA \u00a7221(g); 8 U.S.C. \u00a71152; 8 U.S.C. \u00a71153; 8 U.S.C. \u00a71154; 8 U.S.C. \u00a71182; 8 U.S.C. \u00a71183; 8 U.S.C. \u00a71201",
-      "description": "Diversity Immigrant Visa Program (lottery) principal applicant from an under-represented country. 55,000 visas annually. DHS codes: DV1/DV6.",
+      "description": "Diversity Immigrant Visa Program (lottery) principal applicant from an under-represented country. 55,000 visas annually.",
       "dhs_codes": [
         "DV1",
         "DV6"
@@ -2603,7 +2604,7 @@
       "name": "Diversity Visa \u2014 Spouse",
       "group": "IV",
       "law": "INA \u00a7202(b); INA \u00a7203(c); INA \u00a7203(d); INA \u00a7204(a)(1)(I); INA \u00a7212(a)(6)(C); INA \u00a7212(e); INA \u00a7213(a); INA \u00a7221(g); 8 U.S.C. \u00a71152; 8 U.S.C. \u00a71153; 8 U.S.C. \u00a71154; 8 U.S.C. \u00a71182; 8 U.S.C. \u00a71183; 8 U.S.C. \u00a71201",
-      "description": "Spouse of DV1 lottery winner. DHS codes: DV2/DV7.",
+      "description": "Spouse of DV1 lottery winner.",
       "dhs_codes": [
         "DV2",
         "DV7"
@@ -2616,7 +2617,7 @@
       "name": "Diversity Visa \u2014 Child",
       "group": "IV",
       "law": "INA \u00a7202(b); INA \u00a7203(c); INA \u00a7203(d); INA \u00a7204(a)(1)(I); INA \u00a7212(a)(6)(C); INA \u00a7212(e); INA \u00a7213(a); INA \u00a7221(g); 8 U.S.C. \u00a71152; 8 U.S.C. \u00a71153; 8 U.S.C. \u00a71154; 8 U.S.C. \u00a71182; 8 U.S.C. \u00a71183; 8 U.S.C. \u00a71201",
-      "description": "Child of DV1 lottery winner. DHS codes: DV3/DV8.",
+      "description": "Child of DV1 lottery winner.",
       "dhs_codes": [
         "DV3",
         "DV8"
@@ -2638,10 +2639,11 @@
       "name": "Refugee",
       "group": "IV",
       "law": "INA \u00a7101(a)(15)(K); INA \u00a7101(b)(1); INA \u00a7203(a); INA \u00a7204(a)(1); INA \u00a7207; INA \u00a7214(d); INA \u00a7214(r); 8 U.S.C. \u00a71101; 8 U.S.C. \u00a71153; 8 U.S.C. \u00a71154; 8 U.S.C. \u00a71184; 18 U.S.C. \u00a71801; 8 CFR \u00a7214.2; 22 CFR \u00a741.81; PL 106-113; PL 106-553; PL 109-162; PL 109-248; Refugee Act of 1980 (PL 96-212)",
-      "description": "Person outside their country of nationality unable or unwilling to return due to persecution. Admitted by presidential determination. DHS codes: RE6 (principal), RE7-RE9.",
+      "description": "Person outside their country of nationality unable or unwilling to return due to persecution. Admitted by presidential determination.",
       "dhs_codes": [
         "RE6",
         "RE7",
+        "RE7-RE9",
         "RE8",
         "RE9"
       ],
@@ -2653,7 +2655,7 @@
       "name": "Refugee \u2014 Spouse",
       "group": "IV",
       "law": "INA \u00a7101(a)(15)(K); INA \u00a7101(b)(1); INA \u00a7203(a); INA \u00a7204(a)(1); INA \u00a7207(c)(2); INA \u00a7214(d); INA \u00a7214(r); 8 U.S.C. \u00a71101; 8 U.S.C. \u00a71153; 8 U.S.C. \u00a71154; 8 U.S.C. \u00a71184; 18 U.S.C. \u00a71801; 8 CFR \u00a7214.2; 22 CFR \u00a741.81; PL 106-113; PL 106-553; PL 109-162; PL 109-248",
-      "description": "Spouse of RE6 refugee following to join. DHS code: RE7.",
+      "description": "Spouse of RE6 refugee following to join.",
       "dhs_codes": [
         "RE7"
       ],
@@ -2665,7 +2667,7 @@
       "name": "Refugee \u2014 Child",
       "group": "IV",
       "law": "INA \u00a7101(a)(15)(K); INA \u00a7101(b)(1); INA \u00a7203(a); INA \u00a7204(a)(1); INA \u00a7207(c)(2); INA \u00a7214(d); INA \u00a7214(r); 8 U.S.C. \u00a71101; 8 U.S.C. \u00a71153; 8 U.S.C. \u00a71154; 8 U.S.C. \u00a71184; 18 U.S.C. \u00a71801; 8 CFR \u00a7214.2; 22 CFR \u00a741.81; PL 106-113; PL 106-553; PL 109-162; PL 109-248",
-      "description": "Child of RE6 refugee following to join. DHS code: RE8.",
+      "description": "Child of RE6 refugee following to join.",
       "dhs_codes": [
         "RE8"
       ],
@@ -2677,7 +2679,7 @@
       "name": "Cuban Refugee",
       "group": "IV",
       "law": "INA \u00a7101(a)(15)(K); INA \u00a7101(b)(1); INA \u00a7203(a); INA \u00a7204(a)(1); INA \u00a7214(d); INA \u00a7214(r); 8 U.S.C. \u00a71101; 8 U.S.C. \u00a71153; 8 U.S.C. \u00a71154; 8 U.S.C. \u00a71184; 18 U.S.C. \u00a71801; 8 CFR \u00a7214.2; 22 CFR \u00a741.81; PL 89-732 (Cuban Adjustment Act of 1966); PL 106-113; PL 106-553; PL 109-162; PL 109-248",
-      "description": "Cuban national admitted or paroled after January 1, 1959, adjusting to LPR status. DHS codes: CU6, CU7.",
+      "description": "Cuban national admitted or paroled after January 1, 1959, adjusting to LPR status.",
       "dhs_codes": [
         "CU6",
         "CU7"
@@ -2690,7 +2692,7 @@
       "name": "Indochinese Refugee",
       "group": "IV",
       "law": "INA \u00a7101(a)(15)(K); INA \u00a7101(b)(1); INA \u00a7203(a); INA \u00a7204(a)(1); INA \u00a7214(d); INA \u00a7214(r); 8 U.S.C. \u00a71101; 8 U.S.C. \u00a71153; 8 U.S.C. \u00a71154; 8 U.S.C. \u00a71184; 18 U.S.C. \u00a71801; 8 CFR \u00a7214.2; 22 CFR \u00a741.81; PL 95-145 (1977); PL 106-113; PL 106-553; PL 109-162; PL 109-248",
-      "description": "Indochinese refugee admitted under early parole programs. DHS codes: IC6, IC7.",
+      "description": "Indochinese refugee admitted under early parole programs.",
       "dhs_codes": [
         "IC6",
         "IC7"
@@ -2703,9 +2705,10 @@
       "name": "Asylee \u2014 Principal",
       "group": "IV",
       "law": "INA \u00a7101(a)(15)(K); INA \u00a7101(b)(1); INA \u00a7203(a); INA \u00a7204(a)(1); INA \u00a7208; INA \u00a7214(d); INA \u00a7214(r); 8 U.S.C. \u00a71101; 8 U.S.C. \u00a71153; 8 U.S.C. \u00a71154; 8 U.S.C. \u00a71184; 18 U.S.C. \u00a71801; 8 CFR \u00a7214.2; 22 CFR \u00a741.81; PL 106-113; PL 106-553; PL 109-162; PL 109-248",
-      "description": "Person physically present in the U.S. granted asylum due to persecution. May adjust to LPR after 1 year. DHS codes: AS6-AS8.",
+      "description": "Person physically present in the U.S. granted asylum due to persecution. May adjust to LPR after 1 year.",
       "dhs_codes": [
         "AS6",
+        "AS6-AS8",
         "AS7",
         "AS8"
       ],
@@ -2717,7 +2720,7 @@
       "name": "Asylee \u2014 Spouse",
       "group": "IV",
       "law": "INA \u00a7101(a)(15)(K); INA \u00a7101(b)(1); INA \u00a7203(a); INA \u00a7204(a)(1); INA \u00a7208(b)(3); INA \u00a7214(d); INA \u00a7214(r); 8 U.S.C. \u00a71101; 8 U.S.C. \u00a71153; 8 U.S.C. \u00a71154; 8 U.S.C. \u00a71184; 18 U.S.C. \u00a71801; 8 CFR \u00a7214.2; 22 CFR \u00a741.81; PL 106-113; PL 106-553; PL 109-162; PL 109-248",
-      "description": "Spouse of AS6 asylee. DHS code: AS7.",
+      "description": "Spouse of AS6 asylee.",
       "dhs_codes": [
         "AS7"
       ],
@@ -2729,7 +2732,7 @@
       "name": "Asylee \u2014 Child",
       "group": "IV",
       "law": "INA \u00a7101(a)(15)(K); INA \u00a7101(b)(1); INA \u00a7203(a); INA \u00a7204(a)(1); INA \u00a7208(b)(3); INA \u00a7214(d); INA \u00a7214(r); 8 U.S.C. \u00a71101; 8 U.S.C. \u00a71153; 8 U.S.C. \u00a71154; 8 U.S.C. \u00a71184; 18 U.S.C. \u00a71801; 8 CFR \u00a7214.2; 22 CFR \u00a741.81; PL 106-113; PL 106-553; PL 109-162; PL 109-248",
-      "description": "Child of AS6 asylee. DHS code: AS8.",
+      "description": "Child of AS6 asylee.",
       "dhs_codes": [
         "AS8"
       ],
@@ -2741,9 +2744,10 @@
       "name": "Iraqi Asylee",
       "group": "IV",
       "law": "INA \u00a7101(a)(15)(K); INA \u00a7101(b)(1); INA \u00a7203(a); INA \u00a7204(a)(1); INA \u00a7208; INA \u00a7214(d); INA \u00a7214(r); 8 U.S.C. \u00a71101; 8 U.S.C. \u00a71153; 8 U.S.C. \u00a71154; 8 U.S.C. \u00a71184; 18 U.S.C. \u00a71801; 8 CFR \u00a7214.2; 22 CFR \u00a741.81; PL 106-113; PL 106-553; PL 109-162; PL 109-248",
-      "description": "Iraqi asylee adjusting to LPR. DHS codes: GA6-GA8.",
+      "description": "Iraqi asylee adjusting to LPR.",
       "dhs_codes": [
         "GA6",
+        "GA6-GA8",
         "GA7",
         "GA8"
       ],
@@ -2755,9 +2759,10 @@
       "name": "Syrian Asylee",
       "group": "IV",
       "law": "INA \u00a7101(a)(15)(K); INA \u00a7101(b)(1); INA \u00a7203(a); INA \u00a7204(a)(1); INA \u00a7208; INA \u00a7214(d); INA \u00a7214(r); 8 U.S.C. \u00a71101; 8 U.S.C. \u00a71153; 8 U.S.C. \u00a71154; 8 U.S.C. \u00a71184; 18 U.S.C. \u00a71801; 8 CFR \u00a7214.2; 22 CFR \u00a741.81; PL 106-113; PL 106-553; PL 109-162; PL 109-248",
-      "description": "Syrian asylee adjusting to LPR. DHS codes: SY6-SY8.",
+      "description": "Syrian asylee adjusting to LPR.",
       "dhs_codes": [
         "SY6",
+        "SY6-SY8",
         "SY7",
         "SY8"
       ],
@@ -2769,12 +2774,13 @@
       "name": "Trafficking Victim Adjustment (T-1)",
       "group": "IV",
       "law": "INA \u00a7101(a)(15)(K); INA \u00a7101(b)(1); INA \u00a7203(a); INA \u00a7204(a)(1); INA \u00a7214(d); INA \u00a7214(r); INA \u00a7245(l); 8 U.S.C. \u00a71101; 8 U.S.C. \u00a71153; 8 U.S.C. \u00a71154; 8 U.S.C. \u00a71184; 18 U.S.C. \u00a71801; 8 CFR \u00a7214.2; 22 CFR \u00a741.81; PL 106-113; PL 106-553; PL 109-162; PL 109-248; TVPA",
-      "description": "Adjustment of T-1 trafficking victim to LPR after 3 years or completion of investigation. DHS codes: ST6-ST9, ST0.",
+      "description": "Adjustment of T-1 trafficking victim to LPR after 3 years or completion of investigation.",
       "dhs_codes": [
+        "ST0",
         "ST6",
+        "ST6-ST9",
         "ST7",
         "ST8",
-        "ST0",
         "ST9"
       ],
       "subcategory": "T-Adjustment",
@@ -2785,16 +2791,17 @@
       "name": "Crime Victim Adjustment (U-1)",
       "group": "IV",
       "law": "INA \u00a7101(a)(15)(K); INA \u00a7101(b)(1); INA \u00a7203(a); INA \u00a7204(a)(1); INA \u00a7214(d); INA \u00a7214(r); INA \u00a7245(m); 8 U.S.C. \u00a71101; 8 U.S.C. \u00a71153; 8 U.S.C. \u00a71154; 8 U.S.C. \u00a71184; 18 U.S.C. \u00a71801; 8 CFR \u00a7214.2; 22 CFR \u00a741.81; PL 106-113; PL 106-553; PL 109-162; PL 109-248; VTVPA",
-      "description": "Adjustment of U-1 crime victim to LPR after 3 years continuous presence. DHS codes: SU6-SU9, SU0, SU2, SU3, SU5.",
+      "description": "Adjustment of U-1 crime victim to LPR after 3 years continuous presence.",
       "dhs_codes": [
-        "SU6",
-        "SU7",
-        "SU8",
         "SU0",
-        "SU9",
         "SU2",
         "SU3",
-        "SU5"
+        "SU5",
+        "SU6",
+        "SU6-SU9",
+        "SU7",
+        "SU8",
+        "SU9"
       ],
       "subcategory": "U-Adjustment",
       "category": "IV \u2014 Humanitarian"
@@ -2804,9 +2811,10 @@
       "name": "NACARA \u00a7202 \u2014 Principal",
       "group": "IV",
       "law": "INA \u00a7101(a)(15)(K); INA \u00a7101(b)(1); INA \u00a7203(a); INA \u00a7204(a)(1); INA \u00a7214(d); INA \u00a7214(r); 8 U.S.C. \u00a71101; 8 U.S.C. \u00a71153; 8 U.S.C. \u00a71154; 8 U.S.C. \u00a71184; 18 U.S.C. \u00a71801; 8 CFR \u00a7214.2; 22 CFR \u00a741.81; PL 105-100 \u00a7202 (NACARA 1997); PL 106-113; PL 106-553; PL 109-162; PL 109-248",
-      "description": "Nicaraguan and Central American Relief Act \u2014 Nicaraguan/Cuban principal adjusting status. DHS codes: NC6-NC9.",
+      "description": "Nicaraguan and Central American Relief Act \u2014 Nicaraguan/Cuban principal adjusting status.",
       "dhs_codes": [
         "NC6",
+        "NC6-NC9",
         "NC7",
         "NC8",
         "NC9"
@@ -2819,7 +2827,7 @@
       "name": "NACARA \u00a7202 \u2014 Spouse",
       "group": "IV",
       "law": "INA \u00a7101(a)(15)(K); INA \u00a7101(b)(1); INA \u00a7203(a); INA \u00a7204(a)(1); INA \u00a7214(d); INA \u00a7214(r); 8 U.S.C. \u00a71101; 8 U.S.C. \u00a71153; 8 U.S.C. \u00a71154; 8 U.S.C. \u00a71184; 18 U.S.C. \u00a71801; 8 CFR \u00a7214.2; 22 CFR \u00a741.81; PL 105-100 \u00a7202; PL 106-113; PL 106-553; PL 109-162; PL 109-248",
-      "description": "Spouse of NC6 principal. DHS code: NC7.",
+      "description": "Spouse of NC6 principal.",
       "dhs_codes": [
         "NC7"
       ],
@@ -2831,7 +2839,7 @@
       "name": "NACARA \u00a7202 \u2014 Child",
       "group": "IV",
       "law": "INA \u00a7101(a)(15)(K); INA \u00a7101(b)(1); INA \u00a7203(a); INA \u00a7204(a)(1); INA \u00a7214(d); INA \u00a7214(r); 8 U.S.C. \u00a71101; 8 U.S.C. \u00a71153; 8 U.S.C. \u00a71154; 8 U.S.C. \u00a71184; 18 U.S.C. \u00a71801; 8 CFR \u00a7214.2; 22 CFR \u00a741.81; PL 105-100 \u00a7202; PL 106-113; PL 106-553; PL 109-162; PL 109-248",
-      "description": "Child of NC6 principal. DHS code: NC8.",
+      "description": "Child of NC6 principal.",
       "dhs_codes": [
         "NC8"
       ],
@@ -2843,7 +2851,7 @@
       "name": "NACARA \u00a7202 \u2014 Unmarried Son/Daughter",
       "group": "IV",
       "law": "INA \u00a7101(a)(15)(K); INA \u00a7101(b)(1); INA \u00a7203(a); INA \u00a7204(a)(1); INA \u00a7214(d); INA \u00a7214(r); 8 U.S.C. \u00a71101; 8 U.S.C. \u00a71153; 8 U.S.C. \u00a71154; 8 U.S.C. \u00a71184; 18 U.S.C. \u00a71801; 8 CFR \u00a7214.2; 22 CFR \u00a741.81; PL 105-100 \u00a7202; PL 106-113; PL 106-553; PL 109-162; PL 109-248",
-      "description": "Unmarried son or daughter of NC6 principal. DHS code: NC9.",
+      "description": "Unmarried son or daughter of NC6 principal.",
       "dhs_codes": [
         "NC9"
       ],
@@ -2855,9 +2863,10 @@
       "name": "HRIFA \u2014 Haitian Asylum Applicant",
       "group": "IV",
       "law": "INA \u00a7101(a)(15)(K); INA \u00a7101(b)(1); INA \u00a7203(a); INA \u00a7204(a)(1); INA \u00a7214(d); INA \u00a7214(r); 8 U.S.C. \u00a71101; 8 U.S.C. \u00a71153; 8 U.S.C. \u00a71154; 8 U.S.C. \u00a71184; 18 U.S.C. \u00a71801; 8 CFR \u00a7214.2; 22 CFR \u00a741.81; PL 105-277 (HRIFA 1998); PL 106-113; PL 106-553; PL 109-162; PL 109-248",
-      "description": "Haitian Refugee Immigration Fairness Act \u2014 asylum applicant adjusting. DHS codes: HA6-HA9.",
+      "description": "Haitian Refugee Immigration Fairness Act \u2014 asylum applicant adjusting.",
       "dhs_codes": [
         "HA6",
+        "HA6-HA9",
         "HA7",
         "HA8",
         "HA9"
@@ -2870,9 +2879,10 @@
       "name": "HRIFA \u2014 Haitian Parolee",
       "group": "IV",
       "law": "INA \u00a7101(a)(15)(K); INA \u00a7101(b)(1); INA \u00a7203(a); INA \u00a7204(a)(1); INA \u00a7214(d); INA \u00a7214(r); 8 U.S.C. \u00a71101; 8 U.S.C. \u00a71153; 8 U.S.C. \u00a71154; 8 U.S.C. \u00a71184; 18 U.S.C. \u00a71801; 8 CFR \u00a7214.2; 22 CFR \u00a741.81; PL 105-277 (HRIFA 1998); PL 106-113; PL 106-553; PL 109-162; PL 109-248",
-      "description": "Haitian parolee adjusting under HRIFA. DHS codes: HB6-HB9.",
+      "description": "Haitian parolee adjusting under HRIFA.",
       "dhs_codes": [
         "HB6",
+        "HB6-HB9",
         "HB7",
         "HB8",
         "HB9"
@@ -2885,9 +2895,10 @@
       "name": "HRIFA \u2014 Haitian Child (No Parents)",
       "group": "IV",
       "law": "INA \u00a7101(a)(15)(K); INA \u00a7101(b)(1); INA \u00a7203(a); INA \u00a7204(a)(1); INA \u00a7214(d); INA \u00a7214(r); 8 U.S.C. \u00a71101; 8 U.S.C. \u00a71153; 8 U.S.C. \u00a71154; 8 U.S.C. \u00a71184; 18 U.S.C. \u00a71801; 8 CFR \u00a7214.2; 22 CFR \u00a741.81; PL 105-277 (HRIFA 1998); PL 106-113; PL 106-553; PL 109-162; PL 109-248",
-      "description": "Haitian child without parents adjusting under HRIFA. DHS codes: HC6-HC9.",
+      "description": "Haitian child without parents adjusting under HRIFA.",
       "dhs_codes": [
         "HC6",
+        "HC6-HC9",
         "HC7",
         "HC8",
         "HC9"
@@ -2900,9 +2911,10 @@
       "name": "HRIFA \u2014 Haitian Orphan",
       "group": "IV",
       "law": "INA \u00a7101(a)(15)(K); INA \u00a7101(b)(1); INA \u00a7203(a); INA \u00a7204(a)(1); INA \u00a7214(d); INA \u00a7214(r); 8 U.S.C. \u00a71101; 8 U.S.C. \u00a71153; 8 U.S.C. \u00a71154; 8 U.S.C. \u00a71184; 18 U.S.C. \u00a71801; 8 CFR \u00a7214.2; 22 CFR \u00a741.81; PL 105-277 (HRIFA 1998); PL 106-113; PL 106-553; PL 109-162; PL 109-248",
-      "description": "Haitian child orphaned in the United States. DHS codes: HD6-HD9.",
+      "description": "Haitian child orphaned in the United States.",
       "dhs_codes": [
         "HD6",
+        "HD6-HD9",
         "HD7",
         "HD8",
         "HD9"
@@ -2915,9 +2927,10 @@
       "name": "HRIFA \u2014 Haitian Child (Abandoned)",
       "group": "IV",
       "law": "INA \u00a7101(a)(15)(K); INA \u00a7101(b)(1); INA \u00a7203(a); INA \u00a7204(a)(1); INA \u00a7214(d); INA \u00a7214(r); 8 U.S.C. \u00a71101; 8 U.S.C. \u00a71153; 8 U.S.C. \u00a71154; 8 U.S.C. \u00a71184; 18 U.S.C. \u00a71801; 8 CFR \u00a7214.2; 22 CFR \u00a741.81; PL 105-277 (HRIFA 1998); PL 106-113; PL 106-553; PL 109-162; PL 109-248",
-      "description": "Haitian child abandoned by parents. DHS codes: HE6-HE9.",
+      "description": "Haitian child abandoned by parents.",
       "dhs_codes": [
         "HE6",
+        "HE6-HE9",
         "HE7",
         "HE8",
         "HE9"
@@ -2930,7 +2943,7 @@
       "name": "Cancellation of Removal \u2014 INA \u00a7244",
       "group": "IV",
       "law": "INA \u00a7101(a)(15)(K); INA \u00a7101(b)(1); INA \u00a7203(a); INA \u00a7204(a)(1); INA \u00a7214(d); INA \u00a7214(r); INA \u00a7244; 8 U.S.C. \u00a71101; 8 U.S.C. \u00a71153; 8 U.S.C. \u00a71154; 8 U.S.C. \u00a71184; 18 U.S.C. \u00a71801; 8 CFR \u00a7214.2; 22 CFR \u00a741.81; PL 89-236; PL 106-113; PL 106-553; PL 109-162; PL 109-248",
-      "description": "Cancellation of removal (formerly suspension of deportation), subject to 4,000 annual limit. DHS code: Z13.",
+      "description": "Cancellation of removal (formerly suspension of deportation), subject to 4,000 annual limit.",
       "dhs_codes": [
         "Z13"
       ],
@@ -2942,7 +2955,7 @@
       "name": "Cancellation of Removal \u2014 VAWA",
       "group": "IV",
       "law": "INA \u00a7101(a)(15)(K); INA \u00a7101(b)(1); INA \u00a7203(a); INA \u00a7204(a)(1); INA \u00a7214(d); INA \u00a7214(r); INA \u00a7244(a)(3); 8 U.S.C. \u00a71101; 8 U.S.C. \u00a71153; 8 U.S.C. \u00a71154; 8 U.S.C. \u00a71184; 18 U.S.C. \u00a71801; 8 CFR \u00a7214.2; 22 CFR \u00a741.81; PL 103-322 (VAWA 1994); PL 106-113; PL 106-553; PL 109-162; PL 109-248",
-      "description": "Cancellation for battered spouses or children, subject to 4,000 annual limit. DHS code: Z14.",
+      "description": "Cancellation for battered spouses or children, subject to 4,000 annual limit.",
       "dhs_codes": [
         "Z14"
       ],
@@ -2954,7 +2967,7 @@
       "name": "Cancellation of Removal \u2014 NACARA \u00a7203",
       "group": "IV",
       "law": "INA \u00a7101(a)(15)(K); INA \u00a7101(b)(1); INA \u00a7203(a); INA \u00a7204(a)(1); INA \u00a7214(d); INA \u00a7214(r); 8 U.S.C. \u00a71101; 8 U.S.C. \u00a71153; 8 U.S.C. \u00a71154; 8 U.S.C. \u00a71184; 18 U.S.C. \u00a71801; 8 CFR \u00a7214.2; 22 CFR \u00a741.81; PL 105-100 \u00a7203 (NACARA); PL 106-113; PL 106-553; PL 109-162; PL 109-248",
-      "description": "Cancellation for Salvadoran, Guatemalan, and former Soviet bloc nationals. DHS code: Z15.",
+      "description": "Cancellation for Salvadoran, Guatemalan, and former Soviet bloc nationals.",
       "dhs_codes": [
         "Z15"
       ],
@@ -2966,7 +2979,7 @@
       "name": "IRCA Legalization \u2014 Pre-1982 Entry",
       "group": "IV",
       "law": "INA \u00a7101(a)(15)(K); INA \u00a7101(b)(1); INA \u00a7203(a); INA \u00a7204(a)(1); INA \u00a7214(d); INA \u00a7214(r); INA \u00a7245A(a); 8 U.S.C. \u00a71101; 8 U.S.C. \u00a71153; 8 U.S.C. \u00a71154; 8 U.S.C. \u00a71184; 18 U.S.C. \u00a71801; 8 CFR \u00a7214.2; 22 CFR \u00a741.81; PL 99-603 (IRCA 1986); PL 106-113; PL 106-553; PL 109-162; PL 109-248",
-      "description": "IRCA legalization for aliens who entered without inspection before January 1, 1982. DHS code: W16.",
+      "description": "IRCA legalization for aliens who entered without inspection before January 1, 1982.",
       "dhs_codes": [
         "W16"
       ],
@@ -2978,7 +2991,7 @@
       "name": "IRCA Legalization \u2014 Visa Overstay",
       "group": "IV",
       "law": "INA \u00a7101(a)(15)(K); INA \u00a7101(b)(1); INA \u00a7203(a); INA \u00a7204(a)(1); INA \u00a7214(d); INA \u00a7214(r); INA \u00a7245A(a); 8 U.S.C. \u00a71101; 8 U.S.C. \u00a71153; 8 U.S.C. \u00a71154; 8 U.S.C. \u00a71184; 18 U.S.C. \u00a71801; 8 CFR \u00a7214.2; 22 CFR \u00a741.81; PL 99-603; PL 106-113; PL 106-553; PL 109-162; PL 109-248",
-      "description": "IRCA legalization for aliens who entered as nonimmigrants and overstayed before January 1, 1982. DHS code: W26.",
+      "description": "IRCA legalization for aliens who entered as nonimmigrants and overstayed before January 1, 1982.",
       "dhs_codes": [
         "W26"
       ],
@@ -2990,7 +3003,7 @@
       "name": "IRCA Legalization \u2014 EVD Group",
       "group": "IV",
       "law": "INA \u00a7101(a)(15)(K); INA \u00a7101(b)(1); INA \u00a7203(a); INA \u00a7204(a)(1); INA \u00a7214(d); INA \u00a7214(r); INA \u00a7245A(a); 8 U.S.C. \u00a71101; 8 U.S.C. \u00a71153; 8 U.S.C. \u00a71154; 8 U.S.C. \u00a71184; 18 U.S.C. \u00a71801; 8 CFR \u00a7214.2; 22 CFR \u00a741.81; PL 99-603; PL 106-113; PL 106-553; PL 109-162; PL 109-248",
-      "description": "IRCA legalization for blanket enforced voluntary departure group members. DHS code: W36.",
+      "description": "IRCA legalization for blanket enforced voluntary departure group members.",
       "dhs_codes": [
         "W36"
       ],
@@ -3002,7 +3015,7 @@
       "name": "IRCA SAW \u2014 Group I",
       "group": "IV",
       "law": "INA \u00a7101(a)(15)(K); INA \u00a7101(b)(1); INA \u00a7203(a); INA \u00a7204(a)(1); INA \u00a7210; INA \u00a7214(d); INA \u00a7214(r); 8 U.S.C. \u00a71101; 8 U.S.C. \u00a71153; 8 U.S.C. \u00a71154; 8 U.S.C. \u00a71184; 18 U.S.C. \u00a71801; 8 CFR \u00a7214.2; 22 CFR \u00a741.81; PL 99-603; PL 106-113; PL 106-553; PL 109-162; PL 109-248",
-      "description": "Seasonal Agricultural Worker who worked 90+ days in each year ending May 1984, 1985, and 1986. DHS code: S16.",
+      "description": "Seasonal Agricultural Worker who worked 90+ days in each year ending May 1984, 1985, and 1986.",
       "dhs_codes": [
         "S16"
       ],
@@ -3014,7 +3027,7 @@
       "name": "IRCA SAW \u2014 Group II",
       "group": "IV",
       "law": "INA \u00a7101(a)(15)(K); INA \u00a7101(b)(1); INA \u00a7203(a); INA \u00a7204(a)(1); INA \u00a7210; INA \u00a7214(d); INA \u00a7214(r); 8 U.S.C. \u00a71101; 8 U.S.C. \u00a71153; 8 U.S.C. \u00a71154; 8 U.S.C. \u00a71184; 18 U.S.C. \u00a71801; 8 CFR \u00a7214.2; 22 CFR \u00a741.81; PL 99-603; PL 106-113; PL 106-553; PL 109-162; PL 109-248",
-      "description": "Seasonal Agricultural Worker who worked 90+ days in year ending May 1986. DHS code: S26.",
+      "description": "Seasonal Agricultural Worker who worked 90+ days in year ending May 1986.",
       "dhs_codes": [
         "S26"
       ],
@@ -3026,12 +3039,12 @@
       "name": "IRCA Legalization \u2014 Spouse",
       "group": "IV",
       "law": "INA \u00a7101(a)(15)(K); INA \u00a7101(b)(1); INA \u00a7203(a); INA \u00a7204(a)(1); INA \u00a7214(d); INA \u00a7214(r); INA \u00a7245A; 8 U.S.C. \u00a71101; 8 U.S.C. \u00a71153; 8 U.S.C. \u00a71154; 8 U.S.C. \u00a71184; 18 U.S.C. \u00a71801; 8 CFR \u00a7214.2; 22 CFR \u00a741.81; PL 99-603; PL 106-113; PL 106-553; PL 109-162; PL 109-248",
-      "description": "Spouse of legalized alien under IRCA. DHS codes: LB1/LB6, CB1/CB6.",
+      "description": "Spouse of legalized alien under IRCA.",
       "dhs_codes": [
-        "LB1",
-        "LB6",
         "CB1",
-        "CB6"
+        "CB6",
+        "LB1",
+        "LB6"
       ],
       "subcategory": "IRCA",
       "category": "IV \u2014 Special Programs"
@@ -3041,12 +3054,12 @@
       "name": "IRCA Legalization \u2014 Child",
       "group": "IV",
       "law": "INA \u00a7101(a)(15)(K); INA \u00a7101(b)(1); INA \u00a7203(a); INA \u00a7204(a)(1); INA \u00a7214(d); INA \u00a7214(r); INA \u00a7245A; 8 U.S.C. \u00a71101; 8 U.S.C. \u00a71153; 8 U.S.C. \u00a71154; 8 U.S.C. \u00a71184; 18 U.S.C. \u00a71801; 8 CFR \u00a7214.2; 22 CFR \u00a741.81; PL 99-603; PL 106-113; PL 106-553; PL 109-162; PL 109-248",
-      "description": "Child of legalized alien under IRCA. DHS codes: LB2/LB7, CB2/CB7.",
+      "description": "Child of legalized alien under IRCA.",
       "dhs_codes": [
-        "LB2",
-        "LB7",
         "CB2",
-        "CB7"
+        "CB7",
+        "LB2",
+        "LB7"
       ],
       "subcategory": "IRCA",
       "category": "IV \u2014 Special Programs"
@@ -3056,7 +3069,7 @@
       "name": "Amerasian (Vietnam)",
       "group": "IV",
       "law": "PL 100-202 \u00a7584 (Amerasian Homecoming Act 1987)",
-      "description": "Amerasian born in Vietnam between 1/1/1962 and 1/1/1976 (child of U.S. military). DHS codes: AM1/AM6.",
+      "description": "Amerasian born in Vietnam between 1/1/1962 and 1/1/1976 (child of U.S. military).",
       "dhs_codes": [
         "AM1",
         "AM6"
@@ -3069,7 +3082,7 @@
       "name": "Amerasian \u2014 Spouse/Child",
       "group": "IV",
       "law": "PL 100-202 \u00a7584",
-      "description": "Spouse or child of AM1 Amerasian. DHS codes: AM2/AM7.",
+      "description": "Spouse or child of AM1 Amerasian.",
       "dhs_codes": [
         "AM2",
         "AM7"
@@ -3082,7 +3095,7 @@
       "name": "Amerasian \u2014 Parent/Guardian",
       "group": "IV",
       "law": "PL 100-202 \u00a7584",
-      "description": "Mother, guardian, or next of kin of AM1 Amerasian. DHS codes: AM3/AM8.",
+      "description": "Mother, guardian, or next of kin of AM1 Amerasian.",
       "dhs_codes": [
         "AM3",
         "AM8"
@@ -3095,7 +3108,7 @@
       "name": "Adversely Affected Foreign State Native",
       "group": "IV",
       "law": "INA \u00a7101(a)(15)(K); INA \u00a7101(b)(1); INA \u00a7203(a); INA \u00a7203(e) (historical); INA \u00a7204(a)(1); INA \u00a7214(d); INA \u00a7214(r); 8 U.S.C. \u00a71101; 8 U.S.C. \u00a71153; 8 U.S.C. \u00a71154; 8 U.S.C. \u00a71184; 18 U.S.C. \u00a71801; 8 CFR \u00a7214.2; 22 CFR \u00a741.81; PL 100-658; PL 106-113; PL 106-553; PL 109-162; PL 109-248",
-      "description": "Natives of certain adversely affected foreign states (diversity transition). DHS codes: AA1/AA6.",
+      "description": "Natives of certain adversely affected foreign states (diversity transition).",
       "dhs_codes": [
         "AA1",
         "AA6"
@@ -3108,7 +3121,7 @@
       "name": "Adversely Affected \u2014 Spouse",
       "group": "IV",
       "law": "INA \u00a7101(a)(15)(K); INA \u00a7101(b)(1); INA \u00a7203(a); INA \u00a7203(d); INA \u00a7204(a)(1); INA \u00a7214(d); INA \u00a7214(r); 8 U.S.C. \u00a71101; 8 U.S.C. \u00a71153; 8 U.S.C. \u00a71154; 8 U.S.C. \u00a71184; 18 U.S.C. \u00a71801; 8 CFR \u00a7214.2; 22 CFR \u00a741.81; PL 106-113; PL 106-553; PL 109-162; PL 109-248",
-      "description": "Spouse of AA1. DHS codes: AA2/AA7.",
+      "description": "Spouse of AA1.",
       "dhs_codes": [
         "AA2",
         "AA7"
@@ -3121,7 +3134,7 @@
       "name": "Adversely Affected \u2014 Child",
       "group": "IV",
       "law": "INA \u00a7101(a)(15)(K); INA \u00a7101(b)(1); INA \u00a7203(a); INA \u00a7203(d); INA \u00a7204(a)(1); INA \u00a7214(d); INA \u00a7214(r); 8 U.S.C. \u00a71101; 8 U.S.C. \u00a71153; 8 U.S.C. \u00a71154; 8 U.S.C. \u00a71184; 18 U.S.C. \u00a71801; 8 CFR \u00a7214.2; 22 CFR \u00a741.81; PL 106-113; PL 106-553; PL 109-162; PL 109-248",
-      "description": "Child of AA1. DHS codes: AA3/AA8.",
+      "description": "Child of AA1.",
       "dhs_codes": [
         "AA3",
         "AA8"
@@ -3134,7 +3147,7 @@
       "name": "Displaced Tibetan",
       "group": "IV",
       "law": "INA \u00a7101(a)(15)(K); INA \u00a7101(b)(1); INA \u00a7203(a); INA \u00a7204(a)(1); INA \u00a7214(d); INA \u00a7214(r); 8 U.S.C. \u00a71101; 8 U.S.C. \u00a71153; 8 U.S.C. \u00a71154; 8 U.S.C. \u00a71184; 18 U.S.C. \u00a71801; 8 CFR \u00a7214.2; 22 CFR \u00a741.81; PL 101-649 \u00a7134; PL 106-113; PL 106-553; PL 109-162; PL 109-248",
-      "description": "Native of Tibet who continuously resided in Nepal or India since November 29, 1990. DHS codes: DT1/DT6.",
+      "description": "Native of Tibet who continuously resided in Nepal or India since November 29, 1990.",
       "dhs_codes": [
         "DT1",
         "DT6"
@@ -3147,7 +3160,7 @@
       "name": "Displaced Tibetan \u2014 Spouse",
       "group": "IV",
       "law": "INA \u00a7101(a)(15)(K); INA \u00a7101(b)(1); INA \u00a7203(a); INA \u00a7204(a)(1); INA \u00a7214(d); INA \u00a7214(r); 8 U.S.C. \u00a71101; 8 U.S.C. \u00a71153; 8 U.S.C. \u00a71154; 8 U.S.C. \u00a71184; 18 U.S.C. \u00a71801; 8 CFR \u00a7214.2; 22 CFR \u00a741.81; PL 101-649 \u00a7134; PL 106-113; PL 106-553; PL 109-162; PL 109-248",
-      "description": "Spouse of DT1. DHS codes: DT2/DT7.",
+      "description": "Spouse of DT1.",
       "dhs_codes": [
         "DT2",
         "DT7"
@@ -3160,7 +3173,7 @@
       "name": "Displaced Tibetan \u2014 Child",
       "group": "IV",
       "law": "INA \u00a7101(a)(15)(K); INA \u00a7101(b)(1); INA \u00a7203(a); INA \u00a7204(a)(1); INA \u00a7214(d); INA \u00a7214(r); 8 U.S.C. \u00a71101; 8 U.S.C. \u00a71153; 8 U.S.C. \u00a71154; 8 U.S.C. \u00a71184; 18 U.S.C. \u00a71801; 8 CFR \u00a7214.2; 22 CFR \u00a741.81; PL 101-649 \u00a7134; PL 106-113; PL 106-553; PL 109-162; PL 109-248",
-      "description": "Child of DT1. DHS codes: DT3/DT8.",
+      "description": "Child of DT1.",
       "dhs_codes": [
         "DT3",
         "DT8"
@@ -3173,7 +3186,7 @@
       "name": "Hong Kong Business Employee",
       "group": "IV",
       "law": "INA \u00a7101(a)(15)(K); INA \u00a7101(b)(1); INA \u00a7203(a); INA \u00a7204(a)(1); INA \u00a7214(d); INA \u00a7214(r); 8 U.S.C. \u00a71101; 8 U.S.C. \u00a71153; 8 U.S.C. \u00a71154; 8 U.S.C. \u00a71184; 18 U.S.C. \u00a71801; 8 CFR \u00a7214.2; 22 CFR \u00a741.81; PL 101-649 \u00a7124; PL 106-113; PL 106-553; PL 109-162; PL 109-248",
-      "description": "Hong Kong business employees under special provision. DHS codes: HK1/HK6.",
+      "description": "Hong Kong business employees under special provision.",
       "dhs_codes": [
         "HK1",
         "HK6"
@@ -3186,7 +3199,7 @@
       "name": "Hong Kong \u2014 Spouse",
       "group": "IV",
       "law": "INA \u00a7101(a)(15)(K); INA \u00a7101(b)(1); INA \u00a7203(a); INA \u00a7204(a)(1); INA \u00a7214(d); INA \u00a7214(r); 8 U.S.C. \u00a71101; 8 U.S.C. \u00a71153; 8 U.S.C. \u00a71154; 8 U.S.C. \u00a71184; 18 U.S.C. \u00a71801; 8 CFR \u00a7214.2; 22 CFR \u00a741.81; PL 101-649 \u00a7124; PL 106-113; PL 106-553; PL 109-162; PL 109-248",
-      "description": "Spouse of HK1. DHS codes: HK2/HK7.",
+      "description": "Spouse of HK1.",
       "dhs_codes": [
         "HK2",
         "HK7"
@@ -3199,7 +3212,7 @@
       "name": "Hong Kong \u2014 Child",
       "group": "IV",
       "law": "INA \u00a7101(a)(15)(K); INA \u00a7101(b)(1); INA \u00a7203(a); INA \u00a7204(a)(1); INA \u00a7214(d); INA \u00a7214(r); 8 U.S.C. \u00a71101; 8 U.S.C. \u00a71153; 8 U.S.C. \u00a71154; 8 U.S.C. \u00a71184; 18 U.S.C. \u00a71801; 8 CFR \u00a7214.2; 22 CFR \u00a741.81; PL 101-649 \u00a7124; PL 106-113; PL 106-553; PL 109-162; PL 109-248",
-      "description": "Child of HK1. DHS codes: HK3/HK8.",
+      "description": "Child of HK1.",
       "dhs_codes": [
         "HK3",
         "HK8"
@@ -3212,7 +3225,7 @@
       "name": "Help HAITI Act Parolee",
       "group": "IV",
       "law": "INA \u00a7101(a)(15)(K); INA \u00a7101(b)(1); INA \u00a7203(a); INA \u00a7204(a)(1); INA \u00a7214(d); INA \u00a7214(r); 8 U.S.C. \u00a71101; 8 U.S.C. \u00a71153; 8 U.S.C. \u00a71154; 8 U.S.C. \u00a71184; 18 U.S.C. \u00a71801; 8 CFR \u00a7214.2; 22 CFR \u00a741.81; PL 106-113; PL 106-553; PL 109-162; PL 109-248; PL 111-293 (Help HAITI Act of 2010)",
-      "description": "Haitian parolees adjusting to LPR under the Help HAITI Act. DHS code: HH6.",
+      "description": "Haitian parolees adjusting to LPR under the Help HAITI Act.",
       "dhs_codes": [
         "HH6"
       ],
@@ -3224,7 +3237,7 @@
       "name": "Cuban-Haitian Entrant",
       "group": "IV",
       "law": "INA \u00a7101(a)(15)(K); INA \u00a7101(b)(1); INA \u00a7203(a); INA \u00a7204(a)(1); INA \u00a7214(d); INA \u00a7214(r); 8 U.S.C. \u00a71101; 8 U.S.C. \u00a71153; 8 U.S.C. \u00a71154; 8 U.S.C. \u00a71184; 18 U.S.C. \u00a71801; 8 CFR \u00a7214.2; 22 CFR \u00a741.81; PL 99-603 \u00a7202; PL 106-113; PL 106-553; PL 109-162; PL 109-248",
-      "description": "Cuban-Haitian entrant adjusting to LPR. DHS code: CH6.",
+      "description": "Cuban-Haitian entrant adjusting to LPR.",
       "dhs_codes": [
         "CH6"
       ],
@@ -3236,7 +3249,7 @@
       "name": "Born Under Diplomatic Status",
       "group": "IV",
       "law": "INA \u00a7101(a)(15)(K); INA \u00a7101(a)(27)(C) (analogous); INA \u00a7101(b)(1); INA \u00a7203(a); INA \u00a7204(a)(1); INA \u00a7214(d); INA \u00a7214(r); 8 U.S.C. \u00a71101; 8 U.S.C. \u00a71153; 8 U.S.C. \u00a71154; 8 U.S.C. \u00a71184; 18 U.S.C. \u00a71801; 8 CFR \u00a7101.3; 8 CFR \u00a7214.2; 22 CFR \u00a741.81; PL 106-113; PL 106-553; PL 109-162; PL 109-248",
-      "description": "Person born in the U.S. under diplomatic immunity (not a U.S. citizen at birth). DHS code: DS1.",
+      "description": "Person born in the U.S. under diplomatic immunity (not a U.S. citizen at birth).",
       "dhs_codes": [
         "DS1"
       ],
@@ -3248,7 +3261,7 @@
       "name": "American Indian Born in Canada",
       "group": "IV",
       "law": "INA \u00a7101(a)(15)(K); INA \u00a7101(b)(1); INA \u00a7203(a); INA \u00a7204(a)(1); INA \u00a7214(d); INA \u00a7214(r); INA \u00a7289; 8 U.S.C. \u00a71101; 8 U.S.C. \u00a71153; 8 U.S.C. \u00a71154; 8 U.S.C. \u00a71184; 18 U.S.C. \u00a71801; 8 CFR \u00a7214.2; 22 CFR \u00a741.81; PL 106-113; PL 106-553; PL 109-162; PL 109-248; Jay Treaty of 1794",
-      "description": "Person of at least 50% American Indian blood born in Canada; free passage right. DHS code: S13.",
+      "description": "Person of at least 50% American Indian blood born in Canada; free passage right.",
       "dhs_codes": [
         "S13"
       ],
@@ -3260,7 +3273,7 @@
       "name": "Lost Citizenship \u2014 Marriage",
       "group": "IV",
       "law": "INA \u00a7101(a)(15)(K); INA \u00a7101(b)(1); INA \u00a7203(a); INA \u00a7204(a)(1); INA \u00a7214(d); INA \u00a7214(r); INA \u00a7324(a); 8 U.S.C. \u00a71101; 8 U.S.C. \u00a71153; 8 U.S.C. \u00a71154; 8 U.S.C. \u00a71184; 18 U.S.C. \u00a71801; 8 CFR \u00a7214.2; 22 CFR \u00a741.81; PL 106-113; PL 106-553; PL 109-162; PL 109-248",
-      "description": "Former U.S. citizen who lost citizenship through marriage to a foreign national. DHS codes: SC1/SC6.",
+      "description": "Former U.S. citizen who lost citizenship through marriage to a foreign national.",
       "dhs_codes": [
         "SC1",
         "SC6"
@@ -3273,7 +3286,7 @@
       "name": "Lost Citizenship \u2014 Foreign Military",
       "group": "IV",
       "law": "INA \u00a7101(a)(15)(K); INA \u00a7101(b)(1); INA \u00a7203(a); INA \u00a7204(a)(1); INA \u00a7214(d); INA \u00a7214(r); INA \u00a7327; 8 U.S.C. \u00a71101; 8 U.S.C. \u00a71153; 8 U.S.C. \u00a71154; 8 U.S.C. \u00a71184; 18 U.S.C. \u00a71801; 8 CFR \u00a7214.2; 22 CFR \u00a741.81; PL 106-113; PL 106-553; PL 109-162; PL 109-248",
-      "description": "Former U.S. citizen who lost citizenship through service in foreign armed forces. DHS codes: SC2/SC7.",
+      "description": "Former U.S. citizen who lost citizenship through service in foreign armed forces.",
       "dhs_codes": [
         "SC2",
         "SC7"
@@ -3286,7 +3299,7 @@
       "name": "Former H-1 Registered Nurse",
       "group": "IV",
       "law": "INA \u00a7101(a)(15)(K); INA \u00a7101(b)(1); INA \u00a7203(a); INA \u00a7204(a)(1); INA \u00a7214(d); INA \u00a7214(r); 8 U.S.C. \u00a71101; 8 U.S.C. \u00a71153; 8 U.S.C. \u00a71154; 8 U.S.C. \u00a71184; 18 U.S.C. \u00a71801; 8 CFR \u00a7214.2; 22 CFR \u00a741.81; PL 101-238 (INS Nurse Relief Act 1989); PL 106-113; PL 106-553; PL 109-162; PL 109-248",
-      "description": "Certain former H-1 nonimmigrant registered nurses adjusting. DHS codes: RN6, RN7.",
+      "description": "Certain former H-1 nonimmigrant registered nurses adjusting.",
       "dhs_codes": [
         "RN6",
         "RN7"
@@ -3299,7 +3312,7 @@
       "name": "CNMI \u2014 Parent of U.S. Citizen",
       "group": "IV",
       "law": "INA \u00a7101(a)(15)(K); INA \u00a7101(b)(1); INA \u00a7203(a); INA \u00a7204(a)(1); INA \u00a7214(d); INA \u00a7214(r); 8 U.S.C. \u00a71101; 8 U.S.C. \u00a71153; 8 U.S.C. \u00a71154; 8 U.S.C. \u00a71184; 18 U.S.C. \u00a71801; 48 U.S.C. \u00a71806; 8 CFR \u00a7214.2; 22 CFR \u00a741.81; PL 94-241; PL 106-113; PL 106-553; PL 109-162; PL 109-248",
-      "description": "Parent of U.S. citizen presumed to be LPR in the Northern Mariana Islands. DHS code: MR0.",
+      "description": "Parent of U.S. citizen presumed to be LPR in the Northern Mariana Islands.",
       "dhs_codes": [
         "MR0"
       ],
@@ -3311,7 +3324,7 @@
       "name": "CNMI \u2014 Spouse of U.S. Citizen",
       "group": "IV",
       "law": "INA \u00a7101(a)(15)(K); INA \u00a7101(b)(1); INA \u00a7203(a); INA \u00a7204(a)(1); INA \u00a7214(d); INA \u00a7214(r); 8 U.S.C. \u00a71101; 8 U.S.C. \u00a71153; 8 U.S.C. \u00a71154; 8 U.S.C. \u00a71184; 18 U.S.C. \u00a71801; 48 U.S.C. \u00a71806; 8 CFR \u00a7214.2; 22 CFR \u00a741.81; PL 94-241; PL 106-113; PL 106-553; PL 109-162; PL 109-248",
-      "description": "Spouse of U.S. citizen presumed to be LPR in the Northern Mariana Islands. DHS code: MR6.",
+      "description": "Spouse of U.S. citizen presumed to be LPR in the Northern Mariana Islands.",
       "dhs_codes": [
         "MR6"
       ],
@@ -3323,7 +3336,7 @@
       "name": "CNMI \u2014 Child of U.S. Citizen",
       "group": "IV",
       "law": "INA \u00a7101(a)(15)(K); INA \u00a7101(b)(1); INA \u00a7203(a); INA \u00a7204(a)(1); INA \u00a7214(d); INA \u00a7214(r); 8 U.S.C. \u00a71101; 8 U.S.C. \u00a71153; 8 U.S.C. \u00a71154; 8 U.S.C. \u00a71184; 18 U.S.C. \u00a71801; 48 U.S.C. \u00a71806; 8 CFR \u00a7214.2; 22 CFR \u00a741.81; PL 94-241; PL 106-113; PL 106-553; PL 109-162; PL 109-248",
-      "description": "Child of U.S. citizen presumed to be LPR in the Northern Mariana Islands. DHS code: MR7.",
+      "description": "Child of U.S. citizen presumed to be LPR in the Northern Mariana Islands.",
       "dhs_codes": [
         "MR7"
       ],
@@ -3335,7 +3348,7 @@
       "name": "Pre-1978 Investor",
       "group": "IV",
       "law": "INA \u00a7101(a)(15)(K); INA \u00a7101(b)(1); INA \u00a7203(a); INA \u00a7203(b)(5) (precursor); INA \u00a7204(a)(1); INA \u00a7214(d); INA \u00a7214(r); 8 U.S.C. \u00a71101; 8 U.S.C. \u00a71153; 8 U.S.C. \u00a71154; 8 U.S.C. \u00a71184; 18 U.S.C. \u00a71801; 8 CFR \u00a7214.2; 22 CFR \u00a741.81; PL 106-113; PL 106-553; PL 109-162; PL 109-248",
-      "description": "Alien who filed and was qualified with investor status prior to June 1, 1978. DHS code: NP8.",
+      "description": "Alien who filed and was qualified with investor status prior to June 1, 1978.",
       "dhs_codes": [
         "NP8"
       ],
@@ -3347,7 +3360,7 @@
       "name": "Pre-1978 Investor \u2014 Spouse/Child",
       "group": "IV",
       "law": "INA \u00a7101(a)(15)(K); INA \u00a7101(b)(1); INA \u00a7203(a); INA \u00a7203(d); INA \u00a7204(a)(1); INA \u00a7214(d); INA \u00a7214(r); 8 U.S.C. \u00a71101; 8 U.S.C. \u00a71153; 8 U.S.C. \u00a71154; 8 U.S.C. \u00a71184; 18 U.S.C. \u00a71801; 8 CFR \u00a7214.2; 22 CFR \u00a741.81; PL 106-113; PL 106-553; PL 109-162; PL 109-248",
-      "description": "Spouse or child of NP8 investor. DHS code: NP9.",
+      "description": "Spouse or child of NP8 investor.",
       "dhs_codes": [
         "NP9"
       ],
@@ -3359,7 +3372,7 @@
       "name": "Child Born Abroad \u2014 Immediate Relative",
       "group": "IV",
       "law": "INA \u00a7101(a)(27)(A); INA \u00a7201(b); INA \u00a7203(a); 8 U.S.C. \u00a71101; 8 U.S.C. \u00a71153; 8 CFR \u00a7211.1(b)(1); 22 CFR \u00a742.31; PL 107-56; PL 107-208",
-      "description": "Child born abroad to alien parent after issuance of immediate relative visa. DHS code: XR3.",
+      "description": "Child born abroad to alien parent after issuance of immediate relative visa.",
       "dhs_codes": [
         "XR3"
       ],
@@ -3371,7 +3384,7 @@
       "name": "Child Born Abroad \u2014 Employment Preference",
       "group": "IV",
       "law": "INA \u00a7101(a)(27)(A); INA \u00a7203(a); INA \u00a7203(b); 8 U.S.C. \u00a71101; 8 U.S.C. \u00a71153; 8 CFR \u00a7211.1(b)(1); 22 CFR \u00a742.31; PL 107-56; PL 107-208",
-      "description": "Child born abroad after issuance of parent's employment-based preference visa. DHS code: XE3.",
+      "description": "Child born abroad after issuance of parent's employment-based preference visa.",
       "dhs_codes": [
         "XE3"
       ],
@@ -3383,7 +3396,7 @@
       "name": "Child Born Abroad \u2014 Family Preference",
       "group": "IV",
       "law": "INA \u00a7101(a)(27)(A); INA \u00a7203(a); 8 U.S.C. \u00a71101; 8 U.S.C. \u00a71153; 8 CFR \u00a7211.1(b)(1); 22 CFR \u00a742.31; PL 107-56; PL 107-208",
-      "description": "Child born abroad after issuance of parent's family-sponsored preference visa. DHS code: XF3.",
+      "description": "Child born abroad after issuance of parent's family-sponsored preference visa.",
       "dhs_codes": [
         "XF3"
       ],
@@ -3395,7 +3408,7 @@
       "name": "Child Born Abroad \u2014 Other Visa",
       "group": "IV",
       "law": "INA \u00a7101(a)(27)(A); INA \u00a7203(a); 8 U.S.C. \u00a71101; 8 U.S.C. \u00a71153; 8 CFR \u00a7211.1(b)(1); 22 CFR \u00a742.31; PL 107-56; PL 107-208",
-      "description": "Child born abroad after issuance of parent's other category visa. DHS code: XN3.",
+      "description": "Child born abroad after issuance of parent's other category visa.",
       "dhs_codes": [
         "XN3"
       ],
@@ -3407,7 +3420,7 @@
       "name": "Child Born Abroad \u2014 Non-Quota",
       "group": "IV",
       "law": "INA \u00a7101(a)(27)(A); INA \u00a7203(a); 8 U.S.C. \u00a71101; 8 U.S.C. \u00a71153; 8 CFR \u00a7211.1(b)(1); 22 CFR \u00a742.31; PL 107-56; PL 107-208",
-      "description": "Child born abroad to alien resident subsequent to issuance of parent's non-quota visa. DHS code: XA3.",
+      "description": "Child born abroad to alien resident subsequent to issuance of parent's non-quota visa.",
       "dhs_codes": [
         "XA3"
       ],
@@ -3419,7 +3432,7 @@
       "name": "Presumed LPR",
       "group": "IV",
       "law": "INA \u00a7101(a)(15)(K); INA \u00a7101(b)(1); INA \u00a7203(a); INA \u00a7204(a)(1); INA \u00a7214(d); INA \u00a7214(r); 8 U.S.C. \u00a71101; 8 U.S.C. \u00a71153; 8 U.S.C. \u00a71154; 8 U.S.C. \u00a71184; 18 U.S.C. \u00a71801; 8 CFR \u00a7101.1; 8 CFR \u00a7214.2; 22 CFR \u00a741.81; PL 106-113; PL 106-553; PL 109-162; PL 109-248",
-      "description": "Person presumed lawfully admitted for permanent residence. DHS code: XB3.",
+      "description": "Person presumed lawfully admitted for permanent residence.",
       "dhs_codes": [
         "XB3"
       ],
@@ -3431,7 +3444,7 @@
       "name": "Child Born Abroad to LPR",
       "group": "IV",
       "law": "INA \u00a7101(a)(27)(A); INA \u00a7101(b)(1)(D); INA \u00a7203(a); 8 U.S.C. \u00a71101; 8 U.S.C. \u00a71153; 22 CFR \u00a742.31; PL 107-56; PL 107-208",
-      "description": "Child born abroad to alien residents on temporary visit outside the U.S. DHS code: NA3.",
+      "description": "Child born abroad to alien residents on temporary visit outside the U.S.",
       "dhs_codes": [
         "NA3"
       ],
@@ -3443,7 +3456,7 @@
       "name": "Registry \u2014 Pre-1924 Entry",
       "group": "IV",
       "law": "INA \u00a7101(a)(15)(K); INA \u00a7101(b)(1); INA \u00a7203(a); INA \u00a7204(a)(1); INA \u00a7214(d); INA \u00a7214(r); INA \u00a7249; 8 U.S.C. \u00a71101; 8 U.S.C. \u00a71153; 8 U.S.C. \u00a71154; 8 U.S.C. \u00a71184; 18 U.S.C. \u00a71801; 8 CFR \u00a7214.2; 22 CFR \u00a741.81; PL 89-236; PL 106-113; PL 106-553; PL 109-162; PL 109-248",
-      "description": "Alien who entered before July 1, 1924, adjusting via registry provision. DHS code: Z33.",
+      "description": "Alien who entered before July 1, 1924, adjusting via registry provision.",
       "dhs_codes": [
         "Z33"
       ],
@@ -3455,7 +3468,7 @@
       "name": "Registry \u2014 1924\u20131940 Entry",
       "group": "IV",
       "law": "INA \u00a7101(a)(15)(K); INA \u00a7101(b)(1); INA \u00a7203(a); INA \u00a7204(a)(1); INA \u00a7214(d); INA \u00a7214(r); INA \u00a7249; 8 U.S.C. \u00a71101; 8 U.S.C. \u00a71153; 8 U.S.C. \u00a71154; 8 U.S.C. \u00a71184; 18 U.S.C. \u00a71801; 8 CFR \u00a7214.2; 22 CFR \u00a741.81; PL 89-236; PL 106-113; PL 106-553; PL 109-162; PL 109-248",
-      "description": "Alien who entered between July 1, 1924 and June 28, 1940, adjusting via registry. DHS code: Z03.",
+      "description": "Alien who entered between July 1, 1924 and June 28, 1940, adjusting via registry.",
       "dhs_codes": [
         "Z03"
       ],
@@ -3467,7 +3480,7 @@
       "name": "Registry \u2014 1940\u20131972 Entry",
       "group": "IV",
       "law": "INA \u00a7101(a)(15)(K); INA \u00a7101(b)(1); INA \u00a7203(a); INA \u00a7204(a)(1); INA \u00a7214(d); INA \u00a7214(r); INA \u00a7249; 8 U.S.C. \u00a71101; 8 U.S.C. \u00a71153; 8 U.S.C. \u00a71154; 8 U.S.C. \u00a71184; 18 U.S.C. \u00a71801; 8 CFR \u00a7214.2; 22 CFR \u00a741.81; PL 89-236; PL 106-113; PL 106-553; PL 109-162; PL 109-248",
-      "description": "Alien who entered between June 29, 1940 and January 1, 1972, adjusting via registry. DHS code: Z66.",
+      "description": "Alien who entered between June 29, 1940 and January 1, 1972, adjusting via registry.",
       "dhs_codes": [
         "Z66"
       ],
@@ -3479,7 +3492,7 @@
       "name": "Private Bill",
       "group": "IV",
       "law": "INA \u00a7101(a)(15)(K); INA \u00a7101(b)(1); INA \u00a7203(a); INA \u00a7204(a)(1); INA \u00a7214(d); INA \u00a7214(r); 8 U.S.C. \u00a71101; 8 U.S.C. \u00a71153; 8 U.S.C. \u00a71154; 8 U.S.C. \u00a71184; 18 U.S.C. \u00a71801; 8 CFR \u00a7214.2; 22 CFR \u00a741.81; PL 106-113; PL 106-553; PL 109-162; PL 109-248; Private legislation",
-      "description": "Alien granted LPR status through a private bill enacted by Congress. DHS code: Z43.",
+      "description": "Alien granted LPR status through a private bill enacted by Congress.",
       "dhs_codes": [
         "Z43"
       ],
@@ -3491,7 +3504,7 @@
       "name": "Crewman \u2014 Immediate Relative (Pre-1964)",
       "group": "IV",
       "law": "INA \u00a7101(a)(15)(K); INA \u00a7101(b)(1); INA \u00a7203(a); INA \u00a7204(a)(1); INA \u00a7214(d); INA \u00a7214(r); INA \u00a7245; 8 U.S.C. \u00a71101; 8 U.S.C. \u00a71153; 8 U.S.C. \u00a71154; 8 U.S.C. \u00a71184; 18 U.S.C. \u00a71801; 8 CFR \u00a7214.2; 22 CFR \u00a741.81; PL 89-236; PL 106-113; PL 106-553; PL 109-162; PL 109-248",
-      "description": "Crewman who entered on or before June 30, 1964, who is an immediate relative of a U.S. citizen. DHS code: Z56.",
+      "description": "Crewman who entered on or before June 30, 1964, who is an immediate relative of a U.S. citizen.",
       "dhs_codes": [
         "Z56"
       ],
@@ -3503,7 +3516,7 @@
       "name": "Crewman \u2014 Preference (Pre-1964)",
       "group": "IV",
       "law": "INA \u00a7101(a)(15)(K); INA \u00a7101(b)(1); INA \u00a7203(a); INA \u00a7204(a)(1); INA \u00a7214(d); INA \u00a7214(r); INA \u00a7245; 8 U.S.C. \u00a71101; 8 U.S.C. \u00a71153; 8 U.S.C. \u00a71154; 8 U.S.C. \u00a71184; 18 U.S.C. \u00a71801; 8 CFR \u00a7214.2; 22 CFR \u00a741.81; PL 89-236; PL 106-113; PL 106-553; PL 109-162; PL 109-248",
-      "description": "Crewman who entered on or before June 30, 1964, adjusting as preference or non-preference immigrant. DHS code: Z57.",
+      "description": "Crewman who entered on or before June 30, 1964, adjusting as preference or non-preference immigrant.",
       "dhs_codes": [
         "Z57"
       ],
@@ -3515,7 +3528,7 @@
       "name": "Foreign Gov't Official \u2014 Immediate Relative",
       "group": "IV",
       "law": "INA \u00a7101(a)(15)(A); INA \u00a7101(a)(15)(K); INA \u00a7101(b)(1); INA \u00a7203(a); INA \u00a7204(a)(1); INA \u00a7214(d); INA \u00a7214(r); INA \u00a7245; 8 U.S.C. \u00a71101; 8 U.S.C. \u00a71153; 8 U.S.C. \u00a71154; 8 U.S.C. \u00a71184; 18 U.S.C. \u00a71801; 8 CFR \u00a7214.2; 22 CFR \u00a741.81; PL 106-113; PL 106-553; PL 109-162; PL 109-248",
-      "description": "Foreign government official who is an immediate relative of a U.S. citizen or special immigrant. DHS code: Z83.",
+      "description": "Foreign government official who is an immediate relative of a U.S. citizen or special immigrant.",
       "dhs_codes": [
         "Z83"
       ],
@@ -3527,7 +3540,7 @@
       "name": "Late IRCA Amnesty Applicant",
       "group": "IV",
       "law": "INA \u00a7101(a)(15)(K); INA \u00a7101(b)(1); INA \u00a7203(a); INA \u00a7204(a)(1); INA \u00a7214(d); INA \u00a7214(r); 8 U.S.C. \u00a71101; 8 U.S.C. \u00a71153; 8 U.S.C. \u00a71154; 8 U.S.C. \u00a71184; 18 U.S.C. \u00a71801; 8 CFR \u00a7214.2; 22 CFR \u00a741.81; PL 99-603; PL 106-113; PL 106-553; PL 109-162; PL 109-248; CSS v. Meese settlement",
-      "description": "Late amnesty applicant under IRCA. DHS code: W46.",
+      "description": "Late amnesty applicant under IRCA.",
       "dhs_codes": [
         "W46"
       ],
@@ -3539,7 +3552,7 @@
       "name": "Parolee \u2014 Polish/Hungarian",
       "group": "IV",
       "law": "INA \u00a7101(a)(15)(K); INA \u00a7101(b)(1); INA \u00a7203(a); INA \u00a7204(a)(1); INA \u00a7212(d)(5); INA \u00a7214(d); INA \u00a7214(r); 8 U.S.C. \u00a71101; 8 U.S.C. \u00a71153; 8 U.S.C. \u00a71154; 8 U.S.C. \u00a71184; 18 U.S.C. \u00a71801; 8 CFR \u00a7214.2; 22 CFR \u00a741.81; PL 106-113; PL 106-553; PL 109-162; PL 109-248",
-      "description": "Polish or Hungarian parolee adjusting status. DHS code: PH6.",
+      "description": "Polish or Hungarian parolee adjusting status.",
       "dhs_codes": [
         "PH6"
       ],
@@ -3551,7 +3564,7 @@
       "name": "Parolee \u2014 Soviet/Indochinese",
       "group": "IV",
       "law": "INA \u00a7101(a)(15)(K); INA \u00a7101(b)(1); INA \u00a7203(a); INA \u00a7204(a)(1); INA \u00a7212(d)(5); INA \u00a7214(d); INA \u00a7214(r); 8 U.S.C. \u00a71101; 8 U.S.C. \u00a71153; 8 U.S.C. \u00a71154; 8 U.S.C. \u00a71184; 18 U.S.C. \u00a71801; 8 CFR \u00a7214.2; 22 CFR \u00a741.81; PL 106-113; PL 106-553; PL 109-162; PL 109-248",
-      "description": "Soviet or Indochinese parolee adjusting status. DHS code: LA6.",
+      "description": "Soviet or Indochinese parolee adjusting status.",
       "dhs_codes": [
         "LA6"
       ],
@@ -3563,7 +3576,7 @@
       "name": "Parolee \u2014 Indochinese",
       "group": "IV",
       "law": "INA \u00a7101(a)(15)(K); INA \u00a7101(b)(1); INA \u00a7203(a); INA \u00a7204(a)(1); INA \u00a7212(d)(5); INA \u00a7214(d); INA \u00a7214(r); 8 U.S.C. \u00a71101; 8 U.S.C. \u00a71153; 8 U.S.C. \u00a71154; 8 U.S.C. \u00a71184; 18 U.S.C. \u00a71801; 8 CFR \u00a7214.2; 22 CFR \u00a741.81; PL 106-113; PL 106-553; PL 109-162; PL 109-248",
-      "description": "Indochinese parolee adjusting status. DHS code: ID6.",
+      "description": "Indochinese parolee adjusting status.",
       "dhs_codes": [
         "ID6"
       ],
@@ -3575,7 +3588,7 @@
       "name": "Refugee Parolee (1978)",
       "group": "IV",
       "law": "INA \u00a7101(a)(15)(K); INA \u00a7101(b)(1); INA \u00a7203(a); INA \u00a7204(a)(1); INA \u00a7214(d); INA \u00a7214(r); 8 U.S.C. \u00a71101; 8 U.S.C. \u00a71153; 8 U.S.C. \u00a71154; 8 U.S.C. \u00a71184; 18 U.S.C. \u00a71801; 8 CFR \u00a7214.2; 22 CFR \u00a741.81; PL 95-412 (1978); PL 106-113; PL 106-553; PL 109-162; PL 109-248",
-      "description": "Refugee parolee under 1978 legislation. DHS code: R86.",
+      "description": "Refugee parolee under 1978 legislation.",
       "dhs_codes": [
         "R86"
       ],
@@ -3587,7 +3600,7 @@
       "name": "Refugee Escapee (Historical)",
       "group": "IV",
       "law": "INA \u00a7101(a)(15)(K); INA \u00a7101(b)(1); INA \u00a7203(a)(7) (pre-1980); INA \u00a7204(a)(1); INA \u00a7214(d); INA \u00a7214(r); 8 U.S.C. \u00a71101; 8 U.S.C. \u00a71153; 8 U.S.C. \u00a71154; 8 U.S.C. \u00a71184; 18 U.S.C. \u00a71801; 8 CFR \u00a7214.2; 22 CFR \u00a741.81; PL 106-113; PL 106-553; PL 109-162; PL 109-248",
-      "description": "Refugee/escapee previously admitted for LPR, adjustments. DHS code: M83.",
+      "description": "Refugee/escapee previously admitted for LPR, adjustments.",
       "dhs_codes": [
         "M83"
       ],
@@ -3599,7 +3612,7 @@
       "name": "Pre-1953 Refugee",
       "group": "IV",
       "law": "INA \u00a7101(a)(15)(K); INA \u00a7101(b)(1); INA \u00a7203(a); INA \u00a7204(a)(1); INA \u00a7214(d); INA \u00a7214(r); 8 U.S.C. \u00a71101; 8 U.S.C. \u00a71153; 8 U.S.C. \u00a71154; 8 U.S.C. \u00a71184; 18 U.S.C. \u00a71801; 8 CFR \u00a7214.2; 22 CFR \u00a741.81; PL 106-113; PL 106-553; PL 109-162; PL 109-248; Refugee Relief Act of 1953",
-      "description": "Refugee in the U.S. prior to July 1, 1953, adjusting. DHS code: Y64.",
+      "description": "Refugee in the U.S. prior to July 1, 1953, adjusting.",
       "dhs_codes": [
         "Y64"
       ],

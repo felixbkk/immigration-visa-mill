@@ -217,6 +217,22 @@
     opacity: 0.6;
   }
 
+  .copy-md-btn {
+    width: 100%;
+    padding: 8px;
+    margin-top: 8px;
+    background: var(--bg-surface);
+    color: var(--text-muted);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all .15s;
+  }
+  .copy-md-btn:hover { border-color: var(--niv-accent); color: var(--niv-accent); }
+
   .sidebar-disclaimer {
     padding: 16px 20px;
     font-size: 9px;
@@ -768,13 +784,6 @@ function showInaDefault() {
       <div class="detail-section"><span class="detail-label">Most Connected</span>
         <div class="detail-value-mono" style="line-height:2;">
           ${topConn.map(([id, c]) => `${id} &mdash; ${c} links`).join('<br>')}
-        </div>
-      </div>
-      <div class="detail-section"><span class="detail-label">Sources</span>
-        <div class="detail-value-mono" style="line-height:2;">
-          INA &middot; 8 U.S.C. &sect;1101 et seq.<br>
-          22 CFR &sect;41.12 (NIV) &middot; &sect;42.11 (IV)<br>
-          9 FAM 402 &middot; 9 FAM 502
         </div>
       </div>
     </div>
@@ -1686,15 +1695,55 @@ function showDetail(nodeData) {
       <div class="detail-section"><span class="detail-label">Description</span><div class="detail-value">${nodeData.description || 'N/A'}</div></div>
       <div class="detail-section"><span class="detail-label">Classification</span><div class="detail-value">${nodeData.category}</div></div>
       <div class="detail-section"><span class="detail-label">Family</span><div class="detail-value">${nodeData.subcategory}</div></div>
+      ${dhsHtml}
       ${buildFamSection(nodeData.subcategory, nodeData.id)}
       <div class="detail-section"><span class="detail-label">Law</span><div class="detail-value-mono">${linkifyLaw(nodeData.law)}</div></div>
-      ${dhsHtml}
       ${connectionsHtml}
+      <button class="copy-md-btn" onclick="copyAsMarkdown()">Copy as Markdown</button>
     </div>
   `;
 
   panel.classList.add('active');
   document.getElementById('panel-empty').style.display = 'none';
+}
+
+function copyAsMarkdown() {
+  if (!selectedLeafId) return;
+  const n = rawData.nodes.find(n => n.id === selectedLeafId);
+  if (!n) return;
+
+  const inbound = rawData.links.filter(l => l.target === n.id);
+  const outbound = rawData.links.filter(l => l.source === n.id);
+  const fam = famLabel(n.subcategory, n.id);
+  const famSec = SUBCATEGORY_FAM[n.subcategory];
+  const famAnchor = VISA_FAM_ANCHORS[n.id];
+  const famLink = famSec ? famUrl(famSec, famAnchor) : '';
+  const famTitle = famSec ? (FAM_TITLES[famAnchor || `M${famSec.replace('.','_')}_3`] || '') : '';
+
+  let md = `## ${n.id} — ${n.name}\n\n`;
+  md += `${n.description || 'N/A'}\n\n`;
+  md += `**Classification:** ${n.category}\n\n`;
+  md += `**Family:** ${n.subcategory}\n\n`;
+  if (n.dhs_codes && n.dhs_codes.length) md += `**DHS Codes:** ${n.dhs_codes.join(', ')}\n\n`;
+  if (fam) md += `### FAM\n\n[${fam}](${famLink})${famTitle ? ' — ' + famTitle : ''}\n\n`;
+  md += `### Law\n\n`;
+  if (n.law) {
+    n.law.split(';').forEach(ref => {
+      const c = parseCitation(ref.trim());
+      if (c) md += `- [${c.label}](${c.url})\n`;
+      else md += `- ${ref.trim()}\n`;
+    });
+  }
+  if (inbound.length || outbound.length) {
+    md += `\n### Connections\n\n`;
+    inbound.forEach(l => { md += `- ${l.source} → ${l.relation_type} → **${n.id}**\n`; });
+    outbound.forEach(l => { md += `- **${n.id}** → ${l.relation_type} → ${l.target}\n`; });
+  }
+
+  navigator.clipboard.writeText(md).then(() => {
+    const btn = document.querySelector('.copy-md-btn');
+    if (btn) { btn.textContent = 'Copied!'; setTimeout(() => { btn.textContent = 'Copy as Markdown'; }, 1500); }
+  });
 }
 
 function closeDetail() {
