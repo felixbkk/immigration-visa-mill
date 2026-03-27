@@ -1,0 +1,1175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>U.S. Visa Classification System</title>
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<script src="https://d3js.org/d3.v7.min.js"></script>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: #1a1a2e;
+    color: #fff;
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    overflow: hidden;
+    height: 100vh;
+    width: 100vw;
+  }
+
+  #toolbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 48px;
+    background: #16213e;
+    border-bottom: 1px solid #2a2a4a;
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+    gap: 16px;
+    z-index: 100;
+  }
+
+  #toolbar h1 {
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    color: #ccc;
+    white-space: nowrap;
+  }
+
+  #toolbar select {
+    background: #1a1a2e;
+    color: #fff;
+    border: 1px solid #444;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 13px;
+    cursor: pointer;
+  }
+
+  #toolbar label {
+    font-size: 12px;
+    color: #999;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    cursor: pointer;
+  }
+
+  #toolbar input[type="checkbox"] {
+    accent-color: #ff7043;
+  }
+
+  .spacer { flex: 1; }
+
+  #legend {
+    position: fixed;
+    top: 48px;
+    right: 0;
+    width: 220px;
+    bottom: 0;
+    background: #16213e;
+    border-left: 1px solid #2a2a4a;
+    padding: 12px;
+    overflow-y: auto;
+    z-index: 90;
+    font-size: 11px;
+  }
+
+  #legend h3 {
+    font-size: 12px;
+    color: #999;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin: 12px 0 6px 0;
+  }
+
+  #legend h3:first-child { margin-top: 0; }
+
+  .legend-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 3px 0;
+    cursor: pointer;
+    opacity: 0.85;
+    transition: opacity 0.15s;
+  }
+
+  .legend-item:hover { opacity: 1; }
+
+  .legend-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  #canvas-container {
+    position: fixed;
+    top: 48px;
+    left: 0;
+    right: 220px;
+    bottom: 0;
+  }
+
+  svg { width: 100%; height: 100%; }
+
+  .node-box {
+    transition: opacity 0.15s;
+  }
+
+  .node:hover .node-box {
+    filter: brightness(1.3);
+  }
+
+  .node-label {
+    fill: #f0f0f0;
+    font-size: 13px;
+    font-weight: 500;
+    pointer-events: none;
+    user-select: none;
+    text-shadow: 0 0 6px #000, 0 0 3px #000;
+  }
+
+  .node-label-category {
+    font-size: 15px;
+    font-weight: 700;
+    fill: #fff;
+  }
+
+  .node-label-subcategory {
+    font-size: 13px;
+    font-weight: 600;
+    fill: #e8e8e8;
+  }
+
+  .node-label-leaf {
+    font-size: 12px;
+    font-weight: 500;
+    fill: #ddd;
+  }
+
+  .node-subtitle {
+    fill: #aaa;
+    font-size: 10px;
+    font-weight: 400;
+    pointer-events: none;
+    user-select: none;
+    text-shadow: 0 0 6px #000, 0 0 3px #000;
+  }
+
+  .link {
+    fill: none;
+    stroke: #555;
+    stroke-width: 1;
+  }
+
+  .arc-overlay {
+    fill: none;
+    stroke-width: 1;
+    pointer-events: none;
+    opacity: 0.5;
+  }
+
+  .arc-pathway {
+    stroke: #ff7043;
+    stroke-dasharray: 6,3;
+  }
+
+  .arc-multiparent {
+    stroke: #888;
+    stroke-dasharray: 3,3;
+  }
+
+  #detail-panel {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 220px;
+    background: #16213e;
+    border-top: 2px solid #4fc3f7;
+    padding: 16px 24px;
+    z-index: 95;
+    display: none;
+    max-height: 35vh;
+    overflow-y: auto;
+  }
+
+  #detail-panel.active { display: block; }
+
+  #detail-panel .detail-header {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    margin-bottom: 8px;
+  }
+
+  #detail-panel .detail-id {
+    font-size: 20px;
+    font-weight: 700;
+  }
+
+  #detail-panel .detail-name {
+    font-size: 14px;
+    color: #ccc;
+  }
+
+  #detail-panel .detail-close {
+    position: absolute;
+    top: 12px;
+    right: 16px;
+    background: none;
+    border: none;
+    color: #999;
+    font-size: 18px;
+    cursor: pointer;
+  }
+
+  #detail-panel .detail-close:hover { color: #fff; }
+
+  #detail-panel .detail-row {
+    margin: 6px 0;
+    font-size: 12px;
+    line-height: 1.5;
+  }
+
+  #detail-panel .detail-label {
+    color: #999;
+    display: inline-block;
+    width: 90px;
+    text-transform: uppercase;
+    font-size: 10px;
+    letter-spacing: 0.5px;
+  }
+
+  #detail-panel .detail-value {
+    color: #e0e0e0;
+  }
+
+  #detail-panel a {
+    color: #4fc3f7;
+    text-decoration: none;
+  }
+
+  #detail-panel a:hover { text-decoration: underline; }
+
+  #detail-panel .detail-links {
+    margin-top: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  #detail-panel .detail-link-chip {
+    background: #1a1a2e;
+    border: 1px solid #444;
+    border-radius: 12px;
+    padding: 2px 10px;
+    font-size: 11px;
+    cursor: pointer;
+    color: #ccc;
+    transition: border-color 0.15s;
+  }
+
+  #detail-panel .detail-link-chip:hover {
+    border-color: #4fc3f7;
+    color: #fff;
+  }
+
+  .detail-link-chip.pathway { border-color: #ff7043; color: #ff7043; }
+  .detail-link-chip.spouse { border-color: #ce93d8; color: #ce93d8; }
+  .detail-link-chip.child { border-color: #a5d6a7; color: #a5d6a7; }
+  .detail-link-chip.derivative { border-color: #90a4ae; color: #90a4ae; }
+
+  #detail-panel .detail-refs {
+    margin-top: 10px;
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+
+  #detail-panel .ref-link {
+    font-size: 11px;
+    color: #999;
+    border: 1px solid #333;
+    padding: 2px 8px;
+    border-radius: 4px;
+  }
+
+  #detail-panel .ref-link:hover { border-color: #4fc3f7; color: #4fc3f7; }
+</style>
+</head>
+<body>
+
+<div id="toolbar">
+  <h1>U.S. VISA CLASSIFICATION SYSTEM</h1>
+  <div class="spacer"></div>
+  <select id="layout-select">
+    <option value="tree">Top-Down Tree</option>
+    <option value="radial">Radial Dendrogram</option>
+  </select>
+  <button id="btn-expand" style="background:#1a1a2e;color:#ccc;border:1px solid #444;padding:4px 10px;border-radius:4px;font-size:12px;cursor:pointer;">Expand All</button>
+  <button id="btn-collapse" style="background:#1a1a2e;color:#ccc;border:1px solid #444;padding:4px 10px;border-radius:4px;font-size:12px;cursor:pointer;">Collapse All</button>
+  <label><input type="checkbox" id="toggle-pathways"> Pathways</label>
+  <label><input type="checkbox" id="toggle-multiparent"> Multi-Parent</label>
+  <a href="reference.html" target="_blank" style="font-size:12px;color:#4fc3f7;text-decoration:none;border:1px solid #333;padding:4px 10px;border-radius:4px;">Reference Table</a>
+</div>
+
+<div id="legend"></div>
+
+<div id="canvas-container">
+  <svg id="viz"></svg>
+</div>
+
+<div id="detail-panel">
+  <button class="detail-close" onclick="closeDetail()">&times;</button>
+  <div id="detail-content"></div>
+</div>
+
+<script>
+const COLORS = {
+  'NIV — Diplomatic & Official': '#4fc3f7',
+  'NIV — Visitor & Transit':     '#81d4fa',
+  'NIV — Worker & Exchange':     '#29b6f6',
+  'NIV — Student & Exchange':    '#4dd0e1',
+  'NIV — Family':                '#80cbc4',
+  'NIV — Humanitarian':          '#a5d6a7',
+  'IV — Immediate Relative':     '#ffb74d',
+  'IV — Family Preference':      '#ffa726',
+  'IV — Employment':             '#ff8a65',
+  'IV — Diversity':              '#ce93d8',
+  'IV — Humanitarian':           '#ef9a9a',
+  'IV — Special Programs':       '#fff176',
+  'IV — Administrative':         '#b0bec5',
+};
+
+const HUB_COLORS = { NIV: '#4fc3f7', IV: '#ffb74d' };
+
+const CATEGORY_DESCRIPTIONS = {
+  'NIV — Diplomatic & Official': 'Ambassadors, gov\'t officials, int\'l org staff, NATO',
+  'NIV — Visitor & Transit':     'Business visitors, tourists, transit, crewmembers',
+  'NIV — Worker & Exchange':     'H-1B, L-1, O-1, investors, trade, religious, cultural',
+  'NIV — Student & Exchange':    'Academic, vocational, exchange visitors',
+  'NIV — Family':                'Fiancé(e)s, spouses & children of LPRs',
+  'NIV — Humanitarian':          'Trafficking victims, crime victims, informants',
+  'IV — Immediate Relative':     'Spouses, children, parents of U.S. citizens',
+  'IV — Family Preference':      'F1–F4: extended family of citizens & LPRs',
+  'IV — Employment':             'EB-1 through EB-5, special immigrants, investors',
+  'IV — Diversity':              'DV lottery — 55,000 visas/year',
+  'IV — Humanitarian':           'Refugees, asylees, NACARA, HRIFA, trafficking/crime adj.',
+  'IV — Special Programs':       'IRCA amnesty, Amerasians, CNMI residents',
+  'IV — Administrative':         'Registry, cancellation of removal, private bills',
+};
+
+const SUBCATEGORY_NAMES = {
+  'A': 'Diplomats & Officials',
+  'B': 'Visitors (Business/Pleasure)',
+  'C': 'Transit',
+  'CW': 'CNMI Workers',
+  'D': 'Crewmembers',
+  'E': 'Treaty Traders & Investors',
+  'F': 'Academic Students',
+  'G': 'Int\'l Organization Reps',
+  'H': 'Temporary Workers',
+  'I': 'Foreign Media',
+  'J': 'Exchange Visitors',
+  'K': 'Fiancé(e)s & Spouses of Citizens',
+  'L': 'Intracompany Transferees',
+  'M': 'Vocational Students',
+  'N': 'Family of Special Immigrants',
+  'NATO': 'NATO Personnel',
+  'O': 'Extraordinary Ability',
+  'P': 'Athletes & Entertainers',
+  'Q': 'Cultural Exchange',
+  'R': 'Religious Workers',
+  'S': 'Informants',
+  'T': 'Trafficking Victims',
+  'TN': 'USMCA Professionals',
+  'U': 'Crime Victims',
+  'V': 'LPR Family (Long-Pending)',
+  'IR': 'Immediate Relatives of U.S. Citizens',
+  'IB': 'VAWA Self-Petitioners',
+  'IW': 'Widows/Widowers of Citizens',
+  'Born Abroad': 'Children Born Abroad to Immigrants',
+  'Diplomatic': 'Born Under Diplomatic Status',
+  'Citizenship Restoration': 'Lost Citizenship Restored',
+  'Administrative': 'Administrative Classifications',
+  'F1': '1st Pref — Unmarried Sons/Daughters of Citizens',
+  'F2': '2nd Pref — Spouses & Children of LPRs',
+  'F3': '3rd Pref — Married Sons/Daughters of Citizens',
+  'F4': '4th Pref — Siblings of Citizens',
+  'EB-1': '1st Pref — Extraordinary Ability, Professors, Executives',
+  'EB-2': '2nd Pref — Advanced Degrees, Exceptional Ability',
+  'EB-3': '3rd Pref — Skilled Workers, Professionals',
+  'EB-4': '4th Pref — Special Immigrants (Religious, Military, Gov\'t)',
+  'EB-5': '5th Pref — Investors (Pre-2022)',
+  'EB-5-Reform': '5th Pref — Investors (Post-2022 Reform Act)',
+  'GRATEFUL': 'GRATEFUL Act — U.S. Gov\'t Employees Abroad',
+  'Special Immigrant': 'Returning Residents',
+  'DV': 'Diversity Visa Lottery',
+  'Refugee': 'Refugees',
+  'Asylee': 'Asylees',
+  'T-Adjustment': 'Trafficking Victim → LPR',
+  'U-Adjustment': 'Crime Victim → LPR',
+  'NACARA': 'Nicaraguan/Central American Relief',
+  'HRIFA': 'Haitian Refugee Fairness Act',
+  'IRCA': 'Immigration Reform 1986 (Amnesty)',
+  'Amerasian': 'Vietnam Amerasians',
+  'CNMI': 'Northern Mariana Islands Residents',
+  'Registry': 'Registry & Historical Provisions',
+  'Legacy': 'Expired / Historical Programs',
+};
+
+let rawData = null;
+let overlayLinks = [];
+let currentLayout = 'tree';
+let nodePositions = {};
+let currentRootData = null;
+let currentUpdateFn = null;
+
+// ── Data Loading ──
+
+d3.json('visa_data.json').then(data => {
+  rawData = data;
+  buildLegend();
+  render();
+});
+
+// ── Transform flat data → hierarchy ──
+
+function transformToHierarchy(data) {
+  const groups = { NIV: {}, IV: {} };
+  const overlays = [];
+
+  for (const node of data.nodes) {
+    const g = node.group;
+    const cat = node.category;
+    const sub = node.subcategory;
+    if (!groups[g]) groups[g] = {};
+    if (!groups[g][cat]) groups[g][cat] = {};
+    if (!groups[g][cat][sub]) groups[g][cat][sub] = [];
+    groups[g][cat][sub].push(node);
+  }
+
+  const rootChildren = [];
+  for (const grp of ['NIV', 'IV']) {
+    const catChildren = [];
+    for (const cat of Object.keys(groups[grp]).sort()) {
+      const subChildren = [];
+      for (const sub of Object.keys(groups[grp][cat]).sort()) {
+        const leafChildren = groups[grp][cat][sub]
+          .sort((a, b) => a.id.localeCompare(b.id))
+          .map(n => ({
+            name: n.id,
+            nodeData: n,
+            _children: null,
+            children: null,
+          }));
+        subChildren.push({
+          name: sub,
+          _nodeType: 'subcategory',
+          _category: cat,
+          children: null,
+          _children: leafChildren,
+        });
+      }
+      catChildren.push({
+        name: cat.replace(`${grp} — `, ''),
+        _fullCategory: cat,
+        _nodeType: 'category',
+        children: null,
+        _children: subChildren,
+      });
+    }
+    rootChildren.push({
+      name: grp,
+      _nodeType: 'hub',
+      children: catChildren,
+      _children: catChildren,
+    });
+  }
+
+  // Identify overlay links (all links become overlays since tree uses hierarchy)
+  for (const link of data.links) {
+    overlays.push({
+      source: link.source,
+      target: link.target,
+      type: link.relation_type,
+      label: link.label,
+    });
+  }
+
+  return {
+    root: {
+      name: 'INA',
+      _nodeType: 'root',
+      _fullName: 'Immigration & Nationality Act',
+      _subtitle: '8 U.S.C. §1101 et seq.',
+      children: rootChildren,
+    },
+    overlays,
+  };
+}
+
+// ── Rendering ──
+
+function render() {
+  const container = document.getElementById('canvas-container');
+  const w = container.clientWidth;
+  const h = container.clientHeight;
+
+  const svg = d3.select('#viz')
+    .attr('viewBox', null)
+    .html('');
+
+  const g = svg.append('g').attr('class', 'zoomable');
+
+  const zoom = d3.zoom()
+    .scaleExtent([0.1, 4])
+    .on('zoom', e => g.attr('transform', e.transform));
+  svg.call(zoom);
+
+  if (!currentRootData) {
+    const result = transformToHierarchy(rawData);
+    currentRootData = result.root;
+    overlayLinks = result.overlays;
+  } else {
+    overlayLinks = transformToHierarchy(rawData).overlays;
+  }
+
+  const root = d3.hierarchy(currentRootData);
+
+  if (currentLayout === 'tree') {
+    renderTree(g, root, w, h, svg, zoom);
+  } else {
+    renderRadial(g, root, w, h, svg, zoom);
+  }
+}
+
+function getNodeColor(d) {
+  if (d.data._nodeType === 'root') return '#e0e0e0';
+  if (d.data._nodeType === 'hub') return HUB_COLORS[d.data.name] || '#fff';
+  if (d.data._nodeType === 'category') return COLORS[d.data._fullCategory] || '#888';
+  if (d.data._nodeType === 'subcategory') return COLORS[d.data._category] || '#888';
+  if (d.data.nodeData) {
+    return COLORS[d.data.nodeData.category] || '#888';
+  }
+  return '#888';
+}
+
+function getNodeRadius(d) {
+  if (d.data._nodeType === 'root') return 18;
+  if (d.data._nodeType === 'hub') return 14;
+  if (d.data._nodeType === 'category') return 10;
+  if (d.data._nodeType === 'subcategory') return 7;
+  return 5;
+}
+
+function hasChildren(d) {
+  return d.data._children && d.data._children.length > 0;
+}
+
+function toggleNode(d, root) {
+  if (d.data._nodeType === 'hub') return;
+
+  // Accordion: only one node open at a time per level
+  // (skipped when expandAll is active)
+  if (!window._expandAllActive && !d.data.children && d.data._children) {
+    // Close ALL other open nodes at the same depth
+    collapseAllExcept(root.data, d.data);
+  }
+
+  if (d.data.children) {
+    d.data._children = d.data.children;
+    d.data.children = null;
+  } else if (d.data._children) {
+    d.data.children = d.data._children;
+  }
+}
+
+function findParentData(rootData, targetData) {
+  const children = rootData.children || rootData._children || [];
+  for (const child of children) {
+    if (child === targetData) return rootData;
+    const found = findParentData(child, targetData);
+    if (found) return found;
+  }
+  return null;
+}
+
+function collapseAllExcept(rootData, keep) {
+  // Find the depth of the node being opened
+  const keepType = keep._nodeType;
+
+  // Walk the tree and close siblings + cousins at the same level
+  // But leave ancestors open so we can see the path
+  _collapseSiblings(rootData, keep);
+}
+
+function _collapseSiblings(node, keep) {
+  const kids = node.children || [];
+  for (const child of kids) {
+    if (child === keep) continue; // don't touch the one being opened
+
+    // If this child is at the same level as keep, collapse it
+    if (child._nodeType === keep._nodeType && child.children) {
+      child._children = child.children;
+      child.children = null;
+    }
+
+    // Recurse to find deeper siblings to collapse
+    _collapseSiblings(child, keep);
+  }
+}
+
+// ── Label Helpers ──
+
+function getMainLabel(d) {
+  if (d.data._nodeType === 'root') return 'INA';
+  if (d.data._nodeType === 'hub') return d.data.name;
+  if (d.data._nodeType === 'category') {
+    const count = countDescendants(d.data);
+    return d.data.children ? d.data.name : `${d.data.name} (${count})`;
+  }
+  if (d.data._nodeType === 'subcategory') {
+    const count = (d.data._children || []).length;
+    const fullName = SUBCATEGORY_NAMES[d.data.name] || '';
+    return d.data.children
+      ? `${d.data.name} — ${fullName}`
+      : `${d.data.name} — ${fullName} (${count})`;
+  }
+  // Leaf node
+  const nd = d.data.nodeData;
+  if (nd) return `${nd.id} — ${nd.name}`;
+  return d.data.name;
+}
+
+function getSubtitle(d) {
+  if (d.data._nodeType === 'root') return 'Immigration & Nationality Act · 8 U.S.C. §1101 et seq.';
+  if (d.data._nodeType === 'hub') {
+    return d.data.name === 'NIV'
+      ? 'Nonimmigrant Visas · INA §101(a)(15)'
+      : 'Immigrant Visas · INA §201–203';
+  }
+  if (d.data._nodeType === 'category') {
+    return CATEGORY_DESCRIPTIONS[d.data._fullCategory] || '';
+  }
+  if (d.data._nodeType === 'subcategory') return null;
+  // Leaf: show law citation
+  const nd = d.data.nodeData;
+  if (nd) return nd.law;
+  return null;
+}
+
+// ── Tree Layout ──
+
+function renderTree(g, root, w, h, svg, zoom) {
+  const treeLayout = d3.tree().nodeSize([20, 360]).separation((a, b) => {
+    // Bigger nodes get more space
+    const aH = getNodeHeight(a);
+    const bH = getNodeHeight(b);
+    const needed = (aH + bH) / 2 + 8; // 8px gap
+    return needed / 20; // normalize to nodeSize unit
+  });
+
+  function getNodeHeight(d) {
+    const type = d.data._nodeType;
+    // Account for two-line labels (title + subtitle) + padding
+    if (type === 'root') return 56;
+    if (type === 'hub') return 52;
+    if (type === 'category') return 52; // title + long description subtitle
+    if (type === 'subcategory') return 38; // title + full name
+    return 34; // leaf: code + name + law subtitle
+  }
+
+  function update(source) {
+    const freshRoot = d3.hierarchy(root.data);
+    treeLayout(freshRoot);
+
+    const nodes = freshRoot.descendants();
+    const links = freshRoot.links();
+    const dur = 500;
+
+    nodePositions = {};
+    nodes.forEach(d => {
+      if (d.data.nodeData) nodePositions[d.data.nodeData.id] = { x: d.y, y: d.x };
+    });
+
+    // ── Links ──
+    g.selectAll('.link').remove();
+    g.selectAll('.link-path')
+      .data(links, d => d.target.data.name + '|' + (d.target.parent ? d.target.parent.data.name : ''))
+      .join('path')
+      .attr('class', 'link')
+      .attr('d', d3.linkHorizontal().x(d => d.y).y(d => d.x));
+
+    // ── Nodes ──
+    g.selectAll('.node').remove();
+
+    const nodeGroups = g.selectAll('.node')
+      .data(nodes, d => d.data.name + '|' + (d.parent ? d.parent.data.name : ''))
+      .join('g')
+      .attr('class', 'node')
+      .attr('transform', d => `translate(${d.y},${d.x})`)
+      .style('cursor', 'pointer')
+      .on('click', (event, d) => {
+        event.stopPropagation();
+        if (d.data.nodeData) {
+          showDetail(d.data.nodeData);
+          return;
+        }
+        // Show category/hub description
+        showCategoryDetail(d);
+        // Also expand/collapse (except root)
+        if (d.data._nodeType !== 'root') {
+          toggleNode(d, freshRoot);
+          update(d);
+        }
+      });
+
+    // Render text first so we can measure it
+    const mainTexts = nodeGroups.append('text')
+      .attr('class', d => {
+        if (d.data._nodeType === 'category' || d.data._nodeType === 'hub')
+          return 'node-label node-label-category';
+        if (d.data._nodeType === 'subcategory')
+          return 'node-label node-label-subcategory';
+        return 'node-label node-label-leaf';
+      })
+      .attr('dy', d => getSubtitle(d) ? '-0.2em' : '0.35em')
+      .attr('text-anchor', 'start')
+      .attr('x', 0)
+      .text(d => getMainLabel(d));
+
+    const subTexts = nodeGroups.append('text')
+      .attr('class', 'node-subtitle')
+      .attr('dy', '1.15em')
+      .attr('text-anchor', 'start')
+      .attr('x', 0)
+      .text(d => getSubtitle(d) || '');
+
+    // Measure text and create boxes around them
+    nodeGroups.each(function(d) {
+      const group = d3.select(this);
+      const mainEl = group.select('.node-label').node();
+      const subEl = group.select('.node-subtitle').node();
+
+      // Get the combined bounding box of all text in the group
+      const mainBox = mainEl.getBBox();
+      const subBox = subEl.getBBox();
+      const hasSub = getSubtitle(d);
+
+      // Use the actual rendered bounding boxes including dy offsets
+      let totalTop, totalBottom;
+      if (hasSub) {
+        totalTop = Math.min(mainBox.y, subBox.y);
+        totalBottom = Math.max(mainBox.y + mainBox.height, subBox.y + subBox.height);
+      } else {
+        totalTop = mainBox.y;
+        totalBottom = mainBox.y + mainBox.height;
+      }
+      const tw = Math.max(mainBox.width, hasSub ? subBox.width : 0);
+      const th = totalBottom - totalTop;
+
+      const padL = 10;
+      const padR = 24;
+      const padY = 10;
+      const rectW = tw + padL + padR;
+      const rectH = th + padY * 2;
+      const rectY = totalTop - padY;
+
+      const textX = padL;
+
+      group.insert('rect', ':first-child')
+        .attr('class', 'node-box')
+        .attr('x', -padL)
+        .attr('y', rectY)
+        .attr('width', rectW)
+        .attr('height', rectH)
+        .attr('rx', 5)
+        .attr('fill', () => {
+          const c = getNodeColor(d);
+          return hasChildren(d) && !d.data.children
+            ? 'rgba(30,30,60,0.8)'
+            : c + '22';
+        })
+        .attr('stroke', getNodeColor(d))
+        .attr('stroke-width', 1.5);
+
+      group.select('.node-label')
+        .attr('x', textX)
+        .attr('text-anchor', 'start');
+
+      group.select('.node-subtitle')
+        .attr('x', textX)
+        .attr('text-anchor', 'start');
+    });
+
+    // Overlays
+    g.selectAll('.arc-overlay').remove();
+    drawArcOverlays(g);
+  }
+
+  svg.call(zoom.transform, d3.zoomIdentity.translate(w * 0.15, h / 2).scale(0.85));
+  update(root);
+}
+
+// ── Radial Layout ──
+
+function renderRadial(g, root, w, h, svg, zoom) {
+  const radius = Math.min(w, h) / 2 - 120;
+  const clusterLayout = d3.cluster().size([2 * Math.PI, radius]);
+
+  function update() {
+    const freshRoot = d3.hierarchy(root.data);
+    clusterLayout(freshRoot);
+
+    const nodes = freshRoot.descendants();
+    const links = freshRoot.links();
+
+    nodePositions = {};
+    nodes.forEach(d => {
+      const angle = d.x - Math.PI / 2;
+      const r = d.y;
+      const px = r * Math.cos(angle);
+      const py = r * Math.sin(angle);
+      if (d.data.nodeData) nodePositions[d.data.nodeData.id] = { x: px, y: py };
+    });
+
+    // Links
+    const linkSel = g.selectAll('.link').data(links, d => d.target.data.name);
+    linkSel.exit().remove();
+    const linkEnter = linkSel.enter().append('path').attr('class', 'link');
+    linkSel.merge(linkEnter)
+      .attr('d', d3.linkRadial().angle(d => d.x).radius(d => d.y));
+
+    // Nodes
+    const nodeSel = g.selectAll('.node').data(nodes, d => d.data.name + (d.parent ? d.parent.data.name : ''));
+    nodeSel.exit().remove();
+
+    const nodeEnter = nodeSel.enter().append('g').attr('class', 'node');
+    nodeEnter.append('circle').attr('class', 'node-hit').attr('fill', 'transparent').attr('r', 16);
+    nodeEnter.append('circle').attr('class', 'node-circle');
+    nodeEnter.append('text').attr('class', 'node-label');
+
+    const nodeAll = nodeSel.merge(nodeEnter);
+
+    nodeAll.attr('transform', d => {
+      const angle = d.x - Math.PI / 2;
+      const r = d.y;
+      return `translate(${r * Math.cos(angle)},${r * Math.sin(angle)})`;
+    });
+
+    nodeAll.select('.node-hit')
+      .attr('r', d => Math.max(getNodeRadius(d) + 8, 16))
+      .style('cursor', 'pointer')
+      .on('click', (event, d) => {
+        event.stopPropagation();
+        if (d.data.nodeData) {
+          showDetail(d.data.nodeData);
+          return;
+        }
+        if (d.data._nodeType !== 'root') {
+          toggleNode(d, freshRoot);
+          update();
+        }
+      });
+
+    nodeAll.select('circle.node-circle')
+      .attr('r', d => getNodeRadius(d))
+      .attr('fill', d => {
+        if (hasChildren(d) && !d.data.children) return 'none';
+        return getNodeColor(d);
+      })
+      .attr('stroke', d => getNodeColor(d))
+      .attr('stroke-width', d => hasChildren(d) && !d.data.children ? 2 : 0)
+      .style('pointer-events', 'none');
+
+    nodeAll.select('text')
+      .attr('dy', '0.35em')
+      .attr('x', d => {
+        if (d.data._nodeType === 'root') return 0;
+        const angle = d.x;
+        const r = getNodeRadius(d) + 6;
+        return angle < Math.PI ? r : -r;
+      })
+      .attr('text-anchor', d => {
+        if (d.data._nodeType === 'root') return 'middle';
+        return d.x < Math.PI ? 'start' : 'end';
+      })
+      .attr('transform', d => {
+        if (d.data._nodeType === 'root' || d.data._nodeType === 'hub') return '';
+        const angleDeg = (d.x * 180 / Math.PI) - 90;
+        const flip = d.x >= Math.PI ? 180 : 0;
+        return `rotate(${angleDeg + flip})`;
+      })
+      .attr('class', d => {
+        if (d.data._nodeType === 'category' || d.data._nodeType === 'hub')
+          return 'node-label node-label-category';
+        if (d.data._nodeType === 'subcategory')
+          return 'node-label node-label-subcategory';
+        return 'node-label node-label-leaf';
+      })
+      .text(d => {
+        if (d.data._nodeType === 'root') return 'INA';
+        if (d.data._nodeType === 'hub') return d.data.name;
+        if (d.data._nodeType === 'category') {
+          const label = d.data.name;
+          const count = countDescendants(d.data);
+          return d.data.children ? label : `${label} (${count})`;
+        }
+        if (d.data._nodeType === 'subcategory') {
+          const count = (d.data._children || []).length;
+          return d.data.children ? d.data.name : `${d.data.name} (${count})`;
+        }
+        return d.data.name;
+      });
+
+    g.selectAll('.arc-overlay').remove();
+    drawArcOverlays(g);
+  }
+
+  svg.call(zoom.transform, d3.zoomIdentity.translate(w / 2, h / 2).scale(0.75));
+  update();
+}
+
+// ── Arc Overlays ──
+
+function drawArcOverlays(g) {
+  const showPathways = document.getElementById('toggle-pathways').checked;
+  const showMultiparent = document.getElementById('toggle-multiparent').checked;
+
+  if (!showPathways && !showMultiparent) return;
+
+  for (const link of overlayLinks) {
+    const s = nodePositions[link.source];
+    const t = nodePositions[link.target];
+    if (!s || !t) continue;
+
+    if (link.type === 'pathway' && !showPathways) continue;
+    if (link.type !== 'pathway' && !showMultiparent) continue;
+
+    const dx = t.x - s.x;
+    const dy = t.y - s.y;
+    const dr = Math.sqrt(dx * dx + dy * dy) * 1.5;
+
+    g.append('path')
+      .attr('class', `arc-overlay ${link.type === 'pathway' ? 'arc-pathway' : 'arc-multiparent'}`)
+      .attr('d', `M${s.x},${s.y}A${dr},${dr} 0 0,1 ${t.x},${t.y}`);
+  }
+}
+
+// ── Detail Panel ──
+
+function showCategoryDetail(d) {
+  const panel = document.getElementById('detail-panel');
+  const content = document.getElementById('detail-content');
+  const type = d.data._nodeType;
+
+  let title = '', subtitle = '', desc = '', law = '', color = '#888';
+
+  if (type === 'root') {
+    title = 'INA';
+    subtitle = 'Immigration & Nationality Act of 1952, as amended';
+    desc = 'The foundational federal law governing all immigration to the United States. Codified at 8 U.S.C. §1101 et seq. Defines all nonimmigrant classifications (§101(a)(15)), immigrant preferences (§203), and special immigrant categories (§101(a)(27)).';
+    law = '8 U.S.C. §1101 et seq. (Public Law 82-414)';
+    color = '#e0e0e0';
+  } else if (type === 'hub') {
+    color = HUB_COLORS[d.data.name];
+    if (d.data.name === 'NIV') {
+      title = 'NIV';
+      subtitle = 'Nonimmigrant Visas';
+      desc = 'Temporary visas for visitors, workers, students, diplomats, and others who intend to stay in the U.S. for a specific purpose and limited time. Defined in INA §101(a)(15), subparagraphs (A) through (V). Classification symbols per 22 CFR §41.12 and 9 FAM 402.1.';
+      law = 'INA §101(a)(15) · 22 CFR Part 41';
+    } else {
+      title = 'IV';
+      subtitle = 'Immigrant Visas';
+      desc = 'Visas for persons seeking lawful permanent resident (LPR / green card) status. Includes immediate relatives (INA §201(b)), family preferences (INA §203(a)), employment preferences (INA §203(b)), diversity lottery (INA §203(c)), and special immigrants (INA §101(a)(27)). Classification symbols per 22 CFR §42.11 and 9 FAM 502.1.';
+      law = 'INA §201–203 · 22 CFR Part 42';
+    }
+  } else if (type === 'category') {
+    const fullCat = d.data._fullCategory;
+    color = COLORS[fullCat] || '#888';
+    title = d.data.name;
+    subtitle = fullCat;
+    desc = CATEGORY_DESCRIPTIONS[fullCat] || '';
+    const count = countDescendants(d.data);
+    desc += ` Contains ${count} visa classifications.`;
+  } else if (type === 'subcategory') {
+    color = COLORS[d.data._category] || '#888';
+    title = d.data.name;
+    subtitle = SUBCATEGORY_NAMES[d.data.name] || '';
+    const count = (d.data._children || d.data.children || []).length;
+    desc = `${count} visa classification${count !== 1 ? 's' : ''} in this family.`;
+  }
+
+  content.innerHTML = `
+    <div class="detail-header">
+      <span class="detail-id" style="color:${color}">${title}</span>
+      <span class="detail-name">${subtitle}</span>
+    </div>
+    ${law ? `<div class="detail-row"><span class="detail-label">LAW</span><span class="detail-value">${law}</span></div>` : ''}
+    <div class="detail-row"><span class="detail-label">ABOUT</span><span class="detail-value">${desc}</span></div>
+  `;
+
+  panel.style.borderTopColor = color;
+  panel.classList.add('active');
+}
+
+function showDetail(nodeData) {
+  const panel = document.getElementById('detail-panel');
+  const content = document.getElementById('detail-content');
+
+  const color = COLORS[nodeData.category] || '#888';
+
+  // Find all links involving this node
+  const inbound = rawData.links.filter(l => l.target === nodeData.id);
+  const outbound = rawData.links.filter(l => l.source === nodeData.id);
+
+  let linksHtml = '';
+  if (inbound.length || outbound.length) {
+    linksHtml = '<div class="detail-row"><span class="detail-label">CONNECTIONS</span></div><div class="detail-links">';
+    for (const l of inbound) {
+      linksHtml += `<span class="detail-link-chip ${l.relation_type}" onclick="navigateToNode('${l.source}')" title="${l.label}">&larr; ${l.source} <small>(${l.relation_type})</small></span>`;
+    }
+    for (const l of outbound) {
+      linksHtml += `<span class="detail-link-chip ${l.relation_type}" onclick="navigateToNode('${l.target}')" title="${l.label}">${l.target} &rarr; <small>(${l.relation_type})</small></span>`;
+    }
+    linksHtml += '</div>';
+  }
+
+  let dhsHtml = '';
+  if (nodeData.dhs_codes && nodeData.dhs_codes.length) {
+    dhsHtml = `<div class="detail-row"><span class="detail-label">DHS CODES</span><span class="detail-value">${nodeData.dhs_codes.join(', ')}</span></div>`;
+  }
+
+  // Build reference links
+  const lawText = nodeData.law || '';
+  let refsHtml = '<div class="detail-refs">';
+  if (nodeData.group === 'NIV') {
+    refsHtml += `<a class="ref-link" href="https://travel.state.gov/content/travel/en/us-visas/visa-information-resources/all-visa-categories.html" target="_blank">DoS Visa Categories</a>`;
+  } else {
+    refsHtml += `<a class="ref-link" href="https://ohss.dhs.gov/topics/immigration/lawful-permanent-residents/immigrant-classes-admission" target="_blank">DHS Classes</a>`;
+  }
+  refsHtml += `<a class="ref-link" href="https://uscode.house.gov/view.xhtml?req=granuleid:USC-prelim-title8-section1101&num=0" target="_blank">8 U.S.C. &sect;1101</a>`;
+  refsHtml += '</div>';
+
+  content.innerHTML = `
+    <div class="detail-header">
+      <span class="detail-id" style="color:${color}">${nodeData.id}</span>
+      <span class="detail-name">${nodeData.name}</span>
+    </div>
+    <div class="detail-row"><span class="detail-label">LAW</span><span class="detail-value">${nodeData.law}</span></div>
+    <div class="detail-row"><span class="detail-label">GROUP</span><span class="detail-value">${nodeData.group} &mdash; ${nodeData.category}</span></div>
+    <div class="detail-row"><span class="detail-label">FAMILY</span><span class="detail-value">${nodeData.subcategory}</span></div>
+    <div class="detail-row"><span class="detail-label">ABOUT</span><span class="detail-value">${nodeData.description}</span></div>
+    ${dhsHtml}
+    ${linksHtml}
+    ${refsHtml}
+  `;
+
+  panel.style.borderTopColor = color;
+  panel.classList.add('active');
+}
+
+function closeDetail() {
+  document.getElementById('detail-panel').classList.remove('active');
+}
+
+function navigateToNode(nodeId) {
+  const node = rawData.nodes.find(n => n.id === nodeId);
+  if (node) showDetail(node);
+}
+
+// ── Helpers ──
+
+function countDescendants(d) {
+  const children = d._children || d.children || [];
+  let count = 0;
+  for (const c of children) {
+    if (c.nodeData) count++;
+    else count += countDescendants(c);
+  }
+  return count;
+}
+
+// ── Legend ──
+
+function buildLegend() {
+  const legend = document.getElementById('legend');
+  let html = '<h3>NIV (Nonimmigrant)</h3>';
+  for (const [cat, color] of Object.entries(COLORS)) {
+    if (!cat.startsWith('NIV')) continue;
+    const label = cat.replace('NIV — ', '');
+    html += `<div class="legend-item"><span class="legend-dot" style="background:${color}"></span>${label}</div>`;
+  }
+  html += '<h3>IV (Immigrant)</h3>';
+  for (const [cat, color] of Object.entries(COLORS)) {
+    if (!cat.startsWith('IV')) continue;
+    const label = cat.replace('IV — ', '');
+    html += `<div class="legend-item"><span class="legend-dot" style="background:${color}"></span>${label}</div>`;
+  }
+  html += '<h3>Overlays</h3>';
+  html += '<div class="legend-item"><span class="legend-dot" style="background:#ff7043"></span>Pathway (NIV&rarr;IV)</div>';
+  html += '<div class="legend-item"><span class="legend-dot" style="background:#888"></span>Multi-Parent</div>';
+  legend.innerHTML = html;
+}
+
+// ── Event Handlers ──
+
+function expandAllNodes(d) {
+  if (d._children) {
+    d.children = d._children;
+  }
+  if (d.children) {
+    d.children.forEach(c => expandAllNodes(c));
+  }
+}
+
+function collapseAllNodes(d) {
+  if (d.children && d._nodeType !== 'hub' && d._nodeType !== 'root') {
+    d._children = d.children;
+    d.children = null;
+  }
+  if (d._children) {
+    d._children.forEach(c => collapseAllNodes(c));
+  }
+}
+
+document.getElementById('btn-expand').addEventListener('click', () => {
+  if (!currentRootData) return;
+  window._expandAllActive = true;
+  expandAllNodes(currentRootData);
+  render();
+});
+
+// Re-enable accordion on any manual click (after expand all)
+document.getElementById('viz').addEventListener('click', () => {
+  window._expandAllActive = false;
+});
+
+document.getElementById('btn-collapse').addEventListener('click', () => {
+  if (!rawData) return;
+  currentRootData = null; // reset to fresh collapsed state
+  render();
+  closeDetail();
+});
+
+document.getElementById('layout-select').addEventListener('change', e => {
+  currentLayout = e.target.value;
+  closeDetail();
+  render();
+});
+
+document.getElementById('toggle-pathways').addEventListener('change', () => render());
+document.getElementById('toggle-multiparent').addEventListener('change', () => render());
+
+window.addEventListener('resize', () => render());
+</script>
+</body>
+</html>

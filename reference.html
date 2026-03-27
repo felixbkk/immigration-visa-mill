@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>U.S. Visa Classifications — Complete Reference</title>
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0d1117;color:#e6edf3;font-family:'Segoe UI',system-ui,-apple-system,sans-serif;line-height:1.6}
+a{color:#58a6ff;text-decoration:none}
+a:hover{text-decoration:underline}
+
+.container{max-width:1200px;margin:0 auto;padding:24px 20px 60px}
+
+header{text-align:center;padding:40px 0 20px}
+header h1{font-size:26px;font-weight:700;letter-spacing:1px;margin-bottom:6px}
+header p{color:#7d8590;font-size:14px;max-width:650px;margin:0 auto}
+header .sources{margin-top:10px;font-size:11px;color:#484f58}
+header .sources a{color:#58a6ff;opacity:0.7}
+
+.back-link{display:inline-flex;align-items:center;gap:6px;margin-bottom:16px;font-size:13px;color:#58a6ff}
+
+.search-bar{position:sticky;top:0;z-index:10;background:#0d1117;padding:14px 0;border-bottom:1px solid #21262d;margin-bottom:20px}
+.search-wrap{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.search-wrap input{flex:1;min-width:250px;background:#161b22;border:1px solid #30363d;border-radius:8px;padding:10px 14px;color:#e6edf3;font-size:14px;outline:none;transition:border-color .2s}
+.search-wrap input:focus{border-color:#58a6ff}
+.search-wrap input::placeholder{color:#484f58}
+.stats{font-size:12px;color:#7d8590;white-space:nowrap}
+.tab-bar{display:flex;gap:0;margin-top:12px;border-bottom:2px solid #21262d}
+.tab{padding:8px 20px;font-size:13px;font-weight:600;color:#7d8590;cursor:pointer;border-bottom:2px solid transparent;margin-bottom:-2px;transition:all .15s}
+.tab:hover{color:#c9d1d9}
+.tab.active{color:#58a6ff;border-bottom-color:#58a6ff}
+
+.category{margin-bottom:16px;border:1px solid #21262d;border-radius:10px;overflow:hidden;background:#161b22}
+.cat-header{padding:14px 18px;cursor:pointer;display:flex;align-items:center;gap:12px;user-select:none;transition:background .15s}
+.cat-header:hover{background:#1c2128}
+.cat-header .arrow{font-size:11px;color:#484f58;transition:transform .2s;flex-shrink:0}
+.cat-header.open .arrow{transform:rotate(90deg)}
+.cat-header .cat-dot{width:10px;height:10px;border-radius:50%;flex-shrink:0}
+.cat-header h2{font-size:15px;font-weight:600;flex:1}
+.cat-header .cat-count{font-size:11px;color:#7d8590;background:#21262d;padding:2px 8px;border-radius:10px}
+.cat-desc{padding:0 18px 10px 40px;font-size:12px;color:#7d8590;display:none}
+.cat-header.open+.cat-desc{display:block}
+.cat-body{display:none}
+.cat-header.open~.cat-body{display:block}
+
+.subcat{border-top:1px solid #21262d}
+.subcat-header{padding:8px 18px 8px 40px;font-size:13px;font-weight:600;color:#c9d1d9;display:flex;align-items:center;gap:8px}
+.subcat-badge{font-size:11px;font-weight:700;padding:1px 8px;border-radius:4px;background:#21262d;color:#7d8590}
+
+table{width:100%;border-collapse:collapse}
+table tr{transition:background .1s}
+table tr:hover{background:#1c212899}
+table td{padding:5px 18px 5px 52px;font-size:12px;vertical-align:top;color:#c9d1d9}
+table td:first-child{width:80px;font-family:'Fira Code','Cascadia Code',monospace;font-weight:700;font-size:12px;white-space:nowrap;padding-left:56px}
+table td:nth-child(2){color:#7d8590;font-size:11px;width:220px}
+table td:nth-child(3){color:#484f58;font-size:11px}
+.highlight{background:#58a6ff33;border-radius:2px;padding:0 2px}
+
+.no-results{text-align:center;padding:60px 20px;color:#484f58;font-size:15px;display:none}
+
+@media(max-width:600px){
+  table td{padding:4px 10px 4px 24px}
+  table td:first-child{padding-left:28px}
+}
+</style>
+</head>
+<body>
+<div class="container">
+
+<a class="back-link" href="index.html">&larr; Back to Visualization</a>
+
+<header>
+  <h1>U.S. VISA CLASSIFICATIONS</h1>
+  <p>Complete reference of all nonimmigrant (NIV) and immigrant (IV) visa classification symbols per 22 CFR &sect;41.12 and &sect;42.11.</p>
+  <div class="sources">
+    <a href="https://travel.state.gov/content/travel/en/us-visas/visa-information-resources/all-visa-categories.html" target="_blank">DoS Visa Categories</a> &middot;
+    <a href="https://ohss.dhs.gov/topics/immigration/lawful-permanent-residents/immigrant-classes-admission" target="_blank">DHS Classes of Admission</a> &middot;
+    <a href="https://uscode.house.gov/view.xhtml?req=granuleid:USC-prelim-title8-section1101&num=0" target="_blank">8 U.S.C. &sect;1101</a>
+  </div>
+</header>
+
+<div class="search-bar">
+  <div class="search-wrap">
+    <input type="text" id="search" placeholder="Search by code, name, law, or description (e.g. H-1B, spouse, INA 203...)">
+    <span class="stats" id="stats"></span>
+  </div>
+  <div class="tab-bar">
+    <div class="tab active" data-tab="all">All</div>
+    <div class="tab" data-tab="NIV">NIV &mdash; Nonimmigrant</div>
+    <div class="tab" data-tab="IV">IV &mdash; Immigrant</div>
+  </div>
+</div>
+
+<div id="content"></div>
+<div class="no-results" id="no-results">No matching classifications found.</div>
+
+</div>
+
+<script>
+let DATA = null;
+let activeTab = 'all';
+
+fetch('visa_data.json').then(r => r.json()).then(data => {
+  DATA = data;
+  document.getElementById('stats').textContent = `${data.nodes.length} classifications`;
+  renderAll();
+});
+
+function renderAll() {
+  const query = document.getElementById('search').value.toLowerCase().trim();
+  const container = document.getElementById('content');
+
+  // Filter nodes
+  let nodes = DATA.nodes.filter(n => {
+    if (activeTab !== 'all' && n.group !== activeTab) return false;
+    if (!query) return true;
+    return (
+      n.id.toLowerCase().includes(query) ||
+      n.name.toLowerCase().includes(query) ||
+      (n.law || '').toLowerCase().includes(query) ||
+      (n.description || '').toLowerCase().includes(query) ||
+      (n.dhs_codes || []).join(' ').toLowerCase().includes(query)
+    );
+  });
+
+  if (nodes.length === 0) {
+    container.innerHTML = '';
+    document.getElementById('no-results').style.display = 'block';
+    document.getElementById('stats').textContent = '0 results';
+    return;
+  }
+  document.getElementById('no-results').style.display = 'none';
+  document.getElementById('stats').textContent = `${nodes.length} of ${DATA.nodes.length}`;
+
+  // Group by category, then subcategory
+  const grouped = {};
+  for (const n of nodes) {
+    if (!grouped[n.category]) grouped[n.category] = {};
+    if (!grouped[n.category][n.subcategory]) grouped[n.category][n.subcategory] = [];
+    grouped[n.category][n.subcategory].push(n);
+  }
+
+  // Sort categories: NIV first, then IV
+  const catOrder = Object.keys(grouped).sort((a, b) => {
+    const aIsNIV = a.startsWith('NIV');
+    const bIsNIV = b.startsWith('NIV');
+    if (aIsNIV && !bIsNIV) return -1;
+    if (!aIsNIV && bIsNIV) return 1;
+    return a.localeCompare(b);
+  });
+
+  let html = '';
+  for (const cat of catOrder) {
+    const subs = grouped[cat];
+    const totalInCat = Object.values(subs).reduce((s, arr) => s + arr.length, 0);
+    const isOpen = !!query; // auto-open when searching
+    const badge = cat.startsWith('NIV') ? 'NIV' : 'IV';
+    const badgeColor = cat.startsWith('NIV') ? '#4fc3f7' : '#ffb74d';
+    const catColor = getCatColor(cat);
+
+    html += `<div class="category">`;
+    html += `<div class="cat-header${isOpen ? ' open' : ''}" onclick="this.classList.toggle('open')">`;
+    html += `<span class="arrow">&#9654;</span>`;
+    html += `<span class="cat-dot" style="background:${catColor}"></span>`;
+    html += `<h2>${cat}</h2>`;
+    html += `<span class="cat-count" style="color:${badgeColor}">${badge}</span>`;
+    html += `<span class="cat-count">${totalInCat}</span>`;
+    html += `</div>`;
+
+    html += `<div class="cat-body">`;
+    const subOrder = Object.keys(subs).sort();
+    for (const sub of subOrder) {
+      const codes = subs[sub];
+      html += `<div class="subcat">`;
+      html += `<div class="subcat-header"><span class="subcat-badge">${sub}</span> ${getSubName(sub)}</div>`;
+      html += `<table>`;
+      for (const c of codes.sort((a, b) => a.id.localeCompare(b.id))) {
+        const hl = query ? highlightMatch : noHighlight;
+        html += `<tr>`;
+        html += `<td>${hl(c.id, query)}</td>`;
+        html += `<td>${hl(c.name, query)}</td>`;
+        html += `<td>${hl(c.law || '', query)}</td>`;
+        html += `</tr>`;
+      }
+      html += `</table></div>`;
+    }
+    html += `</div></div>`;
+  }
+
+  container.innerHTML = html;
+}
+
+function highlightMatch(text, query) {
+  if (!query) return text;
+  const idx = text.toLowerCase().indexOf(query);
+  if (idx === -1) return text;
+  return text.slice(0, idx) + '<span class="highlight">' + text.slice(idx, idx + query.length) + '</span>' + text.slice(idx + query.length);
+}
+
+function noHighlight(text) { return text; }
+
+function getCatColor(cat) {
+  const colors = {
+    'NIV — Diplomatic & Official': '#4fc3f7',
+    'NIV — Visitor & Transit': '#81d4fa',
+    'NIV — Worker & Exchange': '#29b6f6',
+    'NIV — Student & Exchange': '#4dd0e1',
+    'NIV — Family': '#80cbc4',
+    'NIV — Humanitarian': '#a5d6a7',
+    'IV — Immediate Relative': '#ffb74d',
+    'IV — Family Preference': '#ffa726',
+    'IV — Employment': '#ff8a65',
+    'IV — Diversity': '#ce93d8',
+    'IV — Humanitarian': '#ef9a9a',
+    'IV — Special Programs': '#fff176',
+    'IV — Administrative': '#b0bec5',
+  };
+  return colors[cat] || '#7d8590';
+}
+
+function getSubName(sub) {
+  const names = {
+    'A':'Diplomats & Officials','B':'Visitors','C':'Transit','CW':'CNMI Workers',
+    'D':'Crewmembers','E':'Treaty Traders & Investors','F':'Academic Students',
+    'G':"Int'l Organization Reps",'H':'Temporary Workers','I':'Foreign Media',
+    'J':'Exchange Visitors','K':"Fiance(e)s & Spouses",'L':'Intracompany Transferees',
+    'M':'Vocational Students','N':'Family of Special Immigrants','NATO':'NATO Personnel',
+    'O':'Extraordinary Ability','P':'Athletes & Entertainers','Q':'Cultural Exchange',
+    'R':'Religious Workers','S':'Informants','T':'Trafficking Victims',
+    'TN':'USMCA Professionals','U':'Crime Victims','V':'LPR Family',
+    'IR':'Immediate Relatives','IB':'VAWA Self-Petitioners','IW':'Widows/Widowers',
+    'Born Abroad':'Children Born Abroad','Diplomatic':'Diplomatic Birth',
+    'Citizenship Restoration':'Citizenship Restored','Administrative':'Administrative',
+    'F1':'1st Pref — Unmarried Sons/Daughters of Citizens',
+    'F2':'2nd Pref — Spouses & Children of LPRs',
+    'F3':'3rd Pref — Married Sons/Daughters of Citizens',
+    'F4':'4th Pref — Siblings of Citizens',
+    'EB-1':'1st Pref — Extraordinary/Professors/Executives',
+    'EB-2':'2nd Pref — Advanced Degrees',
+    'EB-3':'3rd Pref — Skilled/Professional Workers',
+    'EB-4':'4th Pref — Special Immigrants',
+    'EB-5':'5th Pref — Investors (Pre-2022)',
+    'EB-5-Reform':'5th Pref — Investors (Post-2022)',
+    'GRATEFUL':'GRATEFUL Act — Gov\'t Employees',
+    'Special Immigrant':'Returning Residents',
+    'DV':'Diversity Visa Lottery',
+    'Refugee':'Refugees','Asylee':'Asylees',
+    'T-Adjustment':'Trafficking Victim Adjustment',
+    'U-Adjustment':'Crime Victim Adjustment',
+    'NACARA':'Nicaraguan/Central American Relief',
+    'HRIFA':'Haitian Refugee Fairness Act',
+    'IRCA':'Immigration Reform 1986','Amerasian':'Vietnam Amerasians',
+    'CNMI':'Northern Mariana Islands','Registry':'Registry & Historical',
+    'Legacy':'Expired Programs',
+  };
+  return names[sub] || '';
+}
+
+// Search
+document.getElementById('search').addEventListener('input', renderAll);
+
+// Tabs
+document.querySelectorAll('.tab').forEach(tab => {
+  tab.addEventListener('click', () => {
+    document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+    tab.classList.add('active');
+    activeTab = tab.dataset.tab;
+    renderAll();
+  });
+});
+</script>
+</body>
+</html>

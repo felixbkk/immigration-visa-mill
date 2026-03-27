@@ -1,0 +1,5106 @@
+{
+  "metadata": {
+    "title": "U.S. Visa Classification System — Complete Node-Link Dataset",
+    "sources": [
+      "DoS Immigrant Visa Symbols (travel.state.gov)",
+      "DoS All Visa Categories (travel.state.gov)",
+      "DHS Immigrant Classes of Admission (ohss.dhs.gov)",
+      "Immigration and Nationality Act (INA), 8 U.S.C.",
+      "22 CFR Part 41 — Visas: Documentation of Nonimmigrants (§41.12 classification symbols)",
+      "22 CFR Part 42 — Visas: Documentation of Immigrants (§42.11 classification symbols)",
+      "9 FAM 402.1 — NIV Classification Symbols (fam.state.gov/FAM/09FAM/09FAM040201.html)",
+      "9 FAM 502.1 — IV Classification Symbols (fam.state.gov/FAM/09FAM/09FAM050201.html)",
+      "22 CFR Subchapter E — Title 22, Chapter I (ecfr.gov/current/title-22/chapter-I/subchapter-E)"
+    ],
+    "generated": "2026-03-27",
+    "node_count_summary": {
+      "NIV": 89,
+      "IV": 234,
+      "total": 323
+    },
+    "link_count_summary": {
+      "child": 61,
+      "derivative": 70,
+      "pathway": 23,
+      "spouse": 51,
+      "total": 205
+    }
+  },
+  "nodes": [
+    {
+      "id": "A-1",
+      "name": "Foreign Ambassador / Diplomat",
+      "group": "NIV",
+      "law": "INA §101(a)(15)(A)(i)",
+      "description": "Ambassador, public minister, career diplomatic or consular officer accredited by a foreign government, and immediate family members.",
+      "subcategory": "A",
+      "category": "NIV — Diplomatic & Official"
+    },
+    {
+      "id": "A-2",
+      "name": "Foreign Government Official / Employee",
+      "group": "NIV",
+      "law": "INA §101(a)(15)(A)(ii)",
+      "description": "Other accredited official or employee of a foreign government, and immediate family members.",
+      "subcategory": "A",
+      "category": "NIV — Diplomatic & Official"
+    },
+    {
+      "id": "A-3",
+      "name": "Attendant of A-1 / A-2",
+      "group": "NIV",
+      "law": "INA §101(a)(15)(A)(iii)",
+      "description": "Attendant, servant, or personal employee of A-1 or A-2 visa holder, and immediate family.",
+      "subcategory": "A",
+      "category": "NIV — Diplomatic & Official"
+    },
+    {
+      "id": "B-1",
+      "name": "Business Visitor",
+      "group": "NIV",
+      "law": "INA §101(a)(15)(B)",
+      "description": "Temporary visitor for business — consultations, conferences, negotiations; no U.S.-source employment.",
+      "subcategory": "B",
+      "category": "NIV — Visitor & Transit"
+    },
+    {
+      "id": "B-2",
+      "name": "Tourist / Medical Treatment",
+      "group": "NIV",
+      "law": "INA §101(a)(15)(B)",
+      "description": "Temporary visitor for pleasure, tourism, or medical treatment.",
+      "subcategory": "B",
+      "category": "NIV — Visitor & Transit"
+    },
+    {
+      "id": "BCC",
+      "name": "Border Crossing Card (Mexico)",
+      "group": "NIV",
+      "law": "INA §101(a)(6); 8 CFR §212.6",
+      "description": "Laser visa/BCC issued to Mexican nationals for short border-zone visits.",
+      "subcategory": "B",
+      "category": "NIV — Visitor & Transit"
+    },
+    {
+      "id": "C-1",
+      "name": "Transit Alien",
+      "group": "NIV",
+      "law": "INA §101(a)(15)(C)",
+      "description": "Foreign national in immediate and continuous transit through the United States.",
+      "subcategory": "C",
+      "category": "NIV — Visitor & Transit"
+    },
+    {
+      "id": "C-1_D",
+      "name": "Combined Transit / Crewmember",
+      "group": "NIV",
+      "law": "INA §101(a)(15)(C) & (D)",
+      "description": "Combined visa for transit through the U.S. and service as a crewmember.",
+      "subcategory": "C",
+      "category": "NIV — Visitor & Transit"
+    },
+    {
+      "id": "C-2",
+      "name": "Transit to UN Headquarters",
+      "group": "NIV",
+      "law": "INA §101(a)(15)(C); UN HQ Agreement §11",
+      "description": "Foreign national in transit to or from the United Nations headquarters district.",
+      "subcategory": "C",
+      "category": "NIV — Visitor & Transit"
+    },
+    {
+      "id": "C-3",
+      "name": "Foreign Official in Transit",
+      "group": "NIV",
+      "law": "INA §101(a)(15)(C)",
+      "description": "Foreign government official, immediate family, or attendant in transit through the United States.",
+      "subcategory": "C",
+      "category": "NIV — Visitor & Transit"
+    },
+    {
+      "id": "D-1",
+      "name": "Crewmember (Same Vessel)",
+      "group": "NIV",
+      "law": "INA §101(a)(15)(D)(i)",
+      "description": "Crewmember of a sea vessel or aircraft who will depart on the same vessel.",
+      "subcategory": "D",
+      "category": "NIV — Visitor & Transit"
+    },
+    {
+      "id": "D-2",
+      "name": "Crewmember (Different Vessel)",
+      "group": "NIV",
+      "law": "INA §101(a)(15)(D)(ii)",
+      "description": "Crewmember of a fishing vessel with home port in Guam who will depart on a different vessel.",
+      "subcategory": "D",
+      "category": "NIV — Visitor & Transit"
+    },
+    {
+      "id": "E-1",
+      "name": "Treaty Trader",
+      "group": "NIV",
+      "law": "INA §101(a)(15)(E)(i)",
+      "description": "National of a treaty country engaged in substantial trade principally between the U.S. and the treaty country, plus spouse and children.",
+      "subcategory": "E",
+      "category": "NIV — Worker & Exchange"
+    },
+    {
+      "id": "E-2",
+      "name": "Treaty Investor",
+      "group": "NIV",
+      "law": "INA §101(a)(15)(E)(ii)",
+      "description": "National of a treaty country who has invested or is actively investing a substantial amount of capital in a U.S. enterprise, plus spouse and children.",
+      "subcategory": "E",
+      "category": "NIV — Worker & Exchange"
+    },
+    {
+      "id": "E-2C",
+      "name": "CNMI Long-Term Investor",
+      "group": "NIV",
+      "law": "PL 110-229 §6; 48 U.S.C. §1806",
+      "description": "Long-term foreign investor in the Commonwealth of the Northern Mariana Islands.",
+      "subcategory": "E",
+      "category": "NIV — Worker & Exchange"
+    },
+    {
+      "id": "E-3",
+      "name": "Australian Specialty Occupation",
+      "group": "NIV",
+      "law": "INA §101(a)(15)(E)(iii); U.S.–Australia FTA",
+      "description": "Australian national in a specialty occupation, analogous to H-1B, plus spouse and children.",
+      "subcategory": "E",
+      "category": "NIV — Worker & Exchange"
+    },
+    {
+      "id": "F-1",
+      "name": "Academic Student",
+      "group": "NIV",
+      "law": "INA §101(a)(15)(F)(i); 8 CFR §214.2(f)",
+      "description": "Full-time student at an accredited academic institution or language training program (SEVP-certified).",
+      "subcategory": "F",
+      "category": "NIV — Student & Exchange"
+    },
+    {
+      "id": "F-2",
+      "name": "Dependent of F-1",
+      "group": "NIV",
+      "law": "INA §101(a)(15)(F)(ii)",
+      "description": "Spouse or minor child of an F-1 student. May not accept employment.",
+      "subcategory": "F",
+      "category": "NIV — Student & Exchange"
+    },
+    {
+      "id": "F-3",
+      "name": "Border Commuter Academic Student",
+      "group": "NIV",
+      "law": "INA §101(a)(15)(F)(iii)",
+      "description": "Canadian or Mexican national commuting across the border to attend a U.S. academic institution part-time.",
+      "subcategory": "F",
+      "category": "NIV — Student & Exchange"
+    },
+    {
+      "id": "G-1",
+      "name": "Principal Representative to Int'l Org",
+      "group": "NIV",
+      "law": "INA §101(a)(15)(G)(i)",
+      "description": "Principal resident representative of a recognized foreign government to an international organization, staff, and immediate family.",
+      "subcategory": "G",
+      "category": "NIV — Diplomatic & Official"
+    },
+    {
+      "id": "G-2",
+      "name": "Other Int'l Org Representative",
+      "group": "NIV",
+      "law": "INA §101(a)(15)(G)(ii)",
+      "description": "Other accredited representative of a recognized foreign government to an international organization, and immediate family.",
+      "subcategory": "G",
+      "category": "NIV — Diplomatic & Official"
+    },
+    {
+      "id": "G-3",
+      "name": "Representative of Non-Recognized Government",
+      "group": "NIV",
+      "law": "INA §101(a)(15)(G)(iii)",
+      "description": "Representative of a non-recognized or non-member government to an international organization, and immediate family.",
+      "subcategory": "G",
+      "category": "NIV — Diplomatic & Official"
+    },
+    {
+      "id": "G-4",
+      "name": "International Organization Officer / Employee",
+      "group": "NIV",
+      "law": "INA §101(a)(15)(G)(iv)",
+      "description": "Officer or employee of an international organization, and immediate family.",
+      "subcategory": "G",
+      "category": "NIV — Diplomatic & Official"
+    },
+    {
+      "id": "G-5",
+      "name": "Attendant of G-1 through G-4",
+      "group": "NIV",
+      "law": "INA §101(a)(15)(G)(v)",
+      "description": "Attendant, servant, or personal employee of G-1 through G-4 visa holders, and immediate family.",
+      "subcategory": "G",
+      "category": "NIV — Diplomatic & Official"
+    },
+    {
+      "id": "H-1B",
+      "name": "Specialty Occupation Worker",
+      "group": "NIV",
+      "law": "INA §101(a)(15)(H)(i)(b); 8 CFR §214.2(h)",
+      "description": "Worker in a specialty occupation requiring at least a bachelor's degree or equivalent. Subject to annual cap (65,000 + 20,000 advanced degree).",
+      "subcategory": "H",
+      "category": "NIV — Worker & Exchange"
+    },
+    {
+      "id": "H-1B1",
+      "name": "FTA Professional (Chile / Singapore)",
+      "group": "NIV",
+      "law": "INA §101(a)(15)(H)(i)(b1); U.S.–Chile & U.S.–Singapore FTAs",
+      "description": "National of Chile or Singapore in a specialty occupation under bilateral free trade agreements.",
+      "subcategory": "H",
+      "category": "NIV — Worker & Exchange"
+    },
+    {
+      "id": "H-2A",
+      "name": "Temporary Agricultural Worker",
+      "group": "NIV",
+      "law": "INA §101(a)(15)(H)(ii)(a); 8 CFR §214.2(h)",
+      "description": "Temporary or seasonal agricultural worker. Employer must obtain DOL temporary labor certification.",
+      "subcategory": "H",
+      "category": "NIV — Worker & Exchange"
+    },
+    {
+      "id": "H-2B",
+      "name": "Temporary Non-Agricultural Worker",
+      "group": "NIV",
+      "law": "INA §101(a)(15)(H)(ii)(b); 8 CFR §214.2(h)",
+      "description": "Temporary worker in non-agricultural services; one-time, seasonal, peak-load, or intermittent need. Annual cap of 66,000.",
+      "subcategory": "H",
+      "category": "NIV — Worker & Exchange"
+    },
+    {
+      "id": "H-3",
+      "name": "Trainee / Special Education Visitor",
+      "group": "NIV",
+      "law": "INA §101(a)(15)(H)(iii)",
+      "description": "Individual coming to the U.S. to receive training not available in their home country, or to participate in a special education exchange visitor program.",
+      "subcategory": "H",
+      "category": "NIV — Worker & Exchange"
+    },
+    {
+      "id": "H-4",
+      "name": "Dependent of H Worker",
+      "group": "NIV",
+      "law": "INA §101(a)(15)(H); 8 CFR §214.2(h)(9)",
+      "description": "Spouse or unmarried child (under 21) of an H-1B, H-1B1, H-2A, H-2B, or H-3 principal worker.",
+      "subcategory": "H",
+      "category": "NIV — Worker & Exchange"
+    },
+    {
+      "id": "I",
+      "name": "Foreign Media Representative",
+      "group": "NIV",
+      "law": "INA §101(a)(15)(I)",
+      "description": "Representative of foreign press, radio, film, or other information media, and spouse and children.",
+      "subcategory": "I",
+      "category": "NIV — Worker & Exchange"
+    },
+    {
+      "id": "J-1",
+      "name": "Exchange Visitor",
+      "group": "NIV",
+      "law": "INA §101(a)(15)(J); 22 CFR Part 62",
+      "description": "Participant in a designated Exchange Visitor Program (au pairs, scholars, interns, physicians, professors, research scholars, etc.). SEVIS-tracked.",
+      "subcategory": "J",
+      "category": "NIV — Student & Exchange"
+    },
+    {
+      "id": "J-2",
+      "name": "Dependent of J-1",
+      "group": "NIV",
+      "law": "INA §101(a)(15)(J)",
+      "description": "Spouse or minor child of a J-1 exchange visitor. May apply for work authorization.",
+      "subcategory": "J",
+      "category": "NIV — Student & Exchange"
+    },
+    {
+      "id": "K-1",
+      "name": "Fiance(e) of U.S. Citizen",
+      "group": "NIV",
+      "law": "INA §101(a)(15)(K)(i)",
+      "description": "Fiancé(e) of a U.S. citizen who intends to marry within 90 days of admission. Dual-intent visa bridging to immigrant status.",
+      "subcategory": "K",
+      "category": "NIV — Family"
+    },
+    {
+      "id": "K-2",
+      "name": "Child of K-1",
+      "group": "NIV",
+      "law": "INA §101(a)(15)(K)(i)",
+      "description": "Minor child of K-1 fiancé(e).",
+      "subcategory": "K",
+      "category": "NIV — Family"
+    },
+    {
+      "id": "K-3",
+      "name": "Spouse of U.S. Citizen (LIFE Act)",
+      "group": "NIV",
+      "law": "INA §101(a)(15)(K)(ii); LIFE Act §1103",
+      "description": "Spouse of U.S. citizen with a pending I-130 petition, admitted to await immigrant visa processing in the U.S.",
+      "subcategory": "K",
+      "category": "NIV — Family"
+    },
+    {
+      "id": "K-4",
+      "name": "Child of K-3",
+      "group": "NIV",
+      "law": "INA §101(a)(15)(K)(iii)",
+      "description": "Minor child of K-3 spouse.",
+      "subcategory": "K",
+      "category": "NIV — Family"
+    },
+    {
+      "id": "L-1A",
+      "name": "Intracompany Transferee — Manager / Executive",
+      "group": "NIV",
+      "law": "INA §101(a)(15)(L); 8 CFR §214.2(l)",
+      "description": "Employee transferred to a U.S. affiliate/subsidiary/parent in a managerial or executive capacity. Requires 1 year employment abroad in prior 3 years.",
+      "subcategory": "L",
+      "category": "NIV — Worker & Exchange"
+    },
+    {
+      "id": "L-1B",
+      "name": "Intracompany Transferee — Specialized Knowledge",
+      "group": "NIV",
+      "law": "INA §101(a)(15)(L); 8 CFR §214.2(l)",
+      "description": "Employee transferred to a U.S. affiliate/subsidiary/parent in a specialized knowledge capacity.",
+      "subcategory": "L",
+      "category": "NIV — Worker & Exchange"
+    },
+    {
+      "id": "L-2",
+      "name": "Dependent of L-1",
+      "group": "NIV",
+      "law": "INA §101(a)(15)(L)",
+      "description": "Spouse or minor child of L-1A or L-1B. Spouse may obtain EAD.",
+      "subcategory": "L",
+      "category": "NIV — Worker & Exchange"
+    },
+    {
+      "id": "M-1",
+      "name": "Vocational Student",
+      "group": "NIV",
+      "law": "INA §101(a)(15)(M)(i); 8 CFR §214.2(m)",
+      "description": "Student at an established vocational or other recognized non-academic institution (SEVP-certified).",
+      "subcategory": "M",
+      "category": "NIV — Student & Exchange"
+    },
+    {
+      "id": "M-2",
+      "name": "Dependent of M-1",
+      "group": "NIV",
+      "law": "INA §101(a)(15)(M)(ii)",
+      "description": "Spouse or minor child of M-1 vocational student.",
+      "subcategory": "M",
+      "category": "NIV — Student & Exchange"
+    },
+    {
+      "id": "M-3",
+      "name": "Border Commuter Vocational Student",
+      "group": "NIV",
+      "law": "INA §101(a)(15)(M)(iii)",
+      "description": "Canadian or Mexican national commuting to a U.S. vocational institution.",
+      "subcategory": "M",
+      "category": "NIV — Student & Exchange"
+    },
+    {
+      "id": "NATO-1",
+      "name": "Principal NATO Representative",
+      "group": "NIV",
+      "law": "NATO SOFA; 22 CFR §41.25",
+      "description": "Principal permanent representative of a NATO member state and official staff.",
+      "subcategory": "NATO",
+      "category": "NIV — Diplomatic & Official"
+    },
+    {
+      "id": "NATO-2",
+      "name": "Other NATO Representative",
+      "group": "NIV",
+      "law": "NATO SOFA; 22 CFR §41.25",
+      "description": "Other representative of a NATO member state, including dependents.",
+      "subcategory": "NATO",
+      "category": "NIV — Diplomatic & Official"
+    },
+    {
+      "id": "NATO-3",
+      "name": "NATO Clerical Staff",
+      "group": "NIV",
+      "law": "NATO SOFA; 22 CFR §41.25",
+      "description": "Official clerical staff of NATO representative.",
+      "subcategory": "NATO",
+      "category": "NIV — Diplomatic & Official"
+    },
+    {
+      "id": "NATO-4",
+      "name": "NATO Official (Other Country)",
+      "group": "NIV",
+      "law": "NATO SOFA; 22 CFR §41.25",
+      "description": "Official of NATO other than those qualifying as NATO-1 through NATO-3.",
+      "subcategory": "NATO",
+      "category": "NIV — Diplomatic & Official"
+    },
+    {
+      "id": "NATO-5",
+      "name": "NATO Expert / Specialist",
+      "group": "NIV",
+      "law": "NATO SOFA; 22 CFR §41.25",
+      "description": "Expert or specialist employed on behalf of NATO in a non-representative capacity.",
+      "subcategory": "NATO",
+      "category": "NIV — Diplomatic & Official"
+    },
+    {
+      "id": "NATO-6",
+      "name": "NATO Civilian Employee",
+      "group": "NIV",
+      "law": "NATO SOFA; 22 CFR §41.25",
+      "description": "Member of a civilian component accompanying a NATO force.",
+      "subcategory": "NATO",
+      "category": "NIV — Diplomatic & Official"
+    },
+    {
+      "id": "NATO-7",
+      "name": "Attendant of NATO-1 through NATO-6",
+      "group": "NIV",
+      "law": "NATO SOFA; 22 CFR §41.25",
+      "description": "Attendant, servant, or personal employee of NATO-1 through NATO-6 personnel.",
+      "subcategory": "NATO",
+      "category": "NIV — Diplomatic & Official"
+    },
+    {
+      "id": "O-1A",
+      "name": "Extraordinary Ability — Sciences / Business / Education / Athletics",
+      "group": "NIV",
+      "law": "INA §101(a)(15)(O)(i); 8 CFR §214.2(o)",
+      "description": "Individual with extraordinary ability in sciences, education, business, or athletics demonstrated by sustained national or international acclaim.",
+      "subcategory": "O",
+      "category": "NIV — Worker & Exchange"
+    },
+    {
+      "id": "O-1B",
+      "name": "Extraordinary Ability — Arts / Film / TV",
+      "group": "NIV",
+      "law": "INA §101(a)(15)(O)(i)",
+      "description": "Individual with extraordinary ability in the arts or extraordinary achievement in the motion picture or television industry.",
+      "subcategory": "O",
+      "category": "NIV — Worker & Exchange"
+    },
+    {
+      "id": "O-2",
+      "name": "Accompanying Artist / Athlete",
+      "group": "NIV",
+      "law": "INA §101(a)(15)(O)(ii)",
+      "description": "Individual accompanying and assisting an O-1 artist or athlete; essential to the performance.",
+      "subcategory": "O",
+      "category": "NIV — Worker & Exchange"
+    },
+    {
+      "id": "O-3",
+      "name": "Dependent of O-1 / O-2",
+      "group": "NIV",
+      "law": "INA §101(a)(15)(O)(iii)",
+      "description": "Spouse or child of O-1 or O-2 visa holder.",
+      "subcategory": "O",
+      "category": "NIV — Worker & Exchange"
+    },
+    {
+      "id": "P-1A",
+      "name": "Internationally Recognized Athlete",
+      "group": "NIV",
+      "law": "INA §101(a)(15)(P)(i)",
+      "description": "Individual or team athlete competing at an internationally recognized level of performance.",
+      "subcategory": "P",
+      "category": "NIV — Worker & Exchange"
+    },
+    {
+      "id": "P-1B",
+      "name": "Internationally Recognized Entertainment Group",
+      "group": "NIV",
+      "law": "INA §101(a)(15)(P)(i)",
+      "description": "Member of an internationally recognized entertainment group.",
+      "subcategory": "P",
+      "category": "NIV — Worker & Exchange"
+    },
+    {
+      "id": "P-2",
+      "name": "Reciprocal Exchange Artist / Entertainer",
+      "group": "NIV",
+      "law": "INA §101(a)(15)(P)(ii)",
+      "description": "Artist or entertainer performing under a reciprocal exchange program between U.S. and foreign organizations.",
+      "subcategory": "P",
+      "category": "NIV — Worker & Exchange"
+    },
+    {
+      "id": "P-3",
+      "name": "Culturally Unique Artist / Entertainer",
+      "group": "NIV",
+      "law": "INA §101(a)(15)(P)(iii)",
+      "description": "Artist or entertainer performing under a program that is culturally unique.",
+      "subcategory": "P",
+      "category": "NIV — Worker & Exchange"
+    },
+    {
+      "id": "P-4",
+      "name": "Dependent of P-1 / P-2 / P-3",
+      "group": "NIV",
+      "law": "INA §101(a)(15)(P)(iv)",
+      "description": "Spouse or child of P-1, P-2, or P-3 visa holder.",
+      "subcategory": "P",
+      "category": "NIV — Worker & Exchange"
+    },
+    {
+      "id": "Q-1",
+      "name": "International Cultural Exchange Visitor",
+      "group": "NIV",
+      "law": "INA §101(a)(15)(Q)(i); 8 CFR §214.2(q)",
+      "description": "Participant in an international cultural exchange program providing practical training, employment, and sharing of culture.",
+      "subcategory": "Q",
+      "category": "NIV — Worker & Exchange"
+    },
+    {
+      "id": "R-1",
+      "name": "Religious Worker",
+      "group": "NIV",
+      "law": "INA §101(a)(15)(R)(i); 8 CFR §214.2(r)",
+      "description": "Minister or religious worker coming to work for a bona fide non-profit religious organization in the U.S.",
+      "subcategory": "R",
+      "category": "NIV — Worker & Exchange"
+    },
+    {
+      "id": "R-2",
+      "name": "Dependent of R-1",
+      "group": "NIV",
+      "law": "INA §101(a)(15)(R)(ii)",
+      "description": "Spouse or child of R-1 religious worker.",
+      "subcategory": "R",
+      "category": "NIV — Worker & Exchange"
+    },
+    {
+      "id": "S-5",
+      "name": "Informant — Criminal Organization",
+      "group": "NIV",
+      "law": "INA §101(a)(15)(S)(i)",
+      "description": "Individual supplying critical reliable information to a law enforcement authority regarding a criminal organization.",
+      "subcategory": "S",
+      "category": "NIV — Humanitarian"
+    },
+    {
+      "id": "S-6",
+      "name": "Informant — Terrorism",
+      "group": "NIV",
+      "law": "INA §101(a)(15)(S)(ii)",
+      "description": "Individual supplying critical reliable information regarding terrorism to the Department of Justice.",
+      "subcategory": "S",
+      "category": "NIV — Humanitarian"
+    },
+    {
+      "id": "S-7",
+      "name": "Dependent of S-5 / S-6",
+      "group": "NIV",
+      "law": "INA §101(a)(15)(S)",
+      "description": "Spouse, married/unmarried child, or parent of S-5 or S-6 (if deemed necessary by the Attorney General).",
+      "subcategory": "S",
+      "category": "NIV — Humanitarian"
+    },
+    {
+      "id": "T-1",
+      "name": "Trafficking Victim",
+      "group": "NIV",
+      "law": "INA §101(a)(15)(T)(i); TVPA of 2000",
+      "description": "Victim of a severe form of trafficking in persons who is physically present in the U.S. and complies with reasonable law enforcement requests.",
+      "subcategory": "T",
+      "category": "NIV — Humanitarian"
+    },
+    {
+      "id": "T-2",
+      "name": "Spouse of T-1",
+      "group": "NIV",
+      "law": "INA §101(a)(15)(T)(ii)",
+      "description": "Spouse of a T-1 trafficking victim.",
+      "subcategory": "T",
+      "category": "NIV — Humanitarian"
+    },
+    {
+      "id": "T-3",
+      "name": "Child of T-1",
+      "group": "NIV",
+      "law": "INA §101(a)(15)(T)(ii)",
+      "description": "Child of a T-1 trafficking victim.",
+      "subcategory": "T",
+      "category": "NIV — Humanitarian"
+    },
+    {
+      "id": "T-4",
+      "name": "Parent of T-1 (Minor)",
+      "group": "NIV",
+      "law": "INA §101(a)(15)(T)(ii)",
+      "description": "Parent of a T-1 trafficking victim who is under 21 years of age.",
+      "subcategory": "T",
+      "category": "NIV — Humanitarian"
+    },
+    {
+      "id": "T-5",
+      "name": "Sibling of T-1 (Minor)",
+      "group": "NIV",
+      "law": "INA §101(a)(15)(T)(ii)",
+      "description": "Unmarried sibling under 18 of a T-1 trafficking victim who is under 21.",
+      "subcategory": "T",
+      "category": "NIV — Humanitarian"
+    },
+    {
+      "id": "T-6",
+      "name": "Adult Child of T-1",
+      "group": "NIV",
+      "law": "INA §101(a)(15)(T)(ii); 8 CFR §214.11",
+      "description": "Adult child of a T-1 trafficking victim facing danger due to the victim's cooperation with law enforcement.",
+      "subcategory": "T",
+      "category": "NIV — Humanitarian"
+    },
+    {
+      "id": "TN",
+      "name": "USMCA / NAFTA Professional",
+      "group": "NIV",
+      "law": "INA §214(e); USMCA Ch. 16",
+      "description": "Canadian or Mexican professional in a designated USMCA/NAFTA occupation. No petition required for Canadians.",
+      "subcategory": "TN",
+      "category": "NIV — Worker & Exchange"
+    },
+    {
+      "id": "TD",
+      "name": "Dependent of TN",
+      "group": "NIV",
+      "law": "INA §214(e)",
+      "description": "Spouse or minor child of TN professional. May not work.",
+      "subcategory": "TN",
+      "category": "NIV — Worker & Exchange"
+    },
+    {
+      "id": "U-1",
+      "name": "Crime Victim",
+      "group": "NIV",
+      "law": "INA §101(a)(15)(U)(i); VTVPA §1513",
+      "description": "Victim of qualifying criminal activity who has suffered substantial abuse and assists in the investigation or prosecution. Annual cap of 10,000.",
+      "subcategory": "U",
+      "category": "NIV — Humanitarian"
+    },
+    {
+      "id": "U-2",
+      "name": "Spouse of U-1",
+      "group": "NIV",
+      "law": "INA §101(a)(15)(U)(ii)",
+      "description": "Spouse of a U-1 crime victim.",
+      "subcategory": "U",
+      "category": "NIV — Humanitarian"
+    },
+    {
+      "id": "U-3",
+      "name": "Child of U-1",
+      "group": "NIV",
+      "law": "INA §101(a)(15)(U)(ii)",
+      "description": "Child of a U-1 crime victim.",
+      "subcategory": "U",
+      "category": "NIV — Humanitarian"
+    },
+    {
+      "id": "U-4",
+      "name": "Parent of U-1 (Minor)",
+      "group": "NIV",
+      "law": "INA §101(a)(15)(U)(ii)",
+      "description": "Parent of a U-1 crime victim who is under 21 years of age.",
+      "subcategory": "U",
+      "category": "NIV — Humanitarian"
+    },
+    {
+      "id": "U-5",
+      "name": "Sibling of U-1 (Minor)",
+      "group": "NIV",
+      "law": "INA §101(a)(15)(U)(ii)",
+      "description": "Unmarried sibling under 18 of a U-1 crime victim who is under 21.",
+      "subcategory": "U",
+      "category": "NIV — Humanitarian"
+    },
+    {
+      "id": "V-1",
+      "name": "Spouse of LPR (Long-Pending)",
+      "group": "NIV",
+      "law": "INA §101(a)(15)(V)(i); LIFE Act §1102",
+      "description": "Spouse of a lawful permanent resident who has an I-130 petition pending for 3+ years.",
+      "subcategory": "V",
+      "category": "NIV — Family"
+    },
+    {
+      "id": "V-2",
+      "name": "Child of LPR (Long-Pending)",
+      "group": "NIV",
+      "law": "INA §101(a)(15)(V)(ii)",
+      "description": "Child of a lawful permanent resident who has an I-130 petition pending for 3+ years.",
+      "subcategory": "V",
+      "category": "NIV — Family"
+    },
+    {
+      "id": "V-3",
+      "name": "Derivative Child of V-1 / V-2",
+      "group": "NIV",
+      "law": "INA §101(a)(15)(V)(iii)",
+      "description": "Child of a V-1 or V-2 visa holder.",
+      "subcategory": "V",
+      "category": "NIV — Family"
+    },
+    {
+      "id": "CW-1",
+      "name": "CNMI Transitional Worker",
+      "group": "NIV",
+      "law": "PL 110-229 §6(d); 48 U.S.C. §1806",
+      "description": "Transitional worker in the Commonwealth of the Northern Mariana Islands during the federal immigration transition period.",
+      "subcategory": "CW",
+      "category": "NIV — Worker & Exchange"
+    },
+    {
+      "id": "CW-2",
+      "name": "Dependent of CW-1",
+      "group": "NIV",
+      "law": "PL 110-229 §6(d)",
+      "description": "Spouse or minor child of a CW-1 transitional worker.",
+      "subcategory": "CW",
+      "category": "NIV — Worker & Exchange"
+    },
+    {
+      "id": "B-1_B-2",
+      "name": "Combined Business & Pleasure Visitor",
+      "group": "NIV",
+      "law": "INA §101(a)(15)(B)",
+      "description": "Combined classification for temporary visitors for both business and pleasure purposes.",
+      "subcategory": "B",
+      "category": "NIV — Visitor & Transit"
+    },
+    {
+      "id": "H-1C",
+      "name": "Registered Nurse (Shortage Area)",
+      "group": "NIV",
+      "law": "INA §101(a)(15)(H)(i)(c); Nursing Relief Act of 1999",
+      "description": "Registered nurse working in a health professional shortage area. Program expired but classification symbol remains in 22 CFR §41.12.",
+      "subcategory": "H",
+      "category": "NIV — Worker & Exchange"
+    },
+    {
+      "id": "E-3D",
+      "name": "Dependent of E-3 Australian",
+      "group": "NIV",
+      "law": "INA §101(a)(15)(E)(iii)",
+      "description": "Spouse or child of E-3 Australian specialty occupation worker.",
+      "subcategory": "E",
+      "category": "NIV — Worker & Exchange"
+    },
+    {
+      "id": "E-3R",
+      "name": "Returning E-3",
+      "group": "NIV",
+      "law": "INA §101(a)(15)(E)(iii)",
+      "description": "E-3 Australian specialty occupation worker returning to the U.S. on a previously issued, unexpired E-3 visa.",
+      "subcategory": "E",
+      "category": "NIV — Worker & Exchange"
+    },
+    {
+      "id": "N-8",
+      "name": "Parent of SK3 / SN3",
+      "group": "NIV",
+      "law": "INA §101(a)(15)(N)(i)",
+      "description": "Parent of an individual classified by DHS as SK3 (child of retired international org employee) or SN3 (child of retired NATO-6 civilian).",
+      "subcategory": "N",
+      "category": "NIV — Worker & Exchange"
+    },
+    {
+      "id": "N-9",
+      "name": "Child of N-8 or SK/SN Classified",
+      "group": "NIV",
+      "law": "INA §101(a)(15)(N)(ii)",
+      "description": "Child of N-8 visa holder or individual classified by DHS as SK1, SK2, SK4, SN1, SN2, or SN4.",
+      "subcategory": "N",
+      "category": "NIV — Worker & Exchange"
+    },
+    {
+      "id": "IR1",
+      "name": "Spouse of U.S. Citizen (New Arrival)",
+      "group": "IV",
+      "law": "INA §201(b)(2)(A)(i)",
+      "description": "Immediate relative — spouse of a U.S. citizen, consular processing. DHS codes: IR1 (new), IR6 (adjustment).",
+      "dhs_codes": [
+        "IR1",
+        "IR6"
+      ],
+      "subcategory": "IR",
+      "category": "IV — Immediate Relative"
+    },
+    {
+      "id": "CR1",
+      "name": "Spouse of U.S. Citizen (Conditional)",
+      "group": "IV",
+      "law": "INA §201(b)(2)(A)(i); INA §216",
+      "description": "Conditional resident spouse of a U.S. citizen (married < 2 years at admission). Must file I-751 to remove conditions. DHS codes: CR1 (new), CR6 (adj).",
+      "dhs_codes": [
+        "CR1",
+        "CR6"
+      ],
+      "subcategory": "IR",
+      "category": "IV — Immediate Relative"
+    },
+    {
+      "id": "IB1",
+      "name": "Self-Petitioning Spouse of U.S. Citizen",
+      "group": "IV",
+      "law": "INA §204(a)(1)(A)(iii)-(iv); VAWA",
+      "description": "Self-petitioning battered or abused spouse of a U.S. citizen under VAWA. DHS codes: IB1 (new), IB6 (adj).",
+      "dhs_codes": [
+        "IB1",
+        "IB6"
+      ],
+      "subcategory": "IB",
+      "category": "IV — Immediate Relative"
+    },
+    {
+      "id": "IW1",
+      "name": "Widow(er) of U.S. Citizen",
+      "group": "IV",
+      "law": "INA §201(b)(2)(A)(i)",
+      "description": "Widow or widower of a deceased U.S. citizen (married 2+ years, petition within 2 years of death). DHS codes: IW1 (new), IW6 (adj).",
+      "dhs_codes": [
+        "IW1",
+        "IW6"
+      ],
+      "subcategory": "IW",
+      "category": "IV — Immediate Relative"
+    },
+    {
+      "id": "CF1",
+      "name": "Spouse via Fiance(e) Entry (Conditional)",
+      "group": "IV",
+      "law": "INA §201(b)(2)(A)(i); INA §216",
+      "description": "Spouse who entered as K-1 fiancé(e), married U.S. citizen, adjusting status (conditional). DHS codes: CF1 (adj, conditional).",
+      "dhs_codes": [
+        "CF1"
+      ],
+      "subcategory": "IR",
+      "category": "IV — Immediate Relative"
+    },
+    {
+      "id": "IF1",
+      "name": "Spouse via Fiance(e) Entry",
+      "group": "IV",
+      "law": "INA §201(b)(2)(A)(i)",
+      "description": "Spouse who entered as K-1 fiancé(e), married U.S. citizen, adjusting status (conditions removed). DHS codes: IF1 (adj).",
+      "dhs_codes": [
+        "IF1"
+      ],
+      "subcategory": "IR",
+      "category": "IV — Immediate Relative"
+    },
+    {
+      "id": "IR2",
+      "name": "Child of U.S. Citizen",
+      "group": "IV",
+      "law": "INA §201(b)(2)(A)(i)",
+      "description": "Immediate relative — unmarried child under 21 of a U.S. citizen. DHS codes: IR2 (new), IR7 (adj).",
+      "dhs_codes": [
+        "IR2",
+        "IR7"
+      ],
+      "subcategory": "IR",
+      "category": "IV — Immediate Relative"
+    },
+    {
+      "id": "CR2",
+      "name": "Child of U.S. Citizen (Conditional)",
+      "group": "IV",
+      "law": "INA §201(b)(2)(A)(i); INA §216",
+      "description": "Conditional resident child accompanying conditional resident spouse. DHS codes: CR2 (new), CR7 (adj).",
+      "dhs_codes": [
+        "CR2",
+        "CR7"
+      ],
+      "subcategory": "IR",
+      "category": "IV — Immediate Relative"
+    },
+    {
+      "id": "IB2",
+      "name": "Self-Petitioning Child of U.S. Citizen",
+      "group": "IV",
+      "law": "INA §204(a)(1)(A)(iv); VAWA",
+      "description": "Self-petitioning battered or abused child of a U.S. citizen. DHS codes: IB2 (new), IB7 (adj).",
+      "dhs_codes": [
+        "IB2",
+        "IB7"
+      ],
+      "subcategory": "IB",
+      "category": "IV — Immediate Relative"
+    },
+    {
+      "id": "IB3",
+      "name": "Child of IB1 Self-Petitioner",
+      "group": "IV",
+      "law": "INA §204(a)(1)(A); VAWA",
+      "description": "Child accompanying or following to join an IB1/IB6 self-petitioning spouse. DHS codes: IB3 (new), IB8 (adj).",
+      "dhs_codes": [
+        "IB3",
+        "IB8"
+      ],
+      "subcategory": "IB",
+      "category": "IV — Immediate Relative"
+    },
+    {
+      "id": "IW2",
+      "name": "Child of Widow(er)",
+      "group": "IV",
+      "law": "INA §201(b)(2)(A)(i)",
+      "description": "Child accompanying or following to join IW1/IW6 widow(er). DHS codes: IW2 (new), IW7 (adj).",
+      "dhs_codes": [
+        "IW2",
+        "IW7"
+      ],
+      "subcategory": "IW",
+      "category": "IV — Immediate Relative"
+    },
+    {
+      "id": "CF2",
+      "name": "Child of CF1 (Conditional)",
+      "group": "IV",
+      "law": "INA §201(b)(2)(A)(i); INA §216",
+      "description": "Child of CF1 spouse (entered via K-2, conditional). DHS code: CF2.",
+      "dhs_codes": [
+        "CF2"
+      ],
+      "subcategory": "IR",
+      "category": "IV — Immediate Relative"
+    },
+    {
+      "id": "IF2",
+      "name": "Child of IF1",
+      "group": "IV",
+      "law": "INA §201(b)(2)(A)(i)",
+      "description": "Child of IF1 spouse (entered via K-2, conditions removed). DHS code: IF2.",
+      "dhs_codes": [
+        "IF2"
+      ],
+      "subcategory": "IR",
+      "category": "IV — Immediate Relative"
+    },
+    {
+      "id": "AR1",
+      "name": "Amerasian Child of U.S. Citizen",
+      "group": "IV",
+      "law": "INA §201(b)(2)(A)(i); PL 97-359",
+      "description": "Amerasian immediate relative child. DHS codes: AR1 (new), AR6 (adj).",
+      "dhs_codes": [
+        "AR1",
+        "AR6"
+      ],
+      "subcategory": "IR",
+      "category": "IV — Immediate Relative"
+    },
+    {
+      "id": "IR3",
+      "name": "Orphan Adopted Abroad",
+      "group": "IV",
+      "law": "INA §101(b)(1)(E); INA §201(b)(2)(A)(i)",
+      "description": "Orphan adopted abroad by a U.S. citizen (non-Hague). DHS codes: IR3 (new), IR8 (adj).",
+      "dhs_codes": [
+        "IR3",
+        "IR8"
+      ],
+      "subcategory": "IR",
+      "category": "IV — Immediate Relative"
+    },
+    {
+      "id": "IR4",
+      "name": "Orphan to be Adopted in U.S.",
+      "group": "IV",
+      "law": "INA §101(b)(1)(E); INA §201(b)(2)(A)(i)",
+      "description": "Orphan coming to the U.S. to be adopted by a U.S. citizen (non-Hague). DHS codes: IR4 (new), IR9 (adj).",
+      "dhs_codes": [
+        "IR4",
+        "IR9"
+      ],
+      "subcategory": "IR",
+      "category": "IV — Immediate Relative"
+    },
+    {
+      "id": "IH3",
+      "name": "Hague Convention Adoptee (Abroad)",
+      "group": "IV",
+      "law": "INA §101(b)(1)(G); Hague Adoption Convention",
+      "description": "Child adopted abroad under the Hague Intercountry Adoption Convention. DHS codes: IH3 (new), IH8 (adj).",
+      "dhs_codes": [
+        "IH3",
+        "IH8"
+      ],
+      "subcategory": "IR",
+      "category": "IV — Immediate Relative"
+    },
+    {
+      "id": "IH4",
+      "name": "Hague Convention Adoptee (U.S.)",
+      "group": "IV",
+      "law": "INA §101(b)(1)(G); Hague Adoption Convention",
+      "description": "Child coming to be adopted in the U.S. under the Hague Convention. DHS codes: IH4 (new), IH9 (adj).",
+      "dhs_codes": [
+        "IH4",
+        "IH9"
+      ],
+      "subcategory": "IR",
+      "category": "IV — Immediate Relative"
+    },
+    {
+      "id": "IR5",
+      "name": "Parent of Adult U.S. Citizen",
+      "group": "IV",
+      "law": "INA §201(b)(2)(A)(i)",
+      "description": "Parent of a U.S. citizen who is at least 21 years old. DHS codes: IR5 (new), IR0 (adj).",
+      "dhs_codes": [
+        "IR5",
+        "IR0"
+      ],
+      "subcategory": "IR",
+      "category": "IV — Immediate Relative"
+    },
+    {
+      "id": "IB5",
+      "name": "Self-Petitioning Parent (VAWA)",
+      "group": "IV",
+      "law": "INA §204(a)(1)(A)(vii); VAWA",
+      "description": "Battered or abused parent of U.S. citizen, self-petitioning. DHS codes: IB5 (new), IB0 (adj).",
+      "dhs_codes": [
+        "IB5",
+        "IB0"
+      ],
+      "subcategory": "IB",
+      "category": "IV — Immediate Relative"
+    },
+    {
+      "id": "VI5",
+      "name": "Parent of U.S. Citizen (Virgin Islands Act)",
+      "group": "IV",
+      "law": "INA §201(b); PL 97-271 §2 (Virgin Islands Nonimmigrant Alien Adjustment Act)",
+      "description": "Parent of U.S. citizen who acquired permanent resident status under the Virgin Islands Nonimmigrant Alien Adjustment Act.",
+      "dhs_codes": [
+        "VI5"
+      ],
+      "subcategory": "IR",
+      "category": "IV — Immediate Relative"
+    },
+    {
+      "id": "F11",
+      "name": "F1 — Unmarried Son/Daughter of U.S. Citizen",
+      "group": "IV",
+      "law": "INA §203(a)(1)",
+      "description": "First family preference — unmarried sons and daughters (21+) of U.S. citizens. DHS codes: F11/F16, A11/A16 (Amerasian), B11/B16 (VAWA).",
+      "dhs_codes": [
+        "F11",
+        "F16",
+        "A11",
+        "A16",
+        "B11",
+        "B16"
+      ],
+      "subcategory": "F1",
+      "category": "IV — Family Preference"
+    },
+    {
+      "id": "F12",
+      "name": "F1 — Child of F11",
+      "group": "IV",
+      "law": "INA §203(a)(1); INA §203(d)",
+      "description": "Derivative child of an F1 preference principal. DHS codes: F12/F17, A12/A17, B12/B17.",
+      "dhs_codes": [
+        "F12",
+        "F17",
+        "A12",
+        "A17",
+        "B12",
+        "B17"
+      ],
+      "subcategory": "F1",
+      "category": "IV — Family Preference"
+    },
+    {
+      "id": "F21",
+      "name": "F2A — Spouse of LPR",
+      "group": "IV",
+      "law": "INA §203(a)(2)(A)",
+      "description": "Second family preference (A) — spouse of a lawful permanent resident. DHS codes: F21/F26, B21/B26, C21/C26, FX1/FX6, BX1/BX6, CX1/CX6.",
+      "dhs_codes": [
+        "F21",
+        "F26",
+        "B21",
+        "B26",
+        "C21",
+        "C26",
+        "FX1",
+        "FX6",
+        "BX1",
+        "BX6",
+        "CX1",
+        "CX6"
+      ],
+      "subcategory": "F2",
+      "category": "IV — Family Preference"
+    },
+    {
+      "id": "F22",
+      "name": "F2A — Child of LPR",
+      "group": "IV",
+      "law": "INA §203(a)(2)(A)",
+      "description": "Second family preference (A) — child under 21 of a lawful permanent resident. DHS codes: F22/F27, B22/B27, C22/C27, FX2/FX7, BX2/BX7, CX2/CX7.",
+      "dhs_codes": [
+        "F22",
+        "F27",
+        "B22",
+        "B27",
+        "C22",
+        "C27",
+        "FX2",
+        "FX7",
+        "BX2",
+        "BX7",
+        "CX2",
+        "CX7"
+      ],
+      "subcategory": "F2",
+      "category": "IV — Family Preference"
+    },
+    {
+      "id": "F23",
+      "name": "F2A — Derivative Child of F2A Spouse/Child",
+      "group": "IV",
+      "law": "INA §203(a)(2)(A); INA §203(d)",
+      "description": "Derivative child of F2A spouse or child principal. DHS codes: F23/F28, B23/B28, C23/C28, FX3/FX8, BX3/BX8, CX3/CX8.",
+      "dhs_codes": [
+        "F23",
+        "F28",
+        "B23",
+        "B28",
+        "C23",
+        "C28",
+        "FX3",
+        "FX8",
+        "BX3",
+        "BX8",
+        "CX3",
+        "CX8"
+      ],
+      "subcategory": "F2",
+      "category": "IV — Family Preference"
+    },
+    {
+      "id": "F24",
+      "name": "F2B — Unmarried Son/Daughter of LPR",
+      "group": "IV",
+      "law": "INA §203(a)(2)(B)",
+      "description": "Second family preference (B) — unmarried sons and daughters (21+) of a lawful permanent resident. DHS codes: F24/F29, B24/B29, C24/C29.",
+      "dhs_codes": [
+        "F24",
+        "F29",
+        "B24",
+        "B29",
+        "C24",
+        "C29"
+      ],
+      "subcategory": "F2",
+      "category": "IV — Family Preference"
+    },
+    {
+      "id": "F25",
+      "name": "F2B — Child of F24",
+      "group": "IV",
+      "law": "INA §203(a)(2)(B); INA §203(d)",
+      "description": "Derivative child of an F2B principal. DHS codes: F25/F20, B25/B20, C25/C20.",
+      "dhs_codes": [
+        "F25",
+        "F20",
+        "B25",
+        "B20",
+        "C25",
+        "C20"
+      ],
+      "subcategory": "F2",
+      "category": "IV — Family Preference"
+    },
+    {
+      "id": "F31",
+      "name": "F3 — Married Son/Daughter of U.S. Citizen",
+      "group": "IV",
+      "law": "INA §203(a)(3)",
+      "description": "Third family preference — married sons and daughters of U.S. citizens. DHS codes: F31/F36, A31/A36, C31/C36, B31/B36.",
+      "dhs_codes": [
+        "F31",
+        "F36",
+        "A31",
+        "A36",
+        "C31",
+        "C36",
+        "B31",
+        "B36"
+      ],
+      "subcategory": "F3",
+      "category": "IV — Family Preference"
+    },
+    {
+      "id": "F32",
+      "name": "F3 — Spouse of F31",
+      "group": "IV",
+      "law": "INA §203(a)(3); INA §203(d)",
+      "description": "Spouse of F3 principal. DHS codes: F32/F37, A32/A37, C32/C37, B32/B37.",
+      "dhs_codes": [
+        "F32",
+        "F37",
+        "A32",
+        "A37",
+        "C32",
+        "C37",
+        "B32",
+        "B37"
+      ],
+      "subcategory": "F3",
+      "category": "IV — Family Preference"
+    },
+    {
+      "id": "F33",
+      "name": "F3 — Child of F31",
+      "group": "IV",
+      "law": "INA §203(a)(3); INA §203(d)",
+      "description": "Child of F3 principal. DHS codes: F33/F38, A33/A38, C33/C38, B33/B38.",
+      "dhs_codes": [
+        "F33",
+        "F38",
+        "A33",
+        "A38",
+        "C33",
+        "C38",
+        "B33",
+        "B38"
+      ],
+      "subcategory": "F3",
+      "category": "IV — Family Preference"
+    },
+    {
+      "id": "F41",
+      "name": "F4 — Sibling of U.S. Citizen",
+      "group": "IV",
+      "law": "INA §203(a)(4)",
+      "description": "Fourth family preference — brothers and sisters of adult U.S. citizens. DHS codes: F41/F46.",
+      "dhs_codes": [
+        "F41",
+        "F46"
+      ],
+      "subcategory": "F4",
+      "category": "IV — Family Preference"
+    },
+    {
+      "id": "F42",
+      "name": "F4 — Spouse of F41",
+      "group": "IV",
+      "law": "INA §203(a)(4); INA §203(d)",
+      "description": "Spouse of F4 principal. DHS codes: F42/F47.",
+      "dhs_codes": [
+        "F42",
+        "F47"
+      ],
+      "subcategory": "F4",
+      "category": "IV — Family Preference"
+    },
+    {
+      "id": "F43",
+      "name": "F4 — Child of F41",
+      "group": "IV",
+      "law": "INA §203(a)(4); INA §203(d)",
+      "description": "Child of F4 principal. DHS codes: F43/F48.",
+      "dhs_codes": [
+        "F43",
+        "F48"
+      ],
+      "subcategory": "F4",
+      "category": "IV — Family Preference"
+    },
+    {
+      "id": "E11",
+      "name": "EB-1A — Extraordinary Ability",
+      "group": "IV",
+      "law": "INA §203(b)(1)(A)",
+      "description": "First employment preference — persons of extraordinary ability in sciences, arts, education, business, or athletics. DHS codes: E11/E16.",
+      "dhs_codes": [
+        "E11",
+        "E16"
+      ],
+      "subcategory": "EB-1",
+      "category": "IV — Employment"
+    },
+    {
+      "id": "E12",
+      "name": "EB-1B — Outstanding Professor / Researcher",
+      "group": "IV",
+      "law": "INA §203(b)(1)(B)",
+      "description": "First employment preference — outstanding professors and researchers with 3+ years of experience. DHS codes: E12/E17.",
+      "dhs_codes": [
+        "E12",
+        "E17"
+      ],
+      "subcategory": "EB-1",
+      "category": "IV — Employment"
+    },
+    {
+      "id": "E13",
+      "name": "EB-1C — Multinational Manager / Executive",
+      "group": "IV",
+      "law": "INA §203(b)(1)(C)",
+      "description": "First employment preference — multinational managers or executives. DHS codes: E13/E18.",
+      "dhs_codes": [
+        "E13",
+        "E18"
+      ],
+      "subcategory": "EB-1",
+      "category": "IV — Employment"
+    },
+    {
+      "id": "E14",
+      "name": "EB-1 — Spouse",
+      "group": "IV",
+      "law": "INA §203(b)(1); INA §203(d)",
+      "description": "Spouse of EB-1 principal. DHS codes: E14/E19.",
+      "dhs_codes": [
+        "E14",
+        "E19"
+      ],
+      "subcategory": "EB-1",
+      "category": "IV — Employment"
+    },
+    {
+      "id": "E15",
+      "name": "EB-1 — Child",
+      "group": "IV",
+      "law": "INA §203(b)(1); INA §203(d)",
+      "description": "Child of EB-1 principal. DHS codes: E15/E10.",
+      "dhs_codes": [
+        "E15",
+        "E10"
+      ],
+      "subcategory": "EB-1",
+      "category": "IV — Employment"
+    },
+    {
+      "id": "E21",
+      "name": "EB-2 — Advanced Degree Professional / Exceptional Ability",
+      "group": "IV",
+      "law": "INA §203(b)(2)",
+      "description": "Second employment preference — professionals holding advanced degrees or persons of exceptional ability. Includes NIW (National Interest Waiver). DHS codes: E21/E26.",
+      "dhs_codes": [
+        "E21",
+        "E26"
+      ],
+      "subcategory": "EB-2",
+      "category": "IV — Employment"
+    },
+    {
+      "id": "ES1",
+      "name": "EB-2 — Soviet Scientist",
+      "group": "IV",
+      "law": "INA §203(b)(2); PL 102-509",
+      "description": "Former Soviet Union scientists admitted under special legislation. DHS codes: ES1/ES6.",
+      "dhs_codes": [
+        "ES1",
+        "ES6"
+      ],
+      "subcategory": "EB-2",
+      "category": "IV — Employment"
+    },
+    {
+      "id": "E22",
+      "name": "EB-2 — Spouse",
+      "group": "IV",
+      "law": "INA §203(b)(2); INA §203(d)",
+      "description": "Spouse of EB-2 principal. DHS codes: E22/E27.",
+      "dhs_codes": [
+        "E22",
+        "E27"
+      ],
+      "subcategory": "EB-2",
+      "category": "IV — Employment"
+    },
+    {
+      "id": "E23",
+      "name": "EB-2 — Child",
+      "group": "IV",
+      "law": "INA §203(b)(2); INA §203(d)",
+      "description": "Child of EB-2 principal. DHS codes: E23/E28.",
+      "dhs_codes": [
+        "E23",
+        "E28"
+      ],
+      "subcategory": "EB-2",
+      "category": "IV — Employment"
+    },
+    {
+      "id": "E31",
+      "name": "EB-3 — Skilled Worker",
+      "group": "IV",
+      "law": "INA §203(b)(3)(A)(i)",
+      "description": "Third employment preference — skilled workers with 2+ years training/experience. DHS codes: E31/E36.",
+      "dhs_codes": [
+        "E31",
+        "E36"
+      ],
+      "subcategory": "EB-3",
+      "category": "IV — Employment"
+    },
+    {
+      "id": "E32",
+      "name": "EB-3 — Professional (Baccalaureate)",
+      "group": "IV",
+      "law": "INA §203(b)(3)(A)(ii)",
+      "description": "Third employment preference — professionals with baccalaureate degrees. DHS codes: E32/E37.",
+      "dhs_codes": [
+        "E32",
+        "E37"
+      ],
+      "subcategory": "EB-3",
+      "category": "IV — Employment"
+    },
+    {
+      "id": "EW3",
+      "name": "EB-3 — Other / Unskilled Worker",
+      "group": "IV",
+      "law": "INA §203(b)(3)(A)(iii)",
+      "description": "Third employment preference — other (unskilled) workers performing labor for which qualified workers are not available. DHS codes: EW3/EW8.",
+      "dhs_codes": [
+        "EW3",
+        "EW8"
+      ],
+      "subcategory": "EB-3",
+      "category": "IV — Employment"
+    },
+    {
+      "id": "EX1",
+      "name": "EB-3 — Schedule A Worker",
+      "group": "IV",
+      "law": "INA §203(b)(3); 20 CFR §656.10",
+      "description": "Third employment preference — Schedule A pre-certified occupations (nurses, physical therapists). DHS codes: EX1/EX6.",
+      "dhs_codes": [
+        "EX1",
+        "EX6"
+      ],
+      "subcategory": "EB-3",
+      "category": "IV — Employment"
+    },
+    {
+      "id": "EC6",
+      "name": "EB-3 — Chinese Student Protection Act",
+      "group": "IV",
+      "law": "PL 102-404 (CSPA 1992)",
+      "description": "Chinese nationals who were in the U.S. after June 4, 1989 (Tiananmen). DHS code: EC6.",
+      "dhs_codes": [
+        "EC6"
+      ],
+      "subcategory": "EB-3",
+      "category": "IV — Employment"
+    },
+    {
+      "id": "E34",
+      "name": "EB-3 — Spouse (Skilled/Professional)",
+      "group": "IV",
+      "law": "INA §203(b)(3); INA §203(d)",
+      "description": "Spouse of EB-3 skilled worker or professional. DHS codes: E34/E39, EX2/EX7, EW4/EW9, EC7.",
+      "dhs_codes": [
+        "E34",
+        "E39",
+        "EX2",
+        "EX7",
+        "EW4",
+        "EW9",
+        "EC7"
+      ],
+      "subcategory": "EB-3",
+      "category": "IV — Employment"
+    },
+    {
+      "id": "E35",
+      "name": "EB-3 — Child (Skilled/Professional)",
+      "group": "IV",
+      "law": "INA §203(b)(3); INA §203(d)",
+      "description": "Child of EB-3 skilled worker or professional. DHS codes: E35/E30, EX3/EX8, EW5/EW0, EC8.",
+      "dhs_codes": [
+        "E35",
+        "E30",
+        "EX3",
+        "EX8",
+        "EW5",
+        "EW0",
+        "EC8"
+      ],
+      "subcategory": "EB-3",
+      "category": "IV — Employment"
+    },
+    {
+      "id": "SD1",
+      "name": "EB-4 — Minister of Religion",
+      "group": "IV",
+      "law": "INA §203(b)(4); INA §101(a)(27)(C)",
+      "description": "Fourth employment preference — special immigrant minister of religion. DHS codes: SD1/SD6.",
+      "dhs_codes": [
+        "SD1",
+        "SD6"
+      ],
+      "subcategory": "EB-4",
+      "category": "IV — Employment"
+    },
+    {
+      "id": "SR1",
+      "name": "EB-4 — Religious Worker",
+      "group": "IV",
+      "law": "INA §203(b)(4); INA §101(a)(27)(C)",
+      "description": "Fourth employment preference — special immigrant religious worker (non-minister). DHS codes: SR1/SR6.",
+      "dhs_codes": [
+        "SR1",
+        "SR6"
+      ],
+      "subcategory": "EB-4",
+      "category": "IV — Employment"
+    },
+    {
+      "id": "SE1",
+      "name": "EB-4 — U.S. Government Employee Abroad",
+      "group": "IV",
+      "law": "INA §203(b)(4); INA §101(a)(27)(D)",
+      "description": "Certain employees or former employees of the U.S. government abroad. DHS codes: SE1/SE6.",
+      "dhs_codes": [
+        "SE1",
+        "SE6"
+      ],
+      "subcategory": "EB-4",
+      "category": "IV — Employment"
+    },
+    {
+      "id": "SF1",
+      "name": "EB-4 — Panama Canal Company Employee",
+      "group": "IV",
+      "law": "INA §203(b)(4); INA §101(a)(27)(E)",
+      "description": "Former employee of the Panama Canal Company or Canal Zone Government. DHS codes: SF1/SF6.",
+      "dhs_codes": [
+        "SF1",
+        "SF6"
+      ],
+      "subcategory": "EB-4",
+      "category": "IV — Employment"
+    },
+    {
+      "id": "SG1",
+      "name": "EB-4 — Panama Canal Zone Gov't Employee",
+      "group": "IV",
+      "law": "INA §203(b)(4); INA §101(a)(27)(F)",
+      "description": "Former U.S. government employee in the Panama Canal Zone. DHS codes: SG1/SG6.",
+      "dhs_codes": [
+        "SG1",
+        "SG6"
+      ],
+      "subcategory": "EB-4",
+      "category": "IV — Employment"
+    },
+    {
+      "id": "SH1",
+      "name": "EB-4 — Panama Canal Employee (1979)",
+      "group": "IV",
+      "law": "INA §203(b)(4); INA §101(a)(27)(G)",
+      "description": "Former Panama Canal Company employee employed on April 1, 1979. DHS codes: SH1/SH6.",
+      "dhs_codes": [
+        "SH1",
+        "SH6"
+      ],
+      "subcategory": "EB-4",
+      "category": "IV — Employment"
+    },
+    {
+      "id": "SJ1",
+      "name": "EB-4 — Foreign Medical Graduate",
+      "group": "IV",
+      "law": "INA §101(a)(27)(H); INA §203(b)(4)",
+      "description": "Foreign medical school graduate (adjustment only). 9 FAM symbol SJ1; DHS adjustment code SJ6.",
+      "dhs_codes": [
+        "SJ1",
+        "SJ6"
+      ],
+      "subcategory": "EB-4",
+      "category": "IV — Employment"
+    },
+    {
+      "id": "SK1",
+      "name": "EB-4 — Retired Int'l Org Employee",
+      "group": "IV",
+      "law": "INA §203(b)(4); INA §101(a)(27)(I)",
+      "description": "Retired employee of an international organization. DHS codes: SK1/SK6.",
+      "dhs_codes": [
+        "SK1",
+        "SK6"
+      ],
+      "subcategory": "EB-4",
+      "category": "IV — Employment"
+    },
+    {
+      "id": "SK4",
+      "name": "EB-4 — Surviving Spouse of Int'l Org Employee",
+      "group": "IV",
+      "law": "INA §203(b)(4); INA §101(a)(27)(I)",
+      "description": "Certain surviving spouses of deceased international organization employees. DHS codes: SK4/SK9.",
+      "dhs_codes": [
+        "SK4",
+        "SK9"
+      ],
+      "subcategory": "EB-4",
+      "category": "IV — Employment"
+    },
+    {
+      "id": "SL1",
+      "name": "EB-4 — Juvenile Court Dependent",
+      "group": "IV",
+      "law": "INA §203(b)(4); INA §101(a)(27)(J)",
+      "description": "Special immigrant juvenile who has been declared dependent on a juvenile court. DHS codes: SL1/SL6.",
+      "dhs_codes": [
+        "SL1",
+        "SL6"
+      ],
+      "subcategory": "EB-4",
+      "category": "IV — Employment"
+    },
+    {
+      "id": "SM1",
+      "name": "EB-4 — Armed Forces (Post-1991)",
+      "group": "IV",
+      "law": "INA §203(b)(4); INA §101(a)(27)(K)",
+      "description": "Alien who has served 12 years in the U.S. Armed Forces after October 1, 1991. DHS codes: SM1/SM6.",
+      "dhs_codes": [
+        "SM1",
+        "SM6"
+      ],
+      "subcategory": "EB-4",
+      "category": "IV — Employment"
+    },
+    {
+      "id": "SM4",
+      "name": "EB-4 — Armed Forces (Pre-1991)",
+      "group": "IV",
+      "law": "INA §203(b)(4); INA §101(a)(27)(K)",
+      "description": "Alien who served 12 years in the U.S. Armed Forces before October 1991. DHS codes: SM4/SM9.",
+      "dhs_codes": [
+        "SM4",
+        "SM9"
+      ],
+      "subcategory": "EB-4",
+      "category": "IV — Employment"
+    },
+    {
+      "id": "BC1",
+      "name": "EB-4 — Broadcasting Board Employee",
+      "group": "IV",
+      "law": "INA §203(b)(4); PL 103-236 §501",
+      "description": "Employee of the International Broadcasting Bureau (BBG). DHS codes: BC1/BC6.",
+      "dhs_codes": [
+        "BC1",
+        "BC6"
+      ],
+      "subcategory": "EB-4",
+      "category": "IV — Employment"
+    },
+    {
+      "id": "SN1",
+      "name": "EB-4 — Retired NATO-6 Civilian",
+      "group": "IV",
+      "law": "INA §203(b)(4); INA §101(a)(27)(L)",
+      "description": "Retired NATO-6 civilian employee who was in the U.S. 15+ years. DHS codes: SN1/SN6.",
+      "dhs_codes": [
+        "SN1",
+        "SN6"
+      ],
+      "subcategory": "EB-4",
+      "category": "IV — Employment"
+    },
+    {
+      "id": "SN4",
+      "name": "EB-4 — Surviving Spouse of NATO-6",
+      "group": "IV",
+      "law": "INA §203(b)(4); INA §101(a)(27)(L)",
+      "description": "Surviving spouse of a deceased NATO-6 civilian employee. DHS codes: SN4/SN9.",
+      "dhs_codes": [
+        "SN4",
+        "SN9"
+      ],
+      "subcategory": "EB-4",
+      "category": "IV — Employment"
+    },
+    {
+      "id": "SI1",
+      "name": "EB-4 — Iraqi/Afghan Interpreter",
+      "group": "IV",
+      "law": "INA §203(b)(4); PL 109-163 §1059",
+      "description": "Special immigrant interpreter/translator who worked with U.S. Armed Forces in Iraq or Afghanistan. DHS codes: SI1/SI6.",
+      "dhs_codes": [
+        "SI1",
+        "SI6"
+      ],
+      "subcategory": "EB-4",
+      "category": "IV — Employment"
+    },
+    {
+      "id": "SQ1",
+      "name": "EB-4 — Iraqi/Afghan U.S. Gov't Employee",
+      "group": "IV",
+      "law": "PL 110-181 §1244; PL 111-8 §602",
+      "description": "Iraqi or Afghan national employed by or on behalf of the U.S. government. DHS codes: SQ1/SQ6.",
+      "dhs_codes": [
+        "SQ1",
+        "SQ6"
+      ],
+      "subcategory": "EB-4",
+      "category": "IV — Employment"
+    },
+    {
+      "id": "SD2",
+      "name": "EB-4 — Spouse of SD1",
+      "group": "IV",
+      "law": "INA §203(b)(4); INA §203(d)",
+      "description": "Spouse of special immigrant minister. DHS codes: SD2/SD7.",
+      "dhs_codes": [
+        "SD2",
+        "SD7"
+      ],
+      "subcategory": "EB-4",
+      "category": "IV — Employment"
+    },
+    {
+      "id": "SD3",
+      "name": "EB-4 — Child of SD1",
+      "group": "IV",
+      "law": "INA §203(b)(4); INA §203(d)",
+      "description": "Child of special immigrant minister. DHS codes: SD3/SD8.",
+      "dhs_codes": [
+        "SD3",
+        "SD8"
+      ],
+      "subcategory": "EB-4",
+      "category": "IV — Employment"
+    },
+    {
+      "id": "SR2",
+      "name": "EB-4 — Spouse of SR1",
+      "group": "IV",
+      "law": "INA §203(b)(4); INA §203(d)",
+      "description": "Spouse of special immigrant religious worker. DHS codes: SR2/SR7.",
+      "dhs_codes": [
+        "SR2",
+        "SR7"
+      ],
+      "subcategory": "EB-4",
+      "category": "IV — Employment"
+    },
+    {
+      "id": "SR3",
+      "name": "EB-4 — Child of SR1",
+      "group": "IV",
+      "law": "INA §203(b)(4); INA §203(d)",
+      "description": "Child of special immigrant religious worker. DHS codes: SR3/SR8.",
+      "dhs_codes": [
+        "SR3",
+        "SR8"
+      ],
+      "subcategory": "EB-4",
+      "category": "IV — Employment"
+    },
+    {
+      "id": "SE2",
+      "name": "EB-4 — Spouse of SE1",
+      "group": "IV",
+      "law": "INA §203(d)",
+      "description": "Spouse of U.S. government employee abroad. DHS codes: SE2/SE7.",
+      "dhs_codes": [
+        "SE2",
+        "SE7"
+      ],
+      "subcategory": "EB-4",
+      "category": "IV — Employment"
+    },
+    {
+      "id": "SE3",
+      "name": "EB-4 — Child of SE1",
+      "group": "IV",
+      "law": "INA §203(d)",
+      "description": "Child of U.S. government employee abroad. DHS codes: SE3/SE8.",
+      "dhs_codes": [
+        "SE3",
+        "SE8"
+      ],
+      "subcategory": "EB-4",
+      "category": "IV — Employment"
+    },
+    {
+      "id": "SF2",
+      "name": "EB-4 — Spouse/Child of SF1",
+      "group": "IV",
+      "law": "INA §203(d)",
+      "description": "Spouse or child of Panama Canal Company employee. DHS codes: SF2/SF7.",
+      "dhs_codes": [
+        "SF2",
+        "SF7"
+      ],
+      "subcategory": "EB-4",
+      "category": "IV — Employment"
+    },
+    {
+      "id": "SG2",
+      "name": "EB-4 — Spouse/Child of SG1",
+      "group": "IV",
+      "law": "INA §203(d)",
+      "description": "Spouse or child of former U.S. government employee in Canal Zone. DHS codes: SG2/SG7.",
+      "dhs_codes": [
+        "SG2",
+        "SG7"
+      ],
+      "subcategory": "EB-4",
+      "category": "IV — Employment"
+    },
+    {
+      "id": "SH2",
+      "name": "EB-4 — Spouse/Child of SH1",
+      "group": "IV",
+      "law": "INA §203(d)",
+      "description": "Spouse or child of Panama Canal employee (1979). DHS codes: SH2/SH7.",
+      "dhs_codes": [
+        "SH2",
+        "SH7"
+      ],
+      "subcategory": "EB-4",
+      "category": "IV — Employment"
+    },
+    {
+      "id": "SJ2",
+      "name": "EB-4 — Spouse/Child of SJ1",
+      "group": "IV",
+      "law": "INA §101(a)(27)(H); INA §203(b)(4); INA §203(d)",
+      "description": "Spouse or child of SJ1 foreign medical graduate. DHS codes: SJ2/SJ7.",
+      "dhs_codes": [
+        "SJ2",
+        "SJ7"
+      ],
+      "subcategory": "EB-4",
+      "category": "IV — Employment"
+    },
+    {
+      "id": "SP",
+      "name": "EB-4 — September 11 Beneficiary",
+      "group": "IV",
+      "law": "PL 107-56 §421 (USA PATRIOT Act)",
+      "description": "Beneficiary of a petition or labor certification filed before September 11, 2001 rendered void by the terrorist attacks, or spouse/child thereof, or grandparent of a child orphaned by the attacks.",
+      "dhs_codes": [
+        "SP"
+      ],
+      "subcategory": "EB-4",
+      "category": "IV — Employment"
+    },
+    {
+      "id": "SS1",
+      "name": "EB-4 — Surviving Spouse/Child of U.S. Gov't Employee Abroad",
+      "group": "IV",
+      "law": "INA §101(a)(27)(D)(ii); INA §203(b)(4)",
+      "description": "Surviving spouse or child of a U.S. government employee killed abroad in the line of duty.",
+      "dhs_codes": [
+        "SS1"
+      ],
+      "subcategory": "EB-4",
+      "category": "IV — Employment"
+    },
+    {
+      "id": "GS1",
+      "name": "GRATEFUL Act — Surviving Spouse/Child of U.S. Gov't Employee",
+      "group": "IV",
+      "law": "INA §101(a)(27)(D)(ii); PL 118-31 §5104 (2024 NDAA); PL 105-100 §203(d) (NACARA)",
+      "description": "Surviving spouse or child of U.S. government employee abroad, issued under the GRATEFUL Act when a visa is not immediately available under INA §203(b)(4).",
+      "dhs_codes": [
+        "GS1"
+      ],
+      "subcategory": "GRATEFUL",
+      "category": "IV — Employment"
+    },
+    {
+      "id": "GV1",
+      "name": "GRATEFUL Act — U.S. Gov't Employee Abroad",
+      "group": "IV",
+      "law": "INA §101(a)(27)(D)(i); INA §203(b)(4); PL 118-31 §5104 (2024 NDAA)",
+      "description": "Certain current or former employee of the U.S. government abroad, issued under the GRATEFUL Act.",
+      "dhs_codes": [
+        "GV1"
+      ],
+      "subcategory": "GRATEFUL",
+      "category": "IV — Employment"
+    },
+    {
+      "id": "GV2",
+      "name": "GRATEFUL Act — Spouse of GV1",
+      "group": "IV",
+      "law": "INA §101(a)(27)(D)(i); INA §203(b)(4); INA §203(d); PL 118-31 §5104",
+      "description": "Spouse of GV1 U.S. government employee.",
+      "dhs_codes": [
+        "GV2"
+      ],
+      "subcategory": "GRATEFUL",
+      "category": "IV — Employment"
+    },
+    {
+      "id": "GV3",
+      "name": "GRATEFUL Act — Child of GV1",
+      "group": "IV",
+      "law": "INA §101(a)(27)(D)(i); INA §203(b)(4); INA §203(d); PL 118-31 §5104",
+      "description": "Child of GV1 U.S. government employee.",
+      "dhs_codes": [
+        "GV3"
+      ],
+      "subcategory": "GRATEFUL",
+      "category": "IV — Employment"
+    },
+    {
+      "id": "SK2",
+      "name": "EB-4 — Spouse of SK1",
+      "group": "IV",
+      "law": "INA §203(d)",
+      "description": "Spouse of retired international organization employee. DHS codes: SK2/SK7.",
+      "dhs_codes": [
+        "SK2",
+        "SK7"
+      ],
+      "subcategory": "EB-4",
+      "category": "IV — Employment"
+    },
+    {
+      "id": "SK3",
+      "name": "EB-4 — Child of SK1",
+      "group": "IV",
+      "law": "INA §203(d)",
+      "description": "Unmarried child of retired international organization employee. DHS codes: SK3/SK8.",
+      "dhs_codes": [
+        "SK3",
+        "SK8"
+      ],
+      "subcategory": "EB-4",
+      "category": "IV — Employment"
+    },
+    {
+      "id": "SN2",
+      "name": "EB-4 — Spouse of SN1",
+      "group": "IV",
+      "law": "INA §203(d)",
+      "description": "Spouse of retired NATO-6 civilian. DHS codes: SN2/SN7.",
+      "dhs_codes": [
+        "SN2",
+        "SN7"
+      ],
+      "subcategory": "EB-4",
+      "category": "IV — Employment"
+    },
+    {
+      "id": "SN3",
+      "name": "EB-4 — Child of SN1",
+      "group": "IV",
+      "law": "INA §203(d)",
+      "description": "Unmarried son/daughter of retired NATO-6 civilian. DHS codes: SN3/SN8.",
+      "dhs_codes": [
+        "SN3",
+        "SN8"
+      ],
+      "subcategory": "EB-4",
+      "category": "IV — Employment"
+    },
+    {
+      "id": "BC2",
+      "name": "EB-4 — Spouse of BC1",
+      "group": "IV",
+      "law": "INA §203(d)",
+      "description": "Spouse of BBG broadcasting employee. DHS codes: BC2/BC7.",
+      "dhs_codes": [
+        "BC2",
+        "BC7"
+      ],
+      "subcategory": "EB-4",
+      "category": "IV — Employment"
+    },
+    {
+      "id": "BC3",
+      "name": "EB-4 — Child of BC1",
+      "group": "IV",
+      "law": "INA §203(d)",
+      "description": "Child of BBG broadcasting employee. DHS codes: BC3/BC8.",
+      "dhs_codes": [
+        "BC3",
+        "BC8"
+      ],
+      "subcategory": "EB-4",
+      "category": "IV — Employment"
+    },
+    {
+      "id": "SI2",
+      "name": "EB-4 — Spouse of SI1",
+      "group": "IV",
+      "law": "PL 109-163 §1059",
+      "description": "Spouse of Iraqi/Afghan interpreter. DHS codes: SI2/SI7.",
+      "dhs_codes": [
+        "SI2",
+        "SI7"
+      ],
+      "subcategory": "EB-4",
+      "category": "IV — Employment"
+    },
+    {
+      "id": "SI3",
+      "name": "EB-4 — Child of SI1",
+      "group": "IV",
+      "law": "PL 109-163 §1059",
+      "description": "Child of Iraqi/Afghan interpreter. DHS codes: SI3/SI8.",
+      "dhs_codes": [
+        "SI3",
+        "SI8"
+      ],
+      "subcategory": "EB-4",
+      "category": "IV — Employment"
+    },
+    {
+      "id": "SQ2",
+      "name": "EB-4 — Spouse of SQ1",
+      "group": "IV",
+      "law": "PL 110-181 §1244",
+      "description": "Spouse of Iraqi/Afghan U.S. government employee. DHS codes: SQ2/SQ7.",
+      "dhs_codes": [
+        "SQ2",
+        "SQ7"
+      ],
+      "subcategory": "EB-4",
+      "category": "IV — Employment"
+    },
+    {
+      "id": "SQ3",
+      "name": "EB-4 — Child of SQ1",
+      "group": "IV",
+      "law": "PL 110-181 §1244",
+      "description": "Child of Iraqi/Afghan U.S. government employee. DHS codes: SQ3/SQ8.",
+      "dhs_codes": [
+        "SQ3",
+        "SQ8"
+      ],
+      "subcategory": "EB-4",
+      "category": "IV — Employment"
+    },
+    {
+      "id": "SM2",
+      "name": "EB-4 — Spouse of SM1",
+      "group": "IV",
+      "law": "INA §203(d)",
+      "description": "Spouse of armed forces member (post-1991). DHS codes: SM2/SM7.",
+      "dhs_codes": [
+        "SM2",
+        "SM7"
+      ],
+      "subcategory": "EB-4",
+      "category": "IV — Employment"
+    },
+    {
+      "id": "SM3",
+      "name": "EB-4 — Child of SM1",
+      "group": "IV",
+      "law": "INA §203(d)",
+      "description": "Child of armed forces member (post-1991). DHS codes: SM3/SM8.",
+      "dhs_codes": [
+        "SM3",
+        "SM8"
+      ],
+      "subcategory": "EB-4",
+      "category": "IV — Employment"
+    },
+    {
+      "id": "SM5",
+      "name": "EB-4 — Spouse/Child of SM4",
+      "group": "IV",
+      "law": "INA §203(d)",
+      "description": "Spouse or child of armed forces member (pre-1991). DHS codes: SM5/SM0.",
+      "dhs_codes": [
+        "SM5",
+        "SM0"
+      ],
+      "subcategory": "EB-4",
+      "category": "IV — Employment"
+    },
+    {
+      "id": "C51",
+      "name": "EB-5 — Investor (Non-Targeted)",
+      "group": "IV",
+      "law": "INA §203(b)(5)(A)",
+      "description": "Fifth employment preference — employment creation investor in a non-targeted employment area. Conditional. DHS codes: C51/C56.",
+      "dhs_codes": [
+        "C51",
+        "C56"
+      ],
+      "subcategory": "EB-5",
+      "category": "IV — Employment"
+    },
+    {
+      "id": "T51",
+      "name": "EB-5 — Investor (Targeted Area)",
+      "group": "IV",
+      "law": "INA §203(b)(5)(B)",
+      "description": "Employment creation investor in a targeted employment area (TEA). Conditional. DHS codes: T51/T56.",
+      "dhs_codes": [
+        "T51",
+        "T56"
+      ],
+      "subcategory": "EB-5",
+      "category": "IV — Employment"
+    },
+    {
+      "id": "R51",
+      "name": "EB-5 — Investor Pilot Program (Non-Targeted)",
+      "group": "IV",
+      "law": "INA §203(b)(5); PL 102-395 §610",
+      "description": "Investor through regional center pilot program, non-targeted area. Conditional. DHS codes: R51/R56.",
+      "dhs_codes": [
+        "R51",
+        "R56"
+      ],
+      "subcategory": "EB-5",
+      "category": "IV — Employment"
+    },
+    {
+      "id": "I51",
+      "name": "EB-5 — Investor Pilot Program (Targeted)",
+      "group": "IV",
+      "law": "INA §203(b)(5); PL 102-395 §610",
+      "description": "Investor through regional center pilot program, targeted employment area. Conditional. DHS codes: I51/I56.",
+      "dhs_codes": [
+        "I51",
+        "I56"
+      ],
+      "subcategory": "EB-5",
+      "category": "IV — Employment"
+    },
+    {
+      "id": "E51",
+      "name": "EB-5 — Investor (Unconditional)",
+      "group": "IV",
+      "law": "INA §203(b)(5)",
+      "description": "Employment creation investor, conditions removed. DHS codes: E51/E56.",
+      "dhs_codes": [
+        "E51",
+        "E56"
+      ],
+      "subcategory": "EB-5",
+      "category": "IV — Employment"
+    },
+    {
+      "id": "C52",
+      "name": "EB-5 — Spouse (Non-Targeted)",
+      "group": "IV",
+      "law": "INA §203(b)(5); INA §203(d)",
+      "description": "Spouse of C51 investor. DHS codes: C52/C57.",
+      "dhs_codes": [
+        "C52",
+        "C57"
+      ],
+      "subcategory": "EB-5",
+      "category": "IV — Employment"
+    },
+    {
+      "id": "T52",
+      "name": "EB-5 — Spouse (Targeted)",
+      "group": "IV",
+      "law": "INA §203(b)(5); INA §203(d)",
+      "description": "Spouse of T51 investor. DHS codes: T52/T57.",
+      "dhs_codes": [
+        "T52",
+        "T57"
+      ],
+      "subcategory": "EB-5",
+      "category": "IV — Employment"
+    },
+    {
+      "id": "R52",
+      "name": "EB-5 — Spouse (Pilot, Non-Targeted)",
+      "group": "IV",
+      "law": "INA §203(b)(5); INA §203(d)",
+      "description": "Spouse of R51 investor. DHS codes: R52/R57.",
+      "dhs_codes": [
+        "R52",
+        "R57"
+      ],
+      "subcategory": "EB-5",
+      "category": "IV — Employment"
+    },
+    {
+      "id": "I52",
+      "name": "EB-5 — Spouse (Pilot, Targeted)",
+      "group": "IV",
+      "law": "INA §203(b)(5); INA §203(d)",
+      "description": "Spouse of I51 investor. DHS codes: I52/I57.",
+      "dhs_codes": [
+        "I52",
+        "I57"
+      ],
+      "subcategory": "EB-5",
+      "category": "IV — Employment"
+    },
+    {
+      "id": "E52",
+      "name": "EB-5 — Spouse (Unconditional)",
+      "group": "IV",
+      "law": "INA §203(b)(5); INA §203(d)",
+      "description": "Spouse of E51 investor. DHS codes: E52/E57.",
+      "dhs_codes": [
+        "E52",
+        "E57"
+      ],
+      "subcategory": "EB-5",
+      "category": "IV — Employment"
+    },
+    {
+      "id": "C53",
+      "name": "EB-5 — Child (Non-Targeted)",
+      "group": "IV",
+      "law": "INA §203(b)(5); INA §203(d)",
+      "description": "Child of C51 investor. DHS codes: C53/C58.",
+      "dhs_codes": [
+        "C53",
+        "C58"
+      ],
+      "subcategory": "EB-5",
+      "category": "IV — Employment"
+    },
+    {
+      "id": "T53",
+      "name": "EB-5 — Child (Targeted)",
+      "group": "IV",
+      "law": "INA §203(b)(5); INA §203(d)",
+      "description": "Child of T51 investor. DHS codes: T53/T58.",
+      "dhs_codes": [
+        "T53",
+        "T58"
+      ],
+      "subcategory": "EB-5",
+      "category": "IV — Employment"
+    },
+    {
+      "id": "R53",
+      "name": "EB-5 — Child (Pilot, Non-Targeted)",
+      "group": "IV",
+      "law": "INA §203(b)(5); INA §203(d)",
+      "description": "Child of R51 investor. DHS codes: R53/R58.",
+      "dhs_codes": [
+        "R53",
+        "R58"
+      ],
+      "subcategory": "EB-5",
+      "category": "IV — Employment"
+    },
+    {
+      "id": "I53",
+      "name": "EB-5 — Child (Pilot, Targeted)",
+      "group": "IV",
+      "law": "INA §203(b)(5); INA §203(d)",
+      "description": "Child of I51 investor. DHS codes: I53/I58.",
+      "dhs_codes": [
+        "I53",
+        "I58"
+      ],
+      "subcategory": "EB-5",
+      "category": "IV — Employment"
+    },
+    {
+      "id": "E53",
+      "name": "EB-5 — Child (Unconditional)",
+      "group": "IV",
+      "law": "INA §203(b)(5); INA §203(d)",
+      "description": "Child of E51 investor. DHS codes: E53/E58.",
+      "dhs_codes": [
+        "E53",
+        "E58"
+      ],
+      "subcategory": "EB-5",
+      "category": "IV — Employment"
+    },
+    {
+      "id": "NU1",
+      "name": "EB-5 Reform — Non-Regional Center, Unreserved",
+      "group": "IV",
+      "law": "INA §203(b)(5); PL 102-395 §610; PL 117-103 Div. BB (EB-5 Reform and Integrity Act 2022)",
+      "description": "Investor in non-regional center enterprise, unreserved category. Petitions filed on or after March 15, 2022.",
+      "dhs_codes": [
+        "NU1"
+      ],
+      "subcategory": "EB-5-Reform",
+      "category": "IV — Employment"
+    },
+    {
+      "id": "NU2",
+      "name": "EB-5 Reform — Spouse of NU1",
+      "group": "IV",
+      "law": "INA §203(b)(5); INA §203(d); PL 117-103 Div. BB",
+      "description": "Spouse of NU1 investor.",
+      "dhs_codes": [
+        "NU2"
+      ],
+      "subcategory": "EB-5-Reform",
+      "category": "IV — Employment"
+    },
+    {
+      "id": "NU3",
+      "name": "EB-5 Reform — Child of NU1",
+      "group": "IV",
+      "law": "INA §203(b)(5); INA §203(d); PL 117-103 Div. BB",
+      "description": "Child of NU1 investor.",
+      "dhs_codes": [
+        "NU3"
+      ],
+      "subcategory": "EB-5-Reform",
+      "category": "IV — Employment"
+    },
+    {
+      "id": "RU1",
+      "name": "EB-5 Reform — Regional Center, Unreserved",
+      "group": "IV",
+      "law": "INA §203(b)(5); PL 102-395 §610; PL 117-103 Div. BB",
+      "description": "Investor in regional center enterprise, unreserved category. Petitions filed on or after March 15, 2022.",
+      "dhs_codes": [
+        "RU1"
+      ],
+      "subcategory": "EB-5-Reform",
+      "category": "IV — Employment"
+    },
+    {
+      "id": "RU2",
+      "name": "EB-5 Reform — Spouse of RU1",
+      "group": "IV",
+      "law": "INA §203(b)(5); INA §203(d); PL 117-103 Div. BB",
+      "description": "Spouse of RU1 investor.",
+      "dhs_codes": [
+        "RU2"
+      ],
+      "subcategory": "EB-5-Reform",
+      "category": "IV — Employment"
+    },
+    {
+      "id": "RU3",
+      "name": "EB-5 Reform — Child of RU1",
+      "group": "IV",
+      "law": "INA §203(b)(5); INA §203(d); PL 117-103 Div. BB",
+      "description": "Child of RU1 investor.",
+      "dhs_codes": [
+        "RU3"
+      ],
+      "subcategory": "EB-5-Reform",
+      "category": "IV — Employment"
+    },
+    {
+      "id": "NR1",
+      "name": "EB-5 Reform — Non-Regional Center, Rural Set-Aside",
+      "group": "IV",
+      "law": "INA §203(b)(5); PL 102-395 §610; PL 117-103 Div. BB",
+      "description": "Investor in non-regional center enterprise in a rural area, set-aside category.",
+      "dhs_codes": [
+        "NR1"
+      ],
+      "subcategory": "EB-5-Reform",
+      "category": "IV — Employment"
+    },
+    {
+      "id": "NR2",
+      "name": "EB-5 Reform — Spouse of NR1",
+      "group": "IV",
+      "law": "INA §203(b)(5); INA §203(d); PL 117-103 Div. BB",
+      "description": "Spouse of NR1 investor.",
+      "dhs_codes": [
+        "NR2"
+      ],
+      "subcategory": "EB-5-Reform",
+      "category": "IV — Employment"
+    },
+    {
+      "id": "NR3",
+      "name": "EB-5 Reform — Child of NR1",
+      "group": "IV",
+      "law": "INA §203(b)(5); INA §203(d); PL 117-103 Div. BB",
+      "description": "Child of NR1 investor.",
+      "dhs_codes": [
+        "NR3"
+      ],
+      "subcategory": "EB-5-Reform",
+      "category": "IV — Employment"
+    },
+    {
+      "id": "NH1",
+      "name": "EB-5 Reform — Non-Regional Center, High Unemployment Set-Aside",
+      "group": "IV",
+      "law": "INA §203(b)(5); PL 102-395 §610; PL 117-103 Div. BB",
+      "description": "Investor in non-regional center enterprise in a high unemployment area, set-aside category.",
+      "dhs_codes": [
+        "NH1"
+      ],
+      "subcategory": "EB-5-Reform",
+      "category": "IV — Employment"
+    },
+    {
+      "id": "NH2",
+      "name": "EB-5 Reform — Spouse of NH1",
+      "group": "IV",
+      "law": "INA §203(b)(5); INA §203(d); PL 117-103 Div. BB",
+      "description": "Spouse of NH1 investor.",
+      "dhs_codes": [
+        "NH2"
+      ],
+      "subcategory": "EB-5-Reform",
+      "category": "IV — Employment"
+    },
+    {
+      "id": "NH3",
+      "name": "EB-5 Reform — Child of NH1",
+      "group": "IV",
+      "law": "INA §203(b)(5); INA §203(d); PL 117-103 Div. BB",
+      "description": "Child of NH1 investor.",
+      "dhs_codes": [
+        "NH3"
+      ],
+      "subcategory": "EB-5-Reform",
+      "category": "IV — Employment"
+    },
+    {
+      "id": "RR1",
+      "name": "EB-5 Reform — Regional Center, Rural Set-Aside",
+      "group": "IV",
+      "law": "INA §203(b)(5); PL 102-395 §610; PL 117-103 Div. BB",
+      "description": "Investor in regional center enterprise in a rural area, set-aside category.",
+      "dhs_codes": [
+        "RR1"
+      ],
+      "subcategory": "EB-5-Reform",
+      "category": "IV — Employment"
+    },
+    {
+      "id": "RR2",
+      "name": "EB-5 Reform — Spouse of RR1",
+      "group": "IV",
+      "law": "INA §203(b)(5); INA §203(d); PL 117-103 Div. BB",
+      "description": "Spouse of RR1 investor.",
+      "dhs_codes": [
+        "RR2"
+      ],
+      "subcategory": "EB-5-Reform",
+      "category": "IV — Employment"
+    },
+    {
+      "id": "RR3",
+      "name": "EB-5 Reform — Child of RR1",
+      "group": "IV",
+      "law": "INA §203(b)(5); INA §203(d); PL 117-103 Div. BB",
+      "description": "Child of RR1 investor.",
+      "dhs_codes": [
+        "RR3"
+      ],
+      "subcategory": "EB-5-Reform",
+      "category": "IV — Employment"
+    },
+    {
+      "id": "RH1",
+      "name": "EB-5 Reform — Regional Center, High Unemployment Set-Aside",
+      "group": "IV",
+      "law": "INA §203(b)(5); PL 102-395 §610; PL 117-103 Div. BB",
+      "description": "Investor in regional center enterprise in a high unemployment area, set-aside category.",
+      "dhs_codes": [
+        "RH1"
+      ],
+      "subcategory": "EB-5-Reform",
+      "category": "IV — Employment"
+    },
+    {
+      "id": "RH2",
+      "name": "EB-5 Reform — Spouse of RH1",
+      "group": "IV",
+      "law": "INA §203(b)(5); INA §203(d); PL 117-103 Div. BB",
+      "description": "Spouse of RH1 investor.",
+      "dhs_codes": [
+        "RH2"
+      ],
+      "subcategory": "EB-5-Reform",
+      "category": "IV — Employment"
+    },
+    {
+      "id": "RH3",
+      "name": "EB-5 Reform — Child of RH1",
+      "group": "IV",
+      "law": "INA §203(b)(5); INA §203(d); PL 117-103 Div. BB",
+      "description": "Child of RH1 investor.",
+      "dhs_codes": [
+        "RH3"
+      ],
+      "subcategory": "EB-5-Reform",
+      "category": "IV — Employment"
+    },
+    {
+      "id": "RI1",
+      "name": "EB-5 Reform — Regional Center, Infrastructure Set-Aside",
+      "group": "IV",
+      "law": "INA §203(b)(5); PL 102-395 §610; PL 117-103 Div. BB",
+      "description": "Investor in regional center enterprise for infrastructure projects, set-aside category.",
+      "dhs_codes": [
+        "RI1"
+      ],
+      "subcategory": "EB-5-Reform",
+      "category": "IV — Employment"
+    },
+    {
+      "id": "RI2",
+      "name": "EB-5 Reform — Spouse of RI1",
+      "group": "IV",
+      "law": "INA §203(b)(5); INA §203(d); PL 117-103 Div. BB",
+      "description": "Spouse of RI1 investor.",
+      "dhs_codes": [
+        "RI2"
+      ],
+      "subcategory": "EB-5-Reform",
+      "category": "IV — Employment"
+    },
+    {
+      "id": "RI3",
+      "name": "EB-5 Reform — Child of RI1",
+      "group": "IV",
+      "law": "INA §203(b)(5); INA §203(d); PL 117-103 Div. BB",
+      "description": "Child of RI1 investor.",
+      "dhs_codes": [
+        "RI3"
+      ],
+      "subcategory": "EB-5-Reform",
+      "category": "IV — Employment"
+    },
+    {
+      "id": "DV1",
+      "name": "Diversity Visa — Principal",
+      "group": "IV",
+      "law": "INA §203(c)",
+      "description": "Diversity Immigrant Visa Program (lottery) principal applicant from an under-represented country. 55,000 visas annually. DHS codes: DV1/DV6.",
+      "dhs_codes": [
+        "DV1",
+        "DV6"
+      ],
+      "subcategory": "DV",
+      "category": "IV — Diversity"
+    },
+    {
+      "id": "DV2",
+      "name": "Diversity Visa — Spouse",
+      "group": "IV",
+      "law": "INA §203(c); INA §203(d)",
+      "description": "Spouse of DV1 lottery winner. DHS codes: DV2/DV7.",
+      "dhs_codes": [
+        "DV2",
+        "DV7"
+      ],
+      "subcategory": "DV",
+      "category": "IV — Diversity"
+    },
+    {
+      "id": "DV3",
+      "name": "Diversity Visa — Child",
+      "group": "IV",
+      "law": "INA §203(c); INA §203(d)",
+      "description": "Child of DV1 lottery winner. DHS codes: DV3/DV8.",
+      "dhs_codes": [
+        "DV3",
+        "DV8"
+      ],
+      "subcategory": "DV",
+      "category": "IV — Diversity"
+    },
+    {
+      "id": "SB1",
+      "name": "Returning Resident",
+      "group": "IV",
+      "law": "INA §101(a)(27)(A); 8 CFR §211.1(a)",
+      "description": "Lawful permanent resident returning to the U.S. after a temporary absence abroad exceeding 1 year or validity of re-entry permit.",
+      "subcategory": "Special Immigrant",
+      "category": "IV — Employment"
+    },
+    {
+      "id": "RE6",
+      "name": "Refugee",
+      "group": "IV",
+      "law": "INA §207; Refugee Act of 1980 (PL 96-212)",
+      "description": "Person outside their country of nationality unable or unwilling to return due to persecution. Admitted by presidential determination. DHS codes: RE6 (principal), RE7-RE9.",
+      "dhs_codes": [
+        "RE6",
+        "RE7",
+        "RE8",
+        "RE9"
+      ],
+      "subcategory": "Refugee",
+      "category": "IV — Humanitarian"
+    },
+    {
+      "id": "RE7",
+      "name": "Refugee — Spouse",
+      "group": "IV",
+      "law": "INA §207(c)(2)",
+      "description": "Spouse of RE6 refugee following to join. DHS code: RE7.",
+      "dhs_codes": [
+        "RE7"
+      ],
+      "subcategory": "Refugee",
+      "category": "IV — Humanitarian"
+    },
+    {
+      "id": "RE8",
+      "name": "Refugee — Child",
+      "group": "IV",
+      "law": "INA §207(c)(2)",
+      "description": "Child of RE6 refugee following to join. DHS code: RE8.",
+      "dhs_codes": [
+        "RE8"
+      ],
+      "subcategory": "Refugee",
+      "category": "IV — Humanitarian"
+    },
+    {
+      "id": "CU6",
+      "name": "Cuban Refugee",
+      "group": "IV",
+      "law": "PL 89-732 (Cuban Adjustment Act of 1966)",
+      "description": "Cuban national admitted or paroled after January 1, 1959, adjusting to LPR status. DHS codes: CU6, CU7.",
+      "dhs_codes": [
+        "CU6",
+        "CU7"
+      ],
+      "subcategory": "Refugee",
+      "category": "IV — Humanitarian"
+    },
+    {
+      "id": "IC6",
+      "name": "Indochinese Refugee",
+      "group": "IV",
+      "law": "PL 95-145 (1977)",
+      "description": "Indochinese refugee admitted under early parole programs. DHS codes: IC6, IC7.",
+      "dhs_codes": [
+        "IC6",
+        "IC7"
+      ],
+      "subcategory": "Refugee",
+      "category": "IV — Humanitarian"
+    },
+    {
+      "id": "AS6",
+      "name": "Asylee — Principal",
+      "group": "IV",
+      "law": "INA §208",
+      "description": "Person physically present in the U.S. granted asylum due to persecution. May adjust to LPR after 1 year. DHS codes: AS6-AS8.",
+      "dhs_codes": [
+        "AS6",
+        "AS7",
+        "AS8"
+      ],
+      "subcategory": "Asylee",
+      "category": "IV — Humanitarian"
+    },
+    {
+      "id": "AS7",
+      "name": "Asylee — Spouse",
+      "group": "IV",
+      "law": "INA §208(b)(3)",
+      "description": "Spouse of AS6 asylee. DHS code: AS7.",
+      "dhs_codes": [
+        "AS7"
+      ],
+      "subcategory": "Asylee",
+      "category": "IV — Humanitarian"
+    },
+    {
+      "id": "AS8",
+      "name": "Asylee — Child",
+      "group": "IV",
+      "law": "INA §208(b)(3)",
+      "description": "Child of AS6 asylee. DHS code: AS8.",
+      "dhs_codes": [
+        "AS8"
+      ],
+      "subcategory": "Asylee",
+      "category": "IV — Humanitarian"
+    },
+    {
+      "id": "GA6",
+      "name": "Iraqi Asylee",
+      "group": "IV",
+      "law": "INA §208",
+      "description": "Iraqi asylee adjusting to LPR. DHS codes: GA6-GA8.",
+      "dhs_codes": [
+        "GA6",
+        "GA7",
+        "GA8"
+      ],
+      "subcategory": "Asylee",
+      "category": "IV — Humanitarian"
+    },
+    {
+      "id": "SY6",
+      "name": "Syrian Asylee",
+      "group": "IV",
+      "law": "INA §208",
+      "description": "Syrian asylee adjusting to LPR. DHS codes: SY6-SY8.",
+      "dhs_codes": [
+        "SY6",
+        "SY7",
+        "SY8"
+      ],
+      "subcategory": "Asylee",
+      "category": "IV — Humanitarian"
+    },
+    {
+      "id": "ST6",
+      "name": "Trafficking Victim Adjustment (T-1)",
+      "group": "IV",
+      "law": "INA §245(l); TVPA",
+      "description": "Adjustment of T-1 trafficking victim to LPR after 3 years or completion of investigation. DHS codes: ST6-ST9, ST0.",
+      "dhs_codes": [
+        "ST6",
+        "ST7",
+        "ST8",
+        "ST0",
+        "ST9"
+      ],
+      "subcategory": "T-Adjustment",
+      "category": "IV — Humanitarian"
+    },
+    {
+      "id": "SU6",
+      "name": "Crime Victim Adjustment (U-1)",
+      "group": "IV",
+      "law": "INA §245(m); VTVPA",
+      "description": "Adjustment of U-1 crime victim to LPR after 3 years continuous presence. DHS codes: SU6-SU9, SU0, SU2, SU3, SU5.",
+      "dhs_codes": [
+        "SU6",
+        "SU7",
+        "SU8",
+        "SU0",
+        "SU9",
+        "SU2",
+        "SU3",
+        "SU5"
+      ],
+      "subcategory": "U-Adjustment",
+      "category": "IV — Humanitarian"
+    },
+    {
+      "id": "NC6",
+      "name": "NACARA §202 — Principal",
+      "group": "IV",
+      "law": "PL 105-100 §202 (NACARA 1997)",
+      "description": "Nicaraguan and Central American Relief Act — Nicaraguan/Cuban principal adjusting status. DHS codes: NC6-NC9.",
+      "dhs_codes": [
+        "NC6",
+        "NC7",
+        "NC8",
+        "NC9"
+      ],
+      "subcategory": "NACARA",
+      "category": "IV — Humanitarian"
+    },
+    {
+      "id": "NC7",
+      "name": "NACARA §202 — Spouse",
+      "group": "IV",
+      "law": "PL 105-100 §202",
+      "description": "Spouse of NC6 principal. DHS code: NC7.",
+      "dhs_codes": [
+        "NC7"
+      ],
+      "subcategory": "NACARA",
+      "category": "IV — Humanitarian"
+    },
+    {
+      "id": "NC8",
+      "name": "NACARA §202 — Child",
+      "group": "IV",
+      "law": "PL 105-100 §202",
+      "description": "Child of NC6 principal. DHS code: NC8.",
+      "dhs_codes": [
+        "NC8"
+      ],
+      "subcategory": "NACARA",
+      "category": "IV — Humanitarian"
+    },
+    {
+      "id": "NC9",
+      "name": "NACARA §202 — Unmarried Son/Daughter",
+      "group": "IV",
+      "law": "PL 105-100 §202",
+      "description": "Unmarried son or daughter of NC6 principal. DHS code: NC9.",
+      "dhs_codes": [
+        "NC9"
+      ],
+      "subcategory": "NACARA",
+      "category": "IV — Humanitarian"
+    },
+    {
+      "id": "HA6",
+      "name": "HRIFA — Haitian Asylum Applicant",
+      "group": "IV",
+      "law": "PL 105-277 (HRIFA 1998)",
+      "description": "Haitian Refugee Immigration Fairness Act — asylum applicant adjusting. DHS codes: HA6-HA9.",
+      "dhs_codes": [
+        "HA6",
+        "HA7",
+        "HA8",
+        "HA9"
+      ],
+      "subcategory": "HRIFA",
+      "category": "IV — Humanitarian"
+    },
+    {
+      "id": "HB6",
+      "name": "HRIFA — Haitian Parolee",
+      "group": "IV",
+      "law": "PL 105-277 (HRIFA 1998)",
+      "description": "Haitian parolee adjusting under HRIFA. DHS codes: HB6-HB9.",
+      "dhs_codes": [
+        "HB6",
+        "HB7",
+        "HB8",
+        "HB9"
+      ],
+      "subcategory": "HRIFA",
+      "category": "IV — Humanitarian"
+    },
+    {
+      "id": "HC6",
+      "name": "HRIFA — Haitian Child (No Parents)",
+      "group": "IV",
+      "law": "PL 105-277 (HRIFA 1998)",
+      "description": "Haitian child without parents adjusting under HRIFA. DHS codes: HC6-HC9.",
+      "dhs_codes": [
+        "HC6",
+        "HC7",
+        "HC8",
+        "HC9"
+      ],
+      "subcategory": "HRIFA",
+      "category": "IV — Humanitarian"
+    },
+    {
+      "id": "HD6",
+      "name": "HRIFA — Haitian Orphan",
+      "group": "IV",
+      "law": "PL 105-277 (HRIFA 1998)",
+      "description": "Haitian child orphaned in the United States. DHS codes: HD6-HD9.",
+      "dhs_codes": [
+        "HD6",
+        "HD7",
+        "HD8",
+        "HD9"
+      ],
+      "subcategory": "HRIFA",
+      "category": "IV — Humanitarian"
+    },
+    {
+      "id": "HE6",
+      "name": "HRIFA — Haitian Child (Abandoned)",
+      "group": "IV",
+      "law": "PL 105-277 (HRIFA 1998)",
+      "description": "Haitian child abandoned by parents. DHS codes: HE6-HE9.",
+      "dhs_codes": [
+        "HE6",
+        "HE7",
+        "HE8",
+        "HE9"
+      ],
+      "subcategory": "HRIFA",
+      "category": "IV — Humanitarian"
+    },
+    {
+      "id": "Z13",
+      "name": "Cancellation of Removal — INA §244",
+      "group": "IV",
+      "law": "INA §244; PL 89-236",
+      "description": "Cancellation of removal (formerly suspension of deportation), subject to 4,000 annual limit. DHS code: Z13.",
+      "dhs_codes": [
+        "Z13"
+      ],
+      "subcategory": "Registry",
+      "category": "IV — Administrative"
+    },
+    {
+      "id": "Z14",
+      "name": "Cancellation of Removal — VAWA",
+      "group": "IV",
+      "law": "INA §244(a)(3); PL 103-322 (VAWA 1994)",
+      "description": "Cancellation for battered spouses or children, subject to 4,000 annual limit. DHS code: Z14.",
+      "dhs_codes": [
+        "Z14"
+      ],
+      "subcategory": "Registry",
+      "category": "IV — Administrative"
+    },
+    {
+      "id": "Z15",
+      "name": "Cancellation of Removal — NACARA §203",
+      "group": "IV",
+      "law": "PL 105-100 §203 (NACARA)",
+      "description": "Cancellation for Salvadoran, Guatemalan, and former Soviet bloc nationals. DHS code: Z15.",
+      "dhs_codes": [
+        "Z15"
+      ],
+      "subcategory": "Registry",
+      "category": "IV — Administrative"
+    },
+    {
+      "id": "W16",
+      "name": "IRCA Legalization — Pre-1982 Entry",
+      "group": "IV",
+      "law": "INA §245A(a); PL 99-603 (IRCA 1986)",
+      "description": "IRCA legalization for aliens who entered without inspection before January 1, 1982. DHS code: W16.",
+      "dhs_codes": [
+        "W16"
+      ],
+      "subcategory": "IRCA",
+      "category": "IV — Special Programs"
+    },
+    {
+      "id": "W26",
+      "name": "IRCA Legalization — Visa Overstay",
+      "group": "IV",
+      "law": "INA §245A(a); PL 99-603",
+      "description": "IRCA legalization for aliens who entered as nonimmigrants and overstayed before January 1, 1982. DHS code: W26.",
+      "dhs_codes": [
+        "W26"
+      ],
+      "subcategory": "IRCA",
+      "category": "IV — Special Programs"
+    },
+    {
+      "id": "W36",
+      "name": "IRCA Legalization — EVD Group",
+      "group": "IV",
+      "law": "INA §245A(a); PL 99-603",
+      "description": "IRCA legalization for blanket enforced voluntary departure group members. DHS code: W36.",
+      "dhs_codes": [
+        "W36"
+      ],
+      "subcategory": "IRCA",
+      "category": "IV — Special Programs"
+    },
+    {
+      "id": "S16",
+      "name": "IRCA SAW — Group I",
+      "group": "IV",
+      "law": "INA §210; PL 99-603",
+      "description": "Seasonal Agricultural Worker who worked 90+ days in each year ending May 1984, 1985, and 1986. DHS code: S16.",
+      "dhs_codes": [
+        "S16"
+      ],
+      "subcategory": "IRCA",
+      "category": "IV — Special Programs"
+    },
+    {
+      "id": "S26",
+      "name": "IRCA SAW — Group II",
+      "group": "IV",
+      "law": "INA §210; PL 99-603",
+      "description": "Seasonal Agricultural Worker who worked 90+ days in year ending May 1986. DHS code: S26.",
+      "dhs_codes": [
+        "S26"
+      ],
+      "subcategory": "IRCA",
+      "category": "IV — Special Programs"
+    },
+    {
+      "id": "LB1",
+      "name": "IRCA Legalization — Spouse",
+      "group": "IV",
+      "law": "INA §245A; PL 99-603",
+      "description": "Spouse of legalized alien under IRCA. DHS codes: LB1/LB6, CB1/CB6.",
+      "dhs_codes": [
+        "LB1",
+        "LB6",
+        "CB1",
+        "CB6"
+      ],
+      "subcategory": "IRCA",
+      "category": "IV — Special Programs"
+    },
+    {
+      "id": "LB2",
+      "name": "IRCA Legalization — Child",
+      "group": "IV",
+      "law": "INA §245A; PL 99-603",
+      "description": "Child of legalized alien under IRCA. DHS codes: LB2/LB7, CB2/CB7.",
+      "dhs_codes": [
+        "LB2",
+        "LB7",
+        "CB2",
+        "CB7"
+      ],
+      "subcategory": "IRCA",
+      "category": "IV — Special Programs"
+    },
+    {
+      "id": "AM1",
+      "name": "Amerasian (Vietnam)",
+      "group": "IV",
+      "law": "PL 100-202 §584 (Amerasian Homecoming Act 1987)",
+      "description": "Amerasian born in Vietnam between 1/1/1962 and 1/1/1976 (child of U.S. military). DHS codes: AM1/AM6.",
+      "dhs_codes": [
+        "AM1",
+        "AM6"
+      ],
+      "subcategory": "Amerasian",
+      "category": "IV — Special Programs"
+    },
+    {
+      "id": "AM2",
+      "name": "Amerasian — Spouse/Child",
+      "group": "IV",
+      "law": "PL 100-202 §584",
+      "description": "Spouse or child of AM1 Amerasian. DHS codes: AM2/AM7.",
+      "dhs_codes": [
+        "AM2",
+        "AM7"
+      ],
+      "subcategory": "Amerasian",
+      "category": "IV — Special Programs"
+    },
+    {
+      "id": "AM3",
+      "name": "Amerasian — Parent/Guardian",
+      "group": "IV",
+      "law": "PL 100-202 §584",
+      "description": "Mother, guardian, or next of kin of AM1 Amerasian. DHS codes: AM3/AM8.",
+      "dhs_codes": [
+        "AM3",
+        "AM8"
+      ],
+      "subcategory": "Amerasian",
+      "category": "IV — Special Programs"
+    },
+    {
+      "id": "AA1",
+      "name": "Adversely Affected Foreign State Native",
+      "group": "IV",
+      "law": "INA §203(e) (historical); PL 100-658",
+      "description": "Natives of certain adversely affected foreign states (diversity transition). DHS codes: AA1/AA6.",
+      "dhs_codes": [
+        "AA1",
+        "AA6"
+      ],
+      "subcategory": "Legacy",
+      "category": "IV — Diversity"
+    },
+    {
+      "id": "AA2",
+      "name": "Adversely Affected — Spouse",
+      "group": "IV",
+      "law": "INA §203(d)",
+      "description": "Spouse of AA1. DHS codes: AA2/AA7.",
+      "dhs_codes": [
+        "AA2",
+        "AA7"
+      ],
+      "subcategory": "Legacy",
+      "category": "IV — Diversity"
+    },
+    {
+      "id": "AA3",
+      "name": "Adversely Affected — Child",
+      "group": "IV",
+      "law": "INA §203(d)",
+      "description": "Child of AA1. DHS codes: AA3/AA8.",
+      "dhs_codes": [
+        "AA3",
+        "AA8"
+      ],
+      "subcategory": "Legacy",
+      "category": "IV — Diversity"
+    },
+    {
+      "id": "DT1",
+      "name": "Displaced Tibetan",
+      "group": "IV",
+      "law": "PL 101-649 §134",
+      "description": "Native of Tibet who continuously resided in Nepal or India since November 29, 1990. DHS codes: DT1/DT6.",
+      "dhs_codes": [
+        "DT1",
+        "DT6"
+      ],
+      "subcategory": "Legacy",
+      "category": "IV — Humanitarian"
+    },
+    {
+      "id": "DT2",
+      "name": "Displaced Tibetan — Spouse",
+      "group": "IV",
+      "law": "PL 101-649 §134",
+      "description": "Spouse of DT1. DHS codes: DT2/DT7.",
+      "dhs_codes": [
+        "DT2",
+        "DT7"
+      ],
+      "subcategory": "Legacy",
+      "category": "IV — Humanitarian"
+    },
+    {
+      "id": "DT3",
+      "name": "Displaced Tibetan — Child",
+      "group": "IV",
+      "law": "PL 101-649 §134",
+      "description": "Child of DT1. DHS codes: DT3/DT8.",
+      "dhs_codes": [
+        "DT3",
+        "DT8"
+      ],
+      "subcategory": "Legacy",
+      "category": "IV — Humanitarian"
+    },
+    {
+      "id": "HK1",
+      "name": "Hong Kong Business Employee",
+      "group": "IV",
+      "law": "PL 101-649 §124",
+      "description": "Hong Kong business employees under special provision. DHS codes: HK1/HK6.",
+      "dhs_codes": [
+        "HK1",
+        "HK6"
+      ],
+      "subcategory": "Legacy",
+      "category": "IV — Employment"
+    },
+    {
+      "id": "HK2",
+      "name": "Hong Kong — Spouse",
+      "group": "IV",
+      "law": "PL 101-649 §124",
+      "description": "Spouse of HK1. DHS codes: HK2/HK7.",
+      "dhs_codes": [
+        "HK2",
+        "HK7"
+      ],
+      "subcategory": "Legacy",
+      "category": "IV — Employment"
+    },
+    {
+      "id": "HK3",
+      "name": "Hong Kong — Child",
+      "group": "IV",
+      "law": "PL 101-649 §124",
+      "description": "Child of HK1. DHS codes: HK3/HK8.",
+      "dhs_codes": [
+        "HK3",
+        "HK8"
+      ],
+      "subcategory": "Legacy",
+      "category": "IV — Employment"
+    },
+    {
+      "id": "HH6",
+      "name": "Help HAITI Act Parolee",
+      "group": "IV",
+      "law": "PL 111-293 (Help HAITI Act of 2010)",
+      "description": "Haitian parolees adjusting to LPR under the Help HAITI Act. DHS code: HH6.",
+      "dhs_codes": [
+        "HH6"
+      ],
+      "subcategory": "Legacy",
+      "category": "IV — Humanitarian"
+    },
+    {
+      "id": "CH6",
+      "name": "Cuban-Haitian Entrant",
+      "group": "IV",
+      "law": "PL 99-603 §202",
+      "description": "Cuban-Haitian entrant adjusting to LPR. DHS code: CH6.",
+      "dhs_codes": [
+        "CH6"
+      ],
+      "subcategory": "Legacy",
+      "category": "IV — Humanitarian"
+    },
+    {
+      "id": "DS1",
+      "name": "Born Under Diplomatic Status",
+      "group": "IV",
+      "law": "INA §101(a)(27)(C) (analogous); 8 CFR §101.3",
+      "description": "Person born in the U.S. under diplomatic immunity (not a U.S. citizen at birth). DHS code: DS1.",
+      "dhs_codes": [
+        "DS1"
+      ],
+      "subcategory": "Diplomatic",
+      "category": "IV — Immediate Relative"
+    },
+    {
+      "id": "S13",
+      "name": "American Indian Born in Canada",
+      "group": "IV",
+      "law": "INA §289; Jay Treaty of 1794",
+      "description": "Person of at least 50% American Indian blood born in Canada; free passage right. DHS code: S13.",
+      "dhs_codes": [
+        "S13"
+      ],
+      "subcategory": "IRCA",
+      "category": "IV — Special Programs"
+    },
+    {
+      "id": "SC1",
+      "name": "Lost Citizenship — Marriage",
+      "group": "IV",
+      "law": "INA §324(a)",
+      "description": "Former U.S. citizen who lost citizenship through marriage to a foreign national. DHS codes: SC1/SC6.",
+      "dhs_codes": [
+        "SC1",
+        "SC6"
+      ],
+      "subcategory": "Citizenship Restoration",
+      "category": "IV — Immediate Relative"
+    },
+    {
+      "id": "SC2",
+      "name": "Lost Citizenship — Foreign Military",
+      "group": "IV",
+      "law": "INA §327",
+      "description": "Former U.S. citizen who lost citizenship through service in foreign armed forces. DHS codes: SC2/SC7.",
+      "dhs_codes": [
+        "SC2",
+        "SC7"
+      ],
+      "subcategory": "Citizenship Restoration",
+      "category": "IV — Immediate Relative"
+    },
+    {
+      "id": "RN6",
+      "name": "Former H-1 Registered Nurse",
+      "group": "IV",
+      "law": "PL 101-238 (INS Nurse Relief Act 1989)",
+      "description": "Certain former H-1 nonimmigrant registered nurses adjusting. DHS codes: RN6, RN7.",
+      "dhs_codes": [
+        "RN6",
+        "RN7"
+      ],
+      "subcategory": "Legacy",
+      "category": "IV — Employment"
+    },
+    {
+      "id": "MR0",
+      "name": "CNMI — Parent of U.S. Citizen",
+      "group": "IV",
+      "law": "PL 94-241; 48 U.S.C. §1806",
+      "description": "Parent of U.S. citizen presumed to be LPR in the Northern Mariana Islands. DHS code: MR0.",
+      "dhs_codes": [
+        "MR0"
+      ],
+      "subcategory": "CNMI",
+      "category": "IV — Special Programs"
+    },
+    {
+      "id": "MR6",
+      "name": "CNMI — Spouse of U.S. Citizen",
+      "group": "IV",
+      "law": "PL 94-241; 48 U.S.C. §1806",
+      "description": "Spouse of U.S. citizen presumed to be LPR in the Northern Mariana Islands. DHS code: MR6.",
+      "dhs_codes": [
+        "MR6"
+      ],
+      "subcategory": "CNMI",
+      "category": "IV — Special Programs"
+    },
+    {
+      "id": "MR7",
+      "name": "CNMI — Child of U.S. Citizen",
+      "group": "IV",
+      "law": "PL 94-241; 48 U.S.C. §1806",
+      "description": "Child of U.S. citizen presumed to be LPR in the Northern Mariana Islands. DHS code: MR7.",
+      "dhs_codes": [
+        "MR7"
+      ],
+      "subcategory": "CNMI",
+      "category": "IV — Special Programs"
+    },
+    {
+      "id": "NP8",
+      "name": "Pre-1978 Investor",
+      "group": "IV",
+      "law": "INA §203(b)(5) (precursor)",
+      "description": "Alien who filed and was qualified with investor status prior to June 1, 1978. DHS code: NP8.",
+      "dhs_codes": [
+        "NP8"
+      ],
+      "subcategory": "Legacy",
+      "category": "IV — Employment"
+    },
+    {
+      "id": "NP9",
+      "name": "Pre-1978 Investor — Spouse/Child",
+      "group": "IV",
+      "law": "INA §203(d)",
+      "description": "Spouse or child of NP8 investor. DHS code: NP9.",
+      "dhs_codes": [
+        "NP9"
+      ],
+      "subcategory": "Legacy",
+      "category": "IV — Employment"
+    },
+    {
+      "id": "XR3",
+      "name": "Child Born Abroad — Immediate Relative",
+      "group": "IV",
+      "law": "INA §201(b); 8 CFR §211.1(b)(1)",
+      "description": "Child born abroad to alien parent after issuance of immediate relative visa. DHS code: XR3.",
+      "dhs_codes": [
+        "XR3"
+      ],
+      "subcategory": "Born Abroad",
+      "category": "IV — Immediate Relative"
+    },
+    {
+      "id": "XE3",
+      "name": "Child Born Abroad — Employment Preference",
+      "group": "IV",
+      "law": "INA §203(b); 8 CFR §211.1(b)(1)",
+      "description": "Child born abroad after issuance of parent's employment-based preference visa. DHS code: XE3.",
+      "dhs_codes": [
+        "XE3"
+      ],
+      "subcategory": "Born Abroad",
+      "category": "IV — Immediate Relative"
+    },
+    {
+      "id": "XF3",
+      "name": "Child Born Abroad — Family Preference",
+      "group": "IV",
+      "law": "INA §203(a); 8 CFR §211.1(b)(1)",
+      "description": "Child born abroad after issuance of parent's family-sponsored preference visa. DHS code: XF3.",
+      "dhs_codes": [
+        "XF3"
+      ],
+      "subcategory": "Born Abroad",
+      "category": "IV — Immediate Relative"
+    },
+    {
+      "id": "XN3",
+      "name": "Child Born Abroad — Other Visa",
+      "group": "IV",
+      "law": "8 CFR §211.1(b)(1)",
+      "description": "Child born abroad after issuance of parent's other category visa. DHS code: XN3.",
+      "dhs_codes": [
+        "XN3"
+      ],
+      "subcategory": "Born Abroad",
+      "category": "IV — Immediate Relative"
+    },
+    {
+      "id": "XA3",
+      "name": "Child Born Abroad — Non-Quota",
+      "group": "IV",
+      "law": "8 CFR §211.1(b)(1)",
+      "description": "Child born abroad to alien resident subsequent to issuance of parent's non-quota visa. DHS code: XA3.",
+      "dhs_codes": [
+        "XA3"
+      ],
+      "subcategory": "Born Abroad",
+      "category": "IV — Immediate Relative"
+    },
+    {
+      "id": "XB3",
+      "name": "Presumed LPR",
+      "group": "IV",
+      "law": "8 CFR §101.1",
+      "description": "Person presumed lawfully admitted for permanent residence. DHS code: XB3.",
+      "dhs_codes": [
+        "XB3"
+      ],
+      "subcategory": "Administrative",
+      "category": "IV — Immediate Relative"
+    },
+    {
+      "id": "NA3",
+      "name": "Child Born Abroad to LPR",
+      "group": "IV",
+      "law": "INA §101(b)(1)(D)",
+      "description": "Child born abroad to alien residents on temporary visit outside the U.S. DHS code: NA3.",
+      "dhs_codes": [
+        "NA3"
+      ],
+      "subcategory": "Born Abroad",
+      "category": "IV — Immediate Relative"
+    },
+    {
+      "id": "Z33",
+      "name": "Registry — Pre-1924 Entry",
+      "group": "IV",
+      "law": "INA §249; PL 89-236",
+      "description": "Alien who entered before July 1, 1924, adjusting via registry provision. DHS code: Z33.",
+      "dhs_codes": [
+        "Z33"
+      ],
+      "subcategory": "Registry",
+      "category": "IV — Administrative"
+    },
+    {
+      "id": "Z03",
+      "name": "Registry — 1924–1940 Entry",
+      "group": "IV",
+      "law": "INA §249; PL 89-236",
+      "description": "Alien who entered between July 1, 1924 and June 28, 1940, adjusting via registry. DHS code: Z03.",
+      "dhs_codes": [
+        "Z03"
+      ],
+      "subcategory": "Registry",
+      "category": "IV — Administrative"
+    },
+    {
+      "id": "Z66",
+      "name": "Registry — 1940–1972 Entry",
+      "group": "IV",
+      "law": "INA §249; PL 89-236",
+      "description": "Alien who entered between June 29, 1940 and January 1, 1972, adjusting via registry. DHS code: Z66.",
+      "dhs_codes": [
+        "Z66"
+      ],
+      "subcategory": "Registry",
+      "category": "IV — Administrative"
+    },
+    {
+      "id": "Z43",
+      "name": "Private Bill",
+      "group": "IV",
+      "law": "Private legislation",
+      "description": "Alien granted LPR status through a private bill enacted by Congress. DHS code: Z43.",
+      "dhs_codes": [
+        "Z43"
+      ],
+      "subcategory": "Registry",
+      "category": "IV — Administrative"
+    },
+    {
+      "id": "Z56",
+      "name": "Crewman — Immediate Relative (Pre-1964)",
+      "group": "IV",
+      "law": "INA §245; PL 89-236",
+      "description": "Crewman who entered on or before June 30, 1964, who is an immediate relative of a U.S. citizen. DHS code: Z56.",
+      "dhs_codes": [
+        "Z56"
+      ],
+      "subcategory": "Registry",
+      "category": "IV — Administrative"
+    },
+    {
+      "id": "Z57",
+      "name": "Crewman — Preference (Pre-1964)",
+      "group": "IV",
+      "law": "INA §245; PL 89-236",
+      "description": "Crewman who entered on or before June 30, 1964, adjusting as preference or non-preference immigrant. DHS code: Z57.",
+      "dhs_codes": [
+        "Z57"
+      ],
+      "subcategory": "Registry",
+      "category": "IV — Administrative"
+    },
+    {
+      "id": "Z83",
+      "name": "Foreign Gov't Official — Immediate Relative",
+      "group": "IV",
+      "law": "INA §245; INA §101(a)(15)(A)",
+      "description": "Foreign government official who is an immediate relative of a U.S. citizen or special immigrant. DHS code: Z83.",
+      "dhs_codes": [
+        "Z83"
+      ],
+      "subcategory": "Registry",
+      "category": "IV — Administrative"
+    },
+    {
+      "id": "W46",
+      "name": "Late IRCA Amnesty Applicant",
+      "group": "IV",
+      "law": "PL 99-603; CSS v. Meese settlement",
+      "description": "Late amnesty applicant under IRCA. DHS code: W46.",
+      "dhs_codes": [
+        "W46"
+      ],
+      "subcategory": "IRCA",
+      "category": "IV — Special Programs"
+    },
+    {
+      "id": "PH6",
+      "name": "Parolee — Polish/Hungarian",
+      "group": "IV",
+      "law": "INA §212(d)(5)",
+      "description": "Polish or Hungarian parolee adjusting status. DHS code: PH6.",
+      "dhs_codes": [
+        "PH6"
+      ],
+      "subcategory": "Refugee",
+      "category": "IV — Humanitarian"
+    },
+    {
+      "id": "LA6",
+      "name": "Parolee — Soviet/Indochinese",
+      "group": "IV",
+      "law": "INA §212(d)(5)",
+      "description": "Soviet or Indochinese parolee adjusting status. DHS code: LA6.",
+      "dhs_codes": [
+        "LA6"
+      ],
+      "subcategory": "Refugee",
+      "category": "IV — Humanitarian"
+    },
+    {
+      "id": "ID6",
+      "name": "Parolee — Indochinese",
+      "group": "IV",
+      "law": "INA §212(d)(5)",
+      "description": "Indochinese parolee adjusting status. DHS code: ID6.",
+      "dhs_codes": [
+        "ID6"
+      ],
+      "subcategory": "Refugee",
+      "category": "IV — Humanitarian"
+    },
+    {
+      "id": "R86",
+      "name": "Refugee Parolee (1978)",
+      "group": "IV",
+      "law": "PL 95-412 (1978)",
+      "description": "Refugee parolee under 1978 legislation. DHS code: R86.",
+      "dhs_codes": [
+        "R86"
+      ],
+      "subcategory": "Refugee",
+      "category": "IV — Humanitarian"
+    },
+    {
+      "id": "M83",
+      "name": "Refugee Escapee (Historical)",
+      "group": "IV",
+      "law": "INA §203(a)(7) (pre-1980)",
+      "description": "Refugee/escapee previously admitted for LPR, adjustments. DHS code: M83.",
+      "dhs_codes": [
+        "M83"
+      ],
+      "subcategory": "Refugee",
+      "category": "IV — Humanitarian"
+    },
+    {
+      "id": "Y64",
+      "name": "Pre-1953 Refugee",
+      "group": "IV",
+      "law": "Refugee Relief Act of 1953",
+      "description": "Refugee in the U.S. prior to July 1, 1953, adjusting. DHS code: Y64.",
+      "dhs_codes": [
+        "Y64"
+      ],
+      "subcategory": "Refugee",
+      "category": "IV — Humanitarian"
+    },
+    {
+      "id": "GA7",
+      "name": "Iraqi Asylee — Spouse",
+      "group": "IV",
+      "law": "INA §208(b)(3)",
+      "description": "Spouse of GA6 Iraqi asylee.",
+      "dhs_codes": [
+        "GA7"
+      ],
+      "subcategory": "Asylee",
+      "category": "IV — Humanitarian"
+    },
+    {
+      "id": "GA8",
+      "name": "Iraqi Asylee — Child",
+      "group": "IV",
+      "law": "INA §208(b)(3)",
+      "description": "Child of GA6 Iraqi asylee.",
+      "dhs_codes": [
+        "GA8"
+      ],
+      "subcategory": "Asylee",
+      "category": "IV — Humanitarian"
+    },
+    {
+      "id": "SY7",
+      "name": "Syrian Asylee — Spouse",
+      "group": "IV",
+      "law": "INA §208(b)(3)",
+      "description": "Spouse of SY6 Syrian asylee.",
+      "dhs_codes": [
+        "SY7"
+      ],
+      "subcategory": "Asylee",
+      "category": "IV — Humanitarian"
+    },
+    {
+      "id": "SY8",
+      "name": "Syrian Asylee — Child",
+      "group": "IV",
+      "law": "INA §208(b)(3)",
+      "description": "Child of SY6 Syrian asylee.",
+      "dhs_codes": [
+        "SY8"
+      ],
+      "subcategory": "Asylee",
+      "category": "IV — Humanitarian"
+    },
+    {
+      "id": "HA7",
+      "name": "HRIFA — Spouse of HA6",
+      "group": "IV",
+      "law": "PL 105-277 (HRIFA 1998)",
+      "description": "Spouse of HA6 Haitian asylum applicant.",
+      "dhs_codes": [
+        "HA7"
+      ],
+      "subcategory": "HRIFA",
+      "category": "IV — Humanitarian"
+    },
+    {
+      "id": "HA8",
+      "name": "HRIFA — Child of HA6",
+      "group": "IV",
+      "law": "PL 105-277 (HRIFA 1998)",
+      "description": "Child of HA6 Haitian asylum applicant.",
+      "dhs_codes": [
+        "HA8"
+      ],
+      "subcategory": "HRIFA",
+      "category": "IV — Humanitarian"
+    },
+    {
+      "id": "HA9",
+      "name": "HRIFA — Son/Daughter of HA6",
+      "group": "IV",
+      "law": "PL 105-277 (HRIFA 1998)",
+      "description": "Unmarried son or daughter of HA6.",
+      "dhs_codes": [
+        "HA9"
+      ],
+      "subcategory": "HRIFA",
+      "category": "IV — Humanitarian"
+    },
+    {
+      "id": "HB7",
+      "name": "HRIFA — Spouse of HB6",
+      "group": "IV",
+      "law": "PL 105-277 (HRIFA 1998)",
+      "description": "Spouse of HB6 Haitian parolee.",
+      "dhs_codes": [
+        "HB7"
+      ],
+      "subcategory": "HRIFA",
+      "category": "IV — Humanitarian"
+    },
+    {
+      "id": "HB8",
+      "name": "HRIFA — Child of HB6",
+      "group": "IV",
+      "law": "PL 105-277 (HRIFA 1998)",
+      "description": "Child of HB6 Haitian parolee.",
+      "dhs_codes": [
+        "HB8"
+      ],
+      "subcategory": "HRIFA",
+      "category": "IV — Humanitarian"
+    },
+    {
+      "id": "HB9",
+      "name": "HRIFA — Son/Daughter of HB6",
+      "group": "IV",
+      "law": "PL 105-277 (HRIFA 1998)",
+      "description": "Unmarried son or daughter of HB6.",
+      "dhs_codes": [
+        "HB9"
+      ],
+      "subcategory": "HRIFA",
+      "category": "IV — Humanitarian"
+    },
+    {
+      "id": "HC7",
+      "name": "HRIFA — Spouse of HC6",
+      "group": "IV",
+      "law": "PL 105-277 (HRIFA 1998)",
+      "description": "Spouse of HC6 Haitian child (no parents).",
+      "dhs_codes": [
+        "HC7"
+      ],
+      "subcategory": "HRIFA",
+      "category": "IV — Humanitarian"
+    },
+    {
+      "id": "HC8",
+      "name": "HRIFA — Child of HC6",
+      "group": "IV",
+      "law": "PL 105-277 (HRIFA 1998)",
+      "description": "Child of HC6.",
+      "dhs_codes": [
+        "HC8"
+      ],
+      "subcategory": "HRIFA",
+      "category": "IV — Humanitarian"
+    },
+    {
+      "id": "HC9",
+      "name": "HRIFA — Son/Daughter of HC6",
+      "group": "IV",
+      "law": "PL 105-277 (HRIFA 1998)",
+      "description": "Unmarried son or daughter of HC6.",
+      "dhs_codes": [
+        "HC9"
+      ],
+      "subcategory": "HRIFA",
+      "category": "IV — Humanitarian"
+    },
+    {
+      "id": "HD7",
+      "name": "HRIFA — Spouse of HD6",
+      "group": "IV",
+      "law": "PL 105-277 (HRIFA 1998)",
+      "description": "Spouse of HD6 Haitian orphan.",
+      "dhs_codes": [
+        "HD7"
+      ],
+      "subcategory": "HRIFA",
+      "category": "IV — Humanitarian"
+    },
+    {
+      "id": "HD8",
+      "name": "HRIFA — Child of HD6",
+      "group": "IV",
+      "law": "PL 105-277 (HRIFA 1998)",
+      "description": "Child of HD6.",
+      "dhs_codes": [
+        "HD8"
+      ],
+      "subcategory": "HRIFA",
+      "category": "IV — Humanitarian"
+    },
+    {
+      "id": "HD9",
+      "name": "HRIFA — Son/Daughter of HD6",
+      "group": "IV",
+      "law": "PL 105-277 (HRIFA 1998)",
+      "description": "Unmarried son or daughter of HD6.",
+      "dhs_codes": [
+        "HD9"
+      ],
+      "subcategory": "HRIFA",
+      "category": "IV — Humanitarian"
+    },
+    {
+      "id": "HE7",
+      "name": "HRIFA — Spouse of HE6",
+      "group": "IV",
+      "law": "PL 105-277 (HRIFA 1998)",
+      "description": "Spouse of HE6 Haitian child (abandoned).",
+      "dhs_codes": [
+        "HE7"
+      ],
+      "subcategory": "HRIFA",
+      "category": "IV — Humanitarian"
+    },
+    {
+      "id": "HE8",
+      "name": "HRIFA — Child of HE6",
+      "group": "IV",
+      "law": "PL 105-277 (HRIFA 1998)",
+      "description": "Child of HE6.",
+      "dhs_codes": [
+        "HE8"
+      ],
+      "subcategory": "HRIFA",
+      "category": "IV — Humanitarian"
+    },
+    {
+      "id": "HE9",
+      "name": "HRIFA — Son/Daughter of HE6",
+      "group": "IV",
+      "law": "PL 105-277 (HRIFA 1998)",
+      "description": "Unmarried son or daughter of HE6.",
+      "dhs_codes": [
+        "HE9"
+      ],
+      "subcategory": "HRIFA",
+      "category": "IV — Humanitarian"
+    },
+    {
+      "id": "RN7",
+      "name": "Former H-1 Nurse — Spouse/Child",
+      "group": "IV",
+      "law": "PL 101-238 (INS Nurse Relief Act 1989)",
+      "description": "Spouse or child of RN6 former H-1 registered nurse.",
+      "dhs_codes": [
+        "RN7"
+      ],
+      "subcategory": "Legacy",
+      "category": "IV — Employment"
+    },
+    {
+      "id": "SS2",
+      "name": "EB-4 — Spouse of SS1",
+      "group": "IV",
+      "law": "INA §101(a)(27)(D)(ii); INA §203(d)",
+      "description": "Current spouse of SS1 surviving spouse/child of U.S. government employee killed abroad.",
+      "dhs_codes": [
+        "SS2"
+      ],
+      "subcategory": "EB-4",
+      "category": "IV — Employment"
+    },
+    {
+      "id": "SS3",
+      "name": "EB-4 — Child of SS1",
+      "group": "IV",
+      "law": "INA §101(a)(27)(D)(ii); INA §203(d)",
+      "description": "Child of SS1 surviving spouse/child of U.S. government employee killed abroad.",
+      "dhs_codes": [
+        "SS3"
+      ],
+      "subcategory": "EB-4",
+      "category": "IV — Employment"
+    }
+  ],
+  "links": [
+    {
+      "source": "A-1",
+      "target": "A-3",
+      "relation_type": "derivative",
+      "label": "Attendant/servant of A-1"
+    },
+    {
+      "source": "A-2",
+      "target": "A-3",
+      "relation_type": "derivative",
+      "label": "Attendant/servant of A-2"
+    },
+    {
+      "source": "F-1",
+      "target": "F-2",
+      "relation_type": "derivative",
+      "label": "Spouse/child of F-1"
+    },
+    {
+      "source": "G-1",
+      "target": "G-5",
+      "relation_type": "derivative",
+      "label": "Attendant of G-1"
+    },
+    {
+      "source": "G-2",
+      "target": "G-5",
+      "relation_type": "derivative",
+      "label": "Attendant of G-2"
+    },
+    {
+      "source": "G-3",
+      "target": "G-5",
+      "relation_type": "derivative",
+      "label": "Attendant of G-3"
+    },
+    {
+      "source": "G-4",
+      "target": "G-5",
+      "relation_type": "derivative",
+      "label": "Attendant of G-4"
+    },
+    {
+      "source": "H-1B",
+      "target": "H-4",
+      "relation_type": "derivative",
+      "label": "Spouse/child of H-1B"
+    },
+    {
+      "source": "H-1B1",
+      "target": "H-4",
+      "relation_type": "derivative",
+      "label": "Spouse/child of H-1B1"
+    },
+    {
+      "source": "H-2A",
+      "target": "H-4",
+      "relation_type": "derivative",
+      "label": "Spouse/child of H-2A"
+    },
+    {
+      "source": "H-2B",
+      "target": "H-4",
+      "relation_type": "derivative",
+      "label": "Spouse/child of H-2B"
+    },
+    {
+      "source": "H-3",
+      "target": "H-4",
+      "relation_type": "derivative",
+      "label": "Spouse/child of H-3"
+    },
+    {
+      "source": "J-1",
+      "target": "J-2",
+      "relation_type": "derivative",
+      "label": "Spouse/child of J-1"
+    },
+    {
+      "source": "K-1",
+      "target": "K-2",
+      "relation_type": "child",
+      "label": "Minor child of K-1"
+    },
+    {
+      "source": "K-3",
+      "target": "K-4",
+      "relation_type": "child",
+      "label": "Minor child of K-3"
+    },
+    {
+      "source": "L-1A",
+      "target": "L-2",
+      "relation_type": "derivative",
+      "label": "Spouse/child of L-1A"
+    },
+    {
+      "source": "L-1B",
+      "target": "L-2",
+      "relation_type": "derivative",
+      "label": "Spouse/child of L-1B"
+    },
+    {
+      "source": "M-1",
+      "target": "M-2",
+      "relation_type": "derivative",
+      "label": "Spouse/child of M-1"
+    },
+    {
+      "source": "NATO-1",
+      "target": "NATO-7",
+      "relation_type": "derivative",
+      "label": "Attendant of NATO-1"
+    },
+    {
+      "source": "NATO-2",
+      "target": "NATO-7",
+      "relation_type": "derivative",
+      "label": "Attendant of NATO-2"
+    },
+    {
+      "source": "NATO-3",
+      "target": "NATO-7",
+      "relation_type": "derivative",
+      "label": "Attendant of NATO-3"
+    },
+    {
+      "source": "NATO-4",
+      "target": "NATO-7",
+      "relation_type": "derivative",
+      "label": "Attendant of NATO-4"
+    },
+    {
+      "source": "NATO-5",
+      "target": "NATO-7",
+      "relation_type": "derivative",
+      "label": "Attendant of NATO-5"
+    },
+    {
+      "source": "NATO-6",
+      "target": "NATO-7",
+      "relation_type": "derivative",
+      "label": "Attendant of NATO-6"
+    },
+    {
+      "source": "O-1A",
+      "target": "O-2",
+      "relation_type": "derivative",
+      "label": "Assistant of O-1A"
+    },
+    {
+      "source": "O-1B",
+      "target": "O-2",
+      "relation_type": "derivative",
+      "label": "Assistant of O-1B"
+    },
+    {
+      "source": "O-1A",
+      "target": "O-3",
+      "relation_type": "derivative",
+      "label": "Spouse/child of O-1A"
+    },
+    {
+      "source": "O-1B",
+      "target": "O-3",
+      "relation_type": "derivative",
+      "label": "Spouse/child of O-1B"
+    },
+    {
+      "source": "O-2",
+      "target": "O-3",
+      "relation_type": "derivative",
+      "label": "Spouse/child of O-2"
+    },
+    {
+      "source": "P-1A",
+      "target": "P-4",
+      "relation_type": "derivative",
+      "label": "Spouse/child of P-1A"
+    },
+    {
+      "source": "P-1B",
+      "target": "P-4",
+      "relation_type": "derivative",
+      "label": "Spouse/child of P-1B"
+    },
+    {
+      "source": "P-2",
+      "target": "P-4",
+      "relation_type": "derivative",
+      "label": "Spouse/child of P-2"
+    },
+    {
+      "source": "P-3",
+      "target": "P-4",
+      "relation_type": "derivative",
+      "label": "Spouse/child of P-3"
+    },
+    {
+      "source": "R-1",
+      "target": "R-2",
+      "relation_type": "derivative",
+      "label": "Spouse/child of R-1"
+    },
+    {
+      "source": "S-5",
+      "target": "S-7",
+      "relation_type": "derivative",
+      "label": "Family of S-5"
+    },
+    {
+      "source": "S-6",
+      "target": "S-7",
+      "relation_type": "derivative",
+      "label": "Family of S-6"
+    },
+    {
+      "source": "T-1",
+      "target": "T-2",
+      "relation_type": "spouse",
+      "label": "Spouse of T-1"
+    },
+    {
+      "source": "T-1",
+      "target": "T-3",
+      "relation_type": "child",
+      "label": "Child of T-1"
+    },
+    {
+      "source": "T-1",
+      "target": "T-4",
+      "relation_type": "derivative",
+      "label": "Parent of T-1 (if minor)"
+    },
+    {
+      "source": "T-1",
+      "target": "T-5",
+      "relation_type": "derivative",
+      "label": "Sibling of T-1 (if minor)"
+    },
+    {
+      "source": "T-1",
+      "target": "T-6",
+      "relation_type": "derivative",
+      "label": "Adult child of T-1"
+    },
+    {
+      "source": "TN",
+      "target": "TD",
+      "relation_type": "derivative",
+      "label": "Spouse/child of TN"
+    },
+    {
+      "source": "U-1",
+      "target": "U-2",
+      "relation_type": "spouse",
+      "label": "Spouse of U-1"
+    },
+    {
+      "source": "U-1",
+      "target": "U-3",
+      "relation_type": "child",
+      "label": "Child of U-1"
+    },
+    {
+      "source": "U-1",
+      "target": "U-4",
+      "relation_type": "derivative",
+      "label": "Parent of U-1 (if minor)"
+    },
+    {
+      "source": "U-1",
+      "target": "U-5",
+      "relation_type": "derivative",
+      "label": "Sibling of U-1 (if minor)"
+    },
+    {
+      "source": "V-1",
+      "target": "V-3",
+      "relation_type": "child",
+      "label": "Child of V-1"
+    },
+    {
+      "source": "V-2",
+      "target": "V-3",
+      "relation_type": "child",
+      "label": "Child of V-2"
+    },
+    {
+      "source": "CW-1",
+      "target": "CW-2",
+      "relation_type": "derivative",
+      "label": "Spouse/child of CW-1"
+    },
+    {
+      "source": "K-1",
+      "target": "CF1",
+      "relation_type": "pathway",
+      "label": "K-1 fiancé(e) marries → adjusts to IR (conditional)"
+    },
+    {
+      "source": "K-1",
+      "target": "IF1",
+      "relation_type": "pathway",
+      "label": "K-1 fiancé(e) marries → adjusts to IR"
+    },
+    {
+      "source": "K-2",
+      "target": "CF2",
+      "relation_type": "pathway",
+      "label": "K-2 child adjusts to IR (conditional)"
+    },
+    {
+      "source": "K-2",
+      "target": "IF2",
+      "relation_type": "pathway",
+      "label": "K-2 child adjusts to IR"
+    },
+    {
+      "source": "K-3",
+      "target": "IR1",
+      "relation_type": "pathway",
+      "label": "K-3 spouse → immigrant visa processing"
+    },
+    {
+      "source": "K-3",
+      "target": "CR1",
+      "relation_type": "pathway",
+      "label": "K-3 spouse → conditional resident"
+    },
+    {
+      "source": "T-1",
+      "target": "ST6",
+      "relation_type": "pathway",
+      "label": "T-1 trafficking victim → LPR adjustment"
+    },
+    {
+      "source": "T-2",
+      "target": "ST6",
+      "relation_type": "pathway",
+      "label": "T-2 → LPR adjustment (ST7)"
+    },
+    {
+      "source": "T-3",
+      "target": "ST6",
+      "relation_type": "pathway",
+      "label": "T-3 → LPR adjustment (ST8)"
+    },
+    {
+      "source": "U-1",
+      "target": "SU6",
+      "relation_type": "pathway",
+      "label": "U-1 crime victim → LPR adjustment"
+    },
+    {
+      "source": "V-1",
+      "target": "F21",
+      "relation_type": "pathway",
+      "label": "V-1 → F2A immigrant visa"
+    },
+    {
+      "source": "V-2",
+      "target": "F22",
+      "relation_type": "pathway",
+      "label": "V-2 → F2A immigrant visa"
+    },
+    {
+      "source": "H-1B",
+      "target": "E11",
+      "relation_type": "pathway",
+      "label": "H-1B → EB-1 (extraordinary ability)"
+    },
+    {
+      "source": "H-1B",
+      "target": "E21",
+      "relation_type": "pathway",
+      "label": "H-1B → EB-2 (advanced degree)"
+    },
+    {
+      "source": "H-1B",
+      "target": "E31",
+      "relation_type": "pathway",
+      "label": "H-1B → EB-3 (skilled worker)"
+    },
+    {
+      "source": "L-1A",
+      "target": "E13",
+      "relation_type": "pathway",
+      "label": "L-1A → EB-1C (multinational manager)"
+    },
+    {
+      "source": "O-1A",
+      "target": "E11",
+      "relation_type": "pathway",
+      "label": "O-1A → EB-1A (extraordinary ability)"
+    },
+    {
+      "source": "R-1",
+      "target": "SR1",
+      "relation_type": "pathway",
+      "label": "R-1 → EB-4 religious worker"
+    },
+    {
+      "source": "F-1",
+      "target": "H-1B",
+      "relation_type": "pathway",
+      "label": "F-1 student → H-1B (OPT → cap)"
+    },
+    {
+      "source": "J-1",
+      "target": "H-1B",
+      "relation_type": "pathway",
+      "label": "J-1 → H-1B (after 2-year rule waiver if applicable)"
+    },
+    {
+      "source": "E-2",
+      "target": "E21",
+      "relation_type": "pathway",
+      "label": "E-2 investor → EB-2 (no direct path but common transition)"
+    },
+    {
+      "source": "IR1",
+      "target": "IR2",
+      "relation_type": "child",
+      "label": "Child accompanies IR1 spouse"
+    },
+    {
+      "source": "CR1",
+      "target": "CR2",
+      "relation_type": "child",
+      "label": "Conditional child with conditional spouse"
+    },
+    {
+      "source": "IB1",
+      "target": "IB2",
+      "relation_type": "derivative",
+      "label": "Child of self-petitioning spouse"
+    },
+    {
+      "source": "IB1",
+      "target": "IB3",
+      "relation_type": "derivative",
+      "label": "Child of IB1 self-petitioner"
+    },
+    {
+      "source": "IW1",
+      "target": "IW2",
+      "relation_type": "child",
+      "label": "Child of widow(er)"
+    },
+    {
+      "source": "CF1",
+      "target": "CF2",
+      "relation_type": "child",
+      "label": "Child of CF1 spouse"
+    },
+    {
+      "source": "IF1",
+      "target": "IF2",
+      "relation_type": "child",
+      "label": "Child of IF1 spouse"
+    },
+    {
+      "source": "F11",
+      "target": "F12",
+      "relation_type": "derivative",
+      "label": "Child of F1 preference principal"
+    },
+    {
+      "source": "F21",
+      "target": "F23",
+      "relation_type": "derivative",
+      "label": "Derivative child of F2A spouse"
+    },
+    {
+      "source": "F22",
+      "target": "F23",
+      "relation_type": "derivative",
+      "label": "Derivative child of F2A child"
+    },
+    {
+      "source": "F24",
+      "target": "F25",
+      "relation_type": "derivative",
+      "label": "Derivative child of F2B principal"
+    },
+    {
+      "source": "F31",
+      "target": "F32",
+      "relation_type": "spouse",
+      "label": "Spouse of F3 principal"
+    },
+    {
+      "source": "F31",
+      "target": "F33",
+      "relation_type": "child",
+      "label": "Child of F3 principal"
+    },
+    {
+      "source": "F41",
+      "target": "F42",
+      "relation_type": "spouse",
+      "label": "Spouse of F4 principal"
+    },
+    {
+      "source": "F41",
+      "target": "F43",
+      "relation_type": "child",
+      "label": "Child of F4 principal"
+    },
+    {
+      "source": "E11",
+      "target": "E14",
+      "relation_type": "spouse",
+      "label": "Spouse of EB-1"
+    },
+    {
+      "source": "E12",
+      "target": "E14",
+      "relation_type": "spouse",
+      "label": "Spouse of EB-1B"
+    },
+    {
+      "source": "E13",
+      "target": "E14",
+      "relation_type": "spouse",
+      "label": "Spouse of EB-1C"
+    },
+    {
+      "source": "E11",
+      "target": "E15",
+      "relation_type": "child",
+      "label": "Child of EB-1A"
+    },
+    {
+      "source": "E12",
+      "target": "E15",
+      "relation_type": "child",
+      "label": "Child of EB-1B"
+    },
+    {
+      "source": "E13",
+      "target": "E15",
+      "relation_type": "child",
+      "label": "Child of EB-1C"
+    },
+    {
+      "source": "E21",
+      "target": "E22",
+      "relation_type": "spouse",
+      "label": "Spouse of EB-2"
+    },
+    {
+      "source": "E21",
+      "target": "E23",
+      "relation_type": "child",
+      "label": "Child of EB-2"
+    },
+    {
+      "source": "ES1",
+      "target": "E22",
+      "relation_type": "spouse",
+      "label": "Spouse of Soviet scientist"
+    },
+    {
+      "source": "ES1",
+      "target": "E23",
+      "relation_type": "child",
+      "label": "Child of Soviet scientist"
+    },
+    {
+      "source": "E31",
+      "target": "E34",
+      "relation_type": "spouse",
+      "label": "Spouse of EB-3 skilled worker"
+    },
+    {
+      "source": "E32",
+      "target": "E34",
+      "relation_type": "spouse",
+      "label": "Spouse of EB-3 professional"
+    },
+    {
+      "source": "EW3",
+      "target": "E34",
+      "relation_type": "spouse",
+      "label": "Spouse of EB-3 unskilled"
+    },
+    {
+      "source": "EX1",
+      "target": "E34",
+      "relation_type": "spouse",
+      "label": "Spouse of Schedule A worker"
+    },
+    {
+      "source": "E31",
+      "target": "E35",
+      "relation_type": "child",
+      "label": "Child of EB-3 skilled worker"
+    },
+    {
+      "source": "E32",
+      "target": "E35",
+      "relation_type": "child",
+      "label": "Child of EB-3 professional"
+    },
+    {
+      "source": "EW3",
+      "target": "E35",
+      "relation_type": "child",
+      "label": "Child of EB-3 unskilled"
+    },
+    {
+      "source": "EX1",
+      "target": "E35",
+      "relation_type": "child",
+      "label": "Child of Schedule A worker"
+    },
+    {
+      "source": "SD1",
+      "target": "SD2",
+      "relation_type": "spouse",
+      "label": "Spouse of minister"
+    },
+    {
+      "source": "SD1",
+      "target": "SD3",
+      "relation_type": "child",
+      "label": "Child of minister"
+    },
+    {
+      "source": "SR1",
+      "target": "SR2",
+      "relation_type": "spouse",
+      "label": "Spouse of religious worker"
+    },
+    {
+      "source": "SR1",
+      "target": "SR3",
+      "relation_type": "child",
+      "label": "Child of religious worker"
+    },
+    {
+      "source": "SE1",
+      "target": "SE2",
+      "relation_type": "spouse",
+      "label": "Spouse of gov't employee abroad"
+    },
+    {
+      "source": "SE1",
+      "target": "SE3",
+      "relation_type": "child",
+      "label": "Child of gov't employee abroad"
+    },
+    {
+      "source": "SF1",
+      "target": "SF2",
+      "relation_type": "derivative",
+      "label": "Spouse/child of Panama Canal employee"
+    },
+    {
+      "source": "SG1",
+      "target": "SG2",
+      "relation_type": "derivative",
+      "label": "Spouse/child of Canal Zone employee"
+    },
+    {
+      "source": "SH1",
+      "target": "SH2",
+      "relation_type": "derivative",
+      "label": "Spouse/child of 1979 employee"
+    },
+    {
+      "source": "SJ1",
+      "target": "SJ2",
+      "relation_type": "derivative",
+      "label": "Spouse/child of medical graduate"
+    },
+    {
+      "source": "SK1",
+      "target": "SK2",
+      "relation_type": "spouse",
+      "label": "Spouse of retired int'l org employee"
+    },
+    {
+      "source": "SK1",
+      "target": "SK3",
+      "relation_type": "child",
+      "label": "Child of retired int'l org employee"
+    },
+    {
+      "source": "SN1",
+      "target": "SN2",
+      "relation_type": "spouse",
+      "label": "Spouse of retired NATO-6"
+    },
+    {
+      "source": "SN1",
+      "target": "SN3",
+      "relation_type": "child",
+      "label": "Child of retired NATO-6"
+    },
+    {
+      "source": "BC1",
+      "target": "BC2",
+      "relation_type": "spouse",
+      "label": "Spouse of BBG employee"
+    },
+    {
+      "source": "BC1",
+      "target": "BC3",
+      "relation_type": "child",
+      "label": "Child of BBG employee"
+    },
+    {
+      "source": "SI1",
+      "target": "SI2",
+      "relation_type": "spouse",
+      "label": "Spouse of Iraqi/Afghan interpreter"
+    },
+    {
+      "source": "SI1",
+      "target": "SI3",
+      "relation_type": "child",
+      "label": "Child of Iraqi/Afghan interpreter"
+    },
+    {
+      "source": "SQ1",
+      "target": "SQ2",
+      "relation_type": "spouse",
+      "label": "Spouse of Iraqi/Afghan gov't employee"
+    },
+    {
+      "source": "SQ1",
+      "target": "SQ3",
+      "relation_type": "child",
+      "label": "Child of Iraqi/Afghan gov't employee"
+    },
+    {
+      "source": "SM1",
+      "target": "SM2",
+      "relation_type": "spouse",
+      "label": "Spouse of armed forces (post-1991)"
+    },
+    {
+      "source": "SM1",
+      "target": "SM3",
+      "relation_type": "child",
+      "label": "Child of armed forces (post-1991)"
+    },
+    {
+      "source": "SM4",
+      "target": "SM5",
+      "relation_type": "derivative",
+      "label": "Spouse/child of armed forces (pre-1991)"
+    },
+    {
+      "source": "C51",
+      "target": "C52",
+      "relation_type": "spouse",
+      "label": "Spouse of EB-5 (non-targeted)"
+    },
+    {
+      "source": "C51",
+      "target": "C53",
+      "relation_type": "child",
+      "label": "Child of EB-5 (non-targeted)"
+    },
+    {
+      "source": "T51",
+      "target": "T52",
+      "relation_type": "spouse",
+      "label": "Spouse of EB-5 (targeted)"
+    },
+    {
+      "source": "T51",
+      "target": "T53",
+      "relation_type": "child",
+      "label": "Child of EB-5 (targeted)"
+    },
+    {
+      "source": "R51",
+      "target": "R52",
+      "relation_type": "spouse",
+      "label": "Spouse of EB-5 pilot (non-targeted)"
+    },
+    {
+      "source": "R51",
+      "target": "R53",
+      "relation_type": "child",
+      "label": "Child of EB-5 pilot (non-targeted)"
+    },
+    {
+      "source": "I51",
+      "target": "I52",
+      "relation_type": "spouse",
+      "label": "Spouse of EB-5 pilot (targeted)"
+    },
+    {
+      "source": "I51",
+      "target": "I53",
+      "relation_type": "child",
+      "label": "Child of EB-5 pilot (targeted)"
+    },
+    {
+      "source": "E51",
+      "target": "E52",
+      "relation_type": "spouse",
+      "label": "Spouse of EB-5 (unconditional)"
+    },
+    {
+      "source": "E51",
+      "target": "E53",
+      "relation_type": "child",
+      "label": "Child of EB-5 (unconditional)"
+    },
+    {
+      "source": "DV1",
+      "target": "DV2",
+      "relation_type": "spouse",
+      "label": "Spouse of DV lottery winner"
+    },
+    {
+      "source": "DV1",
+      "target": "DV3",
+      "relation_type": "child",
+      "label": "Child of DV lottery winner"
+    },
+    {
+      "source": "RE6",
+      "target": "RE7",
+      "relation_type": "spouse",
+      "label": "Spouse of refugee"
+    },
+    {
+      "source": "RE6",
+      "target": "RE8",
+      "relation_type": "child",
+      "label": "Child of refugee"
+    },
+    {
+      "source": "AS6",
+      "target": "AS7",
+      "relation_type": "spouse",
+      "label": "Spouse of asylee"
+    },
+    {
+      "source": "AS6",
+      "target": "AS8",
+      "relation_type": "child",
+      "label": "Child of asylee"
+    },
+    {
+      "source": "NC6",
+      "target": "NC7",
+      "relation_type": "spouse",
+      "label": "Spouse of NACARA principal"
+    },
+    {
+      "source": "NC6",
+      "target": "NC8",
+      "relation_type": "child",
+      "label": "Child of NACARA principal"
+    },
+    {
+      "source": "NC6",
+      "target": "NC9",
+      "relation_type": "derivative",
+      "label": "Unmarried son/daughter of NACARA"
+    },
+    {
+      "source": "AM1",
+      "target": "AM2",
+      "relation_type": "derivative",
+      "label": "Spouse/child of Amerasian"
+    },
+    {
+      "source": "AM1",
+      "target": "AM3",
+      "relation_type": "derivative",
+      "label": "Parent/guardian of Amerasian"
+    },
+    {
+      "source": "AA1",
+      "target": "AA2",
+      "relation_type": "spouse",
+      "label": "Spouse of adversely affected"
+    },
+    {
+      "source": "AA1",
+      "target": "AA3",
+      "relation_type": "child",
+      "label": "Child of adversely affected"
+    },
+    {
+      "source": "DT1",
+      "target": "DT2",
+      "relation_type": "spouse",
+      "label": "Spouse of displaced Tibetan"
+    },
+    {
+      "source": "DT1",
+      "target": "DT3",
+      "relation_type": "child",
+      "label": "Child of displaced Tibetan"
+    },
+    {
+      "source": "HK1",
+      "target": "HK2",
+      "relation_type": "spouse",
+      "label": "Spouse of HK business employee"
+    },
+    {
+      "source": "HK1",
+      "target": "HK3",
+      "relation_type": "child",
+      "label": "Child of HK business employee"
+    },
+    {
+      "source": "NP8",
+      "target": "NP9",
+      "relation_type": "derivative",
+      "label": "Spouse/child of pre-1978 investor"
+    },
+    {
+      "source": "W16",
+      "target": "LB1",
+      "relation_type": "spouse",
+      "label": "Spouse of IRCA legalized alien"
+    },
+    {
+      "source": "W16",
+      "target": "LB2",
+      "relation_type": "child",
+      "label": "Child of IRCA legalized alien"
+    },
+    {
+      "source": "NATO-6",
+      "target": "SN1",
+      "relation_type": "pathway",
+      "label": "NATO-6 civilian → EB-4 retired NATO employee"
+    },
+    {
+      "source": "E-3",
+      "target": "E-3D",
+      "relation_type": "derivative",
+      "label": "Spouse/child of E-3 Australian"
+    },
+    {
+      "source": "H-1C",
+      "target": "H-4",
+      "relation_type": "derivative",
+      "label": "Spouse/child of H-1C nurse"
+    },
+    {
+      "source": "N-8",
+      "target": "N-9",
+      "relation_type": "child",
+      "label": "Child of N-8"
+    },
+    {
+      "source": "SK3",
+      "target": "N-8",
+      "relation_type": "derivative",
+      "label": "Parent of SK3 classified individual"
+    },
+    {
+      "source": "SN3",
+      "target": "N-8",
+      "relation_type": "derivative",
+      "label": "Parent of SN3 classified individual"
+    },
+    {
+      "source": "SK1",
+      "target": "N-9",
+      "relation_type": "derivative",
+      "label": "Child classified via SK1"
+    },
+    {
+      "source": "SN1",
+      "target": "N-9",
+      "relation_type": "derivative",
+      "label": "Child classified via SN1"
+    },
+    {
+      "source": "SJ1",
+      "target": "SJ2",
+      "relation_type": "derivative",
+      "label": "Spouse/child of SJ1 medical graduate"
+    },
+    {
+      "source": "SE1",
+      "target": "SS1",
+      "relation_type": "derivative",
+      "label": "Surviving spouse/child of gov't employee abroad"
+    },
+    {
+      "source": "GV1",
+      "target": "GV2",
+      "relation_type": "spouse",
+      "label": "Spouse of GRATEFUL Act employee"
+    },
+    {
+      "source": "GV1",
+      "target": "GV3",
+      "relation_type": "child",
+      "label": "Child of GRATEFUL Act employee"
+    },
+    {
+      "source": "SE1",
+      "target": "GV1",
+      "relation_type": "pathway",
+      "label": "SE1 gov't employee → GV1 GRATEFUL Act classification"
+    },
+    {
+      "source": "NU1",
+      "target": "NU2",
+      "relation_type": "spouse",
+      "label": "Spouse of NU1 investor"
+    },
+    {
+      "source": "NU1",
+      "target": "NU3",
+      "relation_type": "child",
+      "label": "Child of NU1 investor"
+    },
+    {
+      "source": "RU1",
+      "target": "RU2",
+      "relation_type": "spouse",
+      "label": "Spouse of RU1 investor"
+    },
+    {
+      "source": "RU1",
+      "target": "RU3",
+      "relation_type": "child",
+      "label": "Child of RU1 investor"
+    },
+    {
+      "source": "NR1",
+      "target": "NR2",
+      "relation_type": "spouse",
+      "label": "Spouse of NR1 investor"
+    },
+    {
+      "source": "NR1",
+      "target": "NR3",
+      "relation_type": "child",
+      "label": "Child of NR1 investor"
+    },
+    {
+      "source": "NH1",
+      "target": "NH2",
+      "relation_type": "spouse",
+      "label": "Spouse of NH1 investor"
+    },
+    {
+      "source": "NH1",
+      "target": "NH3",
+      "relation_type": "child",
+      "label": "Child of NH1 investor"
+    },
+    {
+      "source": "RR1",
+      "target": "RR2",
+      "relation_type": "spouse",
+      "label": "Spouse of RR1 investor"
+    },
+    {
+      "source": "RR1",
+      "target": "RR3",
+      "relation_type": "child",
+      "label": "Child of RR1 investor"
+    },
+    {
+      "source": "RH1",
+      "target": "RH2",
+      "relation_type": "spouse",
+      "label": "Spouse of RH1 investor"
+    },
+    {
+      "source": "RH1",
+      "target": "RH3",
+      "relation_type": "child",
+      "label": "Child of RH1 investor"
+    },
+    {
+      "source": "RI1",
+      "target": "RI2",
+      "relation_type": "spouse",
+      "label": "Spouse of RI1 investor"
+    },
+    {
+      "source": "RI1",
+      "target": "RI3",
+      "relation_type": "child",
+      "label": "Child of RI1 investor"
+    },
+    {
+      "source": "GA6",
+      "target": "GA7",
+      "relation_type": "spouse",
+      "label": "Spouse of Iraqi asylee"
+    },
+    {
+      "source": "GA6",
+      "target": "GA8",
+      "relation_type": "child",
+      "label": "Child of Iraqi asylee"
+    },
+    {
+      "source": "SY6",
+      "target": "SY7",
+      "relation_type": "spouse",
+      "label": "Spouse of Syrian asylee"
+    },
+    {
+      "source": "SY6",
+      "target": "SY8",
+      "relation_type": "child",
+      "label": "Child of Syrian asylee"
+    },
+    {
+      "source": "HA6",
+      "target": "HA7",
+      "relation_type": "spouse",
+      "label": "Spouse of HRIFA asylum applicant"
+    },
+    {
+      "source": "HA6",
+      "target": "HA8",
+      "relation_type": "child",
+      "label": "Child of HRIFA asylum applicant"
+    },
+    {
+      "source": "HA6",
+      "target": "HA9",
+      "relation_type": "derivative",
+      "label": "Unmarried son/daughter of HA6"
+    },
+    {
+      "source": "HB6",
+      "target": "HB7",
+      "relation_type": "spouse",
+      "label": "Spouse of HRIFA parolee"
+    },
+    {
+      "source": "HB6",
+      "target": "HB8",
+      "relation_type": "child",
+      "label": "Child of HRIFA parolee"
+    },
+    {
+      "source": "HB6",
+      "target": "HB9",
+      "relation_type": "derivative",
+      "label": "Unmarried son/daughter of HB6"
+    },
+    {
+      "source": "HC6",
+      "target": "HC7",
+      "relation_type": "spouse",
+      "label": "Spouse of HC6"
+    },
+    {
+      "source": "HC6",
+      "target": "HC8",
+      "relation_type": "child",
+      "label": "Child of HC6"
+    },
+    {
+      "source": "HC6",
+      "target": "HC9",
+      "relation_type": "derivative",
+      "label": "Unmarried son/daughter of HC6"
+    },
+    {
+      "source": "HD6",
+      "target": "HD7",
+      "relation_type": "spouse",
+      "label": "Spouse of HD6"
+    },
+    {
+      "source": "HD6",
+      "target": "HD8",
+      "relation_type": "child",
+      "label": "Child of HD6"
+    },
+    {
+      "source": "HD6",
+      "target": "HD9",
+      "relation_type": "derivative",
+      "label": "Unmarried son/daughter of HD6"
+    },
+    {
+      "source": "HE6",
+      "target": "HE7",
+      "relation_type": "spouse",
+      "label": "Spouse of HE6"
+    },
+    {
+      "source": "HE6",
+      "target": "HE8",
+      "relation_type": "child",
+      "label": "Child of HE6"
+    },
+    {
+      "source": "HE6",
+      "target": "HE9",
+      "relation_type": "derivative",
+      "label": "Unmarried son/daughter of HE6"
+    },
+    {
+      "source": "RN6",
+      "target": "RN7",
+      "relation_type": "derivative",
+      "label": "Spouse/child of former H-1 nurse"
+    },
+    {
+      "source": "SS1",
+      "target": "SS2",
+      "relation_type": "spouse",
+      "label": "Spouse of SS1"
+    },
+    {
+      "source": "SS1",
+      "target": "SS3",
+      "relation_type": "child",
+      "label": "Child of SS1"
+    }
+  ]
+}
