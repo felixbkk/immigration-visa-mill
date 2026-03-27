@@ -244,9 +244,9 @@
   }
 
   .copy-md-btn {
-    width: 100%;
+    width: calc(100% - 40px);
+    margin: 8px 20px;
     padding: 8px;
-    margin-top: 8px;
     background: var(--bg-surface);
     color: var(--text-muted);
     border: 1px solid var(--border);
@@ -261,7 +261,7 @@
 
   .sidebar-disclaimer {
     padding: 16px 20px;
-    font-size: 9px;
+    font-size: 11px;
     color: var(--text-muted);
     line-height: 1.5;
     border-top: 1px solid var(--border);
@@ -534,6 +534,7 @@
       </div>
     </div>
   </div>
+  <button class="copy-md-btn" id="copy-md-btn" onclick="copyAsMarkdown()" style="display:none;">Copy as Markdown</button>
   <div class="sidebar-disclaimer">Data compiled by AI from official U.S. government sources (March 2026). May contain errors. Verify all citations against primary sources before relying on them.</div>
 </div>
 
@@ -1764,12 +1765,12 @@ function showDetail(nodeData) {
       ${buildFamSection(nodeData.subcategory, nodeData.id)}
       <div class="detail-section"><span class="detail-label">Law</span><div class="detail-value-mono">${linkifyLaw(nodeData.law)}</div></div>
       ${connectionsHtml}
-      <button class="copy-md-btn" onclick="copyAsMarkdown()">Copy as Markdown</button>
     </div>
   `;
 
   panel.classList.add('active');
   document.getElementById('panel-empty').style.display = 'none';
+  document.getElementById('copy-md-btn').style.display = 'block';
 }
 
 function copyAsMarkdown() {
@@ -1813,6 +1814,7 @@ function copyAsMarkdown() {
 
 function closeDetail() {
   selectedLeafId = null;
+  document.getElementById('copy-md-btn').style.display = 'none';
   render();
   showInaDefault();
 }
