@@ -3869,6 +3869,30 @@
       ],
       "subcategory": "EB-4",
       "category": "IV \u2014 Employment"
+    },
+    {
+      "id": "GS2",
+      "name": "GRATEFUL Act \u2014 Spouse of GS1",
+      "group": "IV",
+      "law": "INA \u00a7101(a)(27)(D)(ii); INA \u00a7101(a)(38); INA \u00a7203(b)(4); INA \u00a7203(d); INA \u00a7204(a)(1)(G)(ii); 8 U.S.C. \u00a71101; 8 U.S.C. \u00a71153; 8 U.S.C. \u00a71154; 22 U.S.C. \u00a72669; 22 U.S.C. \u00a73943; 5 CFR \u00a78.3; 22 CFR \u00a742.32; PL 96-465; PL 103-416; PL 105-100 \u00a7203(d) (NACARA); PL 117-31; PL 118-31 \u00a75104 (2024 NDAA)",
+      "description": "Spouse of surviving spouse/child of U.S. government employee killed abroad.",
+      "dhs_codes": [
+        "GS2"
+      ],
+      "subcategory": "GRATEFUL",
+      "category": "IV \u2014 Employment"
+    },
+    {
+      "id": "GS3",
+      "name": "GRATEFUL Act \u2014 Child of GS1",
+      "group": "IV",
+      "law": "INA \u00a7101(a)(27)(D)(ii); INA \u00a7101(a)(38); INA \u00a7203(b)(4); INA \u00a7203(d); INA \u00a7204(a)(1)(G)(ii); 8 U.S.C. \u00a71101; 8 U.S.C. \u00a71153; 8 U.S.C. \u00a71154; 22 U.S.C. \u00a72669; 22 U.S.C. \u00a73943; 5 CFR \u00a78.3; 22 CFR \u00a742.32; PL 96-465; PL 103-416; PL 105-100 \u00a7203(d) (NACARA); PL 117-31; PL 118-31 \u00a75104 (2024 NDAA)",
+      "description": "Child of surviving spouse/child of U.S. government employee killed abroad.",
+      "dhs_codes": [
+        "GS3"
+      ],
+      "subcategory": "GRATEFUL",
+      "category": "IV \u2014 Employment"
     }
   ],
   "links": [
@@ -5095,6 +5119,18 @@
       "target": "SS3",
       "relation_type": "child",
       "label": "Child of SS1"
+    },
+    {
+      "source": "GS1",
+      "target": "GS2",
+      "relation_type": "spouse",
+      "label": "Spouse of GRATEFUL Act surviving beneficiary"
+    },
+    {
+      "source": "GS1",
+      "target": "GS3",
+      "relation_type": "child",
+      "label": "Child of GRATEFUL Act surviving beneficiary"
     }
   ]
 }
