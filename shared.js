@@ -424,10 +424,20 @@ function parseCitation(p) {
   const pl = p.match(RE_PL);
   if (pl) {
     const congress = parseInt(pl[1]);
-    const url = congress >= 104
-      ? govInfoUrl(pl[1], pl[2])
-      : `https://www.govinfo.gov/app/search/%7B%22query%22%3A%22plawcitation%3A${pl[1]}-${pl[2]}%22%2C%22offset%22%3A0%7D`;
-    return { url, label: p };
+    if (congress >= 104) return { url: govInfoUrl(pl[1], pl[2]), label: p };
+    const PL_YEARS = {
+      '89-236':1965,'89-732':1966,'94-241':1976,'95-145':1977,'95-412':1978,
+      '96-70':1979,'96-212':1980,'96-465':1980,'97-271':1982,'97-359':1982,
+      '99-603':1986,'99-639':1986,'100-202':1987,'100-658':1988,
+      '101-238':1989,'101-649':1990,'102-110':1991,'102-395':1992,
+      '102-404':1992,'102-509':1992,'103-236':1994,'103-322':1994,'103-416':1994,
+    };
+    const plKey = `${pl[1]}-${pl[2]}`;
+    const year = PL_YEARS[plKey];
+    const yearFacet = year
+      ? `%2C%22facetToExpand%22%3A%22publishdatehier%22%2C%22facets%22%3A%7B%22publishdatehier%22%3A%5B%22${year}%22%5D%7D%2C%22filterOrder%22%3A%5B%22publishdatehier%22%5D%2C%22historical%22%3Afalse%2C%22sortBy%22%3A%221%22`
+      : '';
+    return { url: `https://www.govinfo.gov/app/search/%7B%22query%22%3A%22plawcitation%3A${plKey}%22%2C%22offset%22%3A0${yearFacet}%7D`, label: p };
   }
   for (const [prefix, plNum] of NAMED_ACT_PL) {
     if (p.startsWith(prefix)) {
