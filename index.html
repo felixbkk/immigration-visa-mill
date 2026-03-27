@@ -1009,52 +1009,68 @@ const NAMED_ACT_PL = [
   ['LIFE Act', '106-553'], ['Nursing Relief Act', '106-95'],
 ];
 
+const RE_INA = /^INA\s*§(\d+[A-Z]?)((?:\([^)]+\))*)/;
+const RE_USC = /^(\d+)\s*U\.S\.C\.\s*§(\d+[a-z]?)/;
+const RE_CFR = /^(\d+)\s*CFR\s*§([\d.]+)((?:\([^)]+\))*)/;
+const RE_CFR_PART = /^(\d+)\s*CFR\s*Part\s*(\d+)/;
+const RE_FAM = /^9\s*FAM\s*([\d.]+)/;
+const RE_PL = /^PL\s*(\d+)-(\d+)/;
+
 function govInfoUrl(congress, number) {
   return `https://www.govinfo.gov/content/pkg/PLAW-${congress}publ${number}/html/PLAW-${congress}publ${number}.htm`;
+}
+
+function parseSubs(str) {
+  if (!str) return '';
+  const subs = str.match(/\(([^)]+)\)/g);
+  return subs ? '#' + subs.map(s => s.slice(1, -1)).join('_') : '';
+}
+
+// Returns { url, label, key } or null for a single citation fragment
+function parseCitation(p) {
+  p = p.trim();
+  const ina = p.match(RE_INA);
+  if (ina && INA_TO_USC[ina[1]]) {
+    const usc = INA_TO_USC[ina[1]];
+    return { url: `https://www.law.cornell.edu/uscode/text/8/${usc}${parseSubs(ina[2])}`, label: p, key: usc };
+  }
+  const usc = p.match(RE_USC);
+  if (usc)
+    return { url: `https://www.law.cornell.edu/uscode/text/${usc[1]}/${usc[2]}`, label: p, key: `${usc[1]}/${usc[2]}` };
+  const cfr = p.match(RE_CFR);
+  if (cfr)
+    return { url: `https://www.law.cornell.edu/cfr/text/${cfr[1]}/${cfr[2]}${parseSubs(cfr[3])}`, label: p, key: `cfr${cfr[1]}/${cfr[2]}` };
+  const cfrPart = p.match(RE_CFR_PART);
+  if (cfrPart)
+    return { url: `https://www.law.cornell.edu/cfr/text/${cfrPart[1]}/part-${cfrPart[2]}`, label: p, key: `cfrp${cfrPart[1]}/${cfrPart[2]}` };
+  const fam = p.match(RE_FAM);
+  if (fam)
+    return { url: famUrl(fam[1]), label: p, key: `fam${fam[1]}` };
+  const pl = p.match(RE_PL);
+  if (pl && parseInt(pl[1]) >= 104)
+    return { url: govInfoUrl(pl[1], pl[2]), label: p, key: `pl${pl[1]}-${pl[2]}` };
+  for (const [prefix, plNum] of NAMED_ACT_PL) {
+    if (p.startsWith(prefix)) {
+      const [c, n] = plNum.split('-');
+      return { url: govInfoUrl(c, n), label: p, key: `pl${plNum}` };
+    }
+  }
+  return null;
+}
+
+function buildFamSection(subcategory, visaId) {
+  const sec = SUBCATEGORY_FAM[subcategory];
+  if (!sec) return '';
+  const anchor = visaId ? VISA_FAM_ANCHORS[visaId] : undefined;
+  return `<div class="detail-section"><span class="detail-label">FAM</span><div class="detail-value-mono"><a href="${famUrl(sec, anchor)}" target="_blank">9 FAM ${sec}</a></div></div>`;
 }
 
 function linkifyLaw(lawStr) {
   if (!lawStr) return 'N/A';
   return lawStr.split(/;\s*/).map(p => {
-    p = p.trim();
-    const ina = p.match(/^INA\s*§(\d+[A-Z]?)((?:\([^)]+\))*)/);
-    if (ina && INA_TO_USC[ina[1]]) {
-      let frag = '';
-      if (ina[2]) {
-        const subs = ina[2].match(/\(([^)]+)\)/g);
-        if (subs) frag = '#' + subs.map(s => s.slice(1, -1)).join('_');
-      }
-      return `<a href="https://www.law.cornell.edu/uscode/text/8/${INA_TO_USC[ina[1]]}${frag}" target="_blank">${p}</a>`;
-    }
-    const usc = p.match(/^(\d+)\s*U\.S\.C\.\s*§(\d+[a-z]?)/);
-    if (usc)
-      return `<a href="https://www.law.cornell.edu/uscode/text/${usc[1]}/${usc[2]}" target="_blank">${p}</a>`;
-    const cfr = p.match(/^(\d+)\s*CFR\s*§([\d.]+)((?:\([^)]+\))*)/);
-    if (cfr) {
-      let frag = '';
-      if (cfr[3]) {
-        const subs = cfr[3].match(/\(([^)]+)\)/g);
-        if (subs) frag = '#' + subs.map(s => s.slice(1, -1)).join('_');
-      }
-      return `<a href="https://www.law.cornell.edu/cfr/text/${cfr[1]}/${cfr[2]}${frag}" target="_blank">${p}</a>`;
-    }
-    const cfrPart = p.match(/^(\d+)\s*CFR\s*Part\s*(\d+)/);
-    if (cfrPart)
-      return `<a href="https://www.law.cornell.edu/cfr/text/${cfrPart[1]}/part-${cfrPart[2]}" target="_blank">${p}</a>`;
-    const fam = p.match(/^9\s*FAM\s*([\d.]+)/);
-    if (fam)
-      return `<a href="${famUrl(fam[1])}" target="_blank">${p}</a>`;
-    const pl = p.match(/^PL\s*(\d+)-(\d+)/);
-    if (pl && parseInt(pl[1]) >= 104)
-      return `<a href="${govInfoUrl(pl[1], pl[2])}" target="_blank">${p}</a>`;
-    for (const [prefix, plNum] of NAMED_ACT_PL) {
-      if (p.startsWith(prefix)) {
-        const [c, n] = plNum.split('-');
-        return `<a href="${govInfoUrl(c, n)}" target="_blank">${p}</a>`;
-      }
-    }
-    return p;
-  }).join('; ');
+    const c = parseCitation(p);
+    return c ? `<a href="${c.url}" target="_blank">${c.label}</a>` : p.trim();
+  }).join('<br>');
 }
 
 function buildLawRefs(lawStr, subcategory) {
@@ -1067,26 +1083,10 @@ function buildLawRefs(lawStr, subcategory) {
   }
   if (lawStr) {
     for (const p of lawStr.split(/;\s*/)) {
-      const ina = p.match(/INA\s*§(\d+[A-Z]?)/);
-      if (ina && INA_TO_USC[ina[1]] && !seen.has(INA_TO_USC[ina[1]])) {
-        const u = INA_TO_USC[ina[1]];
-        seen.add(u);
-        html += `<a href="https://www.law.cornell.edu/uscode/text/8/${u}" target="_blank">8 U.S.C. §${u}</a>`;
-      }
-      const usc = p.match(/(\d+)\s*U\.S\.C\.\s*§(\d+[a-z]?)/);
-      if (usc && !seen.has(`${usc[1]}/${usc[2]}`)) {
-        seen.add(`${usc[1]}/${usc[2]}`);
-        html += `<a href="https://www.law.cornell.edu/uscode/text/${usc[1]}/${usc[2]}" target="_blank">${usc[1]} U.S.C. §${usc[2]}</a>`;
-      }
-      const cfr = p.match(/(\d+)\s*CFR\s*§([\d.]+)/);
-      if (cfr && !seen.has(`cfr${cfr[1]}/${cfr[2]}`)) {
-        seen.add(`cfr${cfr[1]}/${cfr[2]}`);
-        html += `<a href="https://www.law.cornell.edu/cfr/text/${cfr[1]}/${cfr[2]}" target="_blank">${cfr[1]} CFR §${cfr[2]}</a>`;
-      }
-      const pl = p.match(/PL\s*(\d+)-(\d+)/);
-      if (pl && parseInt(pl[1]) >= 104 && !seen.has(`pl${pl[1]}-${pl[2]}`)) {
-        seen.add(`pl${pl[1]}-${pl[2]}`);
-        html += `<a href="${govInfoUrl(pl[1], pl[2])}" target="_blank">PL ${pl[1]}-${pl[2]}</a>`;
+      const c = parseCitation(p);
+      if (c && !seen.has(c.key)) {
+        seen.add(c.key);
+        html += `<a href="${c.url}" target="_blank">${c.label}</a>`;
       }
     }
   }
@@ -1699,7 +1699,7 @@ function showDetail(nodeData) {
       <div class="detail-section"><span class="detail-label">Classification</span><div class="detail-value">${nodeData.category}</div></div>
       <div class="detail-section"><span class="detail-label">Family</span><div class="detail-value">${nodeData.subcategory}</div></div>
       <div class="detail-section"><span class="detail-label">Law</span><div class="detail-value-mono">${linkifyLaw(nodeData.law)}</div></div>
-      ${SUBCATEGORY_FAM[nodeData.subcategory] ? `<div class="detail-section"><span class="detail-label">FAM</span><div class="detail-value-mono"><a href="${famUrl(SUBCATEGORY_FAM[nodeData.subcategory], VISA_FAM_ANCHORS[nodeData.id])}" target="_blank">9 FAM ${SUBCATEGORY_FAM[nodeData.subcategory]}</a></div></div>` : ''}
+      ${buildFamSection(nodeData.subcategory, nodeData.id)}
       ${dhsHtml}
       ${connectionsHtml}
       ${refsHtml}
