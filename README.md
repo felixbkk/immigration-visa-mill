@@ -95,11 +95,6 @@ When a derivative has multiple principals (e.g., G-5 is a derivative of G-1, G-2
 | `shared.js` | Shared constants and helpers loaded by both pages (FAM mappings, citation parser, link helpers) |
 | `visa_data.json` | Complete dataset -- 323 nodes, 204 links, metadata |
 | `favicon.svg` | Site icon |
-| `theme-preview.html` | Standalone preview of all themes (development reference) |
-| `data/fam_anchors.json` | Scraped anchor IDs from all 24 FAM pages |
-| `data/fam_anchors_full.json` | Scraped anchors with surrounding text content |
-| `data/fam_anchor_titles.json` | 1,016 FAM section titles mapped to anchor IDs |
-| `data/fam_missing_citations.json` | Audit of law citations found on FAM pages but missing from node data |
 
 ## How it works
 
