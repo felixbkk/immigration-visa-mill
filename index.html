@@ -579,6 +579,21 @@ const CAT_KEYS = [
 ];
 
 const FONT_STYLES = ['default','editorial','technical','humanist','swiss','brutalist'];
+let currentFont = localStorage.getItem('visa-mill-font') || 'default';
+
+function applyFont(name) {
+  currentFont = name;
+  if (name === 'default') {
+    document.documentElement.removeAttribute('data-font');
+  } else {
+    document.documentElement.setAttribute('data-font', name);
+  }
+  localStorage.setItem('visa-mill-font', name);
+  const sel = document.getElementById('font-select');
+  if (sel) sel.value = name;
+}
+
+applyFont(currentFont);
 
 function generateLotteryTheme() {
   const hue = Math.random() * 360;
@@ -2072,21 +2087,6 @@ document.getElementById('theme-select').addEventListener('change', e => {
   currentRootData = null;
   render();
 });
-
-let currentFont = localStorage.getItem('visa-mill-font') || 'default';
-
-function applyFont(name) {
-  currentFont = name;
-  if (name === 'default') {
-    document.documentElement.removeAttribute('data-font');
-  } else {
-    document.documentElement.setAttribute('data-font', name);
-  }
-  localStorage.setItem('visa-mill-font', name);
-  document.getElementById('font-select').value = name;
-}
-
-applyFont(currentFont);
 
 document.getElementById('font-select').addEventListener('change', e => {
   applyFont(e.target.value);
