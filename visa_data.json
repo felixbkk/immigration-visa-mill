@@ -292,7 +292,7 @@
       "id": "H-4",
       "name": "Dependent of H Worker",
       "group": "NIV",
-      "law": "INA \u00a7101(a)(15)(B)(includingforeignresidencerequirement); INA \u00a7101(a)(15)(H)(ii); INA \u00a7214(b)",
+      "law": "INA \u00a7101(a)(15)(H)(ii); INA \u00a7214(b)",
       "description": "Spouse or unmarried child (under 21) of an H-1B, H-1B1, H-2A, H-2B, or H-3 principal worker.",
       "subcategory": "H",
       "category": "NIV \u2014 Worker & Exchange"
