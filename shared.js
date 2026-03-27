@@ -425,19 +425,25 @@ function parseCitation(p) {
   if (pl) {
     const congress = parseInt(pl[1]);
     if (congress >= 104) return { url: govInfoUrl(pl[1], pl[2]), label: p };
-    const PL_YEARS = {
-      '89-236':1965,'89-732':1966,'94-241':1976,'95-145':1977,'95-412':1978,
-      '96-70':1979,'96-212':1980,'96-465':1980,'97-271':1982,'97-359':1982,
-      '99-603':1986,'99-639':1986,'100-202':1987,'100-658':1988,
-      '101-238':1989,'101-649':1990,'102-110':1991,'102-395':1992,
-      '102-404':1992,'102-509':1992,'103-236':1994,'103-322':1994,'103-416':1994,
+    const PL_STATUTE = {
+      '89-236':'STATUTE-79/STATUTE-79-Pg911','89-732':'STATUTE-80/STATUTE-80-Pg1161',
+      '94-241':'STATUTE-90/STATUTE-90-Pg263',
+      '95-145':'STATUTE-91/STATUTE-91-Pg1223','95-412':'STATUTE-92/STATUTE-92-Pg907',
+      '96-70':'STATUTE-93/STATUTE-93-Pg452','96-212':'STATUTE-94/STATUTE-94-Pg102',
+      '96-465':'STATUTE-94/STATUTE-94-Pg2071',
+      '97-271':'STATUTE-96/STATUTE-96-Pg1157','97-359':'STATUTE-96/STATUTE-96-Pg1716',
+      '99-603':'STATUTE-100/STATUTE-100-Pg3359','99-639':'STATUTE-100/STATUTE-100-Pg3445',
+      '100-202':'STATUTE-101/STATUTE-101-Pg1329','100-658':'STATUTE-102/STATUTE-102-Pg3908',
+      '101-238':'STATUTE-103/STATUTE-103-Pg2099','101-649':'STATUTE-104/STATUTE-104-Pg4978',
+      '102-110':'STATUTE-105/STATUTE-105-Pg555','102-395':'STATUTE-106/STATUTE-106-Pg1828',
+      '102-404':'STATUTE-106/STATUTE-106-Pg1969','102-509':'STATUTE-106/STATUTE-106-Pg3316',
+      '103-236':'STATUTE-108/STATUTE-108-Pg382','103-322':'STATUTE-108/STATUTE-108-Pg1796',
+      '103-416':'STATUTE-108/STATUTE-108-Pg4305',
     };
     const plKey = `${pl[1]}-${pl[2]}`;
-    const year = PL_YEARS[plKey];
-    const yearFacet = year
-      ? `%2C%22facetToExpand%22%3A%22publishdatehier%22%2C%22facets%22%3A%7B%22publishdatehier%22%3A%5B%22${year}%22%5D%7D%2C%22filterOrder%22%3A%5B%22publishdatehier%22%5D%2C%22historical%22%3Afalse%2C%22sortBy%22%3A%221%22`
-      : '';
-    return { url: `https://www.govinfo.gov/app/search/%7B%22query%22%3A%22plawcitation%3A${plKey}%22%2C%22offset%22%3A0${yearFacet}%7D`, label: p };
+    const stat = PL_STATUTE[plKey];
+    if (stat) return { url: `https://www.govinfo.gov/app/details/${stat}`, label: p };
+    return { url: `https://www.govinfo.gov/app/search/%7B%22query%22%3A%22plawcitation%3A${plKey}%22%2C%22offset%22%3A0%7D`, label: p };
   }
   for (const [prefix, plNum] of NAMED_ACT_PL) {
     if (p.startsWith(prefix)) {
