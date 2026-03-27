@@ -4857,12 +4857,6 @@
       "label": "Child classified via SN1"
     },
     {
-      "source": "SJ1",
-      "target": "SJ2",
-      "relation_type": "derivative",
-      "label": "Spouse/child of SJ1 medical graduate"
-    },
-    {
       "source": "SE1",
       "target": "SS1",
       "relation_type": "derivative",

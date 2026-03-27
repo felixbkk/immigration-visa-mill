@@ -223,6 +223,15 @@ body::before {
 #back-to-top.visible { opacity: 1; pointer-events: auto; transform: translateY(0); }
 #back-to-top:hover { border-color: var(--niv-accent); color: var(--niv-accent); }
 
+.sidebar-disclaimer {
+  padding: 16px 20px;
+  font-size: 9px;
+  color: var(--text-muted);
+  line-height: 1.5;
+  border-top: 1px solid var(--border);
+  margin-top: auto;
+}
+
 @media (max-width: 900px) {
   .container { margin-right: 0; }
   #side-panel { display: none; }
@@ -640,6 +649,7 @@ body::before {
     <button class="detail-close" onclick="closeSidePanel()">&times;</button>
     <div id="side-content"></div>
   </div>
+  <div class="sidebar-disclaimer">Data compiled by AI from official U.S. government sources. May contain errors. Verify all citations against primary sources before relying on them.</div>
 </div>
 
 <div class="container">
