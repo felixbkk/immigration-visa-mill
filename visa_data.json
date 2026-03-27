@@ -31,7 +31,7 @@
       "id": "A-1",
       "name": "Foreign Ambassador / Diplomat",
       "group": "NIV",
-      "law": "INA \u00a7101(a)(15)(A)(i); INA \u00a7101(a)(15)(C); INA \u00a7101(a)(15)(G); INA \u00a7212(d)(8); 8 U.S.C. \u00a71101; 8 U.S.C. \u00a71182",
+      "law": "INA \u00a7101(a)(15)(A)(i); INA \u00a7101(a)(15)(C); INA \u00a7101(a)(15)(G); INA \u00a7212(d)(8); 8 U.S.C. \u00a71101; 8 U.S.C. \u00a71182; 22 U.S.C. \u00a7254a; PL 95-393",
       "description": "Ambassador, public minister, career diplomatic or consular officer accredited by a foreign government, and immediate family members.",
       "subcategory": "A",
       "category": "NIV \u2014 Diplomatic & Official"
@@ -40,7 +40,7 @@
       "id": "A-2",
       "name": "Foreign Government Official / Employee",
       "group": "NIV",
-      "law": "INA \u00a7101(a)(15)(A)(ii); INA \u00a7101(a)(15)(C); INA \u00a7101(a)(15)(G); INA \u00a7212(d)(8); 8 U.S.C. \u00a71101; 8 U.S.C. \u00a71182",
+      "law": "INA \u00a7101(a)(15)(A)(ii); INA \u00a7101(a)(15)(C); INA \u00a7101(a)(15)(G); INA \u00a7212(d)(8); 8 U.S.C. \u00a71101; 8 U.S.C. \u00a71182; 22 U.S.C. \u00a7254a; PL 95-393",
       "description": "Other accredited official or employee of a foreign government, and immediate family members.",
       "subcategory": "A",
       "category": "NIV \u2014 Diplomatic & Official"

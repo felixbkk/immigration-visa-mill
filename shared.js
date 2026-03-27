@@ -345,6 +345,7 @@ const USC_FRIENDLY = {
   '8/1367':'Protections for Battered Immigrants',
   '48/1806':'CNMI Immigration and Transition',
   '18/1351':'Fraud and Related Activity',
+  '22/254a':'Diplomatic Relations Act — Definitions',
   '22/2669':'Foreign Service Personnel',
   '22/3943':'Foreign Service Survivors',
 };
@@ -428,7 +429,7 @@ function parseCitation(p) {
     const PL_STATUTE = {
       '89-236':'STATUTE-79/STATUTE-79-Pg911','89-732':'STATUTE-80/STATUTE-80-Pg1161',
       '94-241':'STATUTE-90/STATUTE-90-Pg263',
-      '95-145':'STATUTE-91/STATUTE-91-Pg1223','95-412':'STATUTE-92/STATUTE-92-Pg907',
+      '95-145':'STATUTE-91/STATUTE-91-Pg1223','95-393':'STATUTE-92/STATUTE-92-Pg808','95-412':'STATUTE-92/STATUTE-92-Pg907',
       '96-70':'STATUTE-93/STATUTE-93-Pg452','96-212':'STATUTE-94/STATUTE-94-Pg102',
       '96-465':'STATUTE-94/STATUTE-94-Pg2071',
       '97-271':'STATUTE-96/STATUTE-96-Pg1157','97-359':'STATUTE-96/STATUTE-96-Pg1716',
@@ -450,6 +451,7 @@ function parseCitation(p) {
     'UN HQ Agreement':'https://treaties.un.org/doc/Publication/UNTS/Volume%2011/volume-11-I-147-English.pdf',
     'Hague Adoption Convention':'https://www.hcch.net/en/instruments/conventions/full-text/?cid=69',
     'Jay Treaty':'https://avalon.law.yale.edu/18th_century/jay.asp',
+    'Vienna Convention':'https://treaties.un.org/Pages/ViewDetails.aspx?src=IND&mtdsg_no=III-3&chapter=3',
   };
   for (const [prefix, url] of Object.entries(TREATY_URLS)) {
     if (p.startsWith(prefix)) return { url, label: p };
