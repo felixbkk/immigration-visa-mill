@@ -445,6 +445,15 @@ function parseCitation(p) {
     if (stat) return { url: `https://www.govinfo.gov/app/details/${stat}`, label: p };
     return { url: `https://www.govinfo.gov/app/search/%7B%22query%22%3A%22plawcitation%3A${plKey}%22%2C%22offset%22%3A0%7D`, label: p };
   }
+  const TREATY_URLS = {
+    'NATO SOFA':'https://www.nato.int/cps/en/natohq/official_texts_17265.htm',
+    'UN HQ Agreement':'https://treaties.un.org/doc/Publication/UNTS/Volume%2011/volume-11-I-147-English.pdf',
+    'Hague Adoption Convention':'https://www.hcch.net/en/instruments/conventions/full-text/?cid=69',
+    'Jay Treaty':'https://avalon.law.yale.edu/18th_century/jay.asp',
+  };
+  for (const [prefix, url] of Object.entries(TREATY_URLS)) {
+    if (p.startsWith(prefix)) return { url, label: p };
+  }
   for (const [prefix, plNum] of NAMED_ACT_PL) {
     if (p.startsWith(prefix)) {
       const [c, n] = plNum.split('-');
