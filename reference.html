@@ -10,7 +10,7 @@
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 
-:root {
+:root, [data-theme="navy"] {
   --bg-deep: #080b14;
   --bg-card: #0e1221;
   --bg-card-hover: #131829;
@@ -30,10 +30,55 @@
   --link-pathway: #ff8a65;
 }
 
+[data-theme="light"] {
+  --bg-deep: #f5f6f8; --bg-card: #ffffff; --bg-card-hover: #f0f1f4;
+  --bg-surface: #ebedf2; --border: #e2e5ec; --border-hover: #cbd0dc;
+  --text-primary: #1f2937; --text-secondary: #4b5563; --text-muted: #9ca3af;
+  --niv-accent: #2563eb; --niv-glow: #2563eb20;
+  --iv-accent: #d97706; --iv-glow: #d9770620;
+  --link-spouse: #9333ea; --link-child: #059669; --link-derivative: #0ea5e9; --link-pathway: #ea580c;
+}
+
+[data-theme="high-contrast"] {
+  --bg-deep: #000000; --bg-card: #0a0a0a; --bg-card-hover: #141414;
+  --bg-surface: #1a1a1a; --border: #444444; --border-hover: #666666;
+  --text-primary: #ffffff; --text-secondary: #dddddd; --text-muted: #888888;
+  --niv-accent: #00e5ff; --niv-glow: #00e5ff30;
+  --iv-accent: #ffab00; --iv-glow: #ffab0030;
+  --link-spouse: #ea80fc; --link-child: #69f0ae; --link-derivative: #40c4ff; --link-pathway: #ff6d00;
+}
+
+[data-theme="colorblind"] {
+  --bg-deep: #1a1a2e; --bg-card: #222244; --bg-card-hover: #2a2a50;
+  --bg-surface: #2a2a50; --border: #333366; --border-hover: #444488;
+  --text-primary: #e0e0f0; --text-secondary: #bbbbdd; --text-muted: #7777aa;
+  --niv-accent: #56b4e9; --niv-glow: #56b4e920;
+  --iv-accent: #e69f00; --iv-glow: #e69f0020;
+  --link-spouse: #cc79a7; --link-child: #009e73; --link-derivative: #0072b2; --link-pathway: #d55e00;
+}
+
+[data-theme="solarized"] {
+  --bg-deep: #002b36; --bg-card: #073642; --bg-card-hover: #0a4a58;
+  --bg-surface: #0a4a58; --border: #0a4a58; --border-hover: #1a6a78;
+  --text-primary: #fdf6e3; --text-secondary: #93a1a1; --text-muted: #657b83;
+  --niv-accent: #268bd2; --niv-glow: #268bd220;
+  --iv-accent: #cb4b16; --iv-glow: #cb4b1620;
+  --link-spouse: #d33682; --link-child: #859900; --link-derivative: #2aa198; --link-pathway: #dc322f;
+}
+
+[data-theme="government"] {
+  --bg-deep: #f0f0f0; --bg-card: #ffffff; --bg-card-hover: #e8e8e8;
+  --bg-surface: #e4e4e4; --border: #c8c8c8; --border-hover: #aaaaaa;
+  --text-primary: #333333; --text-secondary: #555555; --text-muted: #999999;
+  --niv-accent: #003366; --niv-glow: #00336620;
+  --iv-accent: #8b4513; --iv-glow: #8b451320;
+  --link-spouse: #6a4c93; --link-child: #2a9d8f; --link-derivative: #005599; --link-pathway: #a0522d;
+}
+
 ::-webkit-scrollbar { width: 6px; }
 ::-webkit-scrollbar-track { background: var(--bg-deep); }
-::-webkit-scrollbar-thumb { background: #2a3654; border-radius: 3px; }
-::-webkit-scrollbar-thumb:hover { background: #3a4a6a; }
+::-webkit-scrollbar-thumb { background: var(--border-hover); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--bg-surface); }
 
 body {
   background: var(--bg-deep);
@@ -96,18 +141,6 @@ body::before {
 }
 #side-detail.active { display: block; }
 
-#side-detail .detail-close {
-  float: right;
-  background: none;
-  border: none;
-  color: var(--text-muted);
-  font-size: 18px;
-  cursor: pointer;
-  padding: 0 4px;
-  transition: color .15s;
-}
-#side-detail .detail-close:hover { color: var(--text-primary); }
-
 #side-detail .detail-code {
   font-family: 'DM Mono', monospace;
   font-size: 28px;
@@ -126,7 +159,7 @@ body::before {
   margin-bottom: 14px;
 }
 #side-detail .detail-label {
-  font-size: 9px;
+  font-size: 10px;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 1.5px;
@@ -134,13 +167,13 @@ body::before {
   margin-bottom: 4px;
 }
 #side-detail .detail-value {
-  font-size: 12px;
+  font-size: 13px;
   color: var(--text-secondary);
   line-height: 1.5;
 }
 #side-detail .detail-value-mono {
   font-family: 'DM Mono', monospace;
-  font-size: 11px;
+  font-size: 12px;
   color: var(--text-muted);
   line-height: 1.5;
 }
@@ -182,22 +215,6 @@ body::before {
 #side-detail .detail-chip.ch-child { border-color: #6dd49830; }
 #side-detail .detail-chip.ch-pathway { border-color: #ff8a6530; color: var(--link-pathway); }
 
-#side-detail .detail-refs {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin-top: 8px;
-}
-#side-detail .ref-link {
-  font-size: 10px;
-  color: var(--text-muted);
-  border: 1px solid var(--border);
-  padding: 3px 10px;
-  border-radius: 6px;
-  text-decoration: none;
-  transition: all .15s;
-}
-#side-detail .ref-link:hover { border-color: var(--niv-accent); color: var(--niv-accent); text-decoration: none; }
 
 #back-to-top {
   position: fixed;
@@ -634,6 +651,15 @@ body::before {
     <div class="subtitle">22 CFR &sect;41.12 &middot; 22 CFR &sect;42.11</div>
   </div>
   <div class="sources">
+    <select id="theme-select" style="background:var(--bg-surface);color:var(--text-secondary);border:1px solid var(--border);padding:2px 8px;border-radius:4px;font-size:10px;font-family:inherit;cursor:pointer;">
+      <option value="navy">Navy Dark</option>
+      <option value="light">Light</option>
+      <option value="high-contrast">High Contrast</option>
+      <option value="colorblind">Colorblind Safe</option>
+      <option value="solarized">Solarized</option>
+      <option value="government">Government</option>
+      <option value="lottery">DV Lottery</option>
+    </select>
     <a href="https://www.law.cornell.edu/uscode/text/8/1101" target="_blank">8 USC</a>
     <a href="https://www.law.cornell.edu/cfr/text/22/part-41" target="_blank">22 CFR</a>
     <a href="https://fam.state.gov/fam/09FAM/09FAM040201.html" target="_blank">FAM</a>
@@ -646,10 +672,9 @@ body::before {
     Click any visa code to see full details
   </div>
   <div id="side-detail">
-    <button class="detail-close" onclick="closeSidePanel()">&times;</button>
     <div id="side-content"></div>
   </div>
-  <div class="sidebar-disclaimer">Data compiled by AI from official U.S. government sources. May contain errors. Verify all citations against primary sources before relying on them.</div>
+  <div class="sidebar-disclaimer">Data compiled by AI from official U.S. government sources (March 2026). May contain errors. Verify all citations against primary sources before relying on them.</div>
 </div>
 
 <div class="container">
@@ -850,11 +875,114 @@ function linkifyLaw(lawStr) {
   }).join('<br>');
 }
 
+const FAM_TITLES = {
+  'M402_2_3':'Categories of B Visas',
+  'M402_2_4':'Tourist Visas (B-2)',
+  'M402_2_5':'Business Visas (B-1)',
+  'M402_2_7':'Border Crossing Cards (BCC)',
+  'M402_3_3':'Classification Codes',
+  'M402_3_5_C':'Applicants Entitled to A-1 Classification',
+  'M402_3_5_D_1':'A-2 — Employee at Diplomatic or Consular Post',
+  'M402_3_6':'Officials in Transit — C-2 and C-3 Visas',
+  'M402_3_7':'International Organizations — G Visas',
+  'M402_3_8':'NATO Representatives, Officials, and Employees',
+  'M402_3_9':'Personal or Domestic Employees — A-3, C-3, G-5, NATO-7',
+  'M402_4_3':'Categories of C Visas',
+  'M402_4_6':'C-1 Transit Aliens',
+  'M402_5_3':'Categories of F, J, and M Visas',
+  'M402_5_5':'Students: Academic and Nonacademic — F and M Visas',
+  'M402_5_6':'Exchange Visitors — J Visas',
+  'M402_6_3':'Categories of S, T, and U Visas',
+  'M402_6_4_C':'S-5 Classification — INA 101(a)(15)(S)(i)',
+  'M402_6_4_D':'S-6 Classification — INA 101(a)(15)(S)(ii)',
+  'M402_6_4_E':'S-7 Accompanying or Following-to-Join Dependents',
+  'M402_6_5':'Victims of Trafficking in Persons — T Visas',
+  'M402_6_6':'Victims of Criminal Activity — U Visas',
+  'M402_7_3':'Fiancé(e)/Spouse of American Citizen — K Visas',
+  'M402_7_4':'Parent or Child of SK or SN Special Immigrant — N Visas',
+  'M402_8_3':'Classification as Crewmember — D Visas',
+  'M402_8_3_A':'D Visa Under INA 101(a)(15)(D)(i)',
+  'M402_8_3_B':'D Visa Under INA 101(a)(15)(D)(ii) — Fishing Vessels',
+  'M402_8_5':'C-1 Visa for Crewmember Traveling to Join Vessel/Aircraft',
+  'M402_9_3':'Classification Codes',
+  'M402_9_5':'Requirements for E-1 Treaty Trader Visas',
+  'M402_9_6':'Requirements for E-2 Treaty Investor Visas',
+  'M402_9_8':'Requirements for E-3 Visas',
+  'M402_10_3':'Classification Codes',
+  'M402_10_4_B':'H-1B Nonimmigrants',
+  'M402_10_4_C':'H-1C Nurse in Health Professional Shortage Area',
+  'M402_10_4_D':'H-2A Nonimmigrants',
+  'M402_10_4_E':'H-2B Nonimmigrants',
+  'M402_10_4_F':'H-3 Nonimmigrants',
+  'M402_10_5':'H-1B1 Free Trade Agreement Professionals',
+  'M402_10_14':'Spouses and Children of H Nonimmigrants',
+  'M402_11_3':'Information Media Representatives — I Visas',
+  'M402_12_3':'Classification Codes',
+  'M402_12_4':'Classification Criteria for Intracompany Transferees',
+  'M402_13_3':'Classification Symbols',
+  'M402_13_4_A':'O-1 Nonimmigrants',
+  'M402_13_4_B':'O-2 Nonimmigrants',
+  'M402_13_4_C':'O-3 Nonimmigrants',
+  'M402_14_3':'Classification Symbols — P Visas',
+  'M402_14_5_A':'P-1 Athletes and Group Entertainers',
+  'M402_14_5_B':'P-2 Reciprocal Exchange Programs',
+  'M402_14_5_C':'P-3 Culturally Unique Programs',
+  'M402_14_5_D':'P-4 Spouse and Children',
+  'M402_15_3':'Classification Symbols',
+  'M402_15_4':'Requirements for Q Classification',
+  'M402_16_3':'Classification Symbols',
+  'M402_16_7':'Classification Criteria — R Visas',
+  'M402_17_3':'Classification Symbols',
+  'M402_17_4':'Professional Requirements — TN',
+  'M402_17_10':'Spouses and Minor Children — TD Visas',
+  'M402_18_3':'Classification Symbols',
+  'M402_18_4_C':'CW-1 Employment Restrictions',
+  'M402_18_4_D':'Spouses and Children of CW-1 Beneficiaries',
+  'M502_2_2':'Immediate Relatives',
+  'M502_2_3':'Family Preference Classifications',
+  'M502_2_4':'Amerasian Family-Based Classification',
+  'M502_3_3':'Orphans Adopted Under INA 101(b)(1)(F) — IR3 and IR4',
+  'M502_4_3':'Employment-Based IV Classifications',
+  'M502_5_2':'Special Immigrants — Religious Workers',
+  'M502_5_3':'Special Immigrants — U.S. Government Employees',
+  'M502_5_4':'Special Immigrants — Panama Canal Employees',
+  'M502_5_5':'Special Immigrants — Foreign Medical Graduates',
+  'M502_5_6':'Special Immigrants — Int\'l Org and NATO Civilian Employees',
+  'M502_5_7':'Special Immigrants — Juvenile Court Dependents',
+  'M502_5_8':'Special Immigrants — U.S. Armed Forces Recruited Abroad',
+  'M502_5_9':'Special Immigrants — International Broadcasting Employees',
+  'M502_5_10':'Special Immigrants — Victims of Terrorism',
+  'M502_5_11':'Special Immigrants — Translators',
+  'M502_5_12':'Special Immigrants — Iraqi/Afghan U.S. Gov\'t Employees',
+  'M502_6_3':'Diversity Visa Eligibility',
+  'M502_7_2':'Returning Residents',
+  'M502_7_3':'K Visas — Spouse or Fiancé(e) of U.S. Citizen',
+};
+
+function famLabel(subcategory, visaId) {
+  const sec = SUBCATEGORY_FAM[subcategory];
+  if (!sec) return null;
+  const anchor = visaId ? VISA_FAM_ANCHORS[visaId] : null;
+  if (!anchor) return `9 FAM ${sec}`;
+  const parts = anchor.replace('M', '').split('_');
+  const major = parts[0];
+  const minor = parts[1];
+  const rest = parts.slice(2);
+  if (!rest.length) return `9 FAM ${major}.${minor}`;
+  const sub = rest[0];
+  const deeper = rest.slice(1).map(p => `(${p})`).join('');
+  return `9 FAM ${major}.${minor}-${sub}${deeper}`;
+}
+
 function buildFamSection(subcategory, visaId) {
   const sec = SUBCATEGORY_FAM[subcategory];
   if (!sec) return '';
   const anchor = visaId ? VISA_FAM_ANCHORS[visaId] : undefined;
-  return `<div class="detail-section"><div class="detail-label">FAM</div><div class="detail-value-mono"><a href="${famUrl(sec, anchor)}" target="_blank">9 FAM ${sec}</a></div></div>`;
+  const resolvedAnchor = anchor || `M${sec.replace('.', '_')}_3`;
+  const label = famLabel(subcategory, visaId) || `9 FAM ${sec}`;
+  const title = FAM_TITLES[resolvedAnchor] || '';
+  const titleHtml = title ? `<div class="detail-value" style="margin-top:2px;">${title}</div>` : '';
+  return `<div class="detail-section"><div class="detail-label">FAM</div><div class="detail-value-mono"><a href="${famUrl(sec, anchor)}" target="_blank">${label}</a></div>${titleHtml}</div>`;
 }
 
 fetch('visa_data.json').then(r => r.json()).then(data => {
@@ -1191,6 +1319,43 @@ document.querySelectorAll('.tab').forEach(tab => {
     else tab.classList.add('active-iv');
     renderAll();
   });
+});
+
+// ── Theme Switcher ──
+const savedTheme = localStorage.getItem('visa-mill-theme') || 'navy';
+document.documentElement.setAttribute('data-theme', savedTheme);
+document.getElementById('theme-select').value = savedTheme;
+
+document.getElementById('theme-select').addEventListener('change', e => {
+  const name = e.target.value;
+  document.documentElement.setAttribute('data-theme', name);
+  localStorage.setItem('visa-mill-theme', name);
+  if (name === 'lottery') {
+    // Randomize CSS variables
+    const hue = Math.random() * 360;
+    const isDark = Math.random() > 0.5;
+    const hsl = (h,s,l) => `hsl(${h%360},${s}%,${l}%)`;
+    const bgL = isDark ? 8+Math.random()*8 : 92+Math.random()*6;
+    const bgS = 15+Math.random()*20;
+    const r = document.documentElement;
+    r.style.setProperty('--bg-deep', hsl(hue,bgS,bgL));
+    r.style.setProperty('--bg-card', hsl(hue,bgS,isDark?bgL+4:bgL-4));
+    r.style.setProperty('--bg-card-hover', hsl(hue,bgS,isDark?bgL+6:bgL-6));
+    r.style.setProperty('--bg-surface', hsl(hue,bgS,isDark?bgL+8:bgL-8));
+    r.style.setProperty('--border', hsl(hue,bgS*0.6,isDark?bgL+12:bgL-12));
+    r.style.setProperty('--text-primary', isDark?'#e8ecf4':'#1f2937');
+    r.style.setProperty('--text-secondary', isDark?'#8892a8':'#4b5563');
+    r.style.setProperty('--text-muted', isDark?'#4a5470':'#9ca3af');
+    const nivH = hue, ivH = (hue+150)%360;
+    const nivC = `hsl(${nivH},70%,${isDark?65:40}%)`;
+    const ivC = `hsl(${ivH},70%,${isDark?65:40}%)`;
+    r.style.setProperty('--niv-accent', nivC);
+    r.style.setProperty('--iv-accent', ivC);
+    r.style.setProperty('--niv-glow', nivC.replace(')',',0.12)').replace('hsl','hsla'));
+    r.style.setProperty('--iv-glow', ivC.replace(')',',0.12)').replace('hsl','hsla'));
+  } else {
+    document.documentElement.removeAttribute('style');
+  }
 });
 </script>
 </body>

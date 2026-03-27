@@ -11,7 +11,7 @@
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
 
-  :root {
+  :root, [data-theme="navy"] {
     --bg-deep: #111827;
     --bg-panel: #1a2235;
     --bg-surface: #243049;
@@ -22,12 +22,101 @@
     --text-muted: #4a5470;
     --niv-accent: #4fc3f7;
     --iv-accent: #ffb74d;
+    --link-pathway: #ff8a65;
+    --link-spouse: #c586f0;
+    --link-child: #6dd498;
+    --link-derivative: #5ba4d9;
+  }
+
+  [data-theme="light"] {
+    --bg-deep: #f5f6f8;
+    --bg-panel: #ffffff;
+    --bg-surface: #ebedf2;
+    --border: #e2e5ec;
+    --border-hover: #cbd0dc;
+    --text-primary: #1f2937;
+    --text-secondary: #4b5563;
+    --text-muted: #9ca3af;
+    --niv-accent: #2563eb;
+    --iv-accent: #d97706;
+    --link-pathway: #ea580c;
+    --link-spouse: #9333ea;
+    --link-child: #059669;
+    --link-derivative: #0ea5e9;
+  }
+
+  [data-theme="high-contrast"] {
+    --bg-deep: #000000;
+    --bg-panel: #0a0a0a;
+    --bg-surface: #1a1a1a;
+    --border: #444444;
+    --border-hover: #666666;
+    --text-primary: #ffffff;
+    --text-secondary: #dddddd;
+    --text-muted: #888888;
+    --niv-accent: #00e5ff;
+    --iv-accent: #ffab00;
+    --link-pathway: #ff6d00;
+    --link-spouse: #ea80fc;
+    --link-child: #69f0ae;
+    --link-derivative: #40c4ff;
+  }
+
+  [data-theme="colorblind"] {
+    --bg-deep: #1a1a2e;
+    --bg-panel: #222244;
+    --bg-surface: #2a2a50;
+    --border: #333366;
+    --border-hover: #444488;
+    --text-primary: #e0e0f0;
+    --text-secondary: #bbbbdd;
+    --text-muted: #7777aa;
+    --niv-accent: #56b4e9;
+    --iv-accent: #e69f00;
+    --link-pathway: #d55e00;
+    --link-spouse: #cc79a7;
+    --link-child: #009e73;
+    --link-derivative: #0072b2;
+  }
+
+  [data-theme="solarized"] {
+    --bg-deep: #002b36;
+    --bg-panel: #073642;
+    --bg-surface: #0a4a58;
+    --border: #0a4a58;
+    --border-hover: #1a6a78;
+    --text-primary: #fdf6e3;
+    --text-secondary: #93a1a1;
+    --text-muted: #657b83;
+    --niv-accent: #268bd2;
+    --iv-accent: #cb4b16;
+    --link-pathway: #dc322f;
+    --link-spouse: #d33682;
+    --link-child: #859900;
+    --link-derivative: #2aa198;
+  }
+
+  [data-theme="government"] {
+    --bg-deep: #f0f0f0;
+    --bg-panel: #ffffff;
+    --bg-surface: #e4e4e4;
+    --border: #c8c8c8;
+    --border-hover: #aaaaaa;
+    --text-primary: #333333;
+    --text-secondary: #555555;
+    --text-muted: #999999;
+    --niv-accent: #003366;
+    --iv-accent: #8b4513;
+    --link-pathway: #a0522d;
+    --link-spouse: #6a4c93;
+    --link-child: #2a9d8f;
+    --link-derivative: #005599;
   }
 
   ::-webkit-scrollbar { width: 6px; }
   ::-webkit-scrollbar-track { background: var(--bg-deep); }
-  ::-webkit-scrollbar-thumb { background: #2a3654; border-radius: 3px; }
-  ::-webkit-scrollbar-thumb:hover { background: #3a4a6a; }
+  ::-webkit-scrollbar-thumb { background: var(--border-hover); border-radius: 3px; }
+  ::-webkit-scrollbar-thumb:hover { background: var(--bg-surface); }
 
   body {
     background: var(--bg-deep);
@@ -160,44 +249,44 @@
   }
 
   .node-selected .node-label {
-    fill: #fff !important;
+    fill: var(--text-primary) !important;
     font-weight: 700 !important;
   }
 
   .node-label {
-    fill: #f0f0f0;
+    fill: var(--text-primary);
     font-size: 13px;
     font-weight: 500;
     pointer-events: none;
     user-select: none;
-    text-shadow: 0 0 6px #000, 0 0 3px #000;
+    text-shadow: 0 0 6px var(--bg-deep), 0 0 3px var(--bg-deep);
   }
 
   .node-label-category {
     font-size: 15px;
     font-weight: 700;
-    fill: #fff;
+    fill: var(--text-primary);
   }
 
   .node-label-subcategory {
     font-size: 13px;
     font-weight: 600;
-    fill: #e8e8e8;
+    fill: var(--text-primary);
   }
 
   .node-label-leaf {
     font-size: 12px;
     font-weight: 500;
-    fill: #ddd;
+    fill: var(--text-secondary);
   }
 
   .node-subtitle {
-    fill: #aaa;
+    fill: var(--text-muted);
     font-size: 10px;
     font-weight: 400;
     pointer-events: none;
     user-select: none;
-    text-shadow: 0 0 6px #000, 0 0 3px #000;
+    text-shadow: 0 0 6px var(--bg-deep), 0 0 3px var(--bg-deep);
   }
 
   .link {
@@ -244,25 +333,6 @@
     height: 3px;
   }
 
-  .detail-close {
-    position: absolute;
-    top: 12px;
-    right: 12px;
-    background: none;
-    border: none;
-    color: var(--text-muted);
-    font-size: 18px;
-    cursor: pointer;
-    width: 28px;
-    height: 28px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 6px;
-    transition: all .15s;
-  }
-  .detail-close:hover { background: var(--bg-surface); color: var(--text-primary); }
-
   .detail-id {
     font-family: 'DM Mono', monospace;
     font-size: 28px;
@@ -270,7 +340,7 @@
     line-height: 1.2;
   }
   .detail-name {
-    font-size: 13px;
+    font-size: 14px;
     font-weight: 500;
     color: var(--text-secondary);
     margin-top: 4px;
@@ -283,7 +353,7 @@
     margin-bottom: 16px;
   }
   .detail-label {
-    font-size: 9px;
+    font-size: 10px;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 1.5px;
@@ -292,13 +362,13 @@
     display: block;
   }
   .detail-value {
-    font-size: 12px;
+    font-size: 13px;
     color: var(--text-secondary);
     line-height: 1.6;
   }
   .detail-value-mono {
     font-family: 'DM Mono', monospace;
-    font-size: 11px;
+    font-size: 12px;
     color: var(--text-muted);
   }
 
@@ -330,27 +400,11 @@
     letter-spacing: 0.5px;
     opacity: 0.6;
   }
-  .detail-link-chip.pathway { border-color: #ff8a6530; color: #ff8a65; }
-  .detail-link-chip.spouse { border-color: #c586f030; color: #c586f0; }
-  .detail-link-chip.child { border-color: #6dd49830; color: #6dd498; }
-  .detail-link-chip.derivative { border-color: #5ba4d930; color: #5ba4d9; }
+  .detail-link-chip.pathway { border-color: color-mix(in srgb, var(--link-pathway) 19%, transparent); color: var(--link-pathway); }
+  .detail-link-chip.spouse { border-color: color-mix(in srgb, var(--link-spouse) 19%, transparent); color: var(--link-spouse); }
+  .detail-link-chip.child { border-color: color-mix(in srgb, var(--link-child) 19%, transparent); color: var(--link-child); }
+  .detail-link-chip.derivative { border-color: color-mix(in srgb, var(--link-derivative) 19%, transparent); color: var(--link-derivative); }
 
-  .detail-refs {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    margin-top: 6px;
-  }
-  .detail-refs a {
-    font-size: 10px;
-    color: var(--text-muted);
-    border: 1px solid var(--border);
-    padding: 4px 10px;
-    border-radius: 6px;
-    text-decoration: none;
-    transition: all .15s;
-  }
-  .detail-refs a:hover { border-color: var(--niv-accent); color: var(--niv-accent); text-decoration: none; }
 
   .detail-value-mono a {
     color: var(--niv-accent);
@@ -386,6 +440,15 @@
     <div id="search-results" style="display:none;position:absolute;top:100%;left:0;width:300px;max-height:280px;overflow-y:auto;background:var(--bg-panel);border:1px solid var(--border);border-radius:0 0 8px 8px;z-index:200;"></div>
   </div>
   <div class="spacer"></div>
+  <select id="theme-select">
+    <option value="navy">Navy Dark</option>
+    <option value="light">Light</option>
+    <option value="high-contrast">High Contrast</option>
+    <option value="colorblind">Colorblind Safe</option>
+    <option value="solarized">Solarized</option>
+    <option value="government">Government</option>
+    <option value="lottery">DV Lottery</option>
+  </select>
   <button id="btn-expand">Expand All</button>
   <button id="btn-collapse">Collapse All</button>
   <a class="ref-link" href="reference.html" target="_blank">Reference Table</a>
@@ -410,7 +473,7 @@
       </div>
     </div>
   </div>
-  <div class="sidebar-disclaimer">Data compiled by AI from official U.S. government sources. May contain errors. Verify all citations against primary sources before relying on them.</div>
+  <div class="sidebar-disclaimer">Data compiled by AI from official U.S. government sources (March 2026). May contain errors. Verify all citations against primary sources before relying on them.</div>
 </div>
 
 <div id="canvas-container">
@@ -418,23 +481,146 @@
 </div>
 
 <script>
-const COLORS = {
-  'NIV — Diplomatic & Official': '#4fc3f7',
-  'NIV — Visitor & Transit':     '#81d4fa',
-  'NIV — Worker & Exchange':     '#29b6f6',
-  'NIV — Student & Exchange':    '#4dd0e1',
-  'NIV — Family':                '#80cbc4',
-  'NIV — Humanitarian':          '#a5d6a7',
-  'IV — Immediate Relative':     '#ffb74d',
-  'IV — Family Preference':      '#ffa726',
-  'IV — Employment':             '#ff8a65',
-  'IV — Diversity':              '#ce93d8',
-  'IV — Humanitarian':           '#ef9a9a',
-  'IV — Special Programs':       '#fff176',
-  'IV — Administrative':         '#b0bec5',
+const THEME_COLORS = {
+  navy: {
+    NIV: ['#4fc3f7','#81d4fa','#29b6f6','#4dd0e1','#80cbc4','#a5d6a7'],
+    IV:  ['#ffb74d','#ffa726','#ff8a65','#ce93d8','#ef9a9a','#fff176','#b0bec5'],
+    hub: { NIV: '#4fc3f7', IV: '#ffb74d' },
+    bg: { r: 0x11, g: 0x18, b: 0x27 },
+  },
+  light: {
+    NIV: ['#2563eb','#3b82f6','#0ea5e9','#0891b2','#0d9488','#059669'],
+    IV:  ['#d97706','#ea580c','#dc2626','#9333ea','#e11d48','#ca8a04','#6b7280'],
+    hub: { NIV: '#2563eb', IV: '#d97706' },
+    bg: { r: 0xf5, g: 0xf6, b: 0xf8 },
+  },
+  'high-contrast': {
+    NIV: ['#00e5ff','#40c4ff','#18ffff','#64ffda','#69f0ae','#b2ff59'],
+    IV:  ['#ffab00','#ff6d00','#ff3d00','#ea80fc','#ff5252','#ffff00','#ffffff'],
+    hub: { NIV: '#00e5ff', IV: '#ffab00' },
+    bg: { r: 0x00, g: 0x00, b: 0x00 },
+  },
+  colorblind: {
+    NIV: ['#56b4e9','#009e73','#0072b2','#56b4e9','#009e73','#999999'],
+    IV:  ['#e69f00','#d55e00','#cc79a7','#f0e442','#cc79a7','#e69f00','#999999'],
+    hub: { NIV: '#56b4e9', IV: '#e69f00' },
+    bg: { r: 0x1a, g: 0x1a, b: 0x2e },
+  },
+  solarized: {
+    NIV: ['#268bd2','#2aa198','#859900','#6c71c4','#2aa198','#859900'],
+    IV:  ['#cb4b16','#dc322f','#d33682','#b58900','#dc322f','#b58900','#93a1a1'],
+    hub: { NIV: '#268bd2', IV: '#cb4b16' },
+    bg: { r: 0x00, g: 0x2b, b: 0x36 },
+  },
+  government: {
+    NIV: ['#003366','#005599','#0077b6','#2a9d8f','#48839e','#6b8e7b'],
+    IV:  ['#8b4513','#a0522d','#b22234','#6a4c93','#c7372f','#9e7c0c','#708090'],
+    hub: { NIV: '#003366', IV: '#8b4513' },
+    bg: { r: 0xf0, g: 0xf0, b: 0xf0 },
+  },
 };
 
-const HUB_COLORS = { NIV: '#4fc3f7', IV: '#ffb74d' };
+const CAT_KEYS = [
+  'NIV — Diplomatic & Official','NIV — Visitor & Transit','NIV — Worker & Exchange',
+  'NIV — Student & Exchange','NIV — Family','NIV — Humanitarian',
+  'IV — Immediate Relative','IV — Family Preference','IV — Employment',
+  'IV — Diversity','IV — Humanitarian','IV — Special Programs','IV — Administrative',
+];
+
+function generateLotteryTheme() {
+  const hue = Math.random() * 360;
+  const isDark = Math.random() > 0.5;
+
+  function hsl(h, s, l) {
+    return `hsl(${h % 360}, ${s}%, ${l}%)`;
+  }
+  function hslToHex(h, s, l) {
+    h = h % 360; s /= 100; l /= 100;
+    const a = s * Math.min(l, 1 - l);
+    const f = n => { const k = (n + h / 30) % 12; return Math.round((l - a * Math.max(Math.min(k - 3, 9 - k, 1), -1)) * 255); };
+    return '#' + [f(0), f(8), f(4)].map(x => x.toString(16).padStart(2, '0')).join('');
+  }
+
+  const nivHue = hue;
+  const ivHue = (hue + 120 + Math.random() * 60) % 360;
+  const bgL = isDark ? 8 + Math.random() * 8 : 92 + Math.random() * 6;
+  const bgS = 15 + Math.random() * 20;
+
+  const nivColors = Array.from({length: 6}, (_, i) =>
+    hslToHex(nivHue + i * 12 - 30, 60 + Math.random() * 30, isDark ? 55 + i * 5 : 35 + i * 5)
+  );
+  const ivColors = Array.from({length: 7}, (_, i) =>
+    hslToHex(ivHue + i * 10 - 30, 60 + Math.random() * 30, isDark ? 55 + i * 4 : 35 + i * 4)
+  );
+
+  const bgHex = hslToHex(hue, bgS, bgL);
+  const bgRgb = {
+    r: parseInt(bgHex.slice(1, 3), 16),
+    g: parseInt(bgHex.slice(3, 5), 16),
+    b: parseInt(bgHex.slice(5, 7), 16),
+  };
+
+  // Set CSS variables directly
+  const panelL = isDark ? bgL + 5 : bgL - 5;
+  const surfaceL = isDark ? bgL + 10 : bgL - 10;
+  const borderL = isDark ? bgL + 12 : bgL - 12;
+  const root = document.documentElement;
+  root.style.setProperty('--bg-deep', hsl(hue, bgS, bgL));
+  root.style.setProperty('--bg-panel', hsl(hue, bgS, panelL));
+  root.style.setProperty('--bg-surface', hsl(hue, bgS, surfaceL));
+  root.style.setProperty('--border', hsl(hue, bgS * 0.6, borderL));
+  root.style.setProperty('--border-hover', hsl(hue, bgS * 0.6, borderL + (isDark ? 8 : -8)));
+  root.style.setProperty('--text-primary', isDark ? '#e8ecf4' : '#1f2937');
+  root.style.setProperty('--text-secondary', isDark ? '#8892a8' : '#4b5563');
+  root.style.setProperty('--text-muted', isDark ? '#4a5470' : '#9ca3af');
+  root.style.setProperty('--niv-accent', nivColors[0]);
+  root.style.setProperty('--iv-accent', ivColors[0]);
+
+  return {
+    NIV: nivColors, IV: ivColors,
+    hub: { NIV: nivColors[0], IV: ivColors[0] },
+    bg: bgRgb,
+  };
+}
+
+let currentTheme = localStorage.getItem('visa-mill-theme') || 'navy';
+let COLORS = {};
+let HUB_COLORS = {};
+let themeBg = { r: 0x11, g: 0x18, b: 0x27 };
+
+function applyTheme(name) {
+  currentTheme = name;
+  // Clear any inline style overrides from lottery
+  document.documentElement.removeAttribute('style');
+
+  let t;
+  if (name === 'lottery') {
+    t = generateLotteryTheme();
+    document.documentElement.setAttribute('data-theme', 'lottery');
+  } else {
+    t = THEME_COLORS[name] || THEME_COLORS.navy;
+    document.documentElement.setAttribute('data-theme', name);
+  }
+  localStorage.setItem('visa-mill-theme', name);
+
+  // Build COLORS map from theme arrays
+  COLORS = {};
+  CAT_KEYS.forEach((key, i) => {
+    const isNIV = key.startsWith('NIV');
+    const arr = isNIV ? t.NIV : t.IV;
+    const idx = isNIV ? i : i - 6;
+    COLORS[key] = arr[idx % arr.length];
+  });
+
+  HUB_COLORS = t.hub;
+  themeBg = t.bg;
+
+  // Update theme selector
+  const sel = document.getElementById('theme-select');
+  if (sel) sel.value = name;
+}
+
+applyTheme(currentTheme);
 
 const CATEGORY_DESCRIPTIONS = {
   'NIV — Diplomatic & Official': 'Ambassadors, gov\'t officials, int\'l org staff, NATO',
@@ -770,12 +956,6 @@ function showInaDefault() {
         <div class="detail-value-mono" style="margin-top:4px;">NIV: 22 CFR &sect;41.12 &middot; 9 FAM 402.1</div>
         <div class="detail-value-mono">IV: 22 CFR &sect;42.11 &middot; 9 FAM 502.1</div>
       </div>
-      <div class="detail-section"><span class="detail-label">References</span><div class="detail-refs">
-        <a href="https://www.law.cornell.edu/uscode/text/8/1101" target="_blank">8 U.S.C. §1101</a>
-        <a href="https://www.law.cornell.edu/uscode/text/8/chapter-12" target="_blank">8 U.S.C. Ch. 12 (INA)</a>
-        <a href="https://www.law.cornell.edu/cfr/text/22/part-41" target="_blank">22 CFR Part 41 (NIV)</a>
-        <a href="https://www.law.cornell.edu/cfr/text/22/part-42" target="_blank">22 CFR Part 42 (IV)</a>
-      </div></div>
     </div>
   `;
 
@@ -1076,8 +1256,7 @@ function _collapseDeep(node) {
 // ── Color Helpers ──
 
 function blendWithBg(hex, amount) {
-  // Blend a hex color with the background (#1a1a2e) at given amount
-  const bg = { r: 0x11, g: 0x18, b: 0x27 };
+  const bg = themeBg;
   const c = hexToRgb(hex);
   const r = Math.round(bg.r + (c.r - bg.r) * amount);
   const g = Math.round(bg.g + (c.g - bg.g) * amount);
@@ -1192,29 +1371,6 @@ function linkifyLaw(lawStr) {
     const c = parseCitation(p);
     return c ? `<a href="${c.url}" target="_blank">${c.label}</a>` : p.trim();
   }).join('<br>');
-}
-
-function buildLawRefs(lawStr, subcategory) {
-  let html = '';
-  const seen = new Set();
-  if (subcategory && SUBCATEGORY_FAM[subcategory]) {
-    const sec = SUBCATEGORY_FAM[subcategory];
-    seen.add(`fam${sec}`);
-    html += `<a href="${famUrl(sec)}" target="_blank">9 FAM ${sec}</a>`;
-  }
-  if (lawStr) {
-    for (const p of lawStr.split(/;\s*/)) {
-      const c = parseCitation(p);
-      if (c && !seen.has(c.key)) {
-        seen.add(c.key);
-        html += `<a href="${c.url}" target="_blank">${c.label}</a>`;
-      }
-    }
-  }
-  if (!seen.has('1101')) {
-    html += `<a href="https://www.law.cornell.edu/uscode/text/8/1101" target="_blank">8 U.S.C. §1101</a>`;
-  }
-  return html;
 }
 
 // ── Label Helpers ──
@@ -1462,7 +1618,7 @@ function renderTree(g, root, w, h, svg, zoom) {
           if (d.data._nodeType === 'principal') {
             return blendWithBg(getNodeColor(d), 0.15);
           }
-          if (hasChildren(d) && !d.data.children) return '#1a1a2e';
+          if (hasChildren(d) && !d.data.children) return `rgb(${themeBg.r},${themeBg.g},${themeBg.b})`;
           const c = getNodeColor(d);
           return blendWithBg(c, 0.15);
         })
@@ -1543,7 +1699,7 @@ function renderTree(g, root, w, h, svg, zoom) {
 
     badges.append('circle')
       .attr('r', 11)
-      .attr('fill', '#1a1a2e')
+      .attr('fill', `rgb(${themeBg.r},${themeBg.g},${themeBg.b})`)
       .attr('stroke', d => d._badgeInfo.color)
       .attr('stroke-width', 1);
 
@@ -1755,7 +1911,6 @@ function showCategoryDetail(d) {
 
   content.innerHTML = `
     <div class="detail-hero" style="border-top: 3px solid ${color}; padding: 20px 20px 16px;">
-      <button class="detail-close" onclick="closeDetail()">&times;</button>
       <div class="detail-id" style="color:${color}">${title}</div>
       <div class="detail-name">${subtitle}</div>
     </div>
@@ -1799,7 +1954,7 @@ function showDetail(nodeData) {
   content.innerHTML = `
     <div class="detail-hero" style="--accent:${color}">
       <div class="detail-hero" style="border-top: 3px solid ${color}; padding-top: 16px;">
-        <button class="detail-close" onclick="closeDetail()">&times;</button>
+
         <div class="detail-id" style="color:${color}">${nodeData.id}</div>
         <div class="detail-name">${nodeData.name}</div>
       </div>
@@ -2068,6 +2223,12 @@ document.getElementById('btn-collapse').addEventListener('click', () => {
 });
 
 
+
+document.getElementById('theme-select').addEventListener('change', e => {
+  applyTheme(e.target.value);
+  currentRootData = null;
+  render();
+});
 
 window.addEventListener('resize', () => render());
 </script>
