@@ -144,6 +144,12 @@ body::before {
   color: var(--text-muted);
   line-height: 1.5;
 }
+#side-detail .detail-value-mono a {
+  color: var(--niv-accent);
+  text-decoration: none;
+  transition: opacity .15s;
+}
+#side-detail .detail-value-mono a:hover { opacity: 0.8; text-decoration: underline; }
 
 #side-detail .detail-chips {
   display: flex;
@@ -619,9 +625,9 @@ body::before {
     <div class="subtitle">22 CFR &sect;41.12 &middot; 22 CFR &sect;42.11</div>
   </div>
   <div class="sources">
-    <a href="https://travel.state.gov/content/travel/en/us-visas/visa-information-resources/all-visa-categories.html" target="_blank">DoS</a>
-    <a href="https://ohss.dhs.gov/topics/immigration/lawful-permanent-residents/immigrant-classes-admission" target="_blank">DHS</a>
-    <a href="https://uscode.house.gov/view.xhtml?req=granuleid:USC-prelim-title8-section1101&num=0" target="_blank">8 USC</a>
+    <a href="https://www.law.cornell.edu/uscode/text/8/1101" target="_blank">8 USC</a>
+    <a href="https://www.law.cornell.edu/cfr/text/22/part-41" target="_blank">22 CFR</a>
+    <a href="https://fam.state.gov/fam/09FAM/09FAM040201.html" target="_blank">FAM</a>
   </div>
 </div>
 
@@ -675,6 +681,170 @@ body::before {
 <script>
 let DATA = null;
 let activeTab = 'all';
+
+// ── Law Link Helpers (shared with index.html) ──
+
+const INA_TO_USC = {
+  '101':'1101','201':'1151','202':'1152','203':'1153','204':'1154',
+  '207':'1157','208':'1158','209':'1159','210':'1160','212':'1182',
+  '214':'1184','216':'1186a','244':'1254a','245':'1255','245A':'1255a',
+  '249':'1259','289':'1359','324':'1435','327':'1438',
+};
+
+const NAMED_ACT_PL = [
+  ['TVPA', '106-386'], ['VTVPA', '106-386'],
+  ['LIFE Act', '106-553'], ['Nursing Relief Act', '106-95'],
+];
+
+const RE_INA = /^INA\s*§(\d+[A-Z]?)((?:\([^)]+\))*)/;
+const RE_USC = /^(\d+)\s*U\.S\.C\.\s*§(\d+[a-z]?)/;
+const RE_CFR = /^(\d+)\s*CFR\s*§([\d.]+)((?:\([^)]+\))*)/;
+const RE_CFR_PART = /^(\d+)\s*CFR\s*Part\s*(\d+)/;
+const RE_FAM = /^9\s*FAM\s*([\d.]+)/;
+const RE_PL = /^PL\s*(\d+)-(\d+)/;
+
+const SUBCATEGORY_FAM = {
+  'A':'402.3','B':'402.2','C':'402.4','CW':'402.18','D':'402.8',
+  'E':'402.9','F':'402.5','G':'402.3','H':'402.10','I':'402.11',
+  'J':'402.5','K':'402.7','L':'402.12','M':'402.5',
+  'N':'402.7','NATO':'402.3',
+  'O':'402.13','P':'402.14','Q':'402.15','R':'402.16',
+  'S':'402.6','T':'402.6','TN':'402.17','U':'402.6','V':'402.7',
+  'IR':'502.2','IB':'502.2','IW':'502.2','Born Abroad':'502.2',
+  'F1':'502.2','F2':'502.2','F3':'502.2','F4':'502.2',
+  'EB-1':'502.4','EB-2':'502.4','EB-3':'502.4',
+  'EB-4':'502.5','GRATEFUL':'502.5','Special Immigrant':'502.5',
+  'EB-5':'502.4','EB-5-Reform':'502.4',
+  'DV':'502.6',
+  'Refugee':'502.7','Asylee':'502.7',
+  'T-Adjustment':'502.7','U-Adjustment':'502.7',
+  'NACARA':'502.7','HRIFA':'502.7',
+  'IRCA':'502.7','Amerasian':'502.7','CNMI':'502.7',
+  'Registry':'502.7','Legacy':'502.7',
+  'Diplomatic':'502.7','Citizenship Restoration':'502.7',
+  'Administrative':'502.7',
+};
+
+const VISA_FAM_ANCHORS = {
+  'H-1B':'M402_10_4_B','H-1B1':'M402_10_5','H-1C':'M402_10_4_C',
+  'H-2A':'M402_10_4_D','H-2B':'M402_10_4_E','H-3':'M402_10_4_F','H-4':'M402_10_14',
+  'B-1':'M402_2_5','B-2':'M402_2_4','B-1_B-2':'M402_2_4','BCC':'M402_2_7',
+  'A-1':'M402_3_5_C','A-2':'M402_3_5_D_1','A-3':'M402_3_9',
+  'G-1':'M402_3_7','G-2':'M402_3_7','G-3':'M402_3_7','G-4':'M402_3_7','G-5':'M402_3_9',
+  'NATO-1':'M402_3_8','NATO-2':'M402_3_8','NATO-3':'M402_3_8',
+  'NATO-4':'M402_3_8','NATO-5':'M402_3_8','NATO-6':'M402_3_8','NATO-7':'M402_3_9',
+  'C-2':'M402_3_6','C-3':'M402_3_9',
+  'D-1':'M402_8_3_A','D-2':'M402_8_3_B',
+  'C-1':'M402_4_6','C-1_D':'M402_8_5',
+  'E-1':'M402_9_5','E-2':'M402_9_6','E-2C':'M402_9_6','E-3':'M402_9_8','E-3D':'M402_9_8','E-3R':'M402_9_8',
+  'K-1':'M402_7_3','K-2':'M402_7_3','K-3':'M402_7_3','K-4':'M402_7_3',
+  'N-8':'M402_7_4','N-9':'M402_7_4',
+  'V-1':'M402_7_3','V-2':'M402_7_3','V-3':'M402_7_3',
+  'F-1':'M402_5_5','F-2':'M402_5_5','F-3':'M402_5_5',
+  'J-1':'M402_5_6','J-2':'M402_5_6',
+  'M-1':'M402_5_5','M-2':'M402_5_5','M-3':'M402_5_5',
+  'S-5':'M402_6_4_C','S-6':'M402_6_4_D','S-7':'M402_6_4_E',
+  'T-1':'M402_6_5','T-2':'M402_6_5','T-3':'M402_6_5',
+  'T-4':'M402_6_5','T-5':'M402_6_5','T-6':'M402_6_5',
+  'U-1':'M402_6_6','U-2':'M402_6_6','U-3':'M402_6_6','U-4':'M402_6_6','U-5':'M402_6_6',
+  'I':'M402_11_3',
+  'L-1A':'M402_12_4','L-1B':'M402_12_4','L-2':'M402_12_3',
+  'O-1A':'M402_13_4_A','O-1B':'M402_13_4_A','O-2':'M402_13_4_B','O-3':'M402_13_4_C',
+  'P-1A':'M402_14_5_A','P-1B':'M402_14_5_A','P-2':'M402_14_5_B','P-3':'M402_14_5_C','P-4':'M402_14_5_D',
+  'Q-1':'M402_15_4',
+  'R-1':'M402_16_7','R-2':'M402_16_3',
+  'TN':'M402_17_4','TD':'M402_17_10',
+  'CW-1':'M402_18_4_C','CW-2':'M402_18_4_D',
+  'SD1':'M502_5_2','SD2':'M502_5_2','SD3':'M502_5_2',
+  'SR1':'M502_5_2','SR2':'M502_5_2','SR3':'M502_5_2',
+  'SE1':'M502_5_3','SE2':'M502_5_3','SE3':'M502_5_3',
+  'SS1':'M502_5_3','SS2':'M502_5_3','SS3':'M502_5_3',
+  'GS1':'M502_5_3','GV1':'M502_5_3','GV2':'M502_5_3','GV3':'M502_5_3',
+  'SF1':'M502_5_4','SF2':'M502_5_4','SG1':'M502_5_4','SG2':'M502_5_4',
+  'SH1':'M502_5_4','SH2':'M502_5_4',
+  'SJ1':'M502_5_5','SJ2':'M502_5_5',
+  'SK1':'M502_5_6','SK2':'M502_5_6','SK3':'M502_5_6','SK4':'M502_5_6',
+  'SN1':'M502_5_6','SN2':'M502_5_6','SN3':'M502_5_6','SN4':'M502_5_6',
+  'SL1':'M502_5_7',
+  'SM1':'M502_5_8','SM2':'M502_5_8','SM3':'M502_5_8','SM4':'M502_5_8','SM5':'M502_5_8',
+  'BC1':'M502_5_9','BC2':'M502_5_9','BC3':'M502_5_9',
+  'SP':'M502_5_10',
+  'SI1':'M502_5_11','SI2':'M502_5_11','SI3':'M502_5_11',
+  'SQ1':'M502_5_12','SQ2':'M502_5_12','SQ3':'M502_5_12',
+  'SB1':'M502_7_2',
+  'IR1':'M502_2_2','IR2':'M502_2_2','IR3':'M502_2_2','IR4':'M502_2_2','IR5':'M502_2_2',
+  'CR1':'M502_2_2','CR2':'M502_2_2','CF1':'M502_2_2','CF2':'M502_2_2',
+  'AR1':'M502_2_2','IF1':'M502_2_2','IF2':'M502_2_2',
+  'IH3':'M502_2_2','IH4':'M502_2_2','VI5':'M502_2_2',
+  'IB1':'M502_2_2','IB2':'M502_2_2','IB3':'M502_2_2','IB5':'M502_2_2',
+  'IW1':'M502_2_2','IW2':'M502_2_2',
+  'F11':'M502_2_3','F12':'M502_2_3',
+  'F21':'M502_2_3','F22':'M502_2_3','F23':'M502_2_3','F24':'M502_2_3','F25':'M502_2_3',
+  'F31':'M502_2_3','F32':'M502_2_3','F33':'M502_2_3',
+  'F41':'M502_2_3','F42':'M502_2_3','F43':'M502_2_3',
+  'AM1':'M502_2_4','AM2':'M502_2_4','AM3':'M502_2_4',
+};
+
+function govInfoUrl(congress, number) {
+  return `https://www.govinfo.gov/content/pkg/PLAW-${congress}publ${number}/html/PLAW-${congress}publ${number}.htm`;
+}
+
+function famUrl(section, anchor) {
+  const [major, minor] = section.split('.');
+  const base = `https://fam.state.gov/fam/09FAM/09FAM0${major}${minor.padStart(2, '0')}.html`;
+  const frag = anchor || `M${section.replace('.', '_')}_3`;
+  return `${base}#${frag}`;
+}
+
+function parseSubs(str) {
+  if (!str) return '';
+  const subs = str.match(/\(([^)]+)\)/g);
+  return subs ? '#' + subs.map(s => s.slice(1, -1)).join('_') : '';
+}
+
+function parseCitation(p) {
+  p = p.trim();
+  const ina = p.match(RE_INA);
+  if (ina && INA_TO_USC[ina[1]])
+    return { url: `https://www.law.cornell.edu/uscode/text/8/${INA_TO_USC[ina[1]]}${parseSubs(ina[2])}`, label: p };
+  const usc = p.match(RE_USC);
+  if (usc)
+    return { url: `https://www.law.cornell.edu/uscode/text/${usc[1]}/${usc[2]}`, label: p };
+  const cfr = p.match(RE_CFR);
+  if (cfr)
+    return { url: `https://www.law.cornell.edu/cfr/text/${cfr[1]}/${cfr[2]}${parseSubs(cfr[3])}`, label: p };
+  const cfrPart = p.match(RE_CFR_PART);
+  if (cfrPart)
+    return { url: `https://www.law.cornell.edu/cfr/text/${cfrPart[1]}/part-${cfrPart[2]}`, label: p };
+  const fam = p.match(RE_FAM);
+  if (fam)
+    return { url: famUrl(fam[1]), label: p };
+  const pl = p.match(RE_PL);
+  if (pl && parseInt(pl[1]) >= 104)
+    return { url: govInfoUrl(pl[1], pl[2]), label: p };
+  for (const [prefix, plNum] of NAMED_ACT_PL) {
+    if (p.startsWith(prefix)) {
+      const [c, n] = plNum.split('-');
+      return { url: govInfoUrl(c, n), label: p };
+    }
+  }
+  return null;
+}
+
+function linkifyLaw(lawStr) {
+  if (!lawStr) return 'N/A';
+  return lawStr.split(/;\s*/).map(p => {
+    const c = parseCitation(p);
+    return c ? `<a href="${c.url}" target="_blank">${c.label}</a>` : p.trim();
+  }).join('<br>');
+}
+
+function buildFamSection(subcategory, visaId) {
+  const sec = SUBCATEGORY_FAM[subcategory];
+  if (!sec) return '';
+  const anchor = visaId ? VISA_FAM_ANCHORS[visaId] : undefined;
+  return `<div class="detail-section"><div class="detail-label">FAM</div><div class="detail-value-mono"><a href="${famUrl(sec, anchor)}" target="_blank">9 FAM ${sec}</a></div></div>`;
+}
 
 fetch('visa_data.json').then(r => r.json()).then(data => {
   DATA = data;
@@ -957,25 +1127,16 @@ function showVisaDetail(id) {
     dhsHtml = `<div class="detail-section"><div class="detail-label">DHS Codes</div><div class="detail-value-mono">${node.dhs_codes.join(', ')}</div></div>`;
   }
 
-  let refsHtml = '<div class="detail-section"><div class="detail-label">References</div><div class="detail-refs">';
-  if (isNIV) {
-    refsHtml += `<a class="ref-link" href="https://travel.state.gov/content/travel/en/us-visas/visa-information-resources/all-visa-categories.html" target="_blank">DoS Categories</a>`;
-  } else {
-    refsHtml += `<a class="ref-link" href="https://ohss.dhs.gov/topics/immigration/lawful-permanent-residents/immigrant-classes-admission" target="_blank">DHS Classes</a>`;
-  }
-  refsHtml += `<a class="ref-link" href="https://uscode.house.gov/view.xhtml?req=granuleid:USC-prelim-title8-section1101&num=0" target="_blank">8 U.S.C. &sect;1101</a>`;
-  refsHtml += '</div></div>';
-
   document.getElementById('side-content').innerHTML = `
     <div class="detail-code" style="color:${color}">${node.id}</div>
     <div class="detail-name">${node.name}</div>
-    <div class="detail-section"><div class="detail-label">Law</div><div class="detail-value-mono">${node.law || 'N/A'}</div></div>
+    <div class="detail-section"><div class="detail-label">Description</div><div class="detail-value">${node.description || 'N/A'}</div></div>
     <div class="detail-section"><div class="detail-label">Classification</div><div class="detail-value">${node.group} &mdash; ${node.category}</div></div>
     <div class="detail-section"><div class="detail-label">Family</div><div class="detail-value">${node.subcategory}</div></div>
-    <div class="detail-section"><div class="detail-label">Description</div><div class="detail-value">${node.description || 'N/A'}</div></div>
+    ${buildFamSection(node.subcategory, node.id)}
+    <div class="detail-section"><div class="detail-label">Law</div><div class="detail-value-mono">${linkifyLaw(node.law)}</div></div>
     ${dhsHtml}
     ${connectionsHtml}
-    ${refsHtml}
   `;
 
   document.getElementById('side-detail').classList.add('active');

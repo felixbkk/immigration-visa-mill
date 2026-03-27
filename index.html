@@ -552,7 +552,7 @@ const VISA_FAM_ANCHORS = {
   // 402.2 — B visas
   'B-1':'M402_2_5','B-2':'M402_2_4','B-1_B-2':'M402_2_4','BCC':'M402_2_7',
   // 402.3 — A visas
-  'A-1':'M402_3_5_C','A-2':'M402_3_5_D_1','A-3':'M402_3_5_G',
+  'A-1':'M402_3_5_C','A-2':'M402_3_5_D_1','A-3':'M402_3_9',
   // 402.3 — G visas
   'G-1':'M402_3_7','G-2':'M402_3_7','G-3':'M402_3_7','G-4':'M402_3_7',
   'G-5':'M402_3_9',
@@ -560,7 +560,7 @@ const VISA_FAM_ANCHORS = {
   'NATO-1':'M402_3_8','NATO-2':'M402_3_8','NATO-3':'M402_3_8',
   'NATO-4':'M402_3_8','NATO-5':'M402_3_8','NATO-6':'M402_3_8','NATO-7':'M402_3_9',
   // 402.3 — C-2/C-3 (on 402.3 page, not 402.4)
-  'C-2':'M402_3_6','C-3':'M402_3_6',
+  'C-2':'M402_3_6','C-3':'M402_3_9',
   // 402.8 — D crew
   'D-1':'M402_8_3_A','D-2':'M402_8_3_B',
   // 402.4 — C transit
@@ -639,6 +639,7 @@ function famUrl(section, anchor) {
 
 let rawData = null;
 let overlayLinks = [];
+let multiParentLinks = [];
 let currentLayout = 'tree';
 let nodePositions = {};
 let currentRootData = null;
@@ -693,6 +694,7 @@ function showInaDefault() {
 function transformToHierarchy(data) {
   const groups = { NIV: {}, IV: {} };
   const overlays = [];
+  const multiParentArcs = [];
 
   for (const node of data.nodes) {
     const g = node.group;
@@ -758,6 +760,8 @@ function transformToHierarchy(data) {
                   clusterLeaves.push(dNode);
                   assigned.add(did);
                 }
+              } else {
+                multiParentArcs.push({ source: principal.id, target: did });
               }
             }
             assigned.add(principal.id);
@@ -845,6 +849,7 @@ function transformToHierarchy(data) {
       children: rootChildren,
     },
     overlays,
+    multiParentArcs,
   };
 }
 
@@ -874,6 +879,7 @@ function render() {
     currentRootData = freshResult.root;
   }
   overlayLinks = freshResult.overlays;
+  multiParentLinks = freshResult.multiParentArcs;
 
   const root = d3.hierarchy(currentRootData);
 
@@ -1058,11 +1064,28 @@ function parseCitation(p) {
   return null;
 }
 
+function famLabel(subcategory, visaId) {
+  const sec = SUBCATEGORY_FAM[subcategory];
+  if (!sec) return null;
+  const anchor = visaId ? VISA_FAM_ANCHORS[visaId] : null;
+  if (!anchor) return `9 FAM ${sec}`;
+  // M402_3_9 → 402.3-9, M402_10_4_B → 402.10-4(B)
+  const parts = anchor.replace('M', '').split('_');
+  const major = parts[0];
+  const minor = parts[1];
+  const rest = parts.slice(2);
+  if (!rest.length) return `9 FAM ${major}.${minor}`;
+  const sub = rest[0];
+  const deeper = rest.slice(1).map(p => `(${p})`).join('');
+  return `9 FAM ${major}.${minor}-${sub}${deeper}`;
+}
+
 function buildFamSection(subcategory, visaId) {
   const sec = SUBCATEGORY_FAM[subcategory];
   if (!sec) return '';
   const anchor = visaId ? VISA_FAM_ANCHORS[visaId] : undefined;
-  return `<div class="detail-section"><span class="detail-label">FAM</span><div class="detail-value-mono"><a href="${famUrl(sec, anchor)}" target="_blank">9 FAM ${sec}</a></div></div>`;
+  const label = famLabel(subcategory, visaId) || `9 FAM ${sec}`;
+  return `<div class="detail-section"><span class="detail-label">FAM</span><div class="detail-value-mono"><a href="${famUrl(sec, anchor)}" target="_blank">${label}</a></div></div>`;
 }
 
 function linkifyLaw(lawStr) {
@@ -1136,11 +1159,11 @@ function getSubtitle(d) {
   if (d.data._nodeType === 'intermediate') return null;
   if (d.data._nodeType === 'principal') {
     const nd = d.data.nodeData;
-    return nd ? nd.law : null;
+    return nd ? famLabel(nd.subcategory, nd.id) : null;
   }
-  // Leaf: show law citation
+  // Leaf: show FAM reference
   const nd = d.data.nodeData;
-  if (nd) return nd.law;
+  if (nd) return famLabel(nd.subcategory, nd.id);
   return null;
 }
 
@@ -1176,6 +1199,7 @@ function renderTree(g, root, w, h, svg, zoom) {
     const dur = 500;
 
     const boxWidths = new Map();
+    const boxHeights = new Map();
 
     // ── Pre-measure: render hidden text to get widths per node ──
     const measureG = g.append('g').attr('class', 'measure-tmp').style('visibility', 'hidden');
@@ -1192,6 +1216,8 @@ function renderTree(g, root, w, h, svg, zoom) {
       const mw = Math.max(main.node().getComputedTextLength(), sub.node().getComputedTextLength());
       const padL = 10, padR = 24;
       boxWidths.set(d, mw + padL + padR);
+      const mh = Math.max(main.node().getBBox().height, sub.node().getBBox().height || 0);
+      boxHeights.set(d, mh + 20);
     });
     measureG.remove();
 
@@ -1230,7 +1256,7 @@ function renderTree(g, root, w, h, svg, zoom) {
 
     nodePositions = {};
     nodes.forEach(d => {
-      if (d.data.nodeData) nodePositions[d.data.nodeData.id] = { x: d.y, y: d.x };
+      if (d.data.nodeData) nodePositions[d.data.nodeData.id] = { x: d.y, y: d.x, w: boxWidths.get(d) || 100, h: boxHeights.get(d) || 40 };
     });
 
     // ── Nodes ──
@@ -1359,15 +1385,6 @@ function renderTree(g, root, w, h, svg, zoom) {
 
       // Small green dot for principals (nodes that have outbound derivative/spouse/child links)
       const nodeId = d.data.nodeData ? d.data.nodeData.id : null;
-      const isPrincipal = d.data._nodeType === 'principal' ||
-        (nodeId && rawData.links.some(l => l.source === nodeId && l.relation_type !== 'pathway'));
-      if (isPrincipal) {
-        group.append('circle')
-          .attr('cx', -padL + 3)
-          .attr('cy', rectY + 5)
-          .attr('r', 3)
-          .attr('fill', '#6dd498');
-      }
 
       // Store badge info for rendering on top of links later
       const type = d.data._nodeType;
@@ -1572,26 +1589,22 @@ function renderRadial(g, root, w, h, svg, zoom) {
 // ── Arc Overlays ──
 
 function drawArcOverlays(g) {
-  const showPathways = false;
-  const showMultiparent = false;
-
-  if (!showPathways && !showMultiparent) return;
-
-  for (const link of overlayLinks) {
-    const s = nodePositions[link.source];
-    const t = nodePositions[link.target];
+  for (const link of multiParentLinks) {
+    const s = nodePositions[link.source];  // upstream principal (G-2)
+    const t = nodePositions[link.target];  // derivative (G-5)
     if (!s || !t) continue;
 
-    if (link.type === 'pathway' && !showPathways) continue;
-    if (link.type !== 'pathway' && !showMultiparent) continue;
-
-    const dx = t.x - s.x;
-    const dy = t.y - s.y;
-    const dr = Math.sqrt(dx * dx + dy * dy) * 1.5;
+    // From: bottom center of G-5
+    const x1 = t.x + (t.w || 100) / 2 - 10;
+    const y1 = t.y + (t.h || 40) / 2;
+    // To: right edge center of G-2 (same point tree links leave from)
+    const x2 = s.x + (s.w || 100) - 10;
+    const y2 = s.y;
+    const my = Math.max(y1, y2) + 30;
 
     g.append('path')
-      .attr('class', `arc-overlay ${link.type === 'pathway' ? 'arc-pathway' : 'arc-multiparent'}`)
-      .attr('d', `M${s.x},${s.y}A${dr},${dr} 0 0,1 ${t.x},${t.y}`);
+      .attr('class', 'arc-overlay arc-multiparent')
+      .attr('d', `M${x1},${y1}C${x1},${my} ${x2},${my} ${x2},${y2}`);
   }
 }
 
@@ -1684,7 +1697,6 @@ function showDetail(nodeData) {
     dhsHtml = `<div class="detail-section"><span class="detail-label">DHS Codes</span><div class="detail-value-mono">${nodeData.dhs_codes.join(', ')}</div></div>`;
   }
 
-  let refsHtml = `<div class="detail-section"><span class="detail-label">References</span><div class="detail-refs">${buildLawRefs(nodeData.law, nodeData.subcategory)}</div></div>`;
 
   content.innerHTML = `
     <div class="detail-hero" style="--accent:${color}">
@@ -1698,11 +1710,10 @@ function showDetail(nodeData) {
       <div class="detail-section"><span class="detail-label">Description</span><div class="detail-value">${nodeData.description || 'N/A'}</div></div>
       <div class="detail-section"><span class="detail-label">Classification</span><div class="detail-value">${nodeData.category}</div></div>
       <div class="detail-section"><span class="detail-label">Family</span><div class="detail-value">${nodeData.subcategory}</div></div>
-      <div class="detail-section"><span class="detail-label">Law</span><div class="detail-value-mono">${linkifyLaw(nodeData.law)}</div></div>
       ${buildFamSection(nodeData.subcategory, nodeData.id)}
+      <div class="detail-section"><span class="detail-label">Law</span><div class="detail-value-mono">${linkifyLaw(nodeData.law)}</div></div>
       ${dhsHtml}
       ${connectionsHtml}
-      ${refsHtml}
     </div>
   `;
 
