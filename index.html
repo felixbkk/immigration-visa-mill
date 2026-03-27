@@ -1,3 +1,19 @@
+<!--
+  ╔══════════════════════════════════════════════════════════════╗
+  ║  VISA MILL — U.S. Visa Classification System                ║
+  ║                                                              ║
+  ║  325 visa classifications under the INA, deep-linked to     ║
+  ║  Cornell LII, FAM (fam.state.gov), and GovInfo.             ║
+  ║                                                              ║
+  ║  Data scraped from 9 FAM 402/502 statutory authority        ║
+  ║  sections. 3,651 law citations. 206 dependency links.       ║
+  ║                                                              ║
+  ║  Source: github.com/felixbkk/immigration-visa-mill          ║
+  ║                                                              ║
+  ║  Easter eggs: try searching "42" or "DENIED", or click      ║
+  ║  the title 5 times.                                          ║
+  ╚══════════════════════════════════════════════════════════════╝
+-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -450,7 +466,7 @@
 <body>
 
 <div id="toolbar">
-  <h1>U.S. VISA CLASSIFICATION SYSTEM</h1>
+  <h1 id="app-title">U.S. VISA CLASSIFICATION SYSTEM</h1>
   <div style="position:relative;">
     <input type="text" id="search-input" placeholder="Search visa code..." style="background:var(--bg-deep);color:var(--text-primary);border:1px solid var(--border);padding:6px 28px 6px 12px;border-radius:6px;font-family:'Plus Jakarta Sans',sans-serif;font-size:11px;width:220px;outline:none;transition:border-color .2s;" autocomplete="off" onfocus="this.style.borderColor='var(--niv-accent)'" onblur="this.style.borderColor='var(--border)'">
     <button id="search-clear" style="display:none;position:absolute;right:6px;top:50%;transform:translateY(-50%);background:none;border:none;color:var(--text-muted);font-size:14px;cursor:pointer;padding:0 4px;">&times;</button>
@@ -1869,10 +1885,41 @@ searchInput.addEventListener('input', () => {
     }
     return;
   }
+
+  // Easter egg: DENIED
+  if (q === 'denied') {
+    document.querySelectorAll('.node-box').forEach(el => {
+      el._origFill = el.getAttribute('fill');
+      el.setAttribute('fill', '#ff000040');
+      el.setAttribute('stroke', '#ff0000');
+    });
+    setTimeout(() => {
+      document.querySelectorAll('.node-box').forEach(el => {
+        if (el._origFill) el.setAttribute('fill', el._origFill);
+        el.setAttribute('stroke', el._origFill ? '' : '');
+      });
+      render();
+    }, 2000);
+    return;
+  }
+
   const matches = rawData.nodes.filter(n =>
     n.id.toLowerCase().includes(q) ||
     n.name.toLowerCase().includes(q)
   ).slice(0, 15);
+
+  // Easter egg: search "42" shows Don't Panic tooltip
+  if (q === '42') {
+    searchResults.style.display = 'block';
+    searchResults.innerHTML = `<div class="search-item" style="color:var(--text-muted);font-style:italic;cursor:default;" title="The Answer to the Ultimate Question of Life, the Universe, and Everything">Don't Panic. — 42 CFR is Public Health.</div>` +
+      matches.map(n =>
+        `<div class="search-item" data-id="${n.id}"><span class="si-code">${n.id}</span><span class="si-name">${n.name}</span></div>`
+      ).join('');
+    searchResults.querySelectorAll('.search-item[data-id]').forEach(el => {
+      el.addEventListener('click', (e) => { e.stopPropagation(); clearSearch(); searchAndExpand(el.dataset.id); });
+    });
+    return;
+  }
 
   if (matches.length === 0) {
     searchResults.style.display = 'none';
@@ -2000,6 +2047,36 @@ document.getElementById('theme-select').addEventListener('change', e => {
   applyTheme(e.target.value);
   currentRootData = null;
   render();
+});
+
+// Easter egg: click title 5 times
+let titleClicks = 0;
+let titleTimer = null;
+document.getElementById('app-title').addEventListener('click', () => {
+  titleClicks++;
+  clearTimeout(titleTimer);
+  titleTimer = setTimeout(() => { titleClicks = 0; }, 1500);
+  if (titleClicks >= 5) {
+    titleClicks = 0;
+    const panel = document.getElementById('detail-panel');
+    const content = document.getElementById('detail-content');
+    const color = '#ff00ff';
+    content.innerHTML = `
+      <div class="detail-hero" style="border-top: 3px solid ${color}; padding: 20px 20px 16px;">
+        <div class="detail-id" style="color:${color}">Z-99</div>
+        <div class="detail-name">Visa for Time Travelers</div>
+      </div>
+      <div class="detail-body">
+        <div class="detail-section"><span class="detail-label">Description</span><div class="detail-value">Reserved for applicants arriving before their petition was filed. Requires proof of future employment and a letter from your past self. Must demonstrate intent to return to original timeline.</div></div>
+        <div class="detail-section"><span class="detail-label">Classification</span><div class="detail-value">NIV — Temporal & Paradox</div></div>
+        <div class="detail-section"><span class="detail-label">Family</span><div class="detail-value">Z</div></div>
+        <div class="detail-section"><span class="detail-label">Law</span><div class="detail-value-mono">INA &sect;&infin;</div></div>
+        <div class="detail-section"><span class="detail-label">Note</span><div class="detail-value" style="font-style:italic;">You found an easter egg. This visa does not exist. Yet.</div></div>
+      </div>
+    `;
+    panel.classList.add('active');
+    document.getElementById('panel-empty').style.display = 'none';
+  }
 });
 
 window.addEventListener('resize', () => render());
