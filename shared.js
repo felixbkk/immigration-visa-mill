@@ -1,6 +1,7 @@
 // Shared constants and helpers for index.html and reference.html
 // Update this file — both pages load it.
 
+
 const SUBCATEGORY_FAM = {
   // NIV — 9 FAM 402.X (verified page titles)
   'A':'402.3',    // Officials & Employees of Foreign Gov'ts & Int'l Orgs
@@ -45,6 +46,7 @@ const SUBCATEGORY_FAM = {
 };
 
 // Per-visa deep-link anchors (curated from FAM page structure)
+
 const VISA_FAM_ANCHORS = {
   // 402.10 — H visas
   'H-1B':'M402_10_4_B','H-1B1':'M402_10_5','H-1C':'M402_10_4_C',
@@ -130,6 +132,7 @@ const VISA_FAM_ANCHORS = {
   'AM1':'M502_2_4','AM2':'M502_2_4','AM3':'M502_2_4',
 };
 
+
 const FAM_TITLES = {
   'M402_2_3':'Categories of B Visas',
   'M402_2_4':'Tourist Visas (B-2)',
@@ -214,6 +217,7 @@ const FAM_TITLES = {
   'M502_7_3':'K Visas — Spouse or Fiancé(e) of U.S. Citizen',
 };
 
+
 function famUrl(section, anchor) {
   const [major, minor] = section.split('.');
   const base = `https://fam.state.gov/fam/09FAM/09FAM0${major}${minor.padStart(2, '0')}.html`;
@@ -221,362 +225,6 @@ function famUrl(section, anchor) {
   return `${base}#${frag}`;
 }
 
-let rawData = null;
-let overlayLinks = [];
-let multiParentLinks = [];
-let currentLayout = 'tree';
-let nodePositions = {};
-let currentRootData = null;
-let currentUpdateFn = null;
-let selectedLeafId = null;
-let currentSvg = null;
-let currentZoom = null;
-
-// ── Data Loading ──
-
-d3.json('visa_data.json').then(data => {
-  rawData = data;
-  currentRootData = null;
-  render();
-  showInaDefault();
-});
-
-function showInaDefault() {
-  const panel = document.getElementById('detail-panel');
-  const content = document.getElementById('detail-content');
-  const nivCount = rawData.nodes.filter(n => n.group === 'NIV').length;
-  const ivCount = rawData.nodes.filter(n => n.group === 'IV').length;
-
-  content.innerHTML = `
-    <div class="detail-hero" style="border-top: 3px solid #e0e0e0; padding: 20px 20px 16px;">
-      <div class="detail-id" style="color:#e0e0e0">VISA MILL</div>
-      <div class="detail-name">Every visa the embassy wishes you'd stop asking about</div>
-    </div>
-    <div class="detail-body">
-      <div class="detail-section"><span class="detail-label">Codification</span><div class="detail-value-mono">8 U.S.C. &sect;1101 et seq. (Public Law 82-414)</div></div>
-      <div class="detail-section"><span class="detail-label">Description</span><div class="detail-value">The foundational federal law governing all immigration to the United States. Defines all nonimmigrant classifications (&sect;101(a)(15)), immigrant preferences (&sect;203), and special immigrant categories (&sect;101(a)(27)).</div></div>
-      <div class="detail-section"><span class="detail-label">Dataset</span><div class="detail-value">${rawData.nodes.length} visa classifications &mdash; ${nivCount} nonimmigrant, ${ivCount} immigrant &mdash; ${rawData.links.length} dependency links</div></div>
-      <div class="detail-section"><span class="detail-label">Classification Symbols</span>
-        <div class="detail-value-mono" style="margin-top:4px;">NIV: 22 CFR &sect;41.12 &middot; 9 FAM 402.1</div>
-        <div class="detail-value-mono">IV: 22 CFR &sect;42.11 &middot; 9 FAM 502.1</div>
-      </div>
-    </div>
-  `;
-
-  panel.classList.add('active');
-  document.getElementById('panel-empty').style.display = 'none';
-}
-
-// ── Transform flat data → hierarchy ──
-
-function transformToHierarchy(data) {
-  const groups = { NIV: {}, IV: {} };
-  const overlays = [];
-  const multiParentArcs = [];
-
-  for (const node of data.nodes) {
-    const g = node.group;
-    const cat = node.category;
-    const sub = node.subcategory;
-    if (!groups[g]) groups[g] = {};
-    if (!groups[g][cat]) groups[g][cat] = {};
-    if (!groups[g][cat][sub]) groups[g][cat][sub] = [];
-    groups[g][cat][sub].push(node);
-  }
-
-  const rootChildren = [];
-  for (const grp of ['NIV', 'IV']) {
-    const catChildren = [];
-    for (const cat of Object.keys(groups[grp]).sort()) {
-      const subChildren = [];
-      for (const sub of Object.keys(groups[grp][cat]).sort()) {
-        const allLeaves = groups[grp][cat][sub]
-          .sort((a, b) => a.id.localeCompare(b.id));
-
-        const leafIds = new Set(allLeaves.map(n => n.id));
-
-        // Find internal links (both source and target in this subcategory)
-        const internalLinks = data.links.filter(l =>
-          leafIds.has(l.source) && leafIds.has(l.target)
-        );
-
-        let subKids;
-
-        if (internalLinks.length === 0) {
-          // No internal connections — all leaves stay flat
-          subKids = allLeaves.map(n => ({
-            name: n.id,
-            nodeData: n,
-            _children: null,
-            children: null,
-          }));
-        } else {
-          // Link-based clustering
-          const inbound = new Set(internalLinks.map(l => l.target));
-          const outbound = new Set(internalLinks.map(l => l.source));
-
-          // Principals: have outbound but no inbound (within subcategory)
-          const principals = allLeaves.filter(n =>
-            outbound.has(n.id) && !inbound.has(n.id)
-          );
-
-          // Build cluster for each principal
-          const assigned = new Set(); // track which derivatives are already assigned
-          const clusters = [];
-
-          for (const principal of principals.sort((a, b) => a.id.localeCompare(b.id))) {
-            // Find direct derivatives of this principal within the subcategory
-            const derivativeIds = internalLinks
-              .filter(l => l.source === principal.id && leafIds.has(l.target))
-              .map(l => l.target);
-
-            const clusterLeaves = [principal];
-            for (const did of derivativeIds) {
-              if (!assigned.has(did)) {
-                const dNode = allLeaves.find(n => n.id === did);
-                if (dNode) {
-                  clusterLeaves.push(dNode);
-                  assigned.add(did);
-                }
-              } else {
-                multiParentArcs.push({ source: principal.id, target: did });
-              }
-            }
-            assigned.add(principal.id);
-
-            if (clusterLeaves.length === 1) {
-              // Principal with no unassigned derivatives — stays flat
-              clusters.push({
-                name: principal.id,
-                nodeData: principal,
-                _children: null,
-                children: null,
-              });
-            } else {
-              // Principal IS the intermediate — derivatives are its children
-              const derivOnly = clusterLeaves.filter(n => n.id !== principal.id);
-              clusters.push({
-                name: principal.id,
-                nodeData: principal,
-                _nodeType: 'principal',
-                _category: cat,
-                children: null,
-                _children: derivOnly.map(n => ({
-                  name: n.id,
-                  nodeData: n,
-                  _children: null,
-                  children: null,
-                })),
-              });
-            }
-          }
-
-          // Orphans: not assigned to any cluster
-          const orphans = allLeaves
-            .filter(n => !assigned.has(n.id))
-            .map(n => ({
-              name: n.id,
-              nodeData: n,
-              _children: null,
-              children: null,
-            }));
-
-          subKids = [...clusters, ...orphans];
-        }
-
-        subChildren.push({
-          name: sub,
-          _nodeType: 'subcategory',
-          _category: cat,
-          children: null,
-          _children: subKids,
-        });
-      }
-      catChildren.push({
-        name: cat.replace(`${grp} — `, ''),
-        _fullCategory: cat,
-        _nodeType: 'category',
-        children: null,
-        _children: subChildren,
-      });
-    }
-    rootChildren.push({
-      name: grp,
-      _nodeType: 'hub',
-      children: catChildren,
-      _children: catChildren,
-    });
-  }
-
-  // Identify overlay links (all links become overlays since tree uses hierarchy)
-  for (const link of data.links) {
-    overlays.push({
-      source: link.source,
-      target: link.target,
-      type: link.relation_type,
-      label: link.label,
-    });
-  }
-
-  return {
-    root: {
-      name: 'VISA MILL',
-      _nodeType: 'root',
-      _fullName: 'Every visa the embassy wishes you\'d stop asking about',
-      _subtitle: '8 U.S.C. §1101 et seq.',
-      children: rootChildren,
-    },
-    overlays,
-    multiParentArcs,
-  };
-}
-
-// ── Rendering ──
-
-function render() {
-  const container = document.getElementById('canvas-container');
-  const w = container.clientWidth;
-  const h = container.clientHeight;
-
-  const svg = d3.select('#viz')
-    .attr('viewBox', null)
-    .html('');
-
-  const g = svg.append('g').attr('class', 'zoomable');
-
-  const zoom = d3.zoom()
-    .scaleExtent([0.1, 4])
-    .on('zoom', e => g.attr('transform', e.transform));
-  svg.call(zoom);
-  currentSvg = svg;
-  currentZoom = zoom;
-
-  // Always rebuild hierarchy fresh (preserving expand/collapse state via currentRootData)
-  const freshResult = transformToHierarchy(rawData);
-  if (!currentRootData) {
-    currentRootData = freshResult.root;
-  }
-  overlayLinks = freshResult.overlays;
-  multiParentLinks = freshResult.multiParentArcs;
-
-  const root = d3.hierarchy(currentRootData);
-
-  if (currentLayout === 'tree') {
-    renderTree(g, root, w, h, svg, zoom);
-  } else {
-    renderRadial(g, root, w, h, svg, zoom);
-  }
-}
-
-function getNodeColor(d) {
-  if (d.data._nodeType === 'root') return '#e0e0e0';
-  if (d.data._nodeType === 'hub') return HUB_COLORS[d.data.name] || '#fff';
-  if (d.data._nodeType === 'category') return COLORS[d.data._fullCategory] || '#888';
-  if (d.data._nodeType === 'subcategory') return COLORS[d.data._category] || '#888';
-  if (d.data._nodeType === 'intermediate' || d.data._nodeType === 'principal') return COLORS[d.data._category] || '#888';
-  if (d.data.nodeData) {
-    return COLORS[d.data.nodeData.category] || '#888';
-  }
-  return '#888';
-}
-
-function getNodeRadius(d) {
-  if (d.data._nodeType === 'root') return 18;
-  if (d.data._nodeType === 'hub') return 14;
-  if (d.data._nodeType === 'category') return 10;
-  if (d.data._nodeType === 'subcategory') return 7;
-  return 5;
-}
-
-function hasChildren(d) {
-  return d.data._children && d.data._children.length > 0;
-}
-
-function toggleNode(d, root) {
-  if (d.data._nodeType === 'hub') return;
-
-  // Accordion: only one node open at a time per level
-  // (skipped when expandAll is active)
-  if (!window._expandAllActive && !d.data.children && d.data._children) {
-    // Close ALL other open nodes at the same depth
-    collapseAllExcept(root.data, d.data);
-  }
-
-  if (d.data.children) {
-    d.data._children = d.data.children;
-    d.data.children = null;
-  } else if (d.data._children) {
-    d.data.children = d.data._children;
-  }
-}
-
-function findParentData(rootData, targetData) {
-  const children = rootData.children || rootData._children || [];
-  for (const child of children) {
-    if (child === targetData) return rootData;
-    const found = findParentData(child, targetData);
-    if (found) return found;
-  }
-  return null;
-}
-
-function collapseAllExcept(rootData, keep) {
-  // Find the depth of the node being opened
-  const keepType = keep._nodeType;
-
-  // Walk the tree and close siblings + cousins at the same level
-  // But leave ancestors open so we can see the path
-  _collapseSiblings(rootData, keep);
-}
-
-function _collapseSiblings(node, keep) {
-  const kids = node.children || [];
-  for (const child of kids) {
-    if (child === keep) continue;
-
-    // Collapse this sibling if it's at the same level
-    if (child._nodeType === keep._nodeType && child.children) {
-      // First collapse all descendants inside it
-      _collapseDeep(child);
-      child._children = child.children;
-      child.children = null;
-    }
-
-    _collapseSiblings(child, keep);
-  }
-}
-
-function _collapseDeep(node) {
-  const kids = node.children || [];
-  for (const child of kids) {
-    _collapseDeep(child);
-    if (child.children && child._nodeType !== 'hub' && child._nodeType !== 'root') {
-      child._children = child.children;
-      child.children = null;
-    }
-  }
-}
-
-// ── Color Helpers ──
-
-function blendWithBg(hex, amount) {
-  const bg = themeBg;
-  const c = hexToRgb(hex);
-  const r = Math.round(bg.r + (c.r - bg.r) * amount);
-  const g = Math.round(bg.g + (c.g - bg.g) * amount);
-  const b = Math.round(bg.b + (c.b - bg.b) * amount);
-  return `rgb(${r},${g},${b})`;
-}
-
-function hexToRgb(hex) {
-  hex = hex.replace('#', '');
-  if (hex.length === 3) hex = hex[0]+hex[0]+hex[1]+hex[1]+hex[2]+hex[2];
-  return {
-    r: parseInt(hex.slice(0, 2), 16),
-    g: parseInt(hex.slice(2, 4), 16),
-    b: parseInt(hex.slice(4, 6), 16),
-  };
-}
 
 // ── Law Link Helpers ──
 
@@ -674,3 +322,4 @@ function linkifyLaw(lawStr) {
     return c ? `<a href="${c.url}" target="_blank">${c.label}</a>` : p.trim();
   }).join('<br>');
 }
+
