@@ -842,16 +842,6 @@ function showInaDefault() {
           <b>${totalCitations.toLocaleString()}</b> law citations
         </div>
       </div>
-      <div class="detail-section"><span class="detail-label">Relationships</span>
-        <div class="detail-value">
-          ${Object.entries(relTypes).map(([t, c]) => `<b>${c}</b> ${t}`).join(' &middot; ')}
-        </div>
-      </div>
-      <div class="detail-section"><span class="detail-label">Most Connected</span>
-        <div class="detail-value-mono" style="line-height:2;">
-          ${topConn.map(([id, c]) => `${id} &mdash; ${c} links`).join('<br>')}
-        </div>
-      </div>
       <div class="detail-section"><span class="detail-label">Every Citation Links To</span>
         <div class="detail-value" style="line-height:2;">
           <b>INA / USC</b> &rarr; Cornell LII deep-links<br>
@@ -1677,7 +1667,7 @@ function showCategoryDetail(d) {
   const content = document.getElementById('detail-content');
   const type = d.data._nodeType;
 
-  let title = '', subtitle = '', desc = '', law = '', color = '#888';
+  let title = '', subtitle = '', desc = '', law = '', fam = '', color = '#888';
 
   if (type === 'root') {
     title = 'VISA MILL';
@@ -1691,12 +1681,14 @@ function showCategoryDetail(d) {
       title = 'NIV';
       subtitle = 'Nonimmigrant Visas';
       desc = 'Temporary visas for visitors, workers, students, diplomats, and others who intend to stay in the U.S. for a specific purpose and limited time. Defined in INA §101(a)(15), subparagraphs (A) through (V). Classification symbols per 22 CFR §41.12.';
-      law = 'INA §101(a)(15); 22 CFR Part 41; 9 FAM 402.1';
+      fam = '9 FAM 402.1';
+      law = 'INA §101(a)(15); 22 CFR Part 41';
     } else {
       title = 'IV';
       subtitle = 'Immigrant Visas';
       desc = 'Visas for persons seeking lawful permanent resident (LPR / green card) status. Includes immediate relatives (INA §201(b)), family preferences (INA §203(a)), employment preferences (INA §203(b)), diversity lottery (INA §203(c)), and special immigrants (INA §101(a)(27)). Classification symbols per 22 CFR §42.11.';
-      law = 'INA §201; INA §203; 22 CFR Part 42; 9 FAM 502.1';
+      fam = '9 FAM 502.1';
+      law = 'INA §201; INA §203; 22 CFR Part 42';
     }
   } else if (type === 'category') {
     const fullCat = d.data._fullCategory;
@@ -1723,6 +1715,7 @@ function showCategoryDetail(d) {
       <div class="detail-name">${subtitle}</div>
     </div>
     <div class="detail-body">
+      ${fam ? `<div class="detail-section"><span class="detail-label">FAM</span><div class="detail-value-mono">${linkifyLaw(fam)}</div></div>` : ''}
       ${law ? `<div class="detail-section"><span class="detail-label">Law</span><div class="detail-value-mono">${linkifyLaw(law)}</div></div>` : ''}
       <div class="detail-section"><span class="detail-label">Description</span><div class="detail-value">${desc}</div></div>
     </div>
