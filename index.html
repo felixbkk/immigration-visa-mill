@@ -813,6 +813,22 @@ function showInaDefault() {
   const relTypes = {};
   links.forEach(l => { relTypes[l.relation_type] = (relTypes[l.relation_type] || 0) + 1; });
 
+  // Count citations by type
+  const citeCounts = { ina: 0, usc: 0, cfr: 0, fam: 0, pl: 0, treaty: 0, other: 0 };
+  nodes.forEach(n => {
+    if (!n.law) return;
+    n.law.split(';').forEach(p => {
+      p = p.trim();
+      if (p.startsWith('INA')) citeCounts.ina++;
+      else if (/^\d+\s*U\.S\.C\./.test(p)) citeCounts.usc++;
+      else if (/^\d+\s*CFR/.test(p)) citeCounts.cfr++;
+      else if (p.startsWith('9 FAM')) citeCounts.fam++;
+      else if (p.startsWith('PL')) citeCounts.pl++;
+      else if (['NATO','UN ','Hague','Jay','Vienna'].some(t => p.startsWith(t))) citeCounts.treaty++;
+      else citeCounts.other++;
+    });
+  });
+
   const connCount = {};
   links.forEach(l => {
     connCount[l.source] = (connCount[l.source] || 0) + 1;
@@ -844,12 +860,11 @@ function showInaDefault() {
       </div>
       <div class="detail-section"><span class="detail-label">Every Citation Links To</span>
         <div class="detail-value" style="line-height:2;">
-          <b>INA / USC</b> &rarr; Cornell LII deep-links<br>
-          <b>CFR</b> &rarr; Cornell LII paragraph anchors<br>
-          <b>FAM</b> &rarr; fam.state.gov section anchors<br>
-          <b>PL 104+</b> &rarr; GovInfo full text<br>
-          <b>PL pre-104</b> &rarr; GovInfo Statutes at Large<br>
-          <b>Treaties</b> &rarr; NATO, UN, Hague, Yale Avalon
+          <b>${citeCounts.ina}</b> INA &rarr; Cornell LII<br>
+          <b>${citeCounts.usc}</b> USC &rarr; Cornell LII<br>
+          <b>${citeCounts.cfr}</b> CFR &rarr; Cornell LII<br>
+          <b>${citeCounts.pl}</b> Public Laws &rarr; GovInfo<br>
+          <b>${citeCounts.treaty}</b> Treaties &rarr; NATO, UN, Hague, Yale${citeCounts.other ? `<br><b>${citeCounts.other}</b> other (plain text)` : ''}
         </div>
       </div>
     </div>
@@ -1198,11 +1213,11 @@ function getMainLabel(d) {
 }
 
 function getSubtitle(d) {
-  if (d.data._nodeType === 'root') return 'Immigration & Nationality Act · 8 U.S.C. §1101 et seq.';
+  if (d.data._nodeType === 'root') return '8 U.S.C. §1101 et seq.';
   if (d.data._nodeType === 'hub') {
     return d.data.name === 'NIV'
-      ? 'Nonimmigrant Visas · INA §101(a)(15)'
-      : 'Immigrant Visas · INA §201–203';
+      ? 'Nonimmigrant Visas · 9 FAM 402'
+      : 'Immigrant Visas · 9 FAM 502';
   }
   if (d.data._nodeType === 'category') {
     return CATEGORY_DESCRIPTIONS[d.data._fullCategory] || '';
