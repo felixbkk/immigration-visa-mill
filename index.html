@@ -825,6 +825,7 @@ function showInaDefault() {
       else if (p.startsWith('9 FAM')) citeCounts.fam++;
       else if (p.startsWith('PL')) citeCounts.pl++;
       else if (['NATO','UN ','Hague','Jay','Vienna'].some(t => p.startsWith(t))) citeCounts.treaty++;
+      else if (['TVPA','VTVPA','LIFE Act','Nursing Relief','VAWA','Refugee Act','Refugee Relief'].some(t => p.startsWith(t))) citeCounts.pl++;
       else citeCounts.other++;
     });
   });
