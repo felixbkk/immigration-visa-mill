@@ -1049,6 +1049,9 @@ function render() {
     .html('');
 
   const g = svg.append('g').attr('class', 'zoomable');
+  const linkLayer = g.append('g').attr('class', 'link-layer');
+  const nodeLayer = g.append('g').attr('class', 'node-layer');
+  const badgeLayer = g.append('g').attr('class', 'badge-layer');
 
   const zoom = d3.zoom()
     .scaleExtent([0.1, 4])
@@ -1236,6 +1239,9 @@ function getSubtitle(d) {
 // ── Tree Layout ──
 
 function renderTree(g, root, w, h, svg, zoom) {
+  const linkLayer = g.select('.link-layer');
+  const nodeLayer = g.select('.node-layer');
+  const badgeLayer = g.select('.badge-layer');
   const treeLayout = d3.tree().nodeSize([20, 100]).separation((a, b) => {
     // Bigger nodes get more space
     const aH = getNodeHeight(a);
@@ -1326,10 +1332,10 @@ function renderTree(g, root, w, h, svg, zoom) {
     });
 
     // ── Nodes ──
-    g.selectAll('.node').remove();
-    g.selectAll('.link').remove();
+    nodeLayer.selectAll('.node').remove();
+    linkLayer.selectAll('.link').remove();
 
-    const nodeGroups = g.selectAll('.node')
+    const nodeGroups = nodeLayer.selectAll('.node')
       .data(nodes, d => d.data.name + '|' + (d.parent ? d.parent.data.name : ''))
       .join('g')
       .attr('class', d => {
@@ -1467,8 +1473,8 @@ function renderTree(g, root, w, h, svg, zoom) {
       }
     });
 
-    // ── Links (drawn after nodes so we have box widths) ──
-    g.selectAll('.link')
+    // ── Links (drawn after nodes so we have box widths, but in linkLayer behind nodeLayer) ──
+    linkLayer.selectAll('.link')
       .data(links, d => d.target.data.name + '|' + (d.target.parent ? d.target.parent.data.name : ''))
       .join('path')
       .attr('class', 'link')
@@ -1501,9 +1507,9 @@ function renderTree(g, root, w, h, svg, zoom) {
       });
 
     // ── Count badges (on top of links) ──
-    g.selectAll('.badge').remove();
+    badgeLayer.selectAll('.badge').remove();
     const badgeNodes = nodes.filter(d => d._badgeInfo);
-    const badges = g.selectAll('.badge')
+    const badges = badgeLayer.selectAll('.badge')
       .data(badgeNodes)
       .join('g')
       .attr('class', 'badge')
@@ -1525,8 +1531,8 @@ function renderTree(g, root, w, h, svg, zoom) {
       .text(d => d._badgeInfo.count);
 
     // Overlays
-    g.selectAll('.arc-overlay').remove();
-    drawArcOverlays(g);
+    linkLayer.selectAll('.arc-overlay').remove();
+    drawArcOverlays(linkLayer);
   }
 
   svg.call(zoom.transform, d3.zoomIdentity.translate(w * 0.15, h / 2).scale(0.85));
@@ -1536,6 +1542,9 @@ function renderTree(g, root, w, h, svg, zoom) {
 // ── Radial Layout ──
 
 function renderRadial(g, root, w, h, svg, zoom) {
+  const linkLayer = g.select('.link-layer');
+  const nodeLayer = g.select('.node-layer');
+  const badgeLayer = g.select('.badge-layer');
   const radius = Math.min(w, h) / 2 - 120;
   const clusterLayout = d3.cluster().size([2 * Math.PI, radius]);
 
@@ -1556,14 +1565,14 @@ function renderRadial(g, root, w, h, svg, zoom) {
     });
 
     // Links
-    const linkSel = g.selectAll('.link').data(links, d => d.target.data.name);
+    const linkSel = linkLayer.selectAll('.link').data(links, d => d.target.data.name);
     linkSel.exit().remove();
     const linkEnter = linkSel.enter().append('path').attr('class', 'link');
     linkSel.merge(linkEnter)
       .attr('d', d3.linkRadial().angle(d => d.x).radius(d => d.y));
 
     // Nodes
-    const nodeSel = g.selectAll('.node').data(nodes, d => d.data.name + (d.parent ? d.parent.data.name : ''));
+    const nodeSel = nodeLayer.selectAll('.node').data(nodes, d => d.data.name + (d.parent ? d.parent.data.name : ''));
     nodeSel.exit().remove();
 
     const nodeEnter = nodeSel.enter().append('g').attr('class', 'node');
@@ -1644,8 +1653,8 @@ function renderRadial(g, root, w, h, svg, zoom) {
         return d.data.name;
       });
 
-    g.selectAll('.arc-overlay').remove();
-    drawArcOverlays(g);
+    linkLayer.selectAll('.arc-overlay').remove();
+    drawArcOverlays(linkLayer);
   }
 
   svg.call(zoom.transform, d3.zoomIdentity.translate(w / 2, h / 2).scale(0.75));
